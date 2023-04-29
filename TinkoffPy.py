@@ -1,5 +1,8 @@
 from typing import Union  # Объединение типов
+from datetime import datetime, timedelta
+from pytz import timezone, utc  # Работаем с временнОй зоной и UTC
 from grpc import ssl_channel_credentials, secure_channel, RpcError, StatusCode  # Защищенный канал
+from google.protobuf.timestamp_pb2 import Timestamp
 from .grpc.instruments_pb2_grpc import InstrumentsServiceStub
 from .grpc.marketdata_pb2_grpc import MarketDataServiceStub
 from .grpc.operations_pb2_grpc import OperationsServiceStub
@@ -12,6 +15,7 @@ from .grpc.operations_pb2 import PortfolioRequest
 
 class TinkoffPy:
     """Работа с Tinkoff Invest API из Python https://tinkoff.github.io/investAPI/"""
+    tz_msk = timezone('Europe/Moscow')  # Время UTC будем приводить к московскому времени
     server = 'invest-public-api.tinkoff.ru'  # Торговый сервер
     currency = PortfolioRequest.CurrencyRequest.RUB  # Суммы будем получать в российских рублях
 
@@ -28,6 +32,7 @@ class TinkoffPy:
         self.stub_orders = OrdersServiceStub(self.channel)  # Сервис заявок
         self.stub_stop_orders = StopOrdersServiceStub(self.channel)  # Сервис стоп заявок
         self.symbols = {}  # Информация о тикерах
+        self.delta = timedelta(seconds=0)  # Разница между локальным временем и временем торгового сервера с учетом временнОй зоны
 
     # Запросы
 
@@ -41,7 +46,7 @@ class TinkoffPy:
 
     # Функции конвертации
 
-    def get_symbol_info(self, class_code: str, symbol: str, reload=False) -> Union[Instrument, None]:
+    def get_symbol_info(self, class_code, symbol, reload=False) -> Union[Instrument, None]:
         """Получение информации тикера
 
         :param str class_code: : Код площадки
@@ -52,8 +57,7 @@ class TinkoffPy:
         if reload or (class_code, symbol) not in self.symbols:  # Если нужно получить информацию с Тинькофф или нет информации о тикере в справочнике
             try:  # Пробуем
                 request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
-                response: InstrumentResponse
-                response, call = self.stub_instruments.GetInstrumentBy.with_call(request=request, metadata=self.metadata)  # получить информацию о тикере с Тинькофф
+                response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
             except RpcError as ex:  # Если произошла ошибка
                 if ex.args[0].code == StatusCode.NOT_FOUND:  # Тикер не найден
                     print(f'Информация о {class_code}.{symbol} не найдена')
@@ -73,16 +77,16 @@ class TinkoffPy:
             pass  # то продолжаем дальше
         try:  # Пробуем
             request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI, class_code='', id=figi)  # Поиск тикера по уникальному коду
-            response: InstrumentResponse
-            response, call = self.stub_instruments.GetInstrumentBy.with_call(request=request, metadata=self.metadata)  # получить информацию о тикере с Тинькофф
-            self.symbols[(response.instrument.class_code, response.instrument.ticker)] = response.instrument  # Заносим информацию о тикере в справочник
-            return response.instrument
+            response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
+            instrument = response.instrument  # Информация о тикере
+            self.symbols[(instrument.class_code, instrument.ticker)] = instrument  # Заносим информацию о тикере в справочник
+            return instrument
         except RpcError as ex:  # Если произошла ошибка
             if ex.args[0].code == StatusCode.NOT_FOUND:  # Тикер не найден
                 print(f'Информация о тикере с figi={figi} не найдена')
             return None  # то возвращаем пустое значение
 
-    def data_name_to_class_code_symbol(self, dataname) -> (str, str):
+    def dataname_to_class_code_symbol(self, dataname) -> tuple[str, str]:
         """Биржа и код тикера из названия тикера. Если задается без биржи, то по умолчанию ставится MOEX
 
         :param str dataname: Название тикера
@@ -98,7 +102,7 @@ class TinkoffPy:
         return class_code, symbol  # Возвращаем код площадки и код тикера
 
     @staticmethod
-    def class_code_symbol_to_data_name(class_code, symbol) -> str:
+    def class_code_symbol_to_dataname(class_code, symbol) -> str:
         """Название тикера из кода площадки и кода тикера
 
         :param str class_code: Код площадки
@@ -134,3 +138,45 @@ class TinkoffPy:
         :return: Вещественное число
         """
         return quotation.units + quotation.nano / 1_000_000_000
+
+    def timestamp_to_msk_datetime(self, timestamp) -> datetime:
+        """Перевод времени из Google UTC Timestamp в московское
+
+        :param Timestamp timestamp: Время Google UTC Timestamp
+        :return: Московское время
+        """
+        return self.utc_to_msk_datetime(datetime.utcfromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000))
+
+    def msk_datetime_to_timestamp(self, dt) -> Timestamp:
+        """Перевод московского времени в Google UTC Timestamp
+
+        :param datetime dt: Московское время
+        :return: Время Google UTC Timestamp
+        """
+        dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
+        return Timestamp(seconds=int(dt_msk.timestamp()), nanos=dt_msk.microsecond * 1_000)
+
+    def utc_to_msk_datetime(self, dt: datetime) -> datetime:
+        """Перевод времени из UTC в московское
+
+        :param datetime dt: Время UTC
+        :return: Московское время
+        """
+        dt_msk = utc.localize(dt).astimezone(self.tz_msk)  # Переводим UTC в МСК
+        return dt_msk.replace(tzinfo=None)  # Убираем временнУю зону
+
+    def msk_datetime_to_utc_timestamp(self, dt):
+        """Перевод московского времени в кол-во секунд, прошедших с 01.01.1970 00:00 UTC
+
+        :param datetime dt: Московское время
+        :return: Кол-во секунд, прошедших с 01.01.1970 00:00 UTC
+        """
+        dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
+        return int(dt_msk.timestamp())  # Переводим в кол-во секунд, прошедших с 01.01.1970 в UTC
+
+    def set_delta(self, timestamp: Timestamp):
+        """Установка разницы между локальным временем и временем торгового сервера с учетом временнОй зоны
+
+        :param Timestamp timestamp: Текущее время на сервере в формате Google UTC Timestamp
+        """
+        self.delta = datetime.utcfromtimestamp(timestamp.seconds) - datetime.utcnow()
