@@ -1,3 +1,4 @@
+pytz
 grpcio
 protobuf
-pytz
+types-protobuf
