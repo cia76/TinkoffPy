@@ -44,6 +44,18 @@ class TinkoffPy:
         except RpcError:  # Если получили ошибку канала
             return None  # то возвращаем пустое значение
 
+    # Выход и закрытие
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close_channel()
+
+    def __del__(self):
+        self.close_channel()
+
+    def close_channel(self):
+        """Закрытие канала"""
+        self.channel.close()
+
     # Функции конвертации
 
     def get_symbol_info(self, class_code, symbol, reload=False) -> Union[Instrument, None]:
@@ -147,7 +159,16 @@ class TinkoffPy:
         """
         return self.utc_to_msk_datetime(datetime.utcfromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000))
 
-    def msk_datetime_to_timestamp(self, dt) -> Timestamp:
+    def msk_datetime_to_timestamp(self, dt) -> int:
+        """Перевод московского времени в кол-во секунд, прошедших с 01.01.1970 00:00 UTC
+
+        :param datetime dt: Московское время
+        :return: Кол-во секунд, прошедших с 01.01.1970 00:00 UTC
+        """
+        dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
+        return int(dt_msk.timestamp())  # Переводим в кол-во секунд, прошедших с 01.01.1970 в UTC
+
+    def msk_datetime_to_google_timestamp(self, dt) -> Timestamp:
         """Перевод московского времени в Google UTC Timestamp
 
         :param datetime dt: Московское время
@@ -156,23 +177,27 @@ class TinkoffPy:
         dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
         return Timestamp(seconds=int(dt_msk.timestamp()), nanos=dt_msk.microsecond * 1_000)
 
-    def utc_to_msk_datetime(self, dt: datetime) -> datetime:
+    def msk_to_utc_datetime(self, dt, tzinfo=False) -> datetime:
+        """Перевод времени из московского в UTC
+
+        :param datetime dt: Московское время
+        :param bool tzinfo: Отображать временнУю зону
+        :return: Время UTC
+        """
+        dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
+        dt_utc = dt_msk.astimezone(utc)  # Переводим в UTC
+        return dt_utc if tzinfo else dt_utc.replace(tzinfo=None)
+
+    def utc_to_msk_datetime(self, dt, tzinfo=False) -> datetime:
         """Перевод времени из UTC в московское
 
         :param datetime dt: Время UTC
+        :param bool tzinfo: Отображать временнУю зону
         :return: Московское время
         """
-        dt_msk = utc.localize(dt).astimezone(self.tz_msk)  # Переводим UTC в МСК
-        return dt_msk.replace(tzinfo=None)  # Убираем временнУю зону
-
-    def msk_datetime_to_utc_timestamp(self, dt):
-        """Перевод московского времени в кол-во секунд, прошедших с 01.01.1970 00:00 UTC
-
-        :param datetime dt: Московское время
-        :return: Кол-во секунд, прошедших с 01.01.1970 00:00 UTC
-        """
-        dt_msk = self.tz_msk.localize(dt)  # Заданное время ставим в зону МСК
-        return int(dt_msk.timestamp())  # Переводим в кол-во секунд, прошедших с 01.01.1970 в UTC
+        dt_utc = utc.localize(dt)  # Заданное время ставим в зону UTC
+        dt_msk = dt_utc.astimezone(self.tz_msk)  # Переводим в МСК
+        return dt_msk if tzinfo else dt_msk.replace(tzinfo=None)
 
     def set_delta(self, timestamp: Timestamp):
         """Установка разницы между локальным временем и временем торгового сервера с учетом временнОй зоны
