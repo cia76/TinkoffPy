@@ -1,4 +1,4 @@
-from typing import Union, Tuple  # Объединение типов, кортеж
+from typing import Union  # Объединение типов
 from datetime import datetime, timedelta
 from pytz import timezone, utc  # Работаем с временнОй зоной и UTC
 from grpc import ssl_channel_credentials, secure_channel, RpcError, StatusCode  # Защищенный канал
@@ -125,7 +125,7 @@ class TinkoffPy:
             return None  # то возвращаем пустое значение
 
     @staticmethod
-    def timeframe_to_tinkoff_timeframe(tf) -> Tuple[CandleInterval, bool]:
+    def timeframe_to_tinkoff_timeframe(tf):
         """Перевод временнОго интервала во временной интервал Тинькофф
 
         :param str tf: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
