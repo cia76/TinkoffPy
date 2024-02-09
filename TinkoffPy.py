@@ -1,4 +1,4 @@
-from typing import Union  # Объединение типов
+from typing import Union, Tuple  # Объединение типов, кортеж
 from datetime import datetime, timedelta
 from pytz import timezone, utc  # Работаем с временнОй зоной и UTC
 from grpc import ssl_channel_credentials, secure_channel, RpcError, StatusCode  # Защищенный канал
@@ -9,6 +9,7 @@ from .grpc.operations_pb2_grpc import OperationsServiceStub
 from .grpc.orders_pb2_grpc import OrdersServiceStub
 from .grpc.stoporders_pb2_grpc import StopOrdersServiceStub
 from .grpc.common_pb2 import MoneyValue, Quotation
+from .grpc.marketdata_pb2 import CandleInterval
 from .grpc.instruments_pb2 import InstrumentRequest, InstrumentIdType, InstrumentResponse, Instrument
 from .grpc.operations_pb2 import PortfolioRequest
 
@@ -58,13 +59,38 @@ class TinkoffPy:
 
     # Функции конвертации
 
+    def dataname_to_class_code_symbol(self, dataname) -> tuple[str, str]:
+        """Биржа и код тикера из названия тикера. Если задается без биржи, то по умолчанию ставится MOEX
+
+        :param str dataname: Название тикера
+        :return: Код площадки и код тикера
+        """
+        symbol_parts = dataname.split('.')  # По разделителю пытаемся разбить тикер на части
+        if len(symbol_parts) >= 2:  # Если тикер задан в формате <Код площадки>.<Код тикера>
+            class_code = symbol_parts[0]  # Код площадки
+            symbol = '.'.join(symbol_parts[1:])  # Код тикера
+        else:  # Если тикер задан без площадки
+            symbol = dataname  # Код тикера
+            class_code = next(item.class_code for item in self.symbols if item.ticker == symbol)  # Получаем код площадки первого совпадающего тикера
+        return class_code, symbol  # Возвращаем код площадки и код тикера
+
+    @staticmethod
+    def class_code_symbol_to_dataname(class_code, symbol) -> str:
+        """Название тикера из кода площадки и кода тикера
+
+        :param str class_code: Код площадки
+        :param str symbol: Тикер
+        :return: Название тикера
+        """
+        return f'{class_code}.{symbol}'
+
     def get_symbol_info(self, class_code, symbol, reload=False) -> Union[Instrument, None]:
-        """Получение информации тикера
+        """Спецификация тикера
 
         :param str class_code: : Код площадки
         :param str symbol: Тикер
         :param bool reload: Получить информацию с Тинькофф
-        :return: Значение из кэша/Тинькоффили None, если тикер не найден
+        :return: Значение из кэша/Тинькофф или None, если тикер не найден
         """
         if reload or (class_code, symbol) not in self.symbols:  # Если нужно получить информацию с Тинькофф или нет информации о тикере в справочнике
             try:  # Пробуем
@@ -98,30 +124,44 @@ class TinkoffPy:
                 print(f'Информация о тикере с figi={figi} не найдена')
             return None  # то возвращаем пустое значение
 
-    def dataname_to_class_code_symbol(self, dataname) -> tuple[str, str]:
-        """Биржа и код тикера из названия тикера. Если задается без биржи, то по умолчанию ставится MOEX
-
-        :param str dataname: Название тикера
-        :return: Код площадки и код тикера
-        """
-        symbol_parts = dataname.split('.')  # По разделителю пытаемся разбить тикер на части
-        if len(symbol_parts) >= 2:  # Если тикер задан в формате <Код площадки>.<Код тикера>
-            class_code = symbol_parts[0]  # Код площадки
-            symbol = '.'.join(symbol_parts[1:])  # Код тикера
-        else:  # Если тикер задан без площадки
-            symbol = dataname  # Код тикера
-            class_code = next(item.class_code for item in self.symbols if item.ticker == symbol)  # Получаем код площадки первого совпадающего тикера
-        return class_code, symbol  # Возвращаем код площадки и код тикера
-
     @staticmethod
-    def class_code_symbol_to_dataname(class_code, symbol) -> str:
-        """Название тикера из кода площадки и кода тикера
+    def timeframe_to_tinkoff_timeframe(tf) -> Tuple[CandleInterval, bool]:
+        """Перевод временнОго интервала во временной интервал Тинькофф
 
-        :param str class_code: Код площадки
-        :param str symbol: Тикер
-        :return: Название тикера
+        :param str tf: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
+        :return: Временной интервал Тинькофф, внутридневной бар
         """
-        return f'{class_code}.{symbol}'
+        if tf[0:1] == 'D':  # 1 день
+            return CandleInterval.CANDLE_INTERVAL_DAY, False
+        if tf[0:1] == 'W':  # 1 неделя
+            return CandleInterval.CANDLE_INTERVAL_WEEK, False
+        if 'MN' in tf:  # 1 месяц
+            return CandleInterval.CANDLE_INTERVAL_MONTH, False
+        if tf[0:1] == 'M':  # Минуты
+            if not tf[1:].isdigit():  # Если после минут не стоит число
+                raise NotImplementedError  # то с такими временнЫми интервалами не работаем
+            interval = int(tf[1:])  # Временной интервал
+            if interval == 1:  # 1 минута
+                return CandleInterval.CANDLE_INTERVAL_1_MIN, True
+            if interval == 2:  # 2 минуты
+                return CandleInterval.CANDLE_INTERVAL_2_MIN, True
+            if interval == 3:  # 3 минуты
+                return CandleInterval.CANDLE_INTERVAL_3_MIN, True
+            if interval == 5:  # 5 минут
+                return CandleInterval.CANDLE_INTERVAL_5_MIN, True
+            if interval == 10:  # 10 минут
+                return CandleInterval.CANDLE_INTERVAL_10_MIN, True
+            if interval == 15:  # 15 минут
+                return CandleInterval.CANDLE_INTERVAL_15_MIN, True
+            if interval == 30:  # 30 минут
+                return CandleInterval.CANDLE_INTERVAL_30_MIN, True
+            if interval == 60:  # 1 час
+                return CandleInterval.CANDLE_INTERVAL_HOUR, True
+            if interval == 120:  # 2 часа
+                return CandleInterval.CANDLE_INTERVAL_2_HOUR, True
+            if interval == 240:  # 4 часа
+                return CandleInterval.CANDLE_INTERVAL_4_HOUR, True
+        raise NotImplementedError  # С остальными временнЫми интервалами не работаем
 
     @staticmethod
     def money_value_to_float(money_value: MoneyValue) -> float:
