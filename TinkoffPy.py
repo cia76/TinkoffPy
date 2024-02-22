@@ -37,7 +37,7 @@ class TinkoffPy:
 
         :param str token: Токен доступа
         """
-        self.metadata = [('authorization', f'Bearer {token}')]  # Токен доступа
+        self.metadata = (('authorization', f'Bearer {token}'),)  # Токен доступа
         self.channel = secure_channel(self.server, ssl_channel_credentials())  # Защищенный канал
 
         # Сервисы запросов
@@ -47,22 +47,25 @@ class TinkoffPy:
         self.stub_orders = OrdersServiceStub(self.channel)  # Заявки
         self.stub_stop_orders = StopOrdersServiceStub(self.channel)  # Стоп заявки
 
-        # Сервисы подписок
+        # Сервисы подписок, буферы команд, потоки обработки, события
         self.stub_marketdata_stream = MarketDataStreamServiceStub(self.channel)  # Биржевая информация
-        self.stub_operations_stream = OperationsStreamServiceStub(self.channel)  # Операции
-        self.stub_orders_stream = OrdersStreamServiceStub(self.channel)  # Заявки и сделки
-
-        # События
+        self.subscription_marketdata_queue: SimpleQueue[MarketDataRequest] = SimpleQueue()  # Буфер команд
+        self.marketdata_thread = None  # Поток обработки событий
         self.on_candle = self.default_handler  # Свеча
         self.on_trade = self.default_handler  # Сделки
         self.on_orderbook = self.default_handler  # Стакан
         self.on_trading_status = self.default_handler  # Торговый статус
         self.on_last_price = self.default_handler  # Цена последней сделки
+
+        self.stub_operations_stream = OperationsStreamServiceStub(self.channel)  # Операции
+        self.portfolio_thread = None  # Поток обработки событий портфеля
+        self.position_thread = None  # Поток обработки событий позиций
         self.on_portfolio = self.default_handler  # Портфель
         self.on_position = self.default_handler  # Позиция
-        self.on_order_trades = self.default_handler  # Сделки по заявке
 
-        self.subscription_marketdata_queue: SimpleQueue[MarketDataRequest] = SimpleQueue()  # Буфер команд на подписку/отписку биржевых данных
+        self.stub_orders_stream = OrdersStreamServiceStub(self.channel)  # Заявки и сделки
+        self.orders_thread = None  # Поток обработки событий
+        self.on_order_trades = self.default_handler  # Сделки по заявке
 
         self.symbols: dict[tuple[str, str], Instrument] = {}  # Информация о тикерах
         self.time_delta = timedelta(seconds=3)  # Разница между локальным временем и временем торгового сервера с учетом временнОй зоны
@@ -97,10 +100,9 @@ class TinkoffPy:
         while True:  # Будем пытаться читать из очереди до закрытия канала
             yield self.subscription_marketdata_queue.get()  # Возврат из этой функции. При повторном ее вызове исполнение продолжится с этой строки
 
-    def subscriptions_marketdata_handler(self, request: MarketDataServerSideStreamRequest = None):
-        """Поток обработки подписок на биржевую информацию"""
-        events = self.call_function(self.stub_marketdata_stream.MarketDataServerSideStream, request) if request else\
-            self.stub_marketdata_stream.MarketDataStream(request_iterator=self.request_marketdata_iterator(), metadata=self.metadata)  # Получаем значения подписок
+    def subscriptions_marketdata_handler(self):
+        """Поток обработки подписок на биржевую информацию. Список подписок на клиенте"""
+        events = self.stub_marketdata_stream.MarketDataStream(request_iterator=self.request_marketdata_iterator(), metadata=self.metadata)  # Получаем значения подписок
         try:
             for event in events:  # Пробегаемся по значениям подписок до закрытия канала
                 e: MarketDataResponse = event  # Приводим пришедшее значение к подписке
@@ -126,11 +128,37 @@ class TinkoffPy:
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
+    def subscriptions_marketdata_server_handler(self, request: MarketDataServerSideStreamRequest):
+        """Поток обработки подписок на биржевую информацию. Список подписок на сервере"""
+        try:
+            for event in self.stub_marketdata_stream.MarketDataServerSideStream(request=request, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
+                e: MarketDataResponse = event  # Приводим пришедшее значение к подписке
+                if e.candle != Candle():  # Свеча
+                    logger.debug(f'subscriptions_marketdata_handler: Пришел бар {e.candle}')
+                    self.on_candle(e.candle)
+                if e.trade != Trade():  # Сделки
+                    logger.debug(f'subscriptions_marketdata_handler: Пришла сделка {e.trade}')
+                    self.on_trade(e.trade)
+                if e.orderbook != OrderBook():  # Стакан
+                    logger.debug(f'subscriptions_marketdata_handler: Пришел стакан {e.orderbook}')
+                    self.on_orderbook(e.orderbook)
+                if e.trading_status != TradingStatus():  # Торговый статус
+                    logger.debug(f'subscriptions_marketdata_handler: Пришел торговый статус {e.trading_status}')
+                    self.on_trading_status(e.trading_status)
+                if e.last_price != LastPrice():  # Цена последней сделки
+                    logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
+                    self.on_last_price(e.last_price)
+                if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
+                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
+        except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
+            pass  # Все в порядке, ничего делать не нужно
+
     def subscriptions_portfolio_handler(self, portfolio: PortfolioStreamRequest):
         """Поток обработки подписок на портфель"""
-        events = self.call_function(self.stub_operations_stream.PortfolioStream, portfolio)
         try:
-            for event in events:  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_operations_stream.PortfolioStream(request=portfolio, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PortfolioStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.portfolio != PortfolioResponse():  # Портфель
                     logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
@@ -143,9 +171,8 @@ class TinkoffPy:
 
     def subscriptions_positions_handler(self, positions: PositionsStreamRequest):
         """Поток обработки подписок на позиции"""
-        events = self.call_function(self.stub_operations_stream.PositionsStream, positions)
         try:
-            for event in events:  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_operations_stream.PositionsStream(request=positions, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PositionsStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.position != PositionData():  # Позиция
                     logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
@@ -158,9 +185,8 @@ class TinkoffPy:
 
     def subscriptions_trades_handler(self, account_id):
         """Поток обработки подписок на сделки по заявке"""
-        events = self.call_function(self.stub_orders_stream.TradesStream, TradesStreamRequest(accounts=[account_id]))  # Получаем значения подписки
         try:
-            for event in events:  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=[account_id]), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: TradesStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.order_trades != OrderTrades():  # Сделки по заявке
                     logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
@@ -327,16 +353,25 @@ class TinkoffPy:
         raise NotImplementedError  # С остальными временнЫми интервалами не работаем
 
     @staticmethod
-    def money_value_to_float(money_value: MoneyValue) -> float:
+    def money_value_to_float(money_value) -> float:
         """Перевод денежной суммы в валюте в вещественное число
 
-        :param money_value: Денежная сумма в валюте
+        :param MoneyValue money_value: Денежная сумма в валюте
         :return: Вещественное число
         """
         return money_value.units + money_value.nano / 1_000_000_000
 
     @staticmethod
-    def float_to_quotation(f: float) -> Quotation:
+    def money_dict_value_to_float(money_value) -> float:
+        """Перевод денежной суммы в валюте в вещественное число
+
+        :param dict money_value: Денежная сумма в валюте
+        :return: Вещественное число
+        """
+        return int(money_value['units']) + money_value['nano'] / 1_000_000_000
+
+    @staticmethod
+    def float_to_quotation(f) -> Quotation:
         """Перевод вещественного числа в денежную сумму
 
         :param float f: Вещественное число
@@ -346,10 +381,10 @@ class TinkoffPy:
         return Quotation(units=int_f, nano=int((f - int_f) * 1_000_000_000))
 
     @staticmethod
-    def quotation_to_float(quotation: Quotation) -> float:
+    def quotation_to_float(quotation) -> float:
         """Перевод денежной суммы в вещественное число
 
-        :param quotation: Денежная сумма
+        :param Quotation quotation: Денежная сумма
         :return: Вещественное число
         """
         return quotation.units + quotation.nano / 1_000_000_000
