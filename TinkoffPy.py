@@ -1,3 +1,5 @@
+import builtins
+# import collections
 from typing import Union  # Объединение типов
 from datetime import datetime, timedelta
 from time import sleep
@@ -17,8 +19,9 @@ from .grpc.common_pb2 import MoneyValue, Quotation, Ping
 from .grpc.orders_pb2 import TradesStreamRequest, TradesStreamResponse, OrderTrades
 from .grpc.marketdata_pb2 import (MarketDataRequest, MarketDataResponse, Candle, Trade, OrderBook, TradingStatus,
                                   MarketDataServerSideStreamRequest,
-                                  CandleInterval, LastPrice)
-from .grpc.instruments_pb2 import InstrumentRequest, InstrumentIdType, InstrumentResponse, Instrument
+                                  CandleInterval, LastPrice, GetLastPricesRequest, GetLastPricesResponse)
+from .grpc.instruments_pb2 import InstrumentRequest, InstrumentIdType, InstrumentResponse, Instrument, BondsResponse, \
+    FutureResponse, GetFuturesMarginRequest, GetFuturesMarginResponse, InstrumentsRequest, CurrencyResponse
 from .grpc.operations_pb2 import PortfolioRequest, PortfolioStreamRequest, PortfolioStreamResponse, \
     PositionsStreamRequest, PositionsStreamResponse, PortfolioResponse, PositionData
 
@@ -30,7 +33,7 @@ class TinkoffPy:
     """Работа с Tinkoff Invest API из Python https://tinkoff.github.io/investAPI/"""
     tz_msk = timezone('Europe/Moscow')  # Время UTC будем приводить к московскому времени
     server = 'invest-public-api.tinkoff.ru'  # Торговый сервер
-    currency = PortfolioRequest.CurrencyRequest.RUB  # Суммы будем получать в российских рублях
+    currency: PortfolioRequest.CurrencyRequest = PortfolioRequest.CurrencyRequest.RUB  # Суммы будем получать в российских рублях
 
     def __init__(self, token):
         """Инициализация
@@ -155,10 +158,10 @@ class TinkoffPy:
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
-    def subscriptions_portfolio_handler(self, portfolio: PortfolioStreamRequest):
+    def subscriptions_portfolio_handler(self, account_id):
         """Поток обработки подписок на портфель"""
         try:
-            for event in self.stub_operations_stream.PortfolioStream(request=portfolio, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_operations_stream.PortfolioStream(request=PortfolioStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PortfolioStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.portfolio != PortfolioResponse():  # Портфель
                     logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
@@ -169,10 +172,10 @@ class TinkoffPy:
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
-    def subscriptions_positions_handler(self, positions: PositionsStreamRequest):
+    def subscriptions_positions_handler(self, account_id):
         """Поток обработки подписок на позиции"""
         try:
-            for event in self.stub_operations_stream.PositionsStream(request=positions, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_operations_stream.PositionsStream(request=PositionsStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PositionsStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.position != PositionData():  # Позиция
                     logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
@@ -186,7 +189,7 @@ class TinkoffPy:
     def subscriptions_trades_handler(self, account_id):
         """Поток обработки подписок на сделки по заявке"""
         try:
-            for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=[account_id]), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: TradesStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.order_trades != OrderTrades():  # Сделки по заявке
                     logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
@@ -246,12 +249,10 @@ class TinkoffPy:
         :return: Значение из кэша/Тинькофф или None, если тикер не найден
         """
         if reload or (class_code, symbol) not in self.symbols:  # Если нужно получить информацию с Тинькофф или нет информации о тикере в справочнике
-            try:  # Пробуем
-                request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
-                response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
-            except RpcError as ex:  # Если произошла ошибка
-                if ex.args[0].code == StatusCode.NOT_FOUND:  # Тикер не найден
-                    print(f'Информация о {class_code}.{symbol} не найдена')
+            request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+            response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
+            if not response:  # Если информация о тикере не найдена
+                logger.warning(f'Информация о {class_code}.{symbol} не найдена')
                 return None  # то возвращаем пустое значение
             self.symbols[(class_code, symbol)] = response.instrument  # Заносим информацию о тикере в справочник
         return self.symbols[(class_code, symbol)]  # Возвращаем значение из справочника
@@ -262,20 +263,17 @@ class TinkoffPy:
         :param str figi: : Уникальный код тикера
         :return: Значение из кэша/Тинькофф или None, если тикер не найден
         """
-        try:  # Пробуем
-            return next(item for item in self.symbols.values() if item.figi == figi)  # вернуть значение из справочника
-        except StopIteration:  # Если тикер не найден
-            pass  # то продолжаем дальше
-        try:  # Пробуем
-            request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI, class_code='', id=figi)  # Поиск тикера по уникальному коду
-            response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
-            instrument = response.instrument  # Информация о тикере
-            self.symbols[(instrument.class_code, instrument.ticker)] = instrument  # Заносим информацию о тикере в справочник
-            return instrument
-        except RpcError as ex:  # Если произошла ошибка
-            if ex.args[0].code == StatusCode.NOT_FOUND:  # Тикер не найден
-                print(f'Информация о тикере с figi={figi} не найдена')
+        instrument = next((item for item in self.symbols.values() if item.figi == figi), None)  # Пытаемся найти значение в справочнике
+        if instrument:  # Если значение найдено в справочнике
+            return instrument  # то возвращаем его
+        request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI, class_code='', id=figi)  # Поиск тикера по уникальному коду
+        response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
+        if not response:  # Если информация о тикере не найдена
+            logger.warning(f'Информация о тикере с figi={figi} не найдена')
             return None  # то возвращаем пустое значение
+        instrument = response.instrument  # Информацию о тикере
+        self.symbols[(instrument.class_code, instrument.ticker)] = instrument  # заносим в справочник
+        return instrument  # и возвращаем его
 
     @staticmethod
     def timeframe_to_tinkoff_timeframe(tf) -> tuple[CandleInterval, bool]:
@@ -352,14 +350,87 @@ class TinkoffPy:
             return 'MN1', timedelta(days=365 * 10)  # Максимальный запрос за 10 лет
         raise NotImplementedError  # С остальными временнЫми интервалами не работаем
 
-    @staticmethod
-    def money_value_to_float(money_value) -> float:
+    def price_to_tinkoff_price(self, class_code, symbol, price) -> float:
+        """Перевод цены в цену Tinkoff. Обратные формулы по статье https://tinkoff.github.io/investAPI/table_order_currency/
+
+        :param str class_code: Код режима торгов
+        :param str symbol: Тикер
+        :param float price: Цена
+        :return: Цена в Tinkoff
+        """
+        si = self.get_symbol_info(class_code, symbol)  # Информация о тикере
+        min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
+        request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+        bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
+        if bonds_response:  # Для облигаций
+            instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
+            return price * 100 / instrument.nominal // min_step * min_step  # Пункты цены для котировок облигаций представляют собой проценты номинала облигации
+        currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
+        if currency_response:  # Для валют
+            instrument = currency_response.instrument  # Информация о валюте
+            return price / si.lot * self.money_value_to_float(instrument.nominal) // min_step * min_step
+        futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
+        if futures_response:  # Для фьючерсов
+            margin_request = GetFuturesMarginRequest(figi=si.figi)  # Запрос маржи
+            margin_response: GetFuturesMarginResponse = self.call_function(self.stub_instruments.GetFuturesMargin, margin_request)  # Получаем информацию ГО по фьючерсу
+            return price * self.quotation_to_float(futures_response.instrument.min_price_increment) / self.quotation_to_float(margin_response.min_price_increment_amount) // min_step * min_step  # Стоимость фьючерсов предоставляется в пунктах
+        return price // min_step * min_step  # В остальных случаях возвращаем цену кратную шагу цены
+
+    def tinkoff_price_to_price(self, class_code, symbol, tinkoff_price) -> float:
+        """Перевод цены Tinkoff в цену. Формулы по статье https://tinkoff.github.io/investAPI/table_order_currency/
+
+        :param str class_code: Код режима торгов
+        :param str symbol: Тикер
+        :param float tinkoff_price: Цена в Tinkoff
+        :return: Цена
+        """
+        si = self.get_symbol_info(class_code, symbol)  # Информация о тикере
+        min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
+        tinkoff_price = tinkoff_price // min_step * min_step  # Цена кратная шагу цены
+        request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+        bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
+        if bonds_response:  # Для облигаций
+            instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
+            return tinkoff_price / 100 * self.money_value_to_float(instrument.nominal)  # Пункты цены для котировок облигаций представляют собой проценты номинала облигации
+        currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
+        if currency_response:  # Для валют
+            instrument = currency_response.instrument  # Информация о валюте
+            return tinkoff_price * si.lot / self.money_value_to_float(instrument.nominal)
+        futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
+        if futures_response:  # Для фьючерсов
+            margin_request = GetFuturesMarginRequest(figi=si.figi)  # Запрос маржи
+            margin_response: GetFuturesMarginResponse = self.call_function(self.stub_instruments.GetFuturesMargin, margin_request)  # Получаем информацию ГО по фьючерсу
+            return tinkoff_price / self.quotation_to_float(futures_response.instrument.min_price_increment) * self.quotation_to_float(margin_response.min_price_increment_amount)  # Стоимость фьючерсов предоставляется в пунктах
+        return tinkoff_price  # В остальных случаях цена не изменяется
+
+    def money_value_to_float(self, money_value, currency=None) -> float:
         """Перевод денежной суммы в валюте в вещественное число
 
         :param MoneyValue money_value: Денежная сумма в валюте
+        :param PortfolioRequest.CurrencyRequest currency: Валюта
         :return: Вещественное число
         """
-        return money_value.units + money_value.nano / 1_000_000_000
+        figis = ('TCS0013HGFT4', 'TCS2013HJJ31')  # Уникальные коды курсовых тикеров USD000000TOD / EUR_RUB__TOD
+        if not currency:  # Если не укаазна валюта
+            currency = self.currency  # то будем считать в валюте по умолчанию
+        k = 1  # Коэфф. конвертации
+        if currency != money_value.currency:  # Если нужно конвертировать
+            response: GetLastPricesResponse = self.call_function(self.stub_marketdata.GetLastPrices, GetLastPricesRequest(instrument_id=figis))  # Последние цены курсовых тикеров
+            usd = self.quotation_to_float(response.last_prices[0].price)  # Курс доллар/рубль
+            eur = self.quotation_to_float(response.last_prices[1].price)  # Курс евро/рубль
+            if money_value.currency == PortfolioRequest.CurrencyRequest.RUB and currency == PortfolioRequest.CurrencyRequest.USD:  # Конвертируем рубль в доллар США
+                k = 1 / usd  # Обратная котировка
+            elif money_value.currency == PortfolioRequest.CurrencyRequest.RUB and currency == PortfolioRequest.CurrencyRequest.EUR:  # Конвертируем рубль в евро
+                k = 1 / eur  # Обратная котировка
+            elif money_value.currency == PortfolioRequest.CurrencyRequest.USD and currency == PortfolioRequest.CurrencyRequest.RUB:  # Конвертируем доллар США в рубль
+                k = usd  # Прямая котировка
+            elif money_value.currency == PortfolioRequest.CurrencyRequest.USD and currency == PortfolioRequest.CurrencyRequest.EUR:  # Конвертируем доллар США в евро
+                k = usd / eur
+            elif money_value.currency == PortfolioRequest.CurrencyRequest.EUR and currency == PortfolioRequest.CurrencyRequest.RUB:  # Конвертируем евро в рубль
+                k = eur  # Прямая котировка
+            elif money_value.currency == PortfolioRequest.CurrencyRequest.EUR and currency == PortfolioRequest.CurrencyRequest.USD:  # Конвертируем евро в доллар США
+                k = eur / usd
+        return money_value.units + money_value.nano / 1_000_000_000 * k
 
     @staticmethod
     def money_dict_value_to_float(money_value) -> float:
