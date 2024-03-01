@@ -6,20 +6,14 @@ import os.path
 import pandas as pd
 
 from TinkoffPy import TinkoffPy  # Работа с Tinkoff Invest API из Python
-from TinkoffPy.Config import Config  # Файл конфигурации
-
 from TinkoffPy.grpc.marketdata_pb2 import GetCandlesRequest, CandleInterval
 from google.protobuf.timestamp_pb2 import Timestamp
 from google.protobuf.json_format import MessageToDict
 
 
-logger = logging.getLogger('TinkoffPy.Bars')  # Будем вести лог
-
-
 # noinspection PyShadowingNames
-def save_candles_to_file(tp_provider=TinkoffPy(Config.Token),
-                         class_code='TQBR', security_codes=('SBER',), interval=CandleInterval.CANDLE_INTERVAL_DAY,
-                         datapath=os.path.join('..', '..', 'Data', 'Tinkoff', ''),
+def save_candles_to_file(tp_provider=TinkoffPy(), class_code='TQBR', security_codes=('SBER',), interval=CandleInterval.CANDLE_INTERVAL_DAY,
+                         datapath=os.path.join('..', '..', 'Data', 'Tinkoff', ''), delimiter='\t', dt_format='%d.%m.%Y %H:%M',
                          skip_first_date=False, skip_last_date=False, four_price_doji=False):
     """Получение бар, объединение с имеющимися барами в файле (если есть), сохранение бар в файл
 
@@ -28,6 +22,8 @@ def save_candles_to_file(tp_provider=TinkoffPy(Config.Token),
     :param tuple security_codes: Коды тикеров в виде кортежа
     :param CandleInterval interval: Временной интервал
     :param str datapath: Путь сохранения файла '..\\..\\Data\\Tinkoff\\' - Windows, '../../Data/Tinkoff/' - Linux
+    :param str delimiter: Разделитель значений в файле истории. По умолчанию табуляция
+    :param str dt_format: Формат представления даты и времени в файле истории. По умолчанию русский формат
     :param bool skip_first_date: Убрать бары на первую полученную дату
     :param bool skip_last_date: Убрать бары на последнюю полученную дату
     :param bool four_price_doji: Оставить бары с дожи 4-х цен
@@ -41,11 +37,11 @@ def save_candles_to_file(tp_provider=TinkoffPy(Config.Token),
         file_exists = os.path.isfile(file_name)  # Существует ли файл
         if file_exists:  # Если файл существует
             logger.info(f'Получение файла {file_name}')
-            file_bars = pd.read_csv(file_name, sep='\t', parse_dates=['datetime'], date_format='%d.%m.%Y %H:%M', index_col='datetime')  # Считываем файл в DataFrame
+            file_bars = pd.read_csv(file_name, sep=delimiter, parse_dates=['datetime'], date_format=dt_format, index_col='datetime')  # Считываем файл в DataFrame
             last_date: datetime = file_bars.index[-1]  # Дата и время последнего бара по МСК
-            logger.info(f'Первая запись файла: {file_bars.index[0]}')
-            logger.info(f'Последняя запись файла: {last_date}')
-            logger.info(f'Кол-во записей в файле: {len(file_bars)}')
+            logger.info(f'Первый бар: {file_bars.index[0]}')
+            logger.info(f'Последний бар: {last_date}')
+            logger.info(f'Кол-во бар: {len(file_bars)}')
             next_bar_open_utc = tp_provider.msk_to_utc_datetime(last_date + timedelta(minutes=1), True) if intraday else \
                 last_date.replace(tzinfo=timezone.utc) + timedelta(days=1)  # Смещаем время на возможный следующий бар по UTC
         else:  # Файл не существует
@@ -120,19 +116,25 @@ def save_candles_to_file(tp_provider=TinkoffPy(Config.Token),
         if len(pd_bars) == 0:  # Если нечего объединять
             logger.info('Новых записей нет')
             continue  # то переходим к следующему тикеру, дальше не продолжаем
-        logger.info(f'Первая запись в Tinkoff: {pd_bars.index[0]}')
-        logger.info(f'Последняя запись в Tinkoff: {pd_bars.index[-1]}')
-        logger.info(f'Кол-во записей в Tinkoff: {len(pd_bars)}')
+        logger.info(f'Первый бар:  {pd_bars.index[0]}')
+        logger.info(f'Последний бар: {pd_bars.index[-1]}')
+        logger.info(f'Кол-во бар: {len(pd_bars)}')
         if file_exists:  # Если файл существует
             pd_bars = pd.concat([file_bars, pd_bars]).drop_duplicates(keep='last').sort_index()  # Объединяем файл с данными из Tinkoff, убираем дубликаты, сортируем заново
         pd_bars = pd_bars[['open', 'high', 'low', 'close', 'volume']]  # Отбираем нужные колонки. Дата и время будет экспортирована как индекс
-        pd_bars.to_csv(file_name, sep='\t', date_format='%d.%m.%Y %H:%M')
+        logger.info(f'Сохранение файла ')
+        pd_bars.to_csv(file_name, sep=delimiter, date_format=dt_format)
+        logger.info(f'Первый бар: {pd_bars.index[0]}')
+        logger.info(f'Последний бар: {pd_bars.index[-1]}')
+        logger.info(f'Кол-во бар: {len(pd_bars)}')
         logger.info(f'В файл {file_name} сохранено записей: {len(pd_bars)}')
 
 
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
     start_time = time()  # Время начала запуска скрипта
-    tp_provider = TinkoffPy(Config.Token)  # Подключаемся к торговому счету
+    logger = logging.getLogger('TinkoffPy.Bars')  # Будем вести лог
+    tp_provider = TinkoffPy()  # Подключаемся ко всем торговым счетам
+
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Формат сообщения
                         datefmt='%d.%m.%Y %H:%M:%S',  # Формат даты
                         level=logging.DEBUG,  # Уровень логируемых событий NOTSET/DEBUG/INFO/WARNING/ERROR/CRITICAL

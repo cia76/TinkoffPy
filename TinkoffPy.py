@@ -1,15 +1,12 @@
-import builtins
-# import collections
 from typing import Union  # Объединение типов
 from datetime import datetime, timedelta
 from time import sleep
 from queue import SimpleQueue  # Очередь подписок/отписок
 import logging  # Будем вести лог
 
-from pytz import timezone, utc  # Работаем с временнОй зоной и UTC
-from grpc import ssl_channel_credentials, secure_channel, RpcError, StatusCode  # Защищенный канал
-
 from google.protobuf.timestamp_pb2 import Timestamp
+from .grpc.users_pb2 import GetAccountsRequest, GetAccountsResponse
+from .grpc.users_pb2_grpc import UsersServiceStub
 from .grpc.instruments_pb2_grpc import InstrumentsServiceStub
 from .grpc.marketdata_pb2_grpc import MarketDataServiceStub, MarketDataStreamServiceStub
 from .grpc.operations_pb2_grpc import OperationsServiceStub, OperationsStreamServiceStub
@@ -20,12 +17,13 @@ from .grpc.orders_pb2 import TradesStreamRequest, TradesStreamResponse, OrderTra
 from .grpc.marketdata_pb2 import (MarketDataRequest, MarketDataResponse, Candle, Trade, OrderBook, TradingStatus,
                                   MarketDataServerSideStreamRequest,
                                   CandleInterval, LastPrice, GetLastPricesRequest, GetLastPricesResponse)
-from .grpc.instruments_pb2 import InstrumentRequest, InstrumentIdType, InstrumentResponse, Instrument, BondsResponse, \
-    FutureResponse, GetFuturesMarginRequest, GetFuturesMarginResponse, InstrumentsRequest, CurrencyResponse
-from .grpc.operations_pb2 import PortfolioRequest, PortfolioStreamRequest, PortfolioStreamResponse, \
-    PositionsStreamRequest, PositionsStreamResponse, PortfolioResponse, PositionData
+from .grpc.instruments_pb2 import InstrumentRequest, InstrumentIdType, InstrumentResponse, Instrument, BondsResponse, FutureResponse, GetFuturesMarginRequest, GetFuturesMarginResponse, CurrencyResponse
+from .grpc.operations_pb2 import PortfolioRequest, PortfolioStreamRequest, PortfolioStreamResponse, PositionsStreamRequest, PositionsStreamResponse, PortfolioResponse, PositionData
 
-logger = logging.getLogger('TinkoffPy')  # Будем вести лог
+from pytz import timezone, utc  # Работаем с временнОй зоной и UTC
+from grpc import ssl_channel_credentials, secure_channel, RpcError, StatusCode  # Защищенный канал
+
+from TinkoffPy import Config  # Файл конфигурации
 
 
 # noinspection PyProtectedMember
@@ -34,16 +32,18 @@ class TinkoffPy:
     tz_msk = timezone('Europe/Moscow')  # Время UTC будем приводить к московскому времени
     server = 'invest-public-api.tinkoff.ru'  # Торговый сервер
     currency: PortfolioRequest.CurrencyRequest = PortfolioRequest.CurrencyRequest.RUB  # Суммы будем получать в российских рублях
+    logger = logging.getLogger('TinkoffPy')  # Будем вести лог
 
-    def __init__(self, token):
+    def __init__(self, token=Config.token):
         """Инициализация
 
-        :param str token: Токен доступа
+        :param str token: Токен
         """
         self.metadata = (('authorization', f'Bearer {token}'),)  # Токен доступа
         self.channel = secure_channel(self.server, ssl_channel_credentials())  # Защищенный канал
 
         # Сервисы запросов
+        self.stub_users = UsersServiceStub(self.channel)  # Счета
         self.stub_instruments = InstrumentsServiceStub(self.channel)  # Инструменты
         self.stub_marketdata = MarketDataServiceStub(self.channel)  # Биржевая информация
         self.stub_operations = OperationsServiceStub(self.channel)  # Операции
@@ -70,8 +70,10 @@ class TinkoffPy:
         self.orders_thread = None  # Поток обработки событий
         self.on_order_trades = self.default_handler  # Сделки по заявке
 
-        self.symbols: dict[tuple[str, str], Instrument] = {}  # Информация о тикерах
         self.time_delta = timedelta(seconds=3)  # Разница между локальным временем и временем торгового сервера с учетом временнОй зоны
+        response: GetAccountsResponse = self.call_function(self.stub_users.GetAccounts, GetAccountsRequest())  # Запрос всех счетов
+        self.accounts = response.accounts  # Все счета
+        self.symbols: dict[tuple[str, str], Instrument] = {}  # Информация о тикерах
 
     # Запросы
 
@@ -86,10 +88,10 @@ class TinkoffPy:
                 details = ex.args[0].details  # Сообщение об ошибке
                 if ex.args[0].code == StatusCode.RESOURCE_EXHAUSTED:  # Превышено кол-во запросов в минуту
                     sleep_seconds = 60 - datetime.now().second + self.time_delta.total_seconds()  # Время в секундах до начала следующей минуты с учетом разницы локального времени и времени торгового сервера
-                    logger.warning(f'Превышение кол-ва запросов в минуту при вызове функции {func_name} с параметрами {request}Запрос повторится через {sleep_seconds} с')
+                    self.logger.warning(f'Превышение кол-ва запросов в минуту при вызове функции {func_name} с параметрами {request}Запрос повторится через {sleep_seconds} с')
                     sleep(sleep_seconds)  # Ждем
                 else:  # В остальных случаях
-                    logger.error(f'Ошибка {details} при вызове функции {func_name} с параметрами {request}')
+                    self.logger.error(f'Ошибка {details} при вызове функции {func_name} с параметрами {request}')
                     return None  # Возвращаем пустое значение
 
     # Подписки
@@ -110,23 +112,23 @@ class TinkoffPy:
             for event in events:  # Пробегаемся по значениям подписок до закрытия канала
                 e: MarketDataResponse = event  # Приводим пришедшее значение к подписке
                 if e.candle != Candle():  # Свеча
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел бар {e.candle}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел бар {e.candle}')
                     self.on_candle(e.candle)
                 if e.trade != Trade():  # Сделки
-                    logger.debug(f'subscriptions_marketdata_handler: Пришла сделка {e.trade}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришла сделка {e.trade}')
                     self.on_trade(e.trade)
                 if e.orderbook != OrderBook():  # Стакан
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел стакан {e.orderbook}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел стакан {e.orderbook}')
                     self.on_orderbook(e.orderbook)
                 if e.trading_status != TradingStatus():  # Торговый статус
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел торговый статус {e.trading_status}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел торговый статус {e.trading_status}')
                     self.on_trading_status(e.trading_status)
                 if e.last_price != LastPrice():  # Цена последней сделки
-                    logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
                     dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
-                    logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -137,23 +139,23 @@ class TinkoffPy:
             for event in self.stub_marketdata_stream.MarketDataServerSideStream(request=request, metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: MarketDataResponse = event  # Приводим пришедшее значение к подписке
                 if e.candle != Candle():  # Свеча
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел бар {e.candle}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел бар {e.candle}')
                     self.on_candle(e.candle)
                 if e.trade != Trade():  # Сделки
-                    logger.debug(f'subscriptions_marketdata_handler: Пришла сделка {e.trade}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришла сделка {e.trade}')
                     self.on_trade(e.trade)
                 if e.orderbook != OrderBook():  # Стакан
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел стакан {e.orderbook}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел стакан {e.orderbook}')
                     self.on_orderbook(e.orderbook)
                 if e.trading_status != TradingStatus():  # Торговый статус
-                    logger.debug(f'subscriptions_marketdata_handler: Пришел торговый статус {e.trading_status}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришел торговый статус {e.trading_status}')
                     self.on_trading_status(e.trading_status)
                 if e.last_price != LastPrice():  # Цена последней сделки
-                    logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
                     dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
-                    logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -164,11 +166,11 @@ class TinkoffPy:
             for event in self.stub_operations_stream.PortfolioStream(request=PortfolioStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PortfolioStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.portfolio != PortfolioResponse():  # Портфель
-                    logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
+                    self.logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
                     self.on_portfolio(e.portfolio)
                 if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
                     dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
-                    logger.debug(f'subscriptions_portfolio_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.logger.debug(f'subscriptions_portfolio_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
@@ -178,11 +180,11 @@ class TinkoffPy:
             for event in self.stub_operations_stream.PositionsStream(request=PositionsStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: PositionsStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.position != PositionData():  # Позиция
-                    logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
+                    self.logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
                     self.on_position(e.position)
                 if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
                     dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
-                    logger.debug(f'subscriptions_positions_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.logger.debug(f'subscriptions_positions_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
@@ -192,11 +194,11 @@ class TinkoffPy:
             for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: TradesStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.order_trades != OrderTrades():  # Сделки по заявке
-                    logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
+                    self.logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
                     self.on_order_trades(e.order_trades)
                 if e.ping != Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
                     dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
-                    logger.debug(f'subscriptions_trades_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
+                    self.logger.debug(f'subscriptions_trades_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -252,7 +254,7 @@ class TinkoffPy:
             request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
             response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
             if not response:  # Если информация о тикере не найдена
-                logger.warning(f'Информация о {class_code}.{symbol} не найдена')
+                self.logger.warning(f'Информация о {class_code}.{symbol} не найдена')
                 return None  # то возвращаем пустое значение
             self.symbols[(class_code, symbol)] = response.instrument  # Заносим информацию о тикере в справочник
         return self.symbols[(class_code, symbol)]  # Возвращаем значение из справочника
@@ -269,7 +271,7 @@ class TinkoffPy:
         request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_FIGI, class_code='', id=figi)  # Поиск тикера по уникальному коду
         response: InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
         if not response:  # Если информация о тикере не найдена
-            logger.warning(f'Информация о тикере с figi={figi} не найдена')
+            self.logger.warning(f'Информация о тикере с figi={figi} не найдена')
             return None  # то возвращаем пустое значение
         instrument = response.instrument  # Информацию о тикере
         self.symbols[(instrument.class_code, instrument.ticker)] = instrument  # заносим в справочник
