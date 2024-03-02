@@ -2,7 +2,7 @@ from typing import Union  # Объединение типов
 from datetime import datetime, timedelta
 from time import sleep
 from queue import SimpleQueue  # Очередь подписок/отписок
-import logging  # Будем вести лог
+import logging
 
 from google.protobuf.timestamp_pb2 import Timestamp
 from .grpc.users_pb2 import GetAccountsRequest, GetAccountsResponse
@@ -188,10 +188,10 @@ class TinkoffPy:
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
 
-    def subscriptions_trades_handler(self, account_id):
+    def subscriptions_trades_handler(self, account_ids):
         """Поток обработки подписок на сделки по заявке"""
         try:
-            for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=(account_id,)), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
+            for event in self.stub_orders_stream.TradesStream(request=TradesStreamRequest(accounts=account_ids), metadata=self.metadata):  # Пробегаемся по значениям подписок до закрытия канала
                 e: TradesStreamResponse = event  # Приводим пришедшее значение к подписке
                 if e.order_trades != OrderTrades():  # Сделки по заявке
                     self.logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
