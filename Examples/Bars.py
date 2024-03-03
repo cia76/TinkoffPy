@@ -11,6 +11,9 @@ from google.protobuf.timestamp_pb2 import Timestamp
 from google.protobuf.json_format import MessageToDict
 
 
+logger = logging.getLogger('TinkoffPy.Bars')  # Будем вести лог. Определяем здесь, т.к. возможен внешний вызов ф-ии
+
+
 # noinspection PyShadowingNames
 def save_candles_to_file(tp_provider=TinkoffPy(), class_code='TQBR', security_codes=('SBER',), interval=CandleInterval.CANDLE_INTERVAL_DAY,
                          datapath=os.path.join('..', '..', 'Data', 'Tinkoff', ''), delimiter='\t', dt_format='%d.%m.%Y %H:%M',
@@ -132,7 +135,6 @@ def save_candles_to_file(tp_provider=TinkoffPy(), class_code='TQBR', security_co
 
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
     start_time = time()  # Время начала запуска скрипта
-    logger = logging.getLogger('TinkoffPy.Bars')  # Будем вести лог
     tp_provider = TinkoffPy()  # Подключаемся ко всем торговым счетам
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Формат сообщения
