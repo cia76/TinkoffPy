@@ -12,7 +12,7 @@ from .grpc.marketdata_pb2_grpc import MarketDataServiceStub, MarketDataStreamSer
 from .grpc.operations_pb2_grpc import OperationsServiceStub, OperationsStreamServiceStub
 from .grpc.orders_pb2_grpc import OrdersServiceStub, OrdersStreamServiceStub
 from .grpc.stoporders_pb2_grpc import StopOrdersServiceStub
-from .grpc.common_pb2 import MoneyValue, Quotation, Ping
+from .grpc.common_pb2 import MoneyValue, Quotation, Ping, INSTRUMENT_TYPE_BOND, INSTRUMENT_TYPE_CURRENCY, INSTRUMENT_TYPE_FUTURES
 from .grpc.orders_pb2 import TradesStreamRequest, TradesStreamResponse, OrderTrades
 from .grpc.marketdata_pb2 import (MarketDataRequest, MarketDataResponse, Candle, Trade, OrderBook, TradingStatus,
                                   MarketDataServerSideStreamRequest,
@@ -364,16 +364,16 @@ class TinkoffPy:
         si = self.get_symbol_info(class_code, symbol)  # Информация о тикере
         min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
         request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
-        bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
-        if bonds_response:  # Для облигаций
+        if si.instrument_kind == INSTRUMENT_TYPE_BOND:  # Для облигаций
+            bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
             instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
             return price * 100 / instrument.nominal // min_step * min_step  # Пункты цены для котировок облигаций представляют собой проценты номинала облигации
-        currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
-        if currency_response:  # Для валют
+        if si.instrument_kind == INSTRUMENT_TYPE_CURRENCY:  # Для валют
+            currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
             instrument = currency_response.instrument  # Информация о валюте
             return price / si.lot * self.money_value_to_float(instrument.nominal) // min_step * min_step
-        futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
-        if futures_response:  # Для фьючерсов
+        if si.instrument_kind == INSTRUMENT_TYPE_FUTURES:  # Для фьючерсов
+            futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
             margin_request = GetFuturesMarginRequest(figi=si.figi)  # Запрос маржи
             margin_response: GetFuturesMarginResponse = self.call_function(self.stub_instruments.GetFuturesMargin, margin_request)  # Получаем информацию ГО по фьючерсу
             return price * self.quotation_to_float(futures_response.instrument.min_price_increment) / self.quotation_to_float(margin_response.min_price_increment_amount) // min_step * min_step  # Стоимость фьючерсов предоставляется в пунктах
@@ -391,16 +391,16 @@ class TinkoffPy:
         min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
         tinkoff_price = tinkoff_price // min_step * min_step  # Цена кратная шагу цены
         request = InstrumentRequest(id_type=InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
-        bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
-        if bonds_response:  # Для облигаций
+        if si.instrument_kind == INSTRUMENT_TYPE_BOND:  # Для облигаций
+            bonds_response: BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
             instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
             return tinkoff_price / 100 * self.money_value_to_float(instrument.nominal)  # Пункты цены для котировок облигаций представляют собой проценты номинала облигации
-        currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
-        if currency_response:  # Для валют
+        if si.instrument_kind == INSTRUMENT_TYPE_CURRENCY:  # Для валют
+            currency_response: CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
             instrument = currency_response.instrument  # Информация о валюте
             return tinkoff_price * si.lot / self.money_value_to_float(instrument.nominal)
-        futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
-        if futures_response:  # Для фьючерсов
+        if si.instrument_kind == INSTRUMENT_TYPE_FUTURES:  # Для фьючерсов
+            futures_response: FutureResponse = self.call_function(self.stub_instruments.FutureBy, request)  # Получаем информацию о фьючерсе
             margin_request = GetFuturesMarginRequest(figi=si.figi)  # Запрос маржи
             margin_response: GetFuturesMarginResponse = self.call_function(self.stub_instruments.GetFuturesMargin, margin_request)  # Получаем информацию ГО по фьючерсу
             return tinkoff_price / self.quotation_to_float(futures_response.instrument.min_price_increment) * self.quotation_to_float(margin_response.min_price_increment_amount)  # Стоимость фьючерсов предоставляется в пунктах
@@ -452,7 +452,7 @@ class TinkoffPy:
         :return: Денежная сумма
         """
         int_f = int(f)  # Целая часть числа
-        return Quotation(units=int_f, nano=int((f - int_f) * 1_000_000_000))
+        return Quotation(units=int_f, nano=int(f * 1_000_000_000 - int_f * 1_000_000_000))
 
     @staticmethod
     def quotation_to_float(quotation) -> float:
