@@ -63,7 +63,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
     #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=str(uuid4()))
     # response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
     # logger.debug(response)
-    # logger.info(f'Номер заявки: {response.order_id}')
+    # logger.info(f'Номер рыночной заявки на покупку: {response.order_id}')
 
     # sleep(10)  # Ждем 10 секунд
 
@@ -73,24 +73,25 @@ if __name__ == '__main__':  # Точка входа при запуске это
     #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=str(uuid4()))
     # response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
     # logger.debug(response)
-    # logger.info(f'Номер заявки: {response.order_id}')
+    # logger.info(f'Номер стоп заявки на покупку: {response.order_id}')
 
     # sleep(10)  # Ждем 10 секунд
 
     # Новая лимитная заявка
-    limit_price = tp_provider.float_to_quotation(price * 0.99 // min_step * min_step)  # Лимитная цена на 1% ниже последней цены сделки
-    logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по лимитной цене {tp_provider.quotation_to_float(limit_price)}')
+    tinkoff_limit_price = tp_provider.price_to_tinkoff_price(class_code, security_code, price * 0.99)  # Лимитная цена на 1% ниже последней цены сделки
+    limit_price = tp_provider.float_to_quotation(tinkoff_limit_price)
+    logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по лимитной цене {tinkoff_limit_price}')
     order_id = str(uuid4())
     request = PostOrderRequest(instrument_id=si.figi, quantity=1, price=limit_price, direction=ORDER_DIRECTION_BUY,
                                account_id=account_id, order_type=ORDER_TYPE_LIMIT, order_id=order_id)
     response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
     logger.debug(response)
-    logger.info(f'Номер заявки: {response.order_id}')
+    logger.info(f'Номер лимитной заявки на покупку: {response.order_id}')
 
     sleep(10)  # Ждем 10 секунд
 
     # Удаление существующей лимитной заявки
-    logger.info(f'Удаление заявки: {response.order_id}')
+    logger.info(f'Удаление лимитной заявки на покупку: {response.order_id}')
     request = CancelOrderRequest(account_id=account_id, order_id=response.order_id)  # Отмена активной заявки
     response: CancelOrderResponse = tp_provider.call_function(tp_provider.stub_orders.CancelOrder, request)
     logger.info(f'Статус: {response}')
@@ -98,20 +99,21 @@ if __name__ == '__main__':  # Точка входа при запуске это
     sleep(10)  # Ждем 10 секунд
 
     # Новая стоп заявка
-    stop_price = tp_provider.float_to_quotation(price * 1.01 // min_step * min_step)  # Стоп цена на 1% выше последней цены сделки
-    logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по стоп цене {stop_price}')
+    tinkoff_stop_price = tp_provider.price_to_tinkoff_price(class_code, security_code, price * 1.01)  # Стоп цена на 1% выше последней цены сделки
+    stop_price = tp_provider.float_to_quotation(tinkoff_stop_price)
+    logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по стоп цене {tinkoff_stop_price}')
     request = PostStopOrderRequest(instrument_id=si.figi, quantity=1, stop_price=stop_price, direction=STOP_ORDER_DIRECTION_BUY,
                                    account_id=account_id,
                                    expiration_type=StopOrderExpirationType.STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL,
                                    stop_order_type=StopOrderType.STOP_ORDER_TYPE_STOP_LOSS)
     response: PostStopOrderResponse = tp_provider.call_function(tp_provider.stub_stop_orders.PostStopOrder, request)
     logger.debug(response)
-    logger.info(f'Номер стоп заявки: {response.stop_order_id}')
+    logger.info(f'Номер стоп заявки на покупку: {response.stop_order_id}')
 
     sleep(10)  # Ждем 10 секунд
 
     # Удаление существующей стоп заявки
-    logger.info(f'Удаление заявки: {response.stop_order_id}')
+    logger.info(f'Удаление стоп заявки на покупку: {response.stop_order_id}')
     request = CancelStopOrderRequest(account_id=account_id, stop_order_id=response.stop_order_id)  # Отмена активной стоп заявки
     response: CancelStopOrderResponse = tp_provider.call_function(tp_provider.stub_stop_orders.CancelStopOrder, request)
     logger.info(f'Статус: {response}')
