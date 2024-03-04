@@ -60,7 +60,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
     # Новая рыночная заявка (открытие позиции)
     # logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по рыночной цене')
     # request = PostOrderRequest(instrument_id=si.figi, quantity=1, direction=ORDER_DIRECTION_BUY,
-    #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=uuid4().hex)
+    #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=str(uuid4()))
     # response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
     # logger.debug(response)
     # logger.info(f'Номер заявки: {response.order_id}')
@@ -70,7 +70,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
     # Новая рыночная заявка (закрытие позиции)
     # logger.info(f'Заявка {class_code}.{security_code} на продажу минимального лота по рыночной цене')
     # request = PostOrderRequest(instrument_id=si.figi, quantity=1, direction=ORDER_DIRECTION_SELL,
-    #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=uuid4().hex)
+    #                            account_id=account_id, order_type=ORDER_TYPE_MARKET, order_id=str(uuid4()))
     # response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
     # logger.debug(response)
     # logger.info(f'Номер заявки: {response.order_id}')
@@ -80,7 +80,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
     # Новая лимитная заявка
     limit_price = tp_provider.float_to_quotation(price * 0.99 // min_step * min_step)  # Лимитная цена на 1% ниже последней цены сделки
     logger.info(f'Заявка {class_code}.{security_code} на покупку минимального лота по лимитной цене {tp_provider.quotation_to_float(limit_price)}')
-    order_id = uuid4().hex
+    order_id = str(uuid4())
     request = PostOrderRequest(instrument_id=si.figi, quantity=1, price=limit_price, direction=ORDER_DIRECTION_BUY,
                                account_id=account_id, order_type=ORDER_TYPE_LIMIT, order_id=order_id)
     response: PostOrderResponse = tp_provider.call_function(tp_provider.stub_orders.PostOrder, request)
