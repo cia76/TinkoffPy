@@ -10,7 +10,7 @@ from TinkoffPy.grpc.marketdata_pb2 import MarketDataRequest, SubscribeOrderBookR
 
 
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
-    logger = logging.getLogger('TinkoffPy.Transactions')  # Будем вести лог
+    logger = logging.getLogger('TinkoffPy.Stream')  # Будем вести лог
     tp_provider = TinkoffPy()  # Подключаемся ко всем торговым счетам
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Формат сообщения
