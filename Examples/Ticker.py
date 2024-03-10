@@ -21,7 +21,10 @@ if __name__ == '__main__':  # Точка входа при запуске это
     for dataname in datanames:  # Пробегаемся по всем тикерам
         class_code, security_code = tp_provider.dataname_to_class_code_symbol(dataname)  # Код режима торгов и тикер
         si: Instrument = tp_provider.get_symbol_info(class_code, security_code)
-        logger.info(f'Ответ от сервера: {si}' if si else f'Тикер {class_code}.{security_code} не найден')
+        if not si:  # Если тикер не найден
+            logger.warning(f'Тикер {class_code}.{security_code} не найден')
+            continue  # то переходим к следующему тикеру, дальше не продолжаем
+        logger.info(f'Ответ от сервера: {si}')
         logger.info(f'Информация о тикере {si.class_code}.{si.ticker} ({si.name}, {si.exchange})')
         logger.info(f'- Валюта: {si.currency}')
         logger.info(f'- Лот: {si.lot}')
@@ -29,3 +32,5 @@ if __name__ == '__main__':  # Точка входа при запуске это
         logger.info(f'- Шаг цены: {min_step}')
         decimals = int(log10(1 / min_step) + 0.99)
         logger.info(f'- Кол-во десятичных знаков: {decimals}')
+
+    tp_provider.close_channel()  # Закрываем канал перед выходом
