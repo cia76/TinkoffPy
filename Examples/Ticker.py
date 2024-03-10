@@ -3,7 +3,6 @@ from datetime import datetime  # Дата и время
 from math import log10
 
 from TinkoffPy import TinkoffPy  # Работа с Tinkoff Invest API из Python
-from TinkoffPy.grpc.instruments_pb2 import Instrument
 
 
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
@@ -20,7 +19,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
 
     for dataname in datanames:  # Пробегаемся по всем тикерам
         class_code, security_code = tp_provider.dataname_to_class_code_symbol(dataname)  # Код режима торгов и тикер
-        si: Instrument = tp_provider.get_symbol_info(class_code, security_code)
+        si = tp_provider.get_symbol_info(class_code, security_code)
         if not si:  # Если тикер не найден
             logger.warning(f'Тикер {class_code}.{security_code} не найден')
             continue  # то переходим к следующему тикеру, дальше не продолжаем
