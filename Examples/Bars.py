@@ -91,7 +91,7 @@ def save_candles_to_file(tp_provider=TinkoffPy(), class_code='TQBR', security_co
                     high = int(new_bar['high']['units']) + int(new_bar['high']['nano']) / 10**9
                     low = int(new_bar['low']['units']) + int(new_bar['low']['nano']) / 10**9
                     close = int(new_bar['close']['units']) + int(new_bar['close']['nano']) / 10**9
-                    volume = int(new_bar['volume'])
+                    volume = int(new_bar['volume'] * si.lot)  # Объем в штуках
                     new_bars_list.append({'datetime': dt, 'open': open_, 'high': high, 'low': low, 'close': close, 'volume': volume})
             next_bar_open_utc = todate_min_utc + timedelta(minutes=1) if intraday else todate_min_utc + timedelta(days=1)  # Смещаем время на возможный следующий бар UTC
             if next_bar_open_utc > todate_utc:  # Если пройден весь интервал
