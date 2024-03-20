@@ -72,7 +72,7 @@ class TinkoffPy:
 
         self.time_delta = timedelta(seconds=3)  # Разница между локальным временем и временем торгового сервера с учетом временнОй зоны
         response: GetAccountsResponse = self.call_function(self.stub_users.GetAccounts, GetAccountsRequest())  # Запрос всех счетов
-        self.accounts = response.accounts  # Все счета
+        self.accounts = [account for account in response.accounts if account.closed_date.seconds == 0]  # Все незакрытые счета
         self.symbols: dict[tuple[str, str], Instrument] = {}  # Информация о тикерах
 
     # Запросы
