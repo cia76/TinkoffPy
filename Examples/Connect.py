@@ -9,6 +9,7 @@ from TinkoffPy.grpc.marketdata_pb2 import MarketDataRequest, SubscribeCandlesReq
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
     logger = logging.getLogger('TinkoffPy.Connect')  # Будем вести лог
     tp_provider = TinkoffPy()  # Подключаемся ко всем торговым счетам
+    # tp_provider = TinkoffPy(demo=True)  # Подключаемся к демо счетам
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Формат сообщения
                         datefmt='%d.%m.%Y %H:%M:%S',  # Формат даты

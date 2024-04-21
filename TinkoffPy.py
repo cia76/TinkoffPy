@@ -31,16 +31,17 @@ class TinkoffPy:
     """Работа с Tinkoff Invest API из Python https://tinkoff.github.io/investAPI/"""
     tz_msk = timezone('Europe/Moscow')  # Время UTC будем приводить к московскому времени
     server = 'invest-public-api.tinkoff.ru'  # Торговый сервер
+    server_demo = 'sandbox-invest-public-api.tinkoff.ru'  # Демо сервер (песочница)
     currency: PortfolioRequest.CurrencyRequest = PortfolioRequest.CurrencyRequest.RUB  # Суммы будем получать в российских рублях
     logger = logging.getLogger('TinkoffPy')  # Будем вести лог
 
-    def __init__(self, token=Config.token):
+    def __init__(self, token=Config.token, demo=False):
         """Инициализация
 
         :param str token: Токен
         """
         self.metadata = (('authorization', f'Bearer {token}'),)  # Токен доступа
-        self.channel = secure_channel(self.server, ssl_channel_credentials())  # Защищенный канал
+        self.channel = secure_channel(self.server if demo else self.server_demo, ssl_channel_credentials())  # Защищенный канал
 
         # Сервисы запросов
         self.stub_users = UsersServiceStub(self.channel)  # Счета
