@@ -464,6 +464,15 @@ class TinkoffPy:
         """
         return quotation.units + quotation.nano / 1_000_000_000
 
+    @staticmethod
+    def dict_quotation_to_float(dict_quotation) -> float:
+        """Перевод из словаря денежной суммы в вещественное число
+
+        :param dict dict_quotation: Денежная сумма
+        :return: Вещественное число
+        """
+        return int(dict_quotation['units']) + int(dict_quotation['nano']) / 1_000_000_000
+
     def timestamp_to_msk_datetime(self, timestamp) -> datetime:
         """Перевод времени из Google UTC Timestamp в московское
 
