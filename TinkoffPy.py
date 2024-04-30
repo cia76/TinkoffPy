@@ -28,7 +28,9 @@ from TinkoffPy import Config  # Файл конфигурации
 
 # noinspection PyProtectedMember
 class TinkoffPy:
-    """Работа с Tinkoff Invest API из Python https://tinkoff.github.io/investAPI/"""
+    """Работа с Tinkoff Invest API https://russianinvestments.github.io/investAPI/ из Python
+    Генерация кода в папку grpc осуществлена из proto контрактов: https://github.com/RussianInvestments/investAPI/tree/main/src/docs/contracts
+    """
     tz_msk = timezone('Europe/Moscow')  # Время UTC будем приводить к московскому времени
     server = 'invest-public-api.tinkoff.ru'  # Торговый сервер
     server_demo = 'sandbox-invest-public-api.tinkoff.ru'  # Демо сервер (песочница)
