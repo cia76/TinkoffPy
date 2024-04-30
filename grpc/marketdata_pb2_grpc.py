@@ -50,6 +50,11 @@ class MarketDataServiceStub(object):
                 request_serializer=marketdata__pb2.GetClosePricesRequest.SerializeToString,
                 response_deserializer=marketdata__pb2.GetClosePricesResponse.FromString,
                 )
+        self.GetTechAnalysis = channel.unary_unary(
+                '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTechAnalysis',
+                request_serializer=marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
+                response_deserializer=marketdata__pb2.GetTechAnalysisResponse.FromString,
+                )
 
 
 class MarketDataServiceServicer(object):
@@ -105,6 +110,13 @@ class MarketDataServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTechAnalysis(self, request, context):
+        """Метод получения технических индикаторов по инструменту
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MarketDataServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -142,6 +154,11 @@ def add_MarketDataServiceServicer_to_server(servicer, server):
                     servicer.GetClosePrices,
                     request_deserializer=marketdata__pb2.GetClosePricesRequest.FromString,
                     response_serializer=marketdata__pb2.GetClosePricesResponse.SerializeToString,
+            ),
+            'GetTechAnalysis': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTechAnalysis,
+                    request_deserializer=marketdata__pb2.GetTechAnalysisRequest.FromString,
+                    response_serializer=marketdata__pb2.GetTechAnalysisResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -270,6 +287,23 @@ class MarketDataService(object):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetClosePrices',
             marketdata__pb2.GetClosePricesRequest.SerializeToString,
             marketdata__pb2.GetClosePricesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTechAnalysis(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTechAnalysis',
+            marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
+            marketdata__pb2.GetTechAnalysisResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
