@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import operations_pb2 as operations__pb2
-from TinkoffPy.grpc import orders_pb2 as orders__pb2
-from TinkoffPy.grpc import sandbox_pb2 as sandbox__pb2
-from TinkoffPy.grpc import users_pb2 as users__pb2
+from TinkoffPy.grpc import operations_pb2 as TinkoffPy_dot_grpc_dot_operations__pb2
+from TinkoffPy.grpc import orders_pb2 as TinkoffPy_dot_grpc_dot_orders__pb2
+from TinkoffPy.grpc import sandbox_pb2 as TinkoffPy_dot_grpc_dot_sandbox__pb2
+from TinkoffPy.grpc import users_pb2 as TinkoffPy_dot_grpc_dot_users__pb2
 
 
 class SandboxServiceStub(object):
@@ -20,78 +20,78 @@ class SandboxServiceStub(object):
         """
         self.OpenSandboxAccount = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/OpenSandboxAccount',
-                request_serializer=sandbox__pb2.OpenSandboxAccountRequest.SerializeToString,
-                response_deserializer=sandbox__pb2.OpenSandboxAccountResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountResponse.FromString,
                 )
         self.GetSandboxAccounts = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxAccounts',
-                request_serializer=users__pb2.GetAccountsRequest.SerializeToString,
-                response_deserializer=users__pb2.GetAccountsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.FromString,
                 )
         self.CloseSandboxAccount = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/CloseSandboxAccount',
-                request_serializer=sandbox__pb2.CloseSandboxAccountRequest.SerializeToString,
-                response_deserializer=sandbox__pb2.CloseSandboxAccountResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountResponse.FromString,
                 )
         self.PostSandboxOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/PostSandboxOrder',
-                request_serializer=orders__pb2.PostOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.PostOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
                 )
         self.ReplaceSandboxOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/ReplaceSandboxOrder',
-                request_serializer=orders__pb2.ReplaceOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.PostOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
                 )
         self.GetSandboxOrders = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrders',
-                request_serializer=orders__pb2.GetOrdersRequest.SerializeToString,
-                response_deserializer=orders__pb2.GetOrdersResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.FromString,
                 )
         self.CancelSandboxOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/CancelSandboxOrder',
-                request_serializer=orders__pb2.CancelOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.CancelOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.FromString,
                 )
         self.GetSandboxOrderState = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrderState',
-                request_serializer=orders__pb2.GetOrderStateRequest.SerializeToString,
-                response_deserializer=orders__pb2.OrderState.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.FromString,
                 )
         self.GetSandboxPositions = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPositions',
-                request_serializer=operations__pb2.PositionsRequest.SerializeToString,
-                response_deserializer=operations__pb2.PositionsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.FromString,
                 )
         self.GetSandboxOperations = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperations',
-                request_serializer=operations__pb2.OperationsRequest.SerializeToString,
-                response_deserializer=operations__pb2.OperationsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.FromString,
                 )
         self.GetSandboxOperationsByCursor = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperationsByCursor',
-                request_serializer=operations__pb2.GetOperationsByCursorRequest.SerializeToString,
-                response_deserializer=operations__pb2.GetOperationsByCursorResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.FromString,
                 )
         self.GetSandboxPortfolio = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPortfolio',
-                request_serializer=operations__pb2.PortfolioRequest.SerializeToString,
-                response_deserializer=operations__pb2.PortfolioResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.FromString,
                 )
         self.SandboxPayIn = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/SandboxPayIn',
-                request_serializer=sandbox__pb2.SandboxPayInRequest.SerializeToString,
-                response_deserializer=sandbox__pb2.SandboxPayInResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInResponse.FromString,
                 )
         self.GetSandboxWithdrawLimits = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxWithdrawLimits',
-                request_serializer=operations__pb2.WithdrawLimitsRequest.SerializeToString,
-                response_deserializer=operations__pb2.WithdrawLimitsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.FromString,
                 )
         self.GetSandboxMaxLots = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxMaxLots',
-                request_serializer=orders__pb2.GetMaxLotsRequest.SerializeToString,
-                response_deserializer=orders__pb2.GetMaxLotsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.FromString,
                 )
 
 
@@ -209,78 +209,78 @@ def add_SandboxServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'OpenSandboxAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.OpenSandboxAccount,
-                    request_deserializer=sandbox__pb2.OpenSandboxAccountRequest.FromString,
-                    response_serializer=sandbox__pb2.OpenSandboxAccountResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountResponse.SerializeToString,
             ),
             'GetSandboxAccounts': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxAccounts,
-                    request_deserializer=users__pb2.GetAccountsRequest.FromString,
-                    response_serializer=users__pb2.GetAccountsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.SerializeToString,
             ),
             'CloseSandboxAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.CloseSandboxAccount,
-                    request_deserializer=sandbox__pb2.CloseSandboxAccountRequest.FromString,
-                    response_serializer=sandbox__pb2.CloseSandboxAccountResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountResponse.SerializeToString,
             ),
             'PostSandboxOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.PostSandboxOrder,
-                    request_deserializer=orders__pb2.PostOrderRequest.FromString,
-                    response_serializer=orders__pb2.PostOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.SerializeToString,
             ),
             'ReplaceSandboxOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.ReplaceSandboxOrder,
-                    request_deserializer=orders__pb2.ReplaceOrderRequest.FromString,
-                    response_serializer=orders__pb2.PostOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.SerializeToString,
             ),
             'GetSandboxOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxOrders,
-                    request_deserializer=orders__pb2.GetOrdersRequest.FromString,
-                    response_serializer=orders__pb2.GetOrdersResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.SerializeToString,
             ),
             'CancelSandboxOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelSandboxOrder,
-                    request_deserializer=orders__pb2.CancelOrderRequest.FromString,
-                    response_serializer=orders__pb2.CancelOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.SerializeToString,
             ),
             'GetSandboxOrderState': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxOrderState,
-                    request_deserializer=orders__pb2.GetOrderStateRequest.FromString,
-                    response_serializer=orders__pb2.OrderState.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.SerializeToString,
             ),
             'GetSandboxPositions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxPositions,
-                    request_deserializer=operations__pb2.PositionsRequest.FromString,
-                    response_serializer=operations__pb2.PositionsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.SerializeToString,
             ),
             'GetSandboxOperations': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxOperations,
-                    request_deserializer=operations__pb2.OperationsRequest.FromString,
-                    response_serializer=operations__pb2.OperationsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.SerializeToString,
             ),
             'GetSandboxOperationsByCursor': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxOperationsByCursor,
-                    request_deserializer=operations__pb2.GetOperationsByCursorRequest.FromString,
-                    response_serializer=operations__pb2.GetOperationsByCursorResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.SerializeToString,
             ),
             'GetSandboxPortfolio': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxPortfolio,
-                    request_deserializer=operations__pb2.PortfolioRequest.FromString,
-                    response_serializer=operations__pb2.PortfolioResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.SerializeToString,
             ),
             'SandboxPayIn': grpc.unary_unary_rpc_method_handler(
                     servicer.SandboxPayIn,
-                    request_deserializer=sandbox__pb2.SandboxPayInRequest.FromString,
-                    response_serializer=sandbox__pb2.SandboxPayInResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInResponse.SerializeToString,
             ),
             'GetSandboxWithdrawLimits': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxWithdrawLimits,
-                    request_deserializer=operations__pb2.WithdrawLimitsRequest.FromString,
-                    response_serializer=operations__pb2.WithdrawLimitsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.SerializeToString,
             ),
             'GetSandboxMaxLots': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSandboxMaxLots,
-                    request_deserializer=orders__pb2.GetMaxLotsRequest.FromString,
-                    response_serializer=orders__pb2.GetMaxLotsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -305,8 +305,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/OpenSandboxAccount',
-            sandbox__pb2.OpenSandboxAccountRequest.SerializeToString,
-            sandbox__pb2.OpenSandboxAccountResponse.FromString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.OpenSandboxAccountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -322,8 +322,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxAccounts',
-            users__pb2.GetAccountsRequest.SerializeToString,
-            users__pb2.GetAccountsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -339,8 +339,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/CloseSandboxAccount',
-            sandbox__pb2.CloseSandboxAccountRequest.SerializeToString,
-            sandbox__pb2.CloseSandboxAccountResponse.FromString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.CloseSandboxAccountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -356,8 +356,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/PostSandboxOrder',
-            orders__pb2.PostOrderRequest.SerializeToString,
-            orders__pb2.PostOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -373,8 +373,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/ReplaceSandboxOrder',
-            orders__pb2.ReplaceOrderRequest.SerializeToString,
-            orders__pb2.PostOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -390,8 +390,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrders',
-            orders__pb2.GetOrdersRequest.SerializeToString,
-            orders__pb2.GetOrdersResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -407,8 +407,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/CancelSandboxOrder',
-            orders__pb2.CancelOrderRequest.SerializeToString,
-            orders__pb2.CancelOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -424,8 +424,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrderState',
-            orders__pb2.GetOrderStateRequest.SerializeToString,
-            orders__pb2.OrderState.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -441,8 +441,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPositions',
-            operations__pb2.PositionsRequest.SerializeToString,
-            operations__pb2.PositionsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -458,8 +458,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperations',
-            operations__pb2.OperationsRequest.SerializeToString,
-            operations__pb2.OperationsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -475,8 +475,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperationsByCursor',
-            operations__pb2.GetOperationsByCursorRequest.SerializeToString,
-            operations__pb2.GetOperationsByCursorResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -492,8 +492,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPortfolio',
-            operations__pb2.PortfolioRequest.SerializeToString,
-            operations__pb2.PortfolioResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -509,8 +509,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/SandboxPayIn',
-            sandbox__pb2.SandboxPayInRequest.SerializeToString,
-            sandbox__pb2.SandboxPayInResponse.FromString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_sandbox__pb2.SandboxPayInResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -526,8 +526,8 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxWithdrawLimits',
-            operations__pb2.WithdrawLimitsRequest.SerializeToString,
-            operations__pb2.WithdrawLimitsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -543,7 +543,7 @@ class SandboxService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxMaxLots',
-            orders__pb2.GetMaxLotsRequest.SerializeToString,
-            orders__pb2.GetMaxLotsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

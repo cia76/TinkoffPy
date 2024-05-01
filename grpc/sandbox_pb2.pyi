@@ -3,8 +3,8 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.message
 import typing
@@ -92,14 +92,14 @@ class SandboxPayInRequest(google.protobuf.message.Message):
     account_id: builtins.str
     """Номер счёта"""
     @property
-    def amount(self) -> common_pb2.MoneyValue:
+    def amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сумма пополнения счёта в рублях"""
 
     def __init__(
         self,
         *,
         account_id: builtins.str = ...,
-        amount: common_pb2.MoneyValue | None = ...,
+        amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["amount", b"amount"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["account_id", b"account_id", "amount", b"amount"]) -> None: ...
@@ -114,13 +114,13 @@ class SandboxPayInResponse(google.protobuf.message.Message):
 
     BALANCE_FIELD_NUMBER: builtins.int
     @property
-    def balance(self) -> common_pb2.MoneyValue:
+    def balance(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Текущий баланс счёта"""
 
     def __init__(
         self,
         *,
-        balance: common_pb2.MoneyValue | None = ...,
+        balance: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["balance", b"balance"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["balance", b"balance"]) -> None: ...

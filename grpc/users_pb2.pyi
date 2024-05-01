@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -215,38 +215,38 @@ class GetMarginAttributesResponse(google.protobuf.message.Message):
     AMOUNT_OF_MISSING_FUNDS_FIELD_NUMBER: builtins.int
     CORRECTED_MARGIN_FIELD_NUMBER: builtins.int
     @property
-    def liquid_portfolio(self) -> common_pb2.MoneyValue:
+    def liquid_portfolio(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Ликвидная стоимость портфеля. Подробнее: [что такое ликвидный портфель?](https://help.tinkoff.ru/margin-trade/short/liquid-portfolio/)."""
 
     @property
-    def starting_margin(self) -> common_pb2.MoneyValue:
+    def starting_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная маржа — начальное обеспечение для совершения новой сделки. Подробнее: [начальная и минимальная маржа](https://help.tinkoff.ru/margin-trade/short/initial-and-maintenance-margin/)."""
 
     @property
-    def minimal_margin(self) -> common_pb2.MoneyValue:
+    def minimal_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Минимальная маржа — это минимальное обеспечение для поддержания позиции, которую вы уже открыли. Подробнее: [начальная и минимальная маржа](https://help.tinkoff.ru/margin-trade/short/initial-and-maintenance-margin/)."""
 
     @property
-    def funds_sufficiency_level(self) -> common_pb2.Quotation:
+    def funds_sufficiency_level(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Уровень достаточности средств. Соотношение стоимости ликвидного портфеля к начальной марже."""
 
     @property
-    def amount_of_missing_funds(self) -> common_pb2.MoneyValue:
+    def amount_of_missing_funds(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Объем недостающих средств. Разница между стартовой маржой и ликвидной стоимости портфеля."""
 
     @property
-    def corrected_margin(self) -> common_pb2.MoneyValue:
+    def corrected_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Скорректированная маржа.Начальная маржа, в которой плановые позиции рассчитываются с учётом активных заявок на покупку позиций лонг или продажу позиций шорт."""
 
     def __init__(
         self,
         *,
-        liquid_portfolio: common_pb2.MoneyValue | None = ...,
-        starting_margin: common_pb2.MoneyValue | None = ...,
-        minimal_margin: common_pb2.MoneyValue | None = ...,
-        funds_sufficiency_level: common_pb2.Quotation | None = ...,
-        amount_of_missing_funds: common_pb2.MoneyValue | None = ...,
-        corrected_margin: common_pb2.MoneyValue | None = ...,
+        liquid_portfolio: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        starting_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        minimal_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        funds_sufficiency_level: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        amount_of_missing_funds: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        corrected_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["amount_of_missing_funds", b"amount_of_missing_funds", "corrected_margin", b"corrected_margin", "funds_sufficiency_level", b"funds_sufficiency_level", "liquid_portfolio", b"liquid_portfolio", "minimal_margin", b"minimal_margin", "starting_margin", b"starting_margin"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["amount_of_missing_funds", b"amount_of_missing_funds", "corrected_margin", b"corrected_margin", "funds_sufficiency_level", b"funds_sufficiency_level", "liquid_portfolio", b"liquid_portfolio", "minimal_margin", b"minimal_margin", "starting_margin", b"starting_margin"]) -> None: ...

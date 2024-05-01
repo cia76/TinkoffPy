@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import marketdata_pb2 as marketdata__pb2
+from TinkoffPy.grpc import marketdata_pb2 as TinkoffPy_dot_grpc_dot_marketdata__pb2
 
 
 class MarketDataServiceStub(object):
@@ -17,43 +17,43 @@ class MarketDataServiceStub(object):
         """
         self.GetCandles = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetCandles',
-                request_serializer=marketdata__pb2.GetCandlesRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetCandlesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesResponse.FromString,
                 )
         self.GetLastPrices = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastPrices',
-                request_serializer=marketdata__pb2.GetLastPricesRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetLastPricesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesResponse.FromString,
                 )
         self.GetOrderBook = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetOrderBook',
-                request_serializer=marketdata__pb2.GetOrderBookRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetOrderBookResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookResponse.FromString,
                 )
         self.GetTradingStatus = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatus',
-                request_serializer=marketdata__pb2.GetTradingStatusRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetTradingStatusResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusResponse.FromString,
                 )
         self.GetTradingStatuses = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatuses',
-                request_serializer=marketdata__pb2.GetTradingStatusesRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetTradingStatusesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesResponse.FromString,
                 )
         self.GetLastTrades = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastTrades',
-                request_serializer=marketdata__pb2.GetLastTradesRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetLastTradesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesResponse.FromString,
                 )
         self.GetClosePrices = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetClosePrices',
-                request_serializer=marketdata__pb2.GetClosePricesRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetClosePricesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesResponse.FromString,
                 )
         self.GetTechAnalysis = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTechAnalysis',
-                request_serializer=marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.GetTechAnalysisResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisResponse.FromString,
                 )
 
 
@@ -122,43 +122,43 @@ def add_MarketDataServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetCandles': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCandles,
-                    request_deserializer=marketdata__pb2.GetCandlesRequest.FromString,
-                    response_serializer=marketdata__pb2.GetCandlesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesResponse.SerializeToString,
             ),
             'GetLastPrices': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLastPrices,
-                    request_deserializer=marketdata__pb2.GetLastPricesRequest.FromString,
-                    response_serializer=marketdata__pb2.GetLastPricesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesResponse.SerializeToString,
             ),
             'GetOrderBook': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrderBook,
-                    request_deserializer=marketdata__pb2.GetOrderBookRequest.FromString,
-                    response_serializer=marketdata__pb2.GetOrderBookResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookResponse.SerializeToString,
             ),
             'GetTradingStatus': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTradingStatus,
-                    request_deserializer=marketdata__pb2.GetTradingStatusRequest.FromString,
-                    response_serializer=marketdata__pb2.GetTradingStatusResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusResponse.SerializeToString,
             ),
             'GetTradingStatuses': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTradingStatuses,
-                    request_deserializer=marketdata__pb2.GetTradingStatusesRequest.FromString,
-                    response_serializer=marketdata__pb2.GetTradingStatusesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesResponse.SerializeToString,
             ),
             'GetLastTrades': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLastTrades,
-                    request_deserializer=marketdata__pb2.GetLastTradesRequest.FromString,
-                    response_serializer=marketdata__pb2.GetLastTradesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesResponse.SerializeToString,
             ),
             'GetClosePrices': grpc.unary_unary_rpc_method_handler(
                     servicer.GetClosePrices,
-                    request_deserializer=marketdata__pb2.GetClosePricesRequest.FromString,
-                    response_serializer=marketdata__pb2.GetClosePricesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesResponse.SerializeToString,
             ),
             'GetTechAnalysis': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTechAnalysis,
-                    request_deserializer=marketdata__pb2.GetTechAnalysisRequest.FromString,
-                    response_serializer=marketdata__pb2.GetTechAnalysisResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -183,8 +183,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetCandles',
-            marketdata__pb2.GetCandlesRequest.SerializeToString,
-            marketdata__pb2.GetCandlesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetCandlesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -200,8 +200,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastPrices',
-            marketdata__pb2.GetLastPricesRequest.SerializeToString,
-            marketdata__pb2.GetLastPricesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastPricesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -217,8 +217,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetOrderBook',
-            marketdata__pb2.GetOrderBookRequest.SerializeToString,
-            marketdata__pb2.GetOrderBookResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetOrderBookResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -234,8 +234,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatus',
-            marketdata__pb2.GetTradingStatusRequest.SerializeToString,
-            marketdata__pb2.GetTradingStatusResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -251,8 +251,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatuses',
-            marketdata__pb2.GetTradingStatusesRequest.SerializeToString,
-            marketdata__pb2.GetTradingStatusesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTradingStatusesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -268,8 +268,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastTrades',
-            marketdata__pb2.GetLastTradesRequest.SerializeToString,
-            marketdata__pb2.GetLastTradesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetLastTradesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -285,8 +285,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetClosePrices',
-            marketdata__pb2.GetClosePricesRequest.SerializeToString,
-            marketdata__pb2.GetClosePricesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetClosePricesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -302,8 +302,8 @@ class MarketDataService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTechAnalysis',
-            marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
-            marketdata__pb2.GetTechAnalysisResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.GetTechAnalysisResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -319,13 +319,13 @@ class MarketDataStreamServiceStub(object):
         """
         self.MarketDataStream = channel.stream_stream(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataStream',
-                request_serializer=marketdata__pb2.MarketDataRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.MarketDataResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.FromString,
                 )
         self.MarketDataServerSideStream = channel.unary_stream(
                 '/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataServerSideStream',
-                request_serializer=marketdata__pb2.MarketDataServerSideStreamRequest.SerializeToString,
-                response_deserializer=marketdata__pb2.MarketDataResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataServerSideStreamRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.FromString,
                 )
 
 
@@ -351,13 +351,13 @@ def add_MarketDataStreamServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'MarketDataStream': grpc.stream_stream_rpc_method_handler(
                     servicer.MarketDataStream,
-                    request_deserializer=marketdata__pb2.MarketDataRequest.FromString,
-                    response_serializer=marketdata__pb2.MarketDataResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.SerializeToString,
             ),
             'MarketDataServerSideStream': grpc.unary_stream_rpc_method_handler(
                     servicer.MarketDataServerSideStream,
-                    request_deserializer=marketdata__pb2.MarketDataServerSideStreamRequest.FromString,
-                    response_serializer=marketdata__pb2.MarketDataResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataServerSideStreamRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -381,8 +381,8 @@ class MarketDataStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataStream',
-            marketdata__pb2.MarketDataRequest.SerializeToString,
-            marketdata__pb2.MarketDataResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -398,7 +398,7 @@ class MarketDataStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataServerSideStream',
-            marketdata__pb2.MarketDataServerSideStreamRequest.SerializeToString,
-            marketdata__pb2.MarketDataResponse.FromString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataServerSideStreamRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_marketdata__pb2.MarketDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

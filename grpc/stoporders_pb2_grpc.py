@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import stoporders_pb2 as stoporders__pb2
+from TinkoffPy.grpc import stoporders_pb2 as TinkoffPy_dot_grpc_dot_stoporders__pb2
 
 
 class StopOrdersServiceStub(object):
@@ -18,18 +18,18 @@ class StopOrdersServiceStub(object):
         """
         self.PostStopOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.StopOrdersService/PostStopOrder',
-                request_serializer=stoporders__pb2.PostStopOrderRequest.SerializeToString,
-                response_deserializer=stoporders__pb2.PostStopOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderResponse.FromString,
                 )
         self.GetStopOrders = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.StopOrdersService/GetStopOrders',
-                request_serializer=stoporders__pb2.GetStopOrdersRequest.SerializeToString,
-                response_deserializer=stoporders__pb2.GetStopOrdersResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersResponse.FromString,
                 )
         self.CancelStopOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.StopOrdersService/CancelStopOrder',
-                request_serializer=stoporders__pb2.CancelStopOrderRequest.SerializeToString,
-                response_deserializer=stoporders__pb2.CancelStopOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderResponse.FromString,
                 )
 
 
@@ -64,18 +64,18 @@ def add_StopOrdersServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'PostStopOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.PostStopOrder,
-                    request_deserializer=stoporders__pb2.PostStopOrderRequest.FromString,
-                    response_serializer=stoporders__pb2.PostStopOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderResponse.SerializeToString,
             ),
             'GetStopOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetStopOrders,
-                    request_deserializer=stoporders__pb2.GetStopOrdersRequest.FromString,
-                    response_serializer=stoporders__pb2.GetStopOrdersResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersResponse.SerializeToString,
             ),
             'CancelStopOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelStopOrder,
-                    request_deserializer=stoporders__pb2.CancelStopOrderRequest.FromString,
-                    response_serializer=stoporders__pb2.CancelStopOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -101,8 +101,8 @@ class StopOrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.StopOrdersService/PostStopOrder',
-            stoporders__pb2.PostStopOrderRequest.SerializeToString,
-            stoporders__pb2.PostStopOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.PostStopOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -118,8 +118,8 @@ class StopOrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.StopOrdersService/GetStopOrders',
-            stoporders__pb2.GetStopOrdersRequest.SerializeToString,
-            stoporders__pb2.GetStopOrdersResponse.FromString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.GetStopOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -135,7 +135,7 @@ class StopOrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.StopOrdersService/CancelStopOrder',
-            stoporders__pb2.CancelStopOrderRequest.SerializeToString,
-            stoporders__pb2.CancelStopOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_stoporders__pb2.CancelStopOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

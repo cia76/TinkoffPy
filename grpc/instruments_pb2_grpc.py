@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import instruments_pb2 as instruments__pb2
+from TinkoffPy.grpc import instruments_pb2 as TinkoffPy_dot_grpc_dot_instruments__pb2
 
 
 class InstrumentsServiceStub(object):
@@ -19,168 +19,168 @@ class InstrumentsServiceStub(object):
         """
         self.TradingSchedules = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/TradingSchedules',
-                request_serializer=instruments__pb2.TradingSchedulesRequest.SerializeToString,
-                response_deserializer=instruments__pb2.TradingSchedulesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesResponse.FromString,
                 )
         self.BondBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/BondBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.BondResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.BondResponse.FromString,
                 )
         self.Bonds = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Bonds',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.BondsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.BondsResponse.FromString,
                 )
         self.GetBondCoupons = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBondCoupons',
-                request_serializer=instruments__pb2.GetBondCouponsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetBondCouponsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsResponse.FromString,
                 )
         self.GetBondEvents = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBondEvents',
-                request_serializer=instruments__pb2.GetBondEventsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetBondEventsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsResponse.FromString,
                 )
         self.CurrencyBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/CurrencyBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.CurrencyResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CurrencyResponse.FromString,
                 )
         self.Currencies = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Currencies',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.CurrenciesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CurrenciesResponse.FromString,
                 )
         self.EtfBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/EtfBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.EtfResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EtfResponse.FromString,
                 )
         self.Etfs = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Etfs',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.EtfsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EtfsResponse.FromString,
                 )
         self.FutureBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/FutureBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.FutureResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FutureResponse.FromString,
                 )
         self.Futures = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Futures',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.FuturesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FuturesResponse.FromString,
                 )
         self.OptionBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.OptionResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionResponse.FromString,
                 )
         self.Options = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Options',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.OptionsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.FromString,
                 )
         self.OptionsBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionsBy',
-                request_serializer=instruments__pb2.FilterOptionsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.OptionsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FilterOptionsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.FromString,
                 )
         self.ShareBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/ShareBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.ShareResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.ShareResponse.FromString,
                 )
         self.Shares = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Shares',
-                request_serializer=instruments__pb2.InstrumentsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.SharesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.SharesResponse.FromString,
                 )
         self.Indicatives = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Indicatives',
-                request_serializer=instruments__pb2.IndicativesRequest.SerializeToString,
-                response_deserializer=instruments__pb2.IndicativesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesResponse.FromString,
                 )
         self.GetAccruedInterests = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAccruedInterests',
-                request_serializer=instruments__pb2.GetAccruedInterestsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetAccruedInterestsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsResponse.FromString,
                 )
         self.GetFuturesMargin = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFuturesMargin',
-                request_serializer=instruments__pb2.GetFuturesMarginRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetFuturesMarginResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginResponse.FromString,
                 )
         self.GetInstrumentBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetInstrumentBy',
-                request_serializer=instruments__pb2.InstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.InstrumentResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentResponse.FromString,
                 )
         self.GetDividends = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetDividends',
-                request_serializer=instruments__pb2.GetDividendsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetDividendsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsResponse.FromString,
                 )
         self.GetAssetBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetBy',
-                request_serializer=instruments__pb2.AssetRequest.SerializeToString,
-                response_deserializer=instruments__pb2.AssetResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetResponse.FromString,
                 )
         self.GetAssets = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssets',
-                request_serializer=instruments__pb2.AssetsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.AssetsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsResponse.FromString,
                 )
         self.GetFavorites = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFavorites',
-                request_serializer=instruments__pb2.GetFavoritesRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetFavoritesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesResponse.FromString,
                 )
         self.EditFavorites = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/EditFavorites',
-                request_serializer=instruments__pb2.EditFavoritesRequest.SerializeToString,
-                response_deserializer=instruments__pb2.EditFavoritesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesResponse.FromString,
                 )
         self.GetCountries = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetCountries',
-                request_serializer=instruments__pb2.GetCountriesRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetCountriesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesResponse.FromString,
                 )
         self.FindInstrument = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/FindInstrument',
-                request_serializer=instruments__pb2.FindInstrumentRequest.SerializeToString,
-                response_deserializer=instruments__pb2.FindInstrumentResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentResponse.FromString,
                 )
         self.GetBrands = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrands',
-                request_serializer=instruments__pb2.GetBrandsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetBrandsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsResponse.FromString,
                 )
         self.GetBrandBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrandBy',
-                request_serializer=instruments__pb2.GetBrandRequest.SerializeToString,
-                response_deserializer=instruments__pb2.Brand.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.Brand.FromString,
                 )
         self.GetAssetFundamentals = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetFundamentals',
-                request_serializer=instruments__pb2.GetAssetFundamentalsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetAssetFundamentalsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsResponse.FromString,
                 )
         self.GetAssetReports = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetReports',
-                request_serializer=instruments__pb2.GetAssetReportsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetAssetReportsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsResponse.FromString,
                 )
         self.GetConsensusForecasts = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetConsensusForecasts',
-                request_serializer=instruments__pb2.GetConsensusForecastsRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetConsensusForecastsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsResponse.FromString,
                 )
         self.GetForecastBy = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetForecastBy',
-                request_serializer=instruments__pb2.GetForecastRequest.SerializeToString,
-                response_deserializer=instruments__pb2.GetForecastResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.FromString,
                 )
 
 
@@ -426,168 +426,168 @@ def add_InstrumentsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'TradingSchedules': grpc.unary_unary_rpc_method_handler(
                     servicer.TradingSchedules,
-                    request_deserializer=instruments__pb2.TradingSchedulesRequest.FromString,
-                    response_serializer=instruments__pb2.TradingSchedulesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesResponse.SerializeToString,
             ),
             'BondBy': grpc.unary_unary_rpc_method_handler(
                     servicer.BondBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.BondResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.BondResponse.SerializeToString,
             ),
             'Bonds': grpc.unary_unary_rpc_method_handler(
                     servicer.Bonds,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.BondsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.BondsResponse.SerializeToString,
             ),
             'GetBondCoupons': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBondCoupons,
-                    request_deserializer=instruments__pb2.GetBondCouponsRequest.FromString,
-                    response_serializer=instruments__pb2.GetBondCouponsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsResponse.SerializeToString,
             ),
             'GetBondEvents': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBondEvents,
-                    request_deserializer=instruments__pb2.GetBondEventsRequest.FromString,
-                    response_serializer=instruments__pb2.GetBondEventsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsResponse.SerializeToString,
             ),
             'CurrencyBy': grpc.unary_unary_rpc_method_handler(
                     servicer.CurrencyBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.CurrencyResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CurrencyResponse.SerializeToString,
             ),
             'Currencies': grpc.unary_unary_rpc_method_handler(
                     servicer.Currencies,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.CurrenciesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CurrenciesResponse.SerializeToString,
             ),
             'EtfBy': grpc.unary_unary_rpc_method_handler(
                     servicer.EtfBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.EtfResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EtfResponse.SerializeToString,
             ),
             'Etfs': grpc.unary_unary_rpc_method_handler(
                     servicer.Etfs,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.EtfsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EtfsResponse.SerializeToString,
             ),
             'FutureBy': grpc.unary_unary_rpc_method_handler(
                     servicer.FutureBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.FutureResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FutureResponse.SerializeToString,
             ),
             'Futures': grpc.unary_unary_rpc_method_handler(
                     servicer.Futures,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.FuturesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FuturesResponse.SerializeToString,
             ),
             'OptionBy': grpc.unary_unary_rpc_method_handler(
                     servicer.OptionBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.OptionResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionResponse.SerializeToString,
             ),
             'Options': grpc.unary_unary_rpc_method_handler(
                     servicer.Options,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.OptionsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.SerializeToString,
             ),
             'OptionsBy': grpc.unary_unary_rpc_method_handler(
                     servicer.OptionsBy,
-                    request_deserializer=instruments__pb2.FilterOptionsRequest.FromString,
-                    response_serializer=instruments__pb2.OptionsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FilterOptionsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.SerializeToString,
             ),
             'ShareBy': grpc.unary_unary_rpc_method_handler(
                     servicer.ShareBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.ShareResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.ShareResponse.SerializeToString,
             ),
             'Shares': grpc.unary_unary_rpc_method_handler(
                     servicer.Shares,
-                    request_deserializer=instruments__pb2.InstrumentsRequest.FromString,
-                    response_serializer=instruments__pb2.SharesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.SharesResponse.SerializeToString,
             ),
             'Indicatives': grpc.unary_unary_rpc_method_handler(
                     servicer.Indicatives,
-                    request_deserializer=instruments__pb2.IndicativesRequest.FromString,
-                    response_serializer=instruments__pb2.IndicativesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesResponse.SerializeToString,
             ),
             'GetAccruedInterests': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAccruedInterests,
-                    request_deserializer=instruments__pb2.GetAccruedInterestsRequest.FromString,
-                    response_serializer=instruments__pb2.GetAccruedInterestsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsResponse.SerializeToString,
             ),
             'GetFuturesMargin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetFuturesMargin,
-                    request_deserializer=instruments__pb2.GetFuturesMarginRequest.FromString,
-                    response_serializer=instruments__pb2.GetFuturesMarginResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginResponse.SerializeToString,
             ),
             'GetInstrumentBy': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInstrumentBy,
-                    request_deserializer=instruments__pb2.InstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.InstrumentResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentResponse.SerializeToString,
             ),
             'GetDividends': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDividends,
-                    request_deserializer=instruments__pb2.GetDividendsRequest.FromString,
-                    response_serializer=instruments__pb2.GetDividendsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsResponse.SerializeToString,
             ),
             'GetAssetBy': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAssetBy,
-                    request_deserializer=instruments__pb2.AssetRequest.FromString,
-                    response_serializer=instruments__pb2.AssetResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetResponse.SerializeToString,
             ),
             'GetAssets': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAssets,
-                    request_deserializer=instruments__pb2.AssetsRequest.FromString,
-                    response_serializer=instruments__pb2.AssetsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsResponse.SerializeToString,
             ),
             'GetFavorites': grpc.unary_unary_rpc_method_handler(
                     servicer.GetFavorites,
-                    request_deserializer=instruments__pb2.GetFavoritesRequest.FromString,
-                    response_serializer=instruments__pb2.GetFavoritesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesResponse.SerializeToString,
             ),
             'EditFavorites': grpc.unary_unary_rpc_method_handler(
                     servicer.EditFavorites,
-                    request_deserializer=instruments__pb2.EditFavoritesRequest.FromString,
-                    response_serializer=instruments__pb2.EditFavoritesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesResponse.SerializeToString,
             ),
             'GetCountries': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCountries,
-                    request_deserializer=instruments__pb2.GetCountriesRequest.FromString,
-                    response_serializer=instruments__pb2.GetCountriesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesResponse.SerializeToString,
             ),
             'FindInstrument': grpc.unary_unary_rpc_method_handler(
                     servicer.FindInstrument,
-                    request_deserializer=instruments__pb2.FindInstrumentRequest.FromString,
-                    response_serializer=instruments__pb2.FindInstrumentResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentResponse.SerializeToString,
             ),
             'GetBrands': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBrands,
-                    request_deserializer=instruments__pb2.GetBrandsRequest.FromString,
-                    response_serializer=instruments__pb2.GetBrandsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsResponse.SerializeToString,
             ),
             'GetBrandBy': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBrandBy,
-                    request_deserializer=instruments__pb2.GetBrandRequest.FromString,
-                    response_serializer=instruments__pb2.Brand.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.Brand.SerializeToString,
             ),
             'GetAssetFundamentals': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAssetFundamentals,
-                    request_deserializer=instruments__pb2.GetAssetFundamentalsRequest.FromString,
-                    response_serializer=instruments__pb2.GetAssetFundamentalsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsResponse.SerializeToString,
             ),
             'GetAssetReports': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAssetReports,
-                    request_deserializer=instruments__pb2.GetAssetReportsRequest.FromString,
-                    response_serializer=instruments__pb2.GetAssetReportsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsResponse.SerializeToString,
             ),
             'GetConsensusForecasts': grpc.unary_unary_rpc_method_handler(
                     servicer.GetConsensusForecasts,
-                    request_deserializer=instruments__pb2.GetConsensusForecastsRequest.FromString,
-                    response_serializer=instruments__pb2.GetConsensusForecastsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsResponse.SerializeToString,
             ),
             'GetForecastBy': grpc.unary_unary_rpc_method_handler(
                     servicer.GetForecastBy,
-                    request_deserializer=instruments__pb2.GetForecastRequest.FromString,
-                    response_serializer=instruments__pb2.GetForecastResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -614,8 +614,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/TradingSchedules',
-            instruments__pb2.TradingSchedulesRequest.SerializeToString,
-            instruments__pb2.TradingSchedulesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.TradingSchedulesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -631,8 +631,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/BondBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.BondResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.BondResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -648,8 +648,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Bonds',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.BondsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.BondsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -665,8 +665,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBondCoupons',
-            instruments__pb2.GetBondCouponsRequest.SerializeToString,
-            instruments__pb2.GetBondCouponsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondCouponsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -682,8 +682,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBondEvents',
-            instruments__pb2.GetBondEventsRequest.SerializeToString,
-            instruments__pb2.GetBondEventsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBondEventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -699,8 +699,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/CurrencyBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.CurrencyResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.CurrencyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -716,8 +716,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Currencies',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.CurrenciesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.CurrenciesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -733,8 +733,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/EtfBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.EtfResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.EtfResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -750,8 +750,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Etfs',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.EtfsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.EtfsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -767,8 +767,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/FutureBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.FutureResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.FutureResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -784,8 +784,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Futures',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.FuturesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.FuturesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -801,8 +801,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.OptionResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.OptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -818,8 +818,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Options',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.OptionsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -835,8 +835,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionsBy',
-            instruments__pb2.FilterOptionsRequest.SerializeToString,
-            instruments__pb2.OptionsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.FilterOptionsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.OptionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -852,8 +852,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/ShareBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.ShareResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.ShareResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -869,8 +869,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Shares',
-            instruments__pb2.InstrumentsRequest.SerializeToString,
-            instruments__pb2.SharesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.SharesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -886,8 +886,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/Indicatives',
-            instruments__pb2.IndicativesRequest.SerializeToString,
-            instruments__pb2.IndicativesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.IndicativesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -903,8 +903,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAccruedInterests',
-            instruments__pb2.GetAccruedInterestsRequest.SerializeToString,
-            instruments__pb2.GetAccruedInterestsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAccruedInterestsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -920,8 +920,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFuturesMargin',
-            instruments__pb2.GetFuturesMarginRequest.SerializeToString,
-            instruments__pb2.GetFuturesMarginResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFuturesMarginResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -937,8 +937,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetInstrumentBy',
-            instruments__pb2.InstrumentRequest.SerializeToString,
-            instruments__pb2.InstrumentResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.InstrumentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -954,8 +954,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetDividends',
-            instruments__pb2.GetDividendsRequest.SerializeToString,
-            instruments__pb2.GetDividendsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetDividendsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -971,8 +971,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetBy',
-            instruments__pb2.AssetRequest.SerializeToString,
-            instruments__pb2.AssetResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.AssetRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.AssetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -988,8 +988,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssets',
-            instruments__pb2.AssetsRequest.SerializeToString,
-            instruments__pb2.AssetsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.AssetsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1005,8 +1005,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFavorites',
-            instruments__pb2.GetFavoritesRequest.SerializeToString,
-            instruments__pb2.GetFavoritesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoritesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1022,8 +1022,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/EditFavorites',
-            instruments__pb2.EditFavoritesRequest.SerializeToString,
-            instruments__pb2.EditFavoritesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1039,8 +1039,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetCountries',
-            instruments__pb2.GetCountriesRequest.SerializeToString,
-            instruments__pb2.GetCountriesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1056,8 +1056,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/FindInstrument',
-            instruments__pb2.FindInstrumentRequest.SerializeToString,
-            instruments__pb2.FindInstrumentResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.FindInstrumentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1073,8 +1073,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrands',
-            instruments__pb2.GetBrandsRequest.SerializeToString,
-            instruments__pb2.GetBrandsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1090,8 +1090,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrandBy',
-            instruments__pb2.GetBrandRequest.SerializeToString,
-            instruments__pb2.Brand.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetBrandRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.Brand.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1107,8 +1107,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetFundamentals',
-            instruments__pb2.GetAssetFundamentalsRequest.SerializeToString,
-            instruments__pb2.GetAssetFundamentalsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetFundamentalsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1124,8 +1124,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetReports',
-            instruments__pb2.GetAssetReportsRequest.SerializeToString,
-            instruments__pb2.GetAssetReportsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetAssetReportsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1141,8 +1141,8 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetConsensusForecasts',
-            instruments__pb2.GetConsensusForecastsRequest.SerializeToString,
-            instruments__pb2.GetConsensusForecastsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetConsensusForecastsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1158,7 +1158,7 @@ class InstrumentsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetForecastBy',
-            instruments__pb2.GetForecastRequest.SerializeToString,
-            instruments__pb2.GetForecastResponse.FromString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -248,19 +248,19 @@ class PostStopOrderRequest(google.protobuf.message.Message):
         spread_type: global___TrailingValueType.ValueType
         """Тип величины защитного спреда"""
         @property
-        def indent(self) -> common_pb2.Quotation:
+        def indent(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Отступ"""
 
         @property
-        def spread(self) -> common_pb2.Quotation:
+        def spread(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Размер защитного спреда"""
 
         def __init__(
             self,
             *,
-            indent: common_pb2.Quotation | None = ...,
+            indent: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             indent_type: global___TrailingValueType.ValueType = ...,
-            spread: common_pb2.Quotation | None = ...,
+            spread: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             spread_type: global___TrailingValueType.ValueType = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["indent", b"indent", "spread", b"spread"]) -> builtins.bool: ...
@@ -299,16 +299,16 @@ class PostStopOrderRequest(google.protobuf.message.Message):
     """Тип дочерней биржевой заявки для тейкпрофита"""
     take_profit_type: global___TakeProfitType.ValueType
     """Подтип стоп-заявки TakeProfit"""
-    price_type: common_pb2.PriceType.ValueType
+    price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType
     """Тип цены"""
     order_id: builtins.str
     """Идентификатор запроса выставления поручения для целей идемпотентности в формате UID. Максимальная длина 36 символов."""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
-    def stop_price(self) -> common_pb2.Quotation:
+    def stop_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Стоп-цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
@@ -324,8 +324,8 @@ class PostStopOrderRequest(google.protobuf.message.Message):
         *,
         figi: builtins.str | None = ...,
         quantity: builtins.int = ...,
-        price: common_pb2.Quotation | None = ...,
-        stop_price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        stop_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         direction: global___StopOrderDirection.ValueType = ...,
         account_id: builtins.str = ...,
         expiration_type: global___StopOrderExpirationType.ValueType = ...,
@@ -335,7 +335,7 @@ class PostStopOrderRequest(google.protobuf.message.Message):
         exchange_order_type: global___ExchangeOrderType.ValueType = ...,
         take_profit_type: global___TakeProfitType.ValueType = ...,
         trailing_data: global___PostStopOrderRequest.TrailingData | None = ...,
-        price_type: common_pb2.PriceType.ValueType = ...,
+        price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType = ...,
         order_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_expire_date", b"_expire_date", "_figi", b"_figi", "_price", b"_price", "_stop_price", b"_stop_price", "expire_date", b"expire_date", "figi", b"figi", "price", b"price", "stop_price", b"stop_price", "trailing_data", b"trailing_data"]) -> builtins.bool: ...
@@ -365,7 +365,7 @@ class PostStopOrderResponse(google.protobuf.message.Message):
     order_request_id: builtins.str
     """Идентификатор ключа идемпотентности, переданный клиентом, в формате UID. Максимальная длина 36 символов."""
     @property
-    def response_metadata(self) -> common_pb2.ResponseMetadata:
+    def response_metadata(self) -> TinkoffPy.grpc.common_pb2.ResponseMetadata:
         """Метадата"""
 
     def __init__(
@@ -373,7 +373,7 @@ class PostStopOrderResponse(google.protobuf.message.Message):
         *,
         stop_order_id: builtins.str = ...,
         order_request_id: builtins.str = ...,
-        response_metadata: common_pb2.ResponseMetadata | None = ...,
+        response_metadata: TinkoffPy.grpc.common_pb2.ResponseMetadata | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["response_metadata", b"response_metadata"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["order_request_id", b"order_request_id", "response_metadata", b"response_metadata", "stop_order_id", b"stop_order_id"]) -> None: ...
@@ -497,31 +497,31 @@ class StopOrder(google.protobuf.message.Message):
         status: global___TrailingStopStatus.ValueType
         """Статус трейлинг-стопа"""
         @property
-        def indent(self) -> common_pb2.Quotation:
+        def indent(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Отступ"""
 
         @property
-        def spread(self) -> common_pb2.Quotation:
+        def spread(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Размер защитного спреда"""
 
         @property
-        def price(self) -> common_pb2.Quotation:
+        def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Цена исполнения"""
 
         @property
-        def extr(self) -> common_pb2.Quotation:
+        def extr(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Локальный экстремум"""
 
         def __init__(
             self,
             *,
-            indent: common_pb2.Quotation | None = ...,
+            indent: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             indent_type: global___TrailingValueType.ValueType = ...,
-            spread: common_pb2.Quotation | None = ...,
+            spread: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             spread_type: global___TrailingValueType.ValueType = ...,
             status: global___TrailingStopStatus.ValueType = ...,
-            price: common_pb2.Quotation | None = ...,
-            extr: common_pb2.Quotation | None = ...,
+            price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            extr: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["extr", b"extr", "indent", b"indent", "price", b"price", "spread", b"spread"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["extr", b"extr", "indent", b"indent", "indent_type", b"indent_type", "price", b"price", "spread", b"spread", "spread_type", b"spread_type", "status", b"status"]) -> None: ...
@@ -575,11 +575,11 @@ class StopOrder(google.protobuf.message.Message):
         """Дата и время снятия заявки в часовом поясе UTC"""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
-    def stop_price(self) -> common_pb2.MoneyValue:
+    def stop_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена активации стоп-заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
@@ -598,8 +598,8 @@ class StopOrder(google.protobuf.message.Message):
         create_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         activation_date_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         expiration_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        price: common_pb2.MoneyValue | None = ...,
-        stop_price: common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        stop_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         instrument_uid: builtins.str = ...,
         take_profit_type: global___TakeProfitType.ValueType = ...,
         trailing_data: global___StopOrder.TrailingData | None = ...,

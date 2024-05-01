@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -477,11 +477,11 @@ class Operation(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Уникальный идентификатор инструмента."""
     @property
-    def payment(self) -> common_pb2.MoneyValue:
+    def payment(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сумма операции."""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена операции за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
@@ -498,8 +498,8 @@ class Operation(google.protobuf.message.Message):
         id: builtins.str = ...,
         parent_operation_id: builtins.str = ...,
         currency: builtins.str = ...,
-        payment: common_pb2.MoneyValue | None = ...,
-        price: common_pb2.MoneyValue | None = ...,
+        payment: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         state: global___OperationState.ValueType = ...,
         quantity: builtins.int = ...,
         quantity_rest: builtins.int = ...,
@@ -537,7 +537,7 @@ class OperationTrade(google.protobuf.message.Message):
         """Дата и время сделки в часовом поясе UTC."""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     def __init__(
@@ -546,7 +546,7 @@ class OperationTrade(google.protobuf.message.Message):
         trade_id: builtins.str = ...,
         date_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         quantity: builtins.int = ...,
-        price: common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["date_time", b"date_time", "price", b"price"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["date_time", b"date_time", "price", b"price", "quantity", b"quantity", "trade_id", b"trade_id"]) -> None: ...
@@ -619,27 +619,27 @@ class PortfolioResponse(google.protobuf.message.Message):
     account_id: builtins.str
     """Идентификатор счёта пользователя."""
     @property
-    def total_amount_shares(self) -> common_pb2.MoneyValue:
+    def total_amount_shares(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость акций в портфеле."""
 
     @property
-    def total_amount_bonds(self) -> common_pb2.MoneyValue:
+    def total_amount_bonds(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость облигаций в портфеле."""
 
     @property
-    def total_amount_etf(self) -> common_pb2.MoneyValue:
+    def total_amount_etf(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость фондов в портфеле."""
 
     @property
-    def total_amount_currencies(self) -> common_pb2.MoneyValue:
+    def total_amount_currencies(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость валют в портфеле."""
 
     @property
-    def total_amount_futures(self) -> common_pb2.MoneyValue:
+    def total_amount_futures(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость фьючерсов в портфеле."""
 
     @property
-    def expected_yield(self) -> common_pb2.Quotation:
+    def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая относительная доходность портфеля, в %."""
 
     @property
@@ -647,15 +647,15 @@ class PortfolioResponse(google.protobuf.message.Message):
         """Список позиций портфеля."""
 
     @property
-    def total_amount_options(self) -> common_pb2.MoneyValue:
+    def total_amount_options(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость опционов в портфеле."""
 
     @property
-    def total_amount_sp(self) -> common_pb2.MoneyValue:
+    def total_amount_sp(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость структурных нот в портфеле."""
 
     @property
-    def total_amount_portfolio(self) -> common_pb2.MoneyValue:
+    def total_amount_portfolio(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость портфеля."""
 
     @property
@@ -665,17 +665,17 @@ class PortfolioResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        total_amount_shares: common_pb2.MoneyValue | None = ...,
-        total_amount_bonds: common_pb2.MoneyValue | None = ...,
-        total_amount_etf: common_pb2.MoneyValue | None = ...,
-        total_amount_currencies: common_pb2.MoneyValue | None = ...,
-        total_amount_futures: common_pb2.MoneyValue | None = ...,
-        expected_yield: common_pb2.Quotation | None = ...,
+        total_amount_shares: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_bonds: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_etf: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_currencies: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_futures: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        expected_yield: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         positions: collections.abc.Iterable[global___PortfolioPosition] | None = ...,
         account_id: builtins.str = ...,
-        total_amount_options: common_pb2.MoneyValue | None = ...,
-        total_amount_sp: common_pb2.MoneyValue | None = ...,
-        total_amount_portfolio: common_pb2.MoneyValue | None = ...,
+        total_amount_options: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_sp: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_amount_portfolio: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         virtual_positions: collections.abc.Iterable[global___VirtualPortfolioPosition] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["expected_yield", b"expected_yield", "total_amount_bonds", b"total_amount_bonds", "total_amount_currencies", b"total_amount_currencies", "total_amount_etf", b"total_amount_etf", "total_amount_futures", b"total_amount_futures", "total_amount_options", b"total_amount_options", "total_amount_portfolio", b"total_amount_portfolio", "total_amount_shares", b"total_amount_shares", "total_amount_sp", b"total_amount_sp"]) -> builtins.bool: ...
@@ -716,11 +716,11 @@ class PositionsResponse(google.protobuf.message.Message):
     limits_loading_in_progress: builtins.bool
     """Признак идущей в данный момент выгрузки лимитов."""
     @property
-    def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[common_pb2.MoneyValue]:
+    def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Массив валютных позиций портфеля."""
 
     @property
-    def blocked(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[common_pb2.MoneyValue]:
+    def blocked(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Массив заблокированных валютных позиций портфеля."""
 
     @property
@@ -738,8 +738,8 @@ class PositionsResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        money: collections.abc.Iterable[common_pb2.MoneyValue] | None = ...,
-        blocked: collections.abc.Iterable[common_pb2.MoneyValue] | None = ...,
+        money: collections.abc.Iterable[TinkoffPy.grpc.common_pb2.MoneyValue] | None = ...,
+        blocked: collections.abc.Iterable[TinkoffPy.grpc.common_pb2.MoneyValue] | None = ...,
         securities: collections.abc.Iterable[global___PositionsSecurities] | None = ...,
         limits_loading_in_progress: builtins.bool = ...,
         futures: collections.abc.Iterable[global___PositionsFutures] | None = ...,
@@ -777,23 +777,23 @@ class WithdrawLimitsResponse(google.protobuf.message.Message):
     BLOCKED_FIELD_NUMBER: builtins.int
     BLOCKED_GUARANTEE_FIELD_NUMBER: builtins.int
     @property
-    def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[common_pb2.MoneyValue]:
+    def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Массив валютных позиций портфеля."""
 
     @property
-    def blocked(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[common_pb2.MoneyValue]:
+    def blocked(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Массив заблокированных валютных позиций портфеля."""
 
     @property
-    def blocked_guarantee(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[common_pb2.MoneyValue]:
+    def blocked_guarantee(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Заблокировано под гарантийное обеспечение фьючерсов."""
 
     def __init__(
         self,
         *,
-        money: collections.abc.Iterable[common_pb2.MoneyValue] | None = ...,
-        blocked: collections.abc.Iterable[common_pb2.MoneyValue] | None = ...,
-        blocked_guarantee: collections.abc.Iterable[common_pb2.MoneyValue] | None = ...,
+        money: collections.abc.Iterable[TinkoffPy.grpc.common_pb2.MoneyValue] | None = ...,
+        blocked: collections.abc.Iterable[TinkoffPy.grpc.common_pb2.MoneyValue] | None = ...,
+        blocked_guarantee: collections.abc.Iterable[TinkoffPy.grpc.common_pb2.MoneyValue] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["blocked", b"blocked", "blocked_guarantee", b"blocked_guarantee", "money", b"money"]) -> None: ...
 
@@ -832,47 +832,47 @@ class PortfolioPosition(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """instrument_uid-идентификатора инструмента"""
     @property
-    def quantity(self) -> common_pb2.Quotation:
+    def quantity(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество инструмента в портфеле в штуках."""
 
     @property
-    def average_position_price(self) -> common_pb2.MoneyValue:
+    def average_position_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Средневзвешенная цена позиции. **Возможна задержка до секунды для пересчёта**."""
 
     @property
-    def expected_yield(self) -> common_pb2.Quotation:
+    def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая рассчитанная доходность позиции."""
 
     @property
-    def current_nkd(self) -> common_pb2.MoneyValue:
+    def current_nkd(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Текущий НКД."""
 
     @property
-    def average_position_price_pt(self) -> common_pb2.Quotation:
+    def average_position_price_pt(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Deprecated Средняя цена позиции в пунктах (для фьючерсов). **Возможна задержка до секунды для пересчёта**."""
 
     @property
-    def current_price(self) -> common_pb2.MoneyValue:
+    def current_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
-    def average_position_price_fifo(self) -> common_pb2.MoneyValue:
+    def average_position_price_fifo(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Средняя цена позиции по методу FIFO. **Возможна задержка до секунды для пересчёта**."""
 
     @property
-    def quantity_lots(self) -> common_pb2.Quotation:
+    def quantity_lots(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Deprecated Количество лотов в портфеле."""
 
     @property
-    def blocked_lots(self) -> common_pb2.Quotation:
+    def blocked_lots(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество бумаг, заблокированных выставленными заявками."""
 
     @property
-    def var_margin(self) -> common_pb2.MoneyValue:
+    def var_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Вариационная маржа"""
 
     @property
-    def expected_yield_fifo(self) -> common_pb2.Quotation:
+    def expected_yield_fifo(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая рассчитанная доходность позиции."""
 
     def __init__(
@@ -880,20 +880,20 @@ class PortfolioPosition(google.protobuf.message.Message):
         *,
         figi: builtins.str = ...,
         instrument_type: builtins.str = ...,
-        quantity: common_pb2.Quotation | None = ...,
-        average_position_price: common_pb2.MoneyValue | None = ...,
-        expected_yield: common_pb2.Quotation | None = ...,
-        current_nkd: common_pb2.MoneyValue | None = ...,
-        average_position_price_pt: common_pb2.Quotation | None = ...,
-        current_price: common_pb2.MoneyValue | None = ...,
-        average_position_price_fifo: common_pb2.MoneyValue | None = ...,
-        quantity_lots: common_pb2.Quotation | None = ...,
+        quantity: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        average_position_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        expected_yield: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        current_nkd: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        average_position_price_pt: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        current_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        average_position_price_fifo: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        quantity_lots: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         blocked: builtins.bool = ...,
-        blocked_lots: common_pb2.Quotation | None = ...,
+        blocked_lots: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         position_uid: builtins.str = ...,
         instrument_uid: builtins.str = ...,
-        var_margin: common_pb2.MoneyValue | None = ...,
-        expected_yield_fifo: common_pb2.Quotation | None = ...,
+        var_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        expected_yield_fifo: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked", b"blocked", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> None: ...
@@ -924,19 +924,19 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
     instrument_type: builtins.str
     """Тип инструмента."""
     @property
-    def quantity(self) -> common_pb2.Quotation:
+    def quantity(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество инструмента в портфеле в штуках."""
 
     @property
-    def average_position_price(self) -> common_pb2.MoneyValue:
+    def average_position_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Средневзвешенная цена позиции. **Возможна задержка до секунды для пересчёта**."""
 
     @property
-    def expected_yield(self) -> common_pb2.Quotation:
+    def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая рассчитанная доходность позиции."""
 
     @property
-    def expected_yield_fifo(self) -> common_pb2.Quotation:
+    def expected_yield_fifo(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая рассчитанная доходность позиции."""
 
     @property
@@ -944,11 +944,11 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
         """Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит" """
 
     @property
-    def current_price(self) -> common_pb2.MoneyValue:
+    def current_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
-    def average_position_price_fifo(self) -> common_pb2.MoneyValue:
+    def average_position_price_fifo(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Средняя цена позиции по методу FIFO. **Возможна задержка до секунды для пересчёта**."""
 
     def __init__(
@@ -958,13 +958,13 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
         instrument_uid: builtins.str = ...,
         figi: builtins.str = ...,
         instrument_type: builtins.str = ...,
-        quantity: common_pb2.Quotation | None = ...,
-        average_position_price: common_pb2.MoneyValue | None = ...,
-        expected_yield: common_pb2.Quotation | None = ...,
-        expected_yield_fifo: common_pb2.Quotation | None = ...,
+        quantity: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        average_position_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        expected_yield: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        expected_yield_fifo: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         expire_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        current_price: common_pb2.MoneyValue | None = ...,
-        average_position_price_fifo: common_pb2.MoneyValue | None = ...,
+        current_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        average_position_price_fifo: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "quantity", b"quantity"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity"]) -> None: ...
@@ -1279,35 +1279,35 @@ class BrokerReport(google.protobuf.message.Message):
         """Дата и время заключения в часовом поясе UTC."""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена за единицу."""
 
     @property
-    def order_amount(self) -> common_pb2.MoneyValue:
+    def order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сумма (без НКД)."""
 
     @property
-    def aci_value(self) -> common_pb2.Quotation:
+    def aci_value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """НКД."""
 
     @property
-    def total_order_amount(self) -> common_pb2.MoneyValue:
+    def total_order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сумма сделки."""
 
     @property
-    def broker_commission(self) -> common_pb2.MoneyValue:
+    def broker_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Комиссия брокера."""
 
     @property
-    def exchange_commission(self) -> common_pb2.MoneyValue:
+    def exchange_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Комиссия биржи."""
 
     @property
-    def exchange_clearing_commission(self) -> common_pb2.MoneyValue:
+    def exchange_clearing_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Комиссия клир. центра."""
 
     @property
-    def repo_rate(self) -> common_pb2.Quotation:
+    def repo_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка РЕПО (%)."""
 
     @property
@@ -1331,15 +1331,15 @@ class BrokerReport(google.protobuf.message.Message):
         direction: builtins.str = ...,
         name: builtins.str = ...,
         ticker: builtins.str = ...,
-        price: common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         quantity: builtins.int = ...,
-        order_amount: common_pb2.MoneyValue | None = ...,
-        aci_value: common_pb2.Quotation | None = ...,
-        total_order_amount: common_pb2.MoneyValue | None = ...,
-        broker_commission: common_pb2.MoneyValue | None = ...,
-        exchange_commission: common_pb2.MoneyValue | None = ...,
-        exchange_clearing_commission: common_pb2.MoneyValue | None = ...,
-        repo_rate: common_pb2.Quotation | None = ...,
+        order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        aci_value: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        total_order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        broker_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        exchange_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        exchange_clearing_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        repo_rate: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         party: builtins.str = ...,
         clear_value_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         sec_value_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1539,23 +1539,23 @@ class DividendsForeignIssuerReport(google.protobuf.message.Message):
         """Дата выплаты."""
 
     @property
-    def dividend(self) -> common_pb2.Quotation:
+    def dividend(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Выплаты на одну бумагу"""
 
     @property
-    def external_commission(self) -> common_pb2.Quotation:
+    def external_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Комиссия внешних платёжных агентов."""
 
     @property
-    def dividend_gross(self) -> common_pb2.Quotation:
+    def dividend_gross(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Сумма до удержания налога."""
 
     @property
-    def tax(self) -> common_pb2.Quotation:
+    def tax(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Сумма налога, удержанного агентом."""
 
     @property
-    def dividend_amount(self) -> common_pb2.Quotation:
+    def dividend_amount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Итоговая сумма выплаты."""
 
     def __init__(
@@ -1567,11 +1567,11 @@ class DividendsForeignIssuerReport(google.protobuf.message.Message):
         isin: builtins.str = ...,
         issuer_country: builtins.str = ...,
         quantity: builtins.int = ...,
-        dividend: common_pb2.Quotation | None = ...,
-        external_commission: common_pb2.Quotation | None = ...,
-        dividend_gross: common_pb2.Quotation | None = ...,
-        tax: common_pb2.Quotation | None = ...,
-        dividend_amount: common_pb2.Quotation | None = ...,
+        dividend: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        external_commission: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dividend_gross: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        tax: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dividend_amount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         currency: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["dividend", b"dividend", "dividend_amount", b"dividend_amount", "dividend_gross", b"dividend_gross", "external_commission", b"external_commission", "payment_date", b"payment_date", "record_date", b"record_date", "tax", b"tax"]) -> builtins.bool: ...
@@ -1617,7 +1617,7 @@ class PortfolioStreamResponse(google.protobuf.message.Message):
         """Объект стриминга портфеля."""
 
     @property
-    def ping(self) -> common_pb2.Ping:
+    def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
     def __init__(
@@ -1625,7 +1625,7 @@ class PortfolioStreamResponse(google.protobuf.message.Message):
         *,
         subscriptions: global___PortfolioSubscriptionResult | None = ...,
         portfolio: global___PortfolioResponse | None = ...,
-        ping: common_pb2.Ping | None = ...,
+        ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "portfolio", b"portfolio", "subscriptions", b"subscriptions"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "portfolio", b"portfolio", "subscriptions", b"subscriptions"]) -> None: ...
@@ -1836,7 +1836,7 @@ class OperationItem(google.protobuf.message.Message):
     """Figi."""
     instrument_type: builtins.str
     """Тип инструмента."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     position_uid: builtins.str
     """position_uid-идентификатора инструмента."""
@@ -1855,23 +1855,23 @@ class OperationItem(google.protobuf.message.Message):
         """Дата поручения."""
 
     @property
-    def payment(self) -> common_pb2.MoneyValue:
+    def payment(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сумма операции."""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена операции за 1 инструмент."""
 
     @property
-    def commission(self) -> common_pb2.MoneyValue:
+    def commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Комиссия."""
 
     @property
-    def yield_relative(self) -> common_pb2.Quotation:
+    def yield_relative(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Относительная доходность."""
 
     @property
-    def accrued_int(self) -> common_pb2.MoneyValue:
+    def accrued_int(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Накопленный купонный доход."""
 
     @property
@@ -1897,13 +1897,13 @@ class OperationItem(google.protobuf.message.Message):
         instrument_uid: builtins.str = ...,
         figi: builtins.str = ...,
         instrument_type: builtins.str = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         position_uid: builtins.str = ...,
-        payment: common_pb2.MoneyValue | None = ...,
-        price: common_pb2.MoneyValue | None = ...,
-        commission: common_pb2.MoneyValue | None = ...,
-        yield_relative: common_pb2.Quotation | None = ...,
-        accrued_int: common_pb2.MoneyValue | None = ...,
+        payment: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        yield_relative: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        accrued_int: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         quantity: builtins.int = ...,
         quantity_rest: builtins.int = ...,
         quantity_done: builtins.int = ...,
@@ -1956,11 +1956,11 @@ class OperationItemTrade(google.protobuf.message.Message):
         """Дата сделки"""
 
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена."""
 
     @property
-    def yield_relative(self) -> common_pb2.Quotation:
+    def yield_relative(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Относительная доходность."""
 
     def __init__(
@@ -1969,8 +1969,8 @@ class OperationItemTrade(google.protobuf.message.Message):
         num: builtins.str = ...,
         date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         quantity: builtins.int = ...,
-        price: common_pb2.MoneyValue | None = ...,
-        yield_relative: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        yield_relative: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["date", b"date", "price", b"price", "yield", b"yield", "yield_relative", b"yield_relative"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["date", b"date", "num", b"num", "price", b"price", "quantity", b"quantity", "yield", b"yield", "yield_relative", b"yield_relative"]) -> None: ...
@@ -2015,7 +2015,7 @@ class PositionsStreamResponse(google.protobuf.message.Message):
         """Объект стриминга позиций."""
 
     @property
-    def ping(self) -> common_pb2.Ping:
+    def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
     def __init__(
@@ -2023,7 +2023,7 @@ class PositionsStreamResponse(google.protobuf.message.Message):
         *,
         subscriptions: global___PositionsSubscriptionResult | None = ...,
         position: global___PositionData | None = ...,
-        ping: common_pb2.Ping | None = ...,
+        ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> None: ...
@@ -2131,18 +2131,18 @@ class PositionsMoney(google.protobuf.message.Message):
     AVAILABLE_VALUE_FIELD_NUMBER: builtins.int
     BLOCKED_VALUE_FIELD_NUMBER: builtins.int
     @property
-    def available_value(self) -> common_pb2.MoneyValue:
+    def available_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Доступное количество валютный позиций."""
 
     @property
-    def blocked_value(self) -> common_pb2.MoneyValue:
+    def blocked_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Заблокированное количество валютный позиций."""
 
     def __init__(
         self,
         *,
-        available_value: common_pb2.MoneyValue | None = ...,
-        blocked_value: common_pb2.MoneyValue | None = ...,
+        available_value: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        blocked_value: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["available_value", b"available_value", "blocked_value", b"blocked_value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["available_value", b"available_value", "blocked_value", b"blocked_value"]) -> None: ...

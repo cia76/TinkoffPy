@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import users_pb2 as users__pb2
+from TinkoffPy.grpc import users_pb2 as TinkoffPy_dot_grpc_dot_users__pb2
 
 
 class UsersServiceStub(object):
@@ -18,23 +18,23 @@ class UsersServiceStub(object):
         """
         self.GetAccounts = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.UsersService/GetAccounts',
-                request_serializer=users__pb2.GetAccountsRequest.SerializeToString,
-                response_deserializer=users__pb2.GetAccountsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.FromString,
                 )
         self.GetMarginAttributes = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.UsersService/GetMarginAttributes',
-                request_serializer=users__pb2.GetMarginAttributesRequest.SerializeToString,
-                response_deserializer=users__pb2.GetMarginAttributesResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesResponse.FromString,
                 )
         self.GetUserTariff = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.UsersService/GetUserTariff',
-                request_serializer=users__pb2.GetUserTariffRequest.SerializeToString,
-                response_deserializer=users__pb2.GetUserTariffResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffResponse.FromString,
                 )
         self.GetInfo = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.UsersService/GetInfo',
-                request_serializer=users__pb2.GetInfoRequest.SerializeToString,
-                response_deserializer=users__pb2.GetInfoResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetInfoRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetInfoResponse.FromString,
                 )
 
 
@@ -76,23 +76,23 @@ def add_UsersServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetAccounts': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAccounts,
-                    request_deserializer=users__pb2.GetAccountsRequest.FromString,
-                    response_serializer=users__pb2.GetAccountsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.SerializeToString,
             ),
             'GetMarginAttributes': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMarginAttributes,
-                    request_deserializer=users__pb2.GetMarginAttributesRequest.FromString,
-                    response_serializer=users__pb2.GetMarginAttributesResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesResponse.SerializeToString,
             ),
             'GetUserTariff': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserTariff,
-                    request_deserializer=users__pb2.GetUserTariffRequest.FromString,
-                    response_serializer=users__pb2.GetUserTariffResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffResponse.SerializeToString,
             ),
             'GetInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInfo,
-                    request_deserializer=users__pb2.GetInfoRequest.FromString,
-                    response_serializer=users__pb2.GetInfoResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_users__pb2.GetInfoRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_users__pb2.GetInfoResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -118,8 +118,8 @@ class UsersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.UsersService/GetAccounts',
-            users__pb2.GetAccountsRequest.SerializeToString,
-            users__pb2.GetAccountsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetAccountsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -135,8 +135,8 @@ class UsersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.UsersService/GetMarginAttributes',
-            users__pb2.GetMarginAttributesRequest.SerializeToString,
-            users__pb2.GetMarginAttributesResponse.FromString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetMarginAttributesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -152,8 +152,8 @@ class UsersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.UsersService/GetUserTariff',
-            users__pb2.GetUserTariffRequest.SerializeToString,
-            users__pb2.GetUserTariffResponse.FromString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetUserTariffResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -169,7 +169,7 @@ class UsersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.UsersService/GetInfo',
-            users__pb2.GetInfoRequest.SerializeToString,
-            users__pb2.GetInfoResponse.FromString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetInfoRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_users__pb2.GetInfoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

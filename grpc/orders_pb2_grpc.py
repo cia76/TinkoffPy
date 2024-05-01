@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import orders_pb2 as orders__pb2
+from TinkoffPy.grpc import orders_pb2 as TinkoffPy_dot_grpc_dot_orders__pb2
 
 
 class OrdersStreamServiceStub(object):
@@ -16,13 +16,13 @@ class OrdersStreamServiceStub(object):
         """
         self.TradesStream = channel.unary_stream(
                 '/tinkoff.public.invest.api.contract.v1.OrdersStreamService/TradesStream',
-                request_serializer=orders__pb2.TradesStreamRequest.SerializeToString,
-                response_deserializer=orders__pb2.TradesStreamResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamResponse.FromString,
                 )
         self.OrderStateStream = channel.unary_stream(
                 '/tinkoff.public.invest.api.contract.v1.OrdersStreamService/OrderStateStream',
-                request_serializer=orders__pb2.OrderStateStreamRequest.SerializeToString,
-                response_deserializer=orders__pb2.OrderStateStreamResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamResponse.FromString,
                 )
 
 
@@ -48,13 +48,13 @@ def add_OrdersStreamServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'TradesStream': grpc.unary_stream_rpc_method_handler(
                     servicer.TradesStream,
-                    request_deserializer=orders__pb2.TradesStreamRequest.FromString,
-                    response_serializer=orders__pb2.TradesStreamResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamResponse.SerializeToString,
             ),
             'OrderStateStream': grpc.unary_stream_rpc_method_handler(
                     servicer.OrderStateStream,
-                    request_deserializer=orders__pb2.OrderStateStreamRequest.FromString,
-                    response_serializer=orders__pb2.OrderStateStreamResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -78,8 +78,8 @@ class OrdersStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersStreamService/TradesStream',
-            orders__pb2.TradesStreamRequest.SerializeToString,
-            orders__pb2.TradesStreamResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.TradesStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -95,8 +95,8 @@ class OrdersStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersStreamService/OrderStateStream',
-            orders__pb2.OrderStateStreamRequest.SerializeToString,
-            orders__pb2.OrderStateStreamResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.OrderStateStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -115,38 +115,38 @@ class OrdersServiceStub(object):
         """
         self.PostOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/PostOrder',
-                request_serializer=orders__pb2.PostOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.PostOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
                 )
         self.CancelOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/CancelOrder',
-                request_serializer=orders__pb2.CancelOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.CancelOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.FromString,
                 )
         self.GetOrderState = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrderState',
-                request_serializer=orders__pb2.GetOrderStateRequest.SerializeToString,
-                response_deserializer=orders__pb2.OrderState.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.FromString,
                 )
         self.GetOrders = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrders',
-                request_serializer=orders__pb2.GetOrdersRequest.SerializeToString,
-                response_deserializer=orders__pb2.GetOrdersResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.FromString,
                 )
         self.ReplaceOrder = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/ReplaceOrder',
-                request_serializer=orders__pb2.ReplaceOrderRequest.SerializeToString,
-                response_deserializer=orders__pb2.PostOrderResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
                 )
         self.GetMaxLots = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/GetMaxLots',
-                request_serializer=orders__pb2.GetMaxLotsRequest.SerializeToString,
-                response_deserializer=orders__pb2.GetMaxLotsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.FromString,
                 )
         self.GetOrderPrice = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrderPrice',
-                request_serializer=orders__pb2.GetOrderPriceRequest.SerializeToString,
-                response_deserializer=orders__pb2.GetOrderPriceResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceResponse.FromString,
                 )
 
 
@@ -210,38 +210,38 @@ def add_OrdersServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'PostOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.PostOrder,
-                    request_deserializer=orders__pb2.PostOrderRequest.FromString,
-                    response_serializer=orders__pb2.PostOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.SerializeToString,
             ),
             'CancelOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelOrder,
-                    request_deserializer=orders__pb2.CancelOrderRequest.FromString,
-                    response_serializer=orders__pb2.CancelOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.SerializeToString,
             ),
             'GetOrderState': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrderState,
-                    request_deserializer=orders__pb2.GetOrderStateRequest.FromString,
-                    response_serializer=orders__pb2.OrderState.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.SerializeToString,
             ),
             'GetOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrders,
-                    request_deserializer=orders__pb2.GetOrdersRequest.FromString,
-                    response_serializer=orders__pb2.GetOrdersResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.SerializeToString,
             ),
             'ReplaceOrder': grpc.unary_unary_rpc_method_handler(
                     servicer.ReplaceOrder,
-                    request_deserializer=orders__pb2.ReplaceOrderRequest.FromString,
-                    response_serializer=orders__pb2.PostOrderResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.SerializeToString,
             ),
             'GetMaxLots': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMaxLots,
-                    request_deserializer=orders__pb2.GetMaxLotsRequest.FromString,
-                    response_serializer=orders__pb2.GetMaxLotsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.SerializeToString,
             ),
             'GetOrderPrice': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrderPrice,
-                    request_deserializer=orders__pb2.GetOrderPriceRequest.FromString,
-                    response_serializer=orders__pb2.GetOrderPriceResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -268,8 +268,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/PostOrder',
-            orders__pb2.PostOrderRequest.SerializeToString,
-            orders__pb2.PostOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -285,8 +285,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/CancelOrder',
-            orders__pb2.CancelOrderRequest.SerializeToString,
-            orders__pb2.CancelOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.CancelOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -302,8 +302,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrderState',
-            orders__pb2.GetOrderStateRequest.SerializeToString,
-            orders__pb2.OrderState.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderStateRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.OrderState.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -319,8 +319,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrders',
-            orders__pb2.GetOrdersRequest.SerializeToString,
-            orders__pb2.GetOrdersResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -336,8 +336,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/ReplaceOrder',
-            orders__pb2.ReplaceOrderRequest.SerializeToString,
-            orders__pb2.PostOrderResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.ReplaceOrderRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.PostOrderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -353,8 +353,8 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/GetMaxLots',
-            orders__pb2.GetMaxLotsRequest.SerializeToString,
-            orders__pb2.GetMaxLotsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetMaxLotsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -370,7 +370,7 @@ class OrdersService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrderPrice',
-            orders__pb2.GetOrderPriceRequest.SerializeToString,
-            orders__pb2.GetOrderPriceResponse.FromString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_orders__pb2.GetOrderPriceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from TinkoffPy.grpc import operations_pb2 as operations__pb2
+from TinkoffPy.grpc import operations_pb2 as TinkoffPy_dot_grpc_dot_operations__pb2
 
 
 class OperationsServiceStub(object):
@@ -19,38 +19,38 @@ class OperationsServiceStub(object):
         """
         self.GetOperations = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperations',
-                request_serializer=operations__pb2.OperationsRequest.SerializeToString,
-                response_deserializer=operations__pb2.OperationsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.FromString,
                 )
         self.GetPortfolio = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetPortfolio',
-                request_serializer=operations__pb2.PortfolioRequest.SerializeToString,
-                response_deserializer=operations__pb2.PortfolioResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.FromString,
                 )
         self.GetPositions = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetPositions',
-                request_serializer=operations__pb2.PositionsRequest.SerializeToString,
-                response_deserializer=operations__pb2.PositionsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.FromString,
                 )
         self.GetWithdrawLimits = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetWithdrawLimits',
-                request_serializer=operations__pb2.WithdrawLimitsRequest.SerializeToString,
-                response_deserializer=operations__pb2.WithdrawLimitsResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.FromString,
                 )
         self.GetBrokerReport = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetBrokerReport',
-                request_serializer=operations__pb2.BrokerReportRequest.SerializeToString,
-                response_deserializer=operations__pb2.BrokerReportResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportResponse.FromString,
                 )
         self.GetDividendsForeignIssuer = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetDividendsForeignIssuer',
-                request_serializer=operations__pb2.GetDividendsForeignIssuerRequest.SerializeToString,
-                response_deserializer=operations__pb2.GetDividendsForeignIssuerResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerResponse.FromString,
                 )
         self.GetOperationsByCursor = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperationsByCursor',
-                request_serializer=operations__pb2.GetOperationsByCursorRequest.SerializeToString,
-                response_deserializer=operations__pb2.GetOperationsByCursorResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.FromString,
                 )
 
 
@@ -116,38 +116,38 @@ def add_OperationsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetOperations': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOperations,
-                    request_deserializer=operations__pb2.OperationsRequest.FromString,
-                    response_serializer=operations__pb2.OperationsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.SerializeToString,
             ),
             'GetPortfolio': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPortfolio,
-                    request_deserializer=operations__pb2.PortfolioRequest.FromString,
-                    response_serializer=operations__pb2.PortfolioResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.SerializeToString,
             ),
             'GetPositions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPositions,
-                    request_deserializer=operations__pb2.PositionsRequest.FromString,
-                    response_serializer=operations__pb2.PositionsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.SerializeToString,
             ),
             'GetWithdrawLimits': grpc.unary_unary_rpc_method_handler(
                     servicer.GetWithdrawLimits,
-                    request_deserializer=operations__pb2.WithdrawLimitsRequest.FromString,
-                    response_serializer=operations__pb2.WithdrawLimitsResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.SerializeToString,
             ),
             'GetBrokerReport': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBrokerReport,
-                    request_deserializer=operations__pb2.BrokerReportRequest.FromString,
-                    response_serializer=operations__pb2.BrokerReportResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportResponse.SerializeToString,
             ),
             'GetDividendsForeignIssuer': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDividendsForeignIssuer,
-                    request_deserializer=operations__pb2.GetDividendsForeignIssuerRequest.FromString,
-                    response_serializer=operations__pb2.GetDividendsForeignIssuerResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerResponse.SerializeToString,
             ),
             'GetOperationsByCursor': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOperationsByCursor,
-                    request_deserializer=operations__pb2.GetOperationsByCursorRequest.FromString,
-                    response_serializer=operations__pb2.GetOperationsByCursorResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -174,8 +174,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperations',
-            operations__pb2.OperationsRequest.SerializeToString,
-            operations__pb2.OperationsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.OperationsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.OperationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -191,8 +191,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetPortfolio',
-            operations__pb2.PortfolioRequest.SerializeToString,
-            operations__pb2.PortfolioResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -208,8 +208,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetPositions',
-            operations__pb2.PositionsRequest.SerializeToString,
-            operations__pb2.PositionsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -225,8 +225,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetWithdrawLimits',
-            operations__pb2.WithdrawLimitsRequest.SerializeToString,
-            operations__pb2.WithdrawLimitsResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.WithdrawLimitsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -242,8 +242,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetBrokerReport',
-            operations__pb2.BrokerReportRequest.SerializeToString,
-            operations__pb2.BrokerReportResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.BrokerReportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -259,8 +259,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetDividendsForeignIssuer',
-            operations__pb2.GetDividendsForeignIssuerRequest.SerializeToString,
-            operations__pb2.GetDividendsForeignIssuerResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetDividendsForeignIssuerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -276,8 +276,8 @@ class OperationsService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperationsByCursor',
-            operations__pb2.GetOperationsByCursorRequest.SerializeToString,
-            operations__pb2.GetOperationsByCursorResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.GetOperationsByCursorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -293,13 +293,13 @@ class OperationsStreamServiceStub(object):
         """
         self.PortfolioStream = channel.unary_stream(
                 '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PortfolioStream',
-                request_serializer=operations__pb2.PortfolioStreamRequest.SerializeToString,
-                response_deserializer=operations__pb2.PortfolioStreamResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamResponse.FromString,
                 )
         self.PositionsStream = channel.unary_stream(
                 '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PositionsStream',
-                request_serializer=operations__pb2.PositionsStreamRequest.SerializeToString,
-                response_deserializer=operations__pb2.PositionsStreamResponse.FromString,
+                request_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamResponse.FromString,
                 )
 
 
@@ -325,13 +325,13 @@ def add_OperationsStreamServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'PortfolioStream': grpc.unary_stream_rpc_method_handler(
                     servicer.PortfolioStream,
-                    request_deserializer=operations__pb2.PortfolioStreamRequest.FromString,
-                    response_serializer=operations__pb2.PortfolioStreamResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamResponse.SerializeToString,
             ),
             'PositionsStream': grpc.unary_stream_rpc_method_handler(
                     servicer.PositionsStream,
-                    request_deserializer=operations__pb2.PositionsStreamRequest.FromString,
-                    response_serializer=operations__pb2.PositionsStreamResponse.SerializeToString,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -355,8 +355,8 @@ class OperationsStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PortfolioStream',
-            operations__pb2.PortfolioStreamRequest.SerializeToString,
-            operations__pb2.PortfolioStreamResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PortfolioStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -372,7 +372,7 @@ class OperationsStreamService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PositionsStream',
-            operations__pb2.PositionsStreamRequest.SerializeToString,
-            operations__pb2.PositionsStreamResponse.FromString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_operations__pb2.PositionsStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

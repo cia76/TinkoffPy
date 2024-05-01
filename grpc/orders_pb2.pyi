@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -168,14 +168,14 @@ class TradesStreamResponse(google.protobuf.message.Message):
         """Информация об исполнении торгового поручения."""
 
     @property
-    def ping(self) -> common_pb2.Ping:
+    def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
     def __init__(
         self,
         *,
         order_trades: global___OrderTrades | None = ...,
-        ping: common_pb2.Ping | None = ...,
+        ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["order_trades", b"order_trades", "payload", b"payload", "ping", b"ping"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["order_trades", b"order_trades", "payload", b"payload", "ping", b"ping"]) -> None: ...
@@ -249,14 +249,14 @@ class OrderTrade(google.protobuf.message.Message):
         """Дата и время совершения сделки в часовом поясе UTC."""
 
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент, по которой совершена сделка."""
 
     def __init__(
         self,
         *,
         date_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         quantity: builtins.int = ...,
         trade_id: builtins.str = ...,
     ) -> None: ...
@@ -297,10 +297,10 @@ class PostOrderRequest(google.protobuf.message.Message):
     """Идентификатор инструмента, принимает значения Figi или Instrument_uid."""
     time_in_force: global___TimeInForceType.ValueType
     """Алгоритм исполнения поручения, применяется только к лимитной заявке."""
-    price_type: common_pb2.PriceType.ValueType
+    price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType
     """Тип цены."""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Игнорируется для рыночных поручений."""
 
     def __init__(
@@ -308,14 +308,14 @@ class PostOrderRequest(google.protobuf.message.Message):
         *,
         figi: builtins.str | None = ...,
         quantity: builtins.int = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         direction: global___OrderDirection.ValueType = ...,
         account_id: builtins.str = ...,
         order_type: global___OrderType.ValueType = ...,
         order_id: builtins.str = ...,
         instrument_id: builtins.str = ...,
         time_in_force: global___TimeInForceType.ValueType = ...,
-        price_type: common_pb2.PriceType.ValueType = ...,
+        price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_figi", b"_figi", "_price", b"_price", "figi", b"figi", "price", b"price"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_figi", b"_figi", "_price", b"_price", "account_id", b"account_id", "direction", b"direction", "figi", b"figi", "instrument_id", b"instrument_id", "order_id", b"order_id", "order_type", b"order_type", "price", b"price", "price_type", b"price_type", "quantity", b"quantity", "time_in_force", b"time_in_force"]) -> None: ...
@@ -375,39 +375,39 @@ class PostOrderResponse(google.protobuf.message.Message):
     order_request_id: builtins.str
     """Идентификатор ключа идемпотентности, переданный клиентом, в формате UID. Максимальная длина 36 символов."""
     @property
-    def initial_order_price(self) -> common_pb2.MoneyValue:
+    def initial_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная цена заявки. Произведение количества запрошенных лотов на цену."""
 
     @property
-    def executed_order_price(self) -> common_pb2.MoneyValue:
+    def executed_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Исполненная средняя цена одного инструмента в заявке."""
 
     @property
-    def total_order_amount(self) -> common_pb2.MoneyValue:
+    def total_order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Итоговая стоимость заявки, включающая все комиссии."""
 
     @property
-    def initial_commission(self) -> common_pb2.MoneyValue:
+    def initial_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная комиссия. Комиссия рассчитанная при выставлении заявки."""
 
     @property
-    def executed_commission(self) -> common_pb2.MoneyValue:
+    def executed_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Фактическая комиссия по итогам исполнения заявки."""
 
     @property
-    def aci_value(self) -> common_pb2.MoneyValue:
+    def aci_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Значение НКД (накопленного купонного дохода) на дату. Подробнее: [НКД при выставлении торговых поручений](https://russianinvestments.github.io/investAPI/head-orders#coupon)"""
 
     @property
-    def initial_security_price(self) -> common_pb2.MoneyValue:
+    def initial_security_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
-    def initial_order_price_pt(self) -> common_pb2.Quotation:
+    def initial_order_price_pt(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Начальная цена заявки в пунктах (для фьючерсов)."""
 
     @property
-    def response_metadata(self) -> common_pb2.ResponseMetadata:
+    def response_metadata(self) -> TinkoffPy.grpc.common_pb2.ResponseMetadata:
         """Метадата"""
 
     def __init__(
@@ -417,21 +417,21 @@ class PostOrderResponse(google.protobuf.message.Message):
         execution_report_status: global___OrderExecutionReportStatus.ValueType = ...,
         lots_requested: builtins.int = ...,
         lots_executed: builtins.int = ...,
-        initial_order_price: common_pb2.MoneyValue | None = ...,
-        executed_order_price: common_pb2.MoneyValue | None = ...,
-        total_order_amount: common_pb2.MoneyValue | None = ...,
-        initial_commission: common_pb2.MoneyValue | None = ...,
-        executed_commission: common_pb2.MoneyValue | None = ...,
-        aci_value: common_pb2.MoneyValue | None = ...,
+        initial_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        executed_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        executed_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        aci_value: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         figi: builtins.str = ...,
         direction: global___OrderDirection.ValueType = ...,
-        initial_security_price: common_pb2.MoneyValue | None = ...,
+        initial_security_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         order_type: global___OrderType.ValueType = ...,
         message: builtins.str = ...,
-        initial_order_price_pt: common_pb2.Quotation | None = ...,
+        initial_order_price_pt: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         instrument_uid: builtins.str = ...,
         order_request_id: builtins.str = ...,
-        response_metadata: common_pb2.ResponseMetadata | None = ...,
+        response_metadata: TinkoffPy.grpc.common_pb2.ResponseMetadata | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["aci_value", b"aci_value", "executed_commission", b"executed_commission", "executed_order_price", b"executed_order_price", "initial_commission", b"initial_commission", "initial_order_price", b"initial_order_price", "initial_order_price_pt", b"initial_order_price_pt", "initial_security_price", b"initial_security_price", "response_metadata", b"response_metadata", "total_order_amount", b"total_order_amount"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["aci_value", b"aci_value", "direction", b"direction", "executed_commission", b"executed_commission", "executed_order_price", b"executed_order_price", "execution_report_status", b"execution_report_status", "figi", b"figi", "initial_commission", b"initial_commission", "initial_order_price", b"initial_order_price", "initial_order_price_pt", b"initial_order_price_pt", "initial_security_price", b"initial_security_price", "instrument_uid", b"instrument_uid", "lots_executed", b"lots_executed", "lots_requested", b"lots_requested", "message", b"message", "order_id", b"order_id", "order_request_id", b"order_request_id", "order_type", b"order_type", "response_metadata", b"response_metadata", "total_order_amount", b"total_order_amount"]) -> None: ...
@@ -473,14 +473,14 @@ class CancelOrderResponse(google.protobuf.message.Message):
         """Дата и время отмены заявки в часовом поясе UTC."""
 
     @property
-    def response_metadata(self) -> common_pb2.ResponseMetadata:
+    def response_metadata(self) -> TinkoffPy.grpc.common_pb2.ResponseMetadata:
         """Метадата"""
 
     def __init__(
         self,
         *,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        response_metadata: common_pb2.ResponseMetadata | None = ...,
+        response_metadata: TinkoffPy.grpc.common_pb2.ResponseMetadata | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["response_metadata", b"response_metadata", "time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["response_metadata", b"response_metadata", "time", b"time"]) -> None: ...
@@ -500,14 +500,14 @@ class GetOrderStateRequest(google.protobuf.message.Message):
     """Номер счёта."""
     order_id: builtins.str
     """Идентификатор заявки."""
-    price_type: common_pb2.PriceType.ValueType
+    price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType
     """Тип цены."""
     def __init__(
         self,
         *,
         account_id: builtins.str = ...,
         order_id: builtins.str = ...,
-        price_type: common_pb2.PriceType.ValueType = ...,
+        price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["account_id", b"account_id", "order_id", b"order_id", "price_type", b"price_type"]) -> None: ...
 
@@ -598,31 +598,31 @@ class OrderState(google.protobuf.message.Message):
     order_request_id: builtins.str
     """Идентификатор ключа идемпотентности, переданный клиентом, в формате UID. Максимальная длина 36 символов."""
     @property
-    def initial_order_price(self) -> common_pb2.MoneyValue:
+    def initial_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная цена заявки. Произведение количества запрошенных лотов на цену."""
 
     @property
-    def executed_order_price(self) -> common_pb2.MoneyValue:
+    def executed_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Исполненная цена заявки. Произведение средней цены покупки на количество лотов."""
 
     @property
-    def total_order_amount(self) -> common_pb2.MoneyValue:
+    def total_order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Итоговая стоимость заявки, включающая все комиссии."""
 
     @property
-    def average_position_price(self) -> common_pb2.MoneyValue:
+    def average_position_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Средняя цена позиции по сделке."""
 
     @property
-    def initial_commission(self) -> common_pb2.MoneyValue:
+    def initial_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная комиссия. Комиссия, рассчитанная на момент подачи заявки."""
 
     @property
-    def executed_commission(self) -> common_pb2.MoneyValue:
+    def executed_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Фактическая комиссия по итогам исполнения заявки."""
 
     @property
-    def initial_security_price(self) -> common_pb2.MoneyValue:
+    def initial_security_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Начальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
@@ -630,7 +630,7 @@ class OrderState(google.protobuf.message.Message):
         """Стадии выполнения заявки."""
 
     @property
-    def service_commission(self) -> common_pb2.MoneyValue:
+    def service_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сервисная комиссия."""
 
     @property
@@ -644,17 +644,17 @@ class OrderState(google.protobuf.message.Message):
         execution_report_status: global___OrderExecutionReportStatus.ValueType = ...,
         lots_requested: builtins.int = ...,
         lots_executed: builtins.int = ...,
-        initial_order_price: common_pb2.MoneyValue | None = ...,
-        executed_order_price: common_pb2.MoneyValue | None = ...,
-        total_order_amount: common_pb2.MoneyValue | None = ...,
-        average_position_price: common_pb2.MoneyValue | None = ...,
-        initial_commission: common_pb2.MoneyValue | None = ...,
-        executed_commission: common_pb2.MoneyValue | None = ...,
+        initial_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        executed_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        total_order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        average_position_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        executed_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         figi: builtins.str = ...,
         direction: global___OrderDirection.ValueType = ...,
-        initial_security_price: common_pb2.MoneyValue | None = ...,
+        initial_security_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         stages: collections.abc.Iterable[global___OrderStage] | None = ...,
-        service_commission: common_pb2.MoneyValue | None = ...,
+        service_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         currency: builtins.str = ...,
         order_type: global___OrderType.ValueType = ...,
         order_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -681,7 +681,7 @@ class OrderStage(google.protobuf.message.Message):
     trade_id: builtins.str
     """Идентификатор сделки."""
     @property
-    def price(self) -> common_pb2.MoneyValue:
+    def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
 
     @property
@@ -691,7 +691,7 @@ class OrderStage(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        price: common_pb2.MoneyValue | None = ...,
+        price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         quantity: builtins.int = ...,
         trade_id: builtins.str = ...,
         execution_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -721,10 +721,10 @@ class ReplaceOrderRequest(google.protobuf.message.Message):
     """Новый идентификатор запроса выставления поручения для целей идемпотентности. Максимальная длина 36 символов. Перезатирает старый ключ."""
     quantity: builtins.int
     """Количество лотов."""
-    price_type: common_pb2.PriceType.ValueType
+    price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType
     """Тип цены."""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент."""
 
     def __init__(
@@ -734,8 +734,8 @@ class ReplaceOrderRequest(google.protobuf.message.Message):
         order_id: builtins.str = ...,
         idempotency_key: builtins.str = ...,
         quantity: builtins.int = ...,
-        price: common_pb2.Quotation | None = ...,
-        price_type: common_pb2.PriceType.ValueType | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_price", b"_price", "_price_type", b"_price_type", "price", b"price", "price_type", b"price_type"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_price", b"_price", "_price_type", b"_price_type", "account_id", b"account_id", "idempotency_key", b"idempotency_key", "order_id", b"order_id", "price", b"price", "price_type", b"price_type", "quantity", b"quantity"]) -> None: ...
@@ -760,7 +760,7 @@ class GetMaxLotsRequest(google.protobuf.message.Message):
     instrument_id: builtins.str
     """Идентификатор инструмента, принимает значения Figi или instrument_uid"""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена инструмента"""
 
     def __init__(
@@ -768,7 +768,7 @@ class GetMaxLotsRequest(google.protobuf.message.Message):
         *,
         account_id: builtins.str = ...,
         instrument_id: builtins.str = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_price", b"_price", "price", b"price"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_price", b"_price", "account_id", b"account_id", "instrument_id", b"instrument_id", "price", b"price"]) -> None: ...
@@ -794,13 +794,13 @@ class GetMaxLotsResponse(google.protobuf.message.Message):
         buy_max_market_lots: builtins.int
         """Максимальное доступное количество лотов для покупки для заявки по рыночной цене на текущий момент"""
         @property
-        def buy_money_amount(self) -> common_pb2.Quotation:
+        def buy_money_amount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Количество доступной валюты для покупки"""
 
         def __init__(
             self,
             *,
-            buy_money_amount: common_pb2.Quotation | None = ...,
+            buy_money_amount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             buy_max_lots: builtins.int = ...,
             buy_max_market_lots: builtins.int = ...,
         ) -> None: ...
@@ -878,7 +878,7 @@ class GetOrderPriceRequest(google.protobuf.message.Message):
     quantity: builtins.int
     """Количество лотов"""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена инструмента"""
 
     def __init__(
@@ -886,7 +886,7 @@ class GetOrderPriceRequest(google.protobuf.message.Message):
         *,
         account_id: builtins.str = ...,
         instrument_id: builtins.str = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         direction: global___OrderDirection.ValueType = ...,
         quantity: builtins.int = ...,
     ) -> None: ...
@@ -908,18 +908,18 @@ class GetOrderPriceResponse(google.protobuf.message.Message):
         ACI_VALUE_FIELD_NUMBER: builtins.int
         NOMINAL_CONVERSION_RATE_FIELD_NUMBER: builtins.int
         @property
-        def aci_value(self) -> common_pb2.MoneyValue:
+        def aci_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Значение НКД (накопленного купонного дохода) на дату"""
 
         @property
-        def nominal_conversion_rate(self) -> common_pb2.Quotation:
+        def nominal_conversion_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Курс конвертации для замещающих облигаций"""
 
         def __init__(
             self,
             *,
-            aci_value: common_pb2.MoneyValue | None = ...,
-            nominal_conversion_rate: common_pb2.Quotation | None = ...,
+            aci_value: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+            nominal_conversion_rate: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["aci_value", b"aci_value", "nominal_conversion_rate", b"nominal_conversion_rate"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["aci_value", b"aci_value", "nominal_conversion_rate", b"nominal_conversion_rate"]) -> None: ...
@@ -930,13 +930,13 @@ class GetOrderPriceResponse(google.protobuf.message.Message):
 
         INITIAL_MARGIN_FIELD_NUMBER: builtins.int
         @property
-        def initial_margin(self) -> common_pb2.MoneyValue:
+        def initial_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Гарантийное обеспечение для фьючерса"""
 
         def __init__(
             self,
             *,
-            initial_margin: common_pb2.MoneyValue | None = ...,
+            initial_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["initial_margin", b"initial_margin"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["initial_margin", b"initial_margin"]) -> None: ...
@@ -953,27 +953,27 @@ class GetOrderPriceResponse(google.protobuf.message.Message):
     lots_requested: builtins.int
     """Запрошено лотов"""
     @property
-    def total_order_amount(self) -> common_pb2.MoneyValue:
+    def total_order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Итоговая стоимость заявки"""
 
     @property
-    def initial_order_amount(self) -> common_pb2.MoneyValue:
+    def initial_order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Стоимость заявки без комиссий, НКД, ГО (для фьючерсов — стоимость контрактов)"""
 
     @property
-    def executed_commission(self) -> common_pb2.MoneyValue:
+    def executed_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая комиссия"""
 
     @property
-    def executed_commission_rub(self) -> common_pb2.MoneyValue:
+    def executed_commission_rub(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая комиссия в рублях"""
 
     @property
-    def service_commission(self) -> common_pb2.MoneyValue:
+    def service_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Сервисная комиссия"""
 
     @property
-    def deal_commission(self) -> common_pb2.MoneyValue:
+    def deal_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Комиссия за проведение сделки"""
 
     @property
@@ -987,13 +987,13 @@ class GetOrderPriceResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        total_order_amount: common_pb2.MoneyValue | None = ...,
-        initial_order_amount: common_pb2.MoneyValue | None = ...,
+        total_order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_order_amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         lots_requested: builtins.int = ...,
-        executed_commission: common_pb2.MoneyValue | None = ...,
-        executed_commission_rub: common_pb2.MoneyValue | None = ...,
-        service_commission: common_pb2.MoneyValue | None = ...,
-        deal_commission: common_pb2.MoneyValue | None = ...,
+        executed_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        executed_commission_rub: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        service_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        deal_commission: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         extra_bond: global___GetOrderPriceResponse.ExtraBond | None = ...,
         extra_future: global___GetOrderPriceResponse.ExtraFuture | None = ...,
     ) -> None: ...
@@ -1274,19 +1274,19 @@ class OrderStateStreamResponse(google.protobuf.message.Message):
             """Дата создания заявки"""
 
         @property
-        def initial_order_price(self) -> common_pb2.MoneyValue:
+        def initial_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Начальная цена заявки"""
 
         @property
-        def order_price(self) -> common_pb2.MoneyValue:
+        def order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Цена выставления заявки"""
 
         @property
-        def amount(self) -> common_pb2.MoneyValue:
+        def amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Предрассчитанная стоимость полной заявки"""
 
         @property
-        def executed_order_price(self) -> common_pb2.MoneyValue:
+        def executed_order_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Исполненная средняя цена одного инструмента в заявке"""
 
         @property
@@ -1313,10 +1313,10 @@ class OrderStateStreamResponse(google.protobuf.message.Message):
             time_in_force: global___TimeInForceType.ValueType = ...,
             order_type: global___OrderType.ValueType = ...,
             account_id: builtins.str = ...,
-            initial_order_price: common_pb2.MoneyValue | None = ...,
-            order_price: common_pb2.MoneyValue | None = ...,
-            amount: common_pb2.MoneyValue | None = ...,
-            executed_order_price: common_pb2.MoneyValue | None = ...,
+            initial_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+            order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+            amount: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+            executed_order_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
             currency: builtins.str = ...,
             lots_requested: builtins.int = ...,
             lots_executed: builtins.int = ...,
@@ -1347,7 +1347,7 @@ class OrderStateStreamResponse(google.protobuf.message.Message):
         """Информация об исполнении торгового поручения."""
 
     @property
-    def ping(self) -> common_pb2.Ping:
+    def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
     @property
@@ -1358,7 +1358,7 @@ class OrderStateStreamResponse(google.protobuf.message.Message):
         self,
         *,
         order_state: global___OrderStateStreamResponse.OrderState | None = ...,
-        ping: common_pb2.Ping | None = ...,
+        ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
         subscription: global___OrderStateStreamResponse.SubscriptionResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["order_state", b"order_state", "payload", b"payload", "ping", b"ping", "subscription", b"subscription"]) -> builtins.bool: ...

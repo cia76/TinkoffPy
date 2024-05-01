@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -476,7 +476,7 @@ class MarketDataResponse(google.protobuf.message.Message):
         """Торговый статус."""
 
     @property
-    def ping(self) -> common_pb2.Ping:
+    def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
     @property
@@ -498,7 +498,7 @@ class MarketDataResponse(google.protobuf.message.Message):
         trade: global___Trade | None = ...,
         orderbook: global___OrderBook | None = ...,
         trading_status: global___TradingStatus | None = ...,
-        ping: common_pb2.Ping | None = ...,
+        ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
         subscribe_last_price_response: global___SubscribeLastPriceResponse | None = ...,
         last_price: global___LastPrice | None = ...,
     ) -> None: ...
@@ -1093,19 +1093,19 @@ class Candle(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Uid инструмента"""
     @property
-    def open(self) -> common_pb2.Quotation:
+    def open(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена открытия за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def high(self) -> common_pb2.Quotation:
+    def high(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Максимальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def low(self) -> common_pb2.Quotation:
+    def low(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Минимальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def close(self) -> common_pb2.Quotation:
+    def close(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена закрытия за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
@@ -1121,10 +1121,10 @@ class Candle(google.protobuf.message.Message):
         *,
         figi: builtins.str = ...,
         interval: global___SubscriptionInterval.ValueType = ...,
-        open: common_pb2.Quotation | None = ...,
-        high: common_pb2.Quotation | None = ...,
-        low: common_pb2.Quotation | None = ...,
-        close: common_pb2.Quotation | None = ...,
+        open: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        high: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        low: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        close: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         volume: builtins.int = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         last_trade_ts: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1174,11 +1174,11 @@ class OrderBook(google.protobuf.message.Message):
         """Время формирования стакана в часовом поясе UTC по времени биржи."""
 
     @property
-    def limit_up(self) -> common_pb2.Quotation:
+    def limit_up(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Верхний лимит цены за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def limit_down(self) -> common_pb2.Quotation:
+    def limit_down(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Нижний лимит цены за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     def __init__(
@@ -1190,8 +1190,8 @@ class OrderBook(google.protobuf.message.Message):
         bids: collections.abc.Iterable[global___Order] | None = ...,
         asks: collections.abc.Iterable[global___Order] | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        limit_up: common_pb2.Quotation | None = ...,
-        limit_down: common_pb2.Quotation | None = ...,
+        limit_up: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        limit_down: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         instrument_uid: builtins.str = ...,
         order_book_type: global___OrderBookType.ValueType = ...,
     ) -> None: ...
@@ -1211,13 +1211,13 @@ class Order(google.protobuf.message.Message):
     quantity: builtins.int
     """Количество в лотах."""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     def __init__(
         self,
         *,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         quantity: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["price", b"price"]) -> builtins.bool: ...
@@ -1249,7 +1249,7 @@ class Trade(google.protobuf.message.Message):
     tradeSource: global___TradeSourceType.ValueType
     """Источник сделки"""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
@@ -1261,7 +1261,7 @@ class Trade(google.protobuf.message.Message):
         *,
         figi: builtins.str = ...,
         direction: global___TradeDirection.ValueType = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         quantity: builtins.int = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         instrument_uid: builtins.str = ...,
@@ -1286,7 +1286,7 @@ class TradingStatus(google.protobuf.message.Message):
     INSTRUMENT_UID_FIELD_NUMBER: builtins.int
     figi: builtins.str
     """Figi-идентификатор инструмента."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Статус торговли инструментом."""
     limit_order_available_flag: builtins.bool
     """Признак доступности выставления лимитной заявки по инструменту."""
@@ -1302,7 +1302,7 @@ class TradingStatus(google.protobuf.message.Message):
         self,
         *,
         figi: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         limit_order_available_flag: builtins.bool = ...,
         market_order_available_flag: builtins.bool = ...,
@@ -1415,19 +1415,19 @@ class HistoricCandle(google.protobuf.message.Message):
     candle_source: global___CandleSource.ValueType
     """Тип источника свечи"""
     @property
-    def open(self) -> common_pb2.Quotation:
+    def open(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена открытия за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def high(self) -> common_pb2.Quotation:
+    def high(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Максимальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def low(self) -> common_pb2.Quotation:
+    def low(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Минимальная цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def close(self) -> common_pb2.Quotation:
+    def close(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена закрытия за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
@@ -1437,10 +1437,10 @@ class HistoricCandle(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        open: common_pb2.Quotation | None = ...,
-        high: common_pb2.Quotation | None = ...,
-        low: common_pb2.Quotation | None = ...,
-        close: common_pb2.Quotation | None = ...,
+        open: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        high: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        low: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        close: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         volume: builtins.int = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         is_complete: builtins.bool = ...,
@@ -1512,7 +1512,7 @@ class LastPrice(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Uid инструмента"""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена последней сделки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
@@ -1523,7 +1523,7 @@ class LastPrice(google.protobuf.message.Message):
         self,
         *,
         figi: builtins.str = ...,
-        price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         instrument_uid: builtins.str = ...,
     ) -> None: ...
@@ -1596,19 +1596,19 @@ class GetOrderBookResponse(google.protobuf.message.Message):
         """Множество пар значений на продажу."""
 
     @property
-    def last_price(self) -> common_pb2.Quotation:
+    def last_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена последней сделки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def close_price(self) -> common_pb2.Quotation:
+    def close_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена закрытия за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def limit_up(self) -> common_pb2.Quotation:
+    def limit_up(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Верхний лимит цены за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
-    def limit_down(self) -> common_pb2.Quotation:
+    def limit_down(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Нижний лимит цены за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента. Для перевод цен в валюту рекомендуем использовать [информацию со страницы](https://russianinvestments.github.io/investAPI/faq_marketdata/)"""
 
     @property
@@ -1630,10 +1630,10 @@ class GetOrderBookResponse(google.protobuf.message.Message):
         depth: builtins.int = ...,
         bids: collections.abc.Iterable[global___Order] | None = ...,
         asks: collections.abc.Iterable[global___Order] | None = ...,
-        last_price: common_pb2.Quotation | None = ...,
-        close_price: common_pb2.Quotation | None = ...,
-        limit_up: common_pb2.Quotation | None = ...,
-        limit_down: common_pb2.Quotation | None = ...,
+        last_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        close_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        limit_up: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        limit_down: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         last_price_ts: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         close_price_ts: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         orderbook_ts: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1727,7 +1727,7 @@ class GetTradingStatusResponse(google.protobuf.message.Message):
     ONLY_BEST_PRICE_FIELD_NUMBER: builtins.int
     figi: builtins.str
     """Figi-идентификатор инструмента."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Статус торговли инструментом."""
     limit_order_available_flag: builtins.bool
     """Признак доступности выставления лимитной заявки по инструменту."""
@@ -1745,7 +1745,7 @@ class GetTradingStatusResponse(google.protobuf.message.Message):
         self,
         *,
         figi: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         limit_order_available_flag: builtins.bool = ...,
         market_order_available_flag: builtins.bool = ...,
         api_trade_available_flag: builtins.bool = ...,
@@ -1897,11 +1897,11 @@ class InstrumentClosePriceResponse(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Uid инструмента."""
     @property
-    def price(self) -> common_pb2.Quotation:
+    def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена закрытия торговой сессии."""
 
     @property
-    def evening_session_price(self) -> common_pb2.Quotation:
+    def evening_session_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена последней сделки с вечерней сессии"""
 
     @property
@@ -1913,8 +1913,8 @@ class InstrumentClosePriceResponse(google.protobuf.message.Message):
         *,
         figi: builtins.str = ...,
         instrument_uid: builtins.str = ...,
-        price: common_pb2.Quotation | None = ...,
-        evening_session_price: common_pb2.Quotation | None = ...,
+        price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        evening_session_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["evening_session_price", b"evening_session_price", "price", b"price", "time", b"time"]) -> builtins.bool: ...
@@ -2087,13 +2087,13 @@ class GetTechAnalysisRequest(google.protobuf.message.Message):
 
         DEVIATION_MULTIPLIER_FIELD_NUMBER: builtins.int
         @property
-        def deviation_multiplier(self) -> common_pb2.Quotation:
+        def deviation_multiplier(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Кол-во стандартных отклонений, на которые отступает верхняя и нижняя граница"""
 
         def __init__(
             self,
             *,
-            deviation_multiplier: common_pb2.Quotation | None = ...,
+            deviation_multiplier: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["deviation_multiplier", b"deviation_multiplier"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["deviation_multiplier", b"deviation_multiplier"]) -> None: ...
@@ -2165,34 +2165,34 @@ class GetTechAnalysisResponse(google.protobuf.message.Message):
             """Временная метка по UTC, для которой были рассчитаны значения индикатора."""
 
         @property
-        def middle_band(self) -> common_pb2.Quotation:
+        def middle_band(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Значение простого скользящего среднего (средней линии)."""
 
         @property
-        def upper_band(self) -> common_pb2.Quotation:
+        def upper_band(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Значение верхней линии Боллинджера."""
 
         @property
-        def lower_band(self) -> common_pb2.Quotation:
+        def lower_band(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Значение нижней линии Боллинджера."""
 
         @property
-        def signal(self) -> common_pb2.Quotation:
+        def signal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Значение сигнальной линии."""
 
         @property
-        def macd(self) -> common_pb2.Quotation:
+        def macd(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Значение линии MACD."""
 
         def __init__(
             self,
             *,
             timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-            middle_band: common_pb2.Quotation | None = ...,
-            upper_band: common_pb2.Quotation | None = ...,
-            lower_band: common_pb2.Quotation | None = ...,
-            signal: common_pb2.Quotation | None = ...,
-            macd: common_pb2.Quotation | None = ...,
+            middle_band: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            upper_band: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            lower_band: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            signal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            macd: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["_lower_band", b"_lower_band", "_macd", b"_macd", "_middle_band", b"_middle_band", "_signal", b"_signal", "_upper_band", b"_upper_band", "lower_band", b"lower_band", "macd", b"macd", "middle_band", b"middle_band", "signal", b"signal", "timestamp", b"timestamp", "upper_band", b"upper_band"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["_lower_band", b"_lower_band", "_macd", b"_macd", "_middle_band", b"_middle_band", "_signal", b"_signal", "_upper_band", b"_upper_band", "lower_band", b"lower_band", "macd", b"macd", "middle_band", b"middle_band", "signal", b"signal", "timestamp", b"timestamp", "upper_band", b"upper_band"]) -> None: ...

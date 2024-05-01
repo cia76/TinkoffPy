@@ -3,9 +3,9 @@
 isort:skip_file
 """
 
+import TinkoffPy.grpc.common_pb2
 import builtins
 import collections.abc
-import common_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -942,7 +942,7 @@ class GetBondEventsResponse(google.protobuf.message.Message):
             """Дата события"""
 
         @property
-        def event_total_vol(self) -> common_pb2.Quotation:
+        def event_total_vol(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Полное количество бумаг, задействованных в событии"""
 
         @property
@@ -966,15 +966,15 @@ class GetBondEventsResponse(google.protobuf.message.Message):
             """Дата выплаты"""
 
         @property
-        def pay_one_bond(self) -> common_pb2.MoneyValue:
+        def pay_one_bond(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Выплата на одну облигацию"""
 
         @property
-        def money_flow_val(self) -> common_pb2.MoneyValue:
+        def money_flow_val(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
             """Выплаты на все бумаги, задействованные в событии"""
 
         @property
-        def value(self) -> common_pb2.Quotation:
+        def value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Стоимость операции (ставка купона, доля номинала, цена выкупа или коэффициент конвертации)"""
 
         @property
@@ -986,7 +986,7 @@ class GetBondEventsResponse(google.protobuf.message.Message):
             """Окончание купонного периода"""
 
         @property
-        def coupon_interest_rate(self) -> common_pb2.Quotation:
+        def coupon_interest_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Ставка купона, процентов годовых"""
 
         def __init__(
@@ -996,23 +996,23 @@ class GetBondEventsResponse(google.protobuf.message.Message):
             event_number: builtins.int = ...,
             event_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             event_type: global___GetBondEventsRequest.EventType.ValueType = ...,
-            event_total_vol: common_pb2.Quotation | None = ...,
+            event_total_vol: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             fix_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             rate_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             default_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             real_pay_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             pay_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-            pay_one_bond: common_pb2.MoneyValue | None = ...,
-            money_flow_val: common_pb2.MoneyValue | None = ...,
+            pay_one_bond: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+            money_flow_val: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
             execution: builtins.str = ...,
             operation_type: builtins.str = ...,
-            value: common_pb2.Quotation | None = ...,
+            value: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             note: builtins.str = ...,
             convert_to_fin_tool_id: builtins.str = ...,
             coupon_start_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             coupon_end_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             coupon_period: builtins.int = ...,
-            coupon_interest_rate: common_pb2.Quotation | None = ...,
+            coupon_interest_rate: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["coupon_end_date", b"coupon_end_date", "coupon_interest_rate", b"coupon_interest_rate", "coupon_start_date", b"coupon_start_date", "default_date", b"default_date", "event_date", b"event_date", "event_total_vol", b"event_total_vol", "fix_date", b"fix_date", "money_flow_val", b"money_flow_val", "pay_date", b"pay_date", "pay_one_bond", b"pay_one_bond", "rate_date", b"rate_date", "real_pay_date", b"real_pay_date", "value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["convert_to_fin_tool_id", b"convert_to_fin_tool_id", "coupon_end_date", b"coupon_end_date", "coupon_interest_rate", b"coupon_interest_rate", "coupon_period", b"coupon_period", "coupon_start_date", b"coupon_start_date", "default_date", b"default_date", "event_date", b"event_date", "event_number", b"event_number", "event_total_vol", b"event_total_vol", "event_type", b"event_type", "execution", b"execution", "fix_date", b"fix_date", "instrument_id", b"instrument_id", "money_flow_val", b"money_flow_val", "note", b"note", "operation_type", b"operation_type", "pay_date", b"pay_date", "pay_one_bond", b"pay_one_bond", "rate_date", b"rate_date", "real_pay_date", b"real_pay_date", "value", b"value"]) -> None: ...
@@ -1061,7 +1061,7 @@ class Coupon(google.protobuf.message.Message):
         """(Опционально) Дата фиксации реестра для выплаты купона."""
 
     @property
-    def pay_one_bond(self) -> common_pb2.MoneyValue:
+    def pay_one_bond(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Выплата на одну облигацию."""
 
     @property
@@ -1079,7 +1079,7 @@ class Coupon(google.protobuf.message.Message):
         coupon_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         coupon_number: builtins.int = ...,
         fix_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        pay_one_bond: common_pb2.MoneyValue | None = ...,
+        pay_one_bond: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         coupon_type: global___CouponType.ValueType = ...,
         coupon_start_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         coupon_end_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1315,7 +1315,7 @@ class Option(google.protobuf.message.Message):
     """Класс-код."""
     basic_asset_position_uid: builtins.str
     """Уникальный идентификатор позиции основного инструмента."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     real_exchange: global___RealExchange.ValueType
     """Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS]"""
@@ -1366,43 +1366,43 @@ class Option(google.protobuf.message.Message):
     api_trade_available_flag: builtins.bool
     """Параметр указывает на возможность торговать инструментом через API."""
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     @property
-    def basic_asset_size(self) -> common_pb2.Quotation:
+    def basic_asset_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Размер основного актива."""
 
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт.  Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт.  Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Минимальный шаг цены."""
 
     @property
-    def strike_price(self) -> common_pb2.MoneyValue:
+    def strike_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена страйка."""
 
     @property
@@ -1433,7 +1433,7 @@ class Option(google.protobuf.message.Message):
         ticker: builtins.str = ...,
         class_code: builtins.str = ...,
         basic_asset_position_uid: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         real_exchange: global___RealExchange.ValueType = ...,
         direction: global___OptionDirection.ValueType = ...,
         payment_type: global___OptionPaymentType.ValueType = ...,
@@ -1448,17 +1448,17 @@ class Option(google.protobuf.message.Message):
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
         sector: builtins.str = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
         lot: builtins.int = ...,
-        basic_asset_size: common_pb2.Quotation | None = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
-        strike_price: common_pb2.MoneyValue | None = ...,
+        basic_asset_size: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        strike_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         expiration_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_trade_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         last_trade_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1611,7 +1611,7 @@ class Bond(google.protobuf.message.Message):
     """Размер выпуска."""
     issue_size_plan: builtins.int
     """Плановый размер выпуска."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -1652,27 +1652,27 @@ class Bond(google.protobuf.message.Message):
     bond_type: global___BondType.ValueType
     """Тип облигации."""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
@@ -1680,11 +1680,11 @@ class Bond(google.protobuf.message.Message):
         """Дата погашения облигации в часовом поясе UTC."""
 
     @property
-    def nominal(self) -> common_pb2.MoneyValue:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Номинал облигации."""
 
     @property
-    def initial_nominal(self) -> common_pb2.MoneyValue:
+    def initial_nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Первоначальный номинал облигации."""
 
     @property
@@ -1696,15 +1696,15 @@ class Bond(google.protobuf.message.Message):
         """Дата размещения в часовом поясе UTC."""
 
     @property
-    def placement_price(self) -> common_pb2.MoneyValue:
+    def placement_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена размещения."""
 
     @property
-    def aci_value(self) -> common_pb2.MoneyValue:
+    def aci_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Значение НКД (накопленного купонного дохода) на дату."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -1716,7 +1716,7 @@ class Bond(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -1728,37 +1728,37 @@ class Bond(google.protobuf.message.Message):
         isin: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
         coupon_quantity_per_year: builtins.int = ...,
         maturity_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        nominal: common_pb2.MoneyValue | None = ...,
-        initial_nominal: common_pb2.MoneyValue | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_nominal: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         state_reg_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         placement_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        placement_price: common_pb2.MoneyValue | None = ...,
-        aci_value: common_pb2.MoneyValue | None = ...,
+        placement_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        aci_value: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
         sector: builtins.str = ...,
         issue_kind: builtins.str = ...,
         issue_size: builtins.int = ...,
         issue_size_plan: builtins.int = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
         floating_coupon_flag: builtins.bool = ...,
         perpetual_flag: builtins.bool = ...,
         amortization_flag: builtins.bool = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -1773,7 +1773,7 @@ class Bond(google.protobuf.message.Message):
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         risk_level: global___RiskLevel.ValueType = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
         bond_type: global___BondType.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["aci_value", b"aci_value", "brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "initial_nominal", b"initial_nominal", "klong", b"klong", "kshort", b"kshort", "maturity_date", b"maturity_date", "min_price_increment", b"min_price_increment", "nominal", b"nominal", "placement_date", b"placement_date", "placement_price", b"placement_price", "state_reg_date", b"state_reg_date"]) -> builtins.bool: ...
@@ -1844,7 +1844,7 @@ class Currency(google.protobuf.message.Message):
     """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
     country_of_risk_name: builtins.str
     """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -1871,35 +1871,35 @@ class Currency(google.protobuf.message.Message):
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def nominal(self) -> common_pb2.MoneyValue:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Номинал."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -1911,7 +1911,7 @@ class Currency(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -1923,24 +1923,24 @@ class Currency(google.protobuf.message.Message):
         isin: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
-        nominal: common_pb2.MoneyValue | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
         iso_currency_name: builtins.str = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -1951,7 +1951,7 @@ class Currency(google.protobuf.message.Message):
         blocked_tca_flag: builtins.bool = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "isin", b"isin", "iso_currency_name", b"iso_currency_name", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
@@ -2034,7 +2034,7 @@ class Etf(google.protobuf.message.Message):
     """Сектор экономики."""
     rebalancing_freq: builtins.str
     """Частота ребалансировки."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -2065,31 +2065,31 @@ class Etf(google.protobuf.message.Message):
     liquidity_flag: builtins.bool
     """Флаг достаточной ликвидности"""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def fixed_commission(self) -> common_pb2.Quotation:
+    def fixed_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Размер фиксированной комиссии фонда."""
 
     @property
@@ -2097,11 +2097,11 @@ class Etf(google.protobuf.message.Message):
         """Дата выпуска в часовом поясе UTC."""
 
     @property
-    def num_shares(self) -> common_pb2.Quotation:
+    def num_shares(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество паев фонда в обращении."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -2113,7 +2113,7 @@ class Etf(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -2125,28 +2125,28 @@ class Etf(google.protobuf.message.Message):
         isin: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
-        fixed_commission: common_pb2.Quotation | None = ...,
+        fixed_commission: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         focus_type: builtins.str = ...,
         released_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        num_shares: common_pb2.Quotation | None = ...,
+        num_shares: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
         sector: builtins.str = ...,
         rebalancing_freq: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -2160,7 +2160,7 @@ class Etf(google.protobuf.message.Message):
         liquidity_flag: builtins.bool = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "num_shares", b"num_shares", "released_date", b"released_date"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "focus_type", b"focus_type", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "num_shares", b"num_shares", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "rebalancing_freq", b"rebalancing_freq", "released_date", b"released_date", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
@@ -2245,7 +2245,7 @@ class Future(google.protobuf.message.Message):
     """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
     sector: builtins.str
     """Сектор экономики."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -2272,27 +2272,27 @@ class Future(google.protobuf.message.Message):
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
@@ -2304,7 +2304,7 @@ class Future(google.protobuf.message.Message):
         """Дата в часовом поясе UTC, до которой возможно проведение операций с фьючерсом."""
 
     @property
-    def basic_asset_size(self) -> common_pb2.Quotation:
+    def basic_asset_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Размер основного актива."""
 
     @property
@@ -2312,7 +2312,7 @@ class Future(google.protobuf.message.Message):
         """Дата истечения срока в часов поясе UTC."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -2324,19 +2324,19 @@ class Future(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def initial_margin_on_buy(self) -> common_pb2.MoneyValue:
+    def initial_margin_on_buy(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Гарантийное обеспечение при покупке."""
 
     @property
-    def initial_margin_on_sell(self) -> common_pb2.MoneyValue:
+    def initial_margin_on_sell(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Гарантийное обеспечение при продаже."""
 
     @property
-    def min_price_increment_amount(self) -> common_pb2.Quotation:
+    def min_price_increment_amount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Стоимость шага цены."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -2347,12 +2347,12 @@ class Future(google.protobuf.message.Message):
         class_code: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
@@ -2361,16 +2361,16 @@ class Future(google.protobuf.message.Message):
         futures_type: builtins.str = ...,
         asset_type: builtins.str = ...,
         basic_asset: builtins.str = ...,
-        basic_asset_size: common_pb2.Quotation | None = ...,
+        basic_asset_size: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
         sector: builtins.str = ...,
         expiration_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -2382,10 +2382,10 @@ class Future(google.protobuf.message.Message):
         blocked_tca_flag: builtins.bool = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        initial_margin_on_buy: common_pb2.MoneyValue | None = ...,
-        initial_margin_on_sell: common_pb2.MoneyValue | None = ...,
-        min_price_increment_amount: common_pb2.Quotation | None = ...,
-        brand: common_pb2.BrandData | None = ...,
+        initial_margin_on_buy: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_margin_on_sell: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        min_price_increment_amount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["basic_asset_size", b"basic_asset_size", "brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_type", b"asset_type", "basic_asset", b"basic_asset", "basic_asset_position_uid", b"basic_asset_position_uid", "basic_asset_size", b"basic_asset_size", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "expiration_date", b"expiration_date", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "futures_type", b"futures_type", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "lot", b"lot", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
@@ -2469,7 +2469,7 @@ class Share(google.protobuf.message.Message):
     """Сектор экономики."""
     issue_size_plan: builtins.int
     """Плановый размер выпуска."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -2504,27 +2504,27 @@ class Share(google.protobuf.message.Message):
     liquidity_flag: builtins.bool
     """Флаг достаточной ликвидности"""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
@@ -2532,11 +2532,11 @@ class Share(google.protobuf.message.Message):
         """Дата IPO акции в часовом поясе UTC."""
 
     @property
-    def nominal(self) -> common_pb2.MoneyValue:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Номинал."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -2548,7 +2548,7 @@ class Share(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -2560,12 +2560,12 @@ class Share(google.protobuf.message.Message):
         isin: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
@@ -2575,14 +2575,14 @@ class Share(google.protobuf.message.Message):
         country_of_risk_name: builtins.str = ...,
         sector: builtins.str = ...,
         issue_size_plan: builtins.int = ...,
-        nominal: common_pb2.MoneyValue | None = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        nominal: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
         div_yield_flag: builtins.bool = ...,
         share_type: global___ShareType.ValueType = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -2596,7 +2596,7 @@ class Share(google.protobuf.message.Message):
         liquidity_flag: builtins.bool = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "ipo_date", b"ipo_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "div_yield_flag", b"div_yield_flag", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "ipo_date", b"ipo_date", "isin", b"isin", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "share_type", b"share_type", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
@@ -2668,24 +2668,24 @@ class AccruedInterest(google.protobuf.message.Message):
         """Дата и время выплаты в часовом поясе UTC."""
 
     @property
-    def value(self) -> common_pb2.Quotation:
+    def value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Величина выплаты."""
 
     @property
-    def value_percent(self) -> common_pb2.Quotation:
+    def value_percent(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Величина выплаты в процентах от номинала."""
 
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал облигации."""
 
     def __init__(
         self,
         *,
         date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        value: common_pb2.Quotation | None = ...,
-        value_percent: common_pb2.Quotation | None = ...,
-        nominal: common_pb2.Quotation | None = ...,
+        value: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        value_percent: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["date", b"date", "nominal", b"nominal", "value", b"value", "value_percent", b"value_percent"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["date", b"date", "nominal", b"nominal", "value", b"value", "value_percent", b"value_percent"]) -> None: ...
@@ -2725,28 +2725,28 @@ class GetFuturesMarginResponse(google.protobuf.message.Message):
     MIN_PRICE_INCREMENT_FIELD_NUMBER: builtins.int
     MIN_PRICE_INCREMENT_AMOUNT_FIELD_NUMBER: builtins.int
     @property
-    def initial_margin_on_buy(self) -> common_pb2.MoneyValue:
+    def initial_margin_on_buy(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Гарантийное обеспечение при покупке."""
 
     @property
-    def initial_margin_on_sell(self) -> common_pb2.MoneyValue:
+    def initial_margin_on_sell(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Гарантийное обеспечение при продаже."""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
-    def min_price_increment_amount(self) -> common_pb2.Quotation:
+    def min_price_increment_amount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Стоимость шага цены."""
 
     def __init__(
         self,
         *,
-        initial_margin_on_buy: common_pb2.MoneyValue | None = ...,
-        initial_margin_on_sell: common_pb2.MoneyValue | None = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
-        min_price_increment_amount: common_pb2.Quotation | None = ...,
+        initial_margin_on_buy: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        initial_margin_on_sell: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        min_price_increment_amount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount"]) -> None: ...
@@ -2840,7 +2840,7 @@ class Instrument(google.protobuf.message.Message):
     """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
     instrument_type: builtins.str
     """Тип инструмента."""
-    trading_status: common_pb2.SecurityTradingStatus.ValueType
+    trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
     """Признак внебиржевой ценной бумаги."""
@@ -2866,34 +2866,34 @@ class Instrument(google.protobuf.message.Message):
     """Флаг отображающий доступность торговли инструментом по выходным"""
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС"""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     @property
-    def klong(self) -> common_pb2.Quotation:
+    def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def kshort(self) -> common_pb2.Quotation:
+    def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
 
     @property
-    def dlong(self) -> common_pb2.Quotation:
+    def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort(self) -> common_pb2.Quotation:
+    def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def dlong_min(self) -> common_pb2.Quotation:
+    def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
 
     @property
-    def dshort_min(self) -> common_pb2.Quotation:
+    def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
 
     @property
-    def min_price_increment(self) -> common_pb2.Quotation:
+    def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Шаг цены."""
 
     @property
@@ -2905,7 +2905,7 @@ class Instrument(google.protobuf.message.Message):
         """Дата первой дневной свечи."""
 
     @property
-    def brand(self) -> common_pb2.BrandData:
+    def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
 
     def __init__(
@@ -2917,23 +2917,23 @@ class Instrument(google.protobuf.message.Message):
         isin: builtins.str = ...,
         lot: builtins.int = ...,
         currency: builtins.str = ...,
-        klong: common_pb2.Quotation | None = ...,
-        kshort: common_pb2.Quotation | None = ...,
-        dlong: common_pb2.Quotation | None = ...,
-        dshort: common_pb2.Quotation | None = ...,
-        dlong_min: common_pb2.Quotation | None = ...,
-        dshort_min: common_pb2.Quotation | None = ...,
+        klong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        kshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dlong_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         short_enabled_flag: builtins.bool = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
         country_of_risk: builtins.str = ...,
         country_of_risk_name: builtins.str = ...,
         instrument_type: builtins.str = ...,
-        trading_status: common_pb2.SecurityTradingStatus.ValueType = ...,
+        trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType = ...,
         otc_flag: builtins.bool = ...,
         buy_available_flag: builtins.bool = ...,
         sell_available_flag: builtins.bool = ...,
-        min_price_increment: common_pb2.Quotation | None = ...,
+        min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         api_trade_available_flag: builtins.bool = ...,
         uid: builtins.str = ...,
         real_exchange: global___RealExchange.ValueType = ...,
@@ -2943,10 +2943,10 @@ class Instrument(google.protobuf.message.Message):
         for_qual_investor_flag: builtins.bool = ...,
         weekend_flag: builtins.bool = ...,
         blocked_tca_flag: builtins.bool = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        brand: common_pb2.BrandData | None = ...,
+        brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
@@ -3026,7 +3026,7 @@ class Dividend(google.protobuf.message.Message):
     regularity: builtins.str
     """Регулярность выплаты. Возможные значения: Annual – ежегодная, Semi-Anl – каждые полгода, прочие типы выплат."""
     @property
-    def dividend_net(self) -> common_pb2.MoneyValue:
+    def dividend_net(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Величина дивиденда на 1 ценную бумагу (включая валюту)."""
 
     @property
@@ -3046,11 +3046,11 @@ class Dividend(google.protobuf.message.Message):
         """Дата фиксации реестра в часовом поясе UTC."""
 
     @property
-    def close_price(self) -> common_pb2.MoneyValue:
+    def close_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена закрытия инструмента на момент ex_dividend_date."""
 
     @property
-    def yield_value(self) -> common_pb2.Quotation:
+    def yield_value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Величина доходности."""
 
     @property
@@ -3060,15 +3060,15 @@ class Dividend(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        dividend_net: common_pb2.MoneyValue | None = ...,
+        dividend_net: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         payment_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         declared_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         last_buy_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         dividend_type: builtins.str = ...,
         record_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         regularity: builtins.str = ...,
-        close_price: common_pb2.MoneyValue | None = ...,
-        yield_value: common_pb2.Quotation | None = ...,
+        close_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        yield_value: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["close_price", b"close_price", "created_at", b"created_at", "declared_date", b"declared_date", "dividend_net", b"dividend_net", "last_buy_date", b"last_buy_date", "payment_date", b"payment_date", "record_date", b"record_date", "yield_value", b"yield_value"]) -> builtins.bool: ...
@@ -3122,11 +3122,11 @@ class AssetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     INSTRUMENT_TYPE_FIELD_NUMBER: builtins.int
-    instrument_type: common_pb2.InstrumentType.ValueType
+    instrument_type: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     def __init__(
         self,
         *,
-        instrument_type: common_pb2.InstrumentType.ValueType | None = ...,
+        instrument_type: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_instrument_type", b"_instrument_type", "instrument_type", b"instrument_type"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_instrument_type", b"_instrument_type", "instrument_type", b"instrument_type"]) -> None: ...
@@ -3322,7 +3322,7 @@ class AssetSecurity(google.protobuf.message.Message):
     """ISIN-идентификатор ценной бумаги."""
     type: builtins.str
     """Тип ценной бумаги."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     @property
     def share(self) -> global___AssetShare:
@@ -3349,7 +3349,7 @@ class AssetSecurity(google.protobuf.message.Message):
         *,
         isin: builtins.str = ...,
         type: builtins.str = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         share: global___AssetShare | None = ...,
         bond: global___AssetBond | None = ...,
         sp: global___AssetStructuredProduct | None = ...,
@@ -3398,15 +3398,15 @@ class AssetShare(google.protobuf.message.Message):
     repres_isin: builtins.str
     """ISIN базового актива."""
     @property
-    def issue_size(self) -> common_pb2.Quotation:
+    def issue_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объем выпуска (шт.)."""
 
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал."""
 
     @property
-    def dividend_rate(self) -> common_pb2.Quotation:
+    def dividend_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка дивиденда (для привилегированных акций)."""
 
     @property
@@ -3422,22 +3422,22 @@ class AssetShare(google.protobuf.message.Message):
         """Дата размещения акции."""
 
     @property
-    def issue_size_plan(self) -> common_pb2.Quotation:
+    def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объявленное количество шт."""
 
     @property
-    def total_float(self) -> common_pb2.Quotation:
+    def total_float(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество акций в свободном обращении."""
 
     def __init__(
         self,
         *,
         type: global___ShareType.ValueType = ...,
-        issue_size: common_pb2.Quotation | None = ...,
-        nominal: common_pb2.Quotation | None = ...,
+        issue_size: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         nominal_currency: builtins.str = ...,
         primary_index: builtins.str = ...,
-        dividend_rate: common_pb2.Quotation | None = ...,
+        dividend_rate: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         preferred_share_type: builtins.str = ...,
         ipo_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         registry_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -3445,8 +3445,8 @@ class AssetShare(google.protobuf.message.Message):
         issue_kind: builtins.str = ...,
         placement_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         repres_isin: builtins.str = ...,
-        issue_size_plan: common_pb2.Quotation | None = ...,
-        total_float: common_pb2.Quotation | None = ...,
+        issue_size_plan: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        total_float: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["dividend_rate", b"dividend_rate", "ipo_date", b"ipo_date", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "nominal", b"nominal", "placement_date", b"placement_date", "registry_date", b"registry_date", "total_float", b"total_float"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["div_yield_flag", b"div_yield_flag", "dividend_rate", b"dividend_rate", "ipo_date", b"ipo_date", "issue_kind", b"issue_kind", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "nominal", b"nominal", "nominal_currency", b"nominal_currency", "placement_date", b"placement_date", "preferred_share_type", b"preferred_share_type", "primary_index", b"primary_index", "registry_date", b"registry_date", "repres_isin", b"repres_isin", "total_float", b"total_float", "type", b"type"]) -> None: ...
@@ -3507,15 +3507,15 @@ class AssetBond(google.protobuf.message.Message):
     return_condition: builtins.str
     """Описание и условия получения дополнительного дохода."""
     @property
-    def current_nominal(self) -> common_pb2.Quotation:
+    def current_nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущий номинал."""
 
     @property
-    def issue_size(self) -> common_pb2.Quotation:
+    def issue_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объем эмиссии облигации (стоимость)."""
 
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал облигации."""
 
     @property
@@ -3531,20 +3531,20 @@ class AssetBond(google.protobuf.message.Message):
         """Дата размещения облигации."""
 
     @property
-    def placement_price(self) -> common_pb2.Quotation:
+    def placement_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Цена размещения облигации."""
 
     @property
-    def issue_size_plan(self) -> common_pb2.Quotation:
+    def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объявленное количество шт."""
 
     def __init__(
         self,
         *,
-        current_nominal: common_pb2.Quotation | None = ...,
+        current_nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         borrow_name: builtins.str = ...,
-        issue_size: common_pb2.Quotation | None = ...,
-        nominal: common_pb2.Quotation | None = ...,
+        issue_size: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         nominal_currency: builtins.str = ...,
         issue_kind: builtins.str = ...,
         interest_kind: builtins.str = ...,
@@ -3560,8 +3560,8 @@ class AssetBond(google.protobuf.message.Message):
         return_condition: builtins.str = ...,
         state_reg_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         placement_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        placement_price: common_pb2.Quotation | None = ...,
-        issue_size_plan: common_pb2.Quotation | None = ...,
+        placement_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        issue_size_plan: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["current_nominal", b"current_nominal", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "maturity_date", b"maturity_date", "nominal", b"nominal", "placement_date", b"placement_date", "placement_price", b"placement_price", "state_reg_date", b"state_reg_date"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["amortization_flag", b"amortization_flag", "borrow_name", b"borrow_name", "collateral_flag", b"collateral_flag", "coupon_quantity_per_year", b"coupon_quantity_per_year", "current_nominal", b"current_nominal", "floating_coupon_flag", b"floating_coupon_flag", "indexed_nominal_flag", b"indexed_nominal_flag", "interest_kind", b"interest_kind", "issue_kind", b"issue_kind", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "maturity_date", b"maturity_date", "nominal", b"nominal", "nominal_currency", b"nominal_currency", "perpetual_flag", b"perpetual_flag", "placement_date", b"placement_date", "placement_price", b"placement_price", "return_condition", b"return_condition", "state_reg_date", b"state_reg_date", "subordinated_flag", b"subordinated_flag", "tax_free_flag", b"tax_free_flag"]) -> None: ...
@@ -3602,11 +3602,11 @@ class AssetStructuredProduct(google.protobuf.message.Message):
     issue_kind: builtins.str
     """Форма выпуска."""
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал."""
 
     @property
-    def safety_barrier(self) -> common_pb2.Quotation:
+    def safety_barrier(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Барьер сохранности (в процентах)."""
 
     @property
@@ -3614,11 +3614,11 @@ class AssetStructuredProduct(google.protobuf.message.Message):
         """Дата погашения."""
 
     @property
-    def issue_size_plan(self) -> common_pb2.Quotation:
+    def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объявленное количество шт."""
 
     @property
-    def issue_size(self) -> common_pb2.Quotation:
+    def issue_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Объем размещения."""
 
     @property
@@ -3629,16 +3629,16 @@ class AssetStructuredProduct(google.protobuf.message.Message):
         self,
         *,
         borrow_name: builtins.str = ...,
-        nominal: common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         nominal_currency: builtins.str = ...,
         type: global___StructuredProductType.ValueType = ...,
         logic_portfolio: builtins.str = ...,
         asset_type: global___AssetType.ValueType = ...,
         basic_asset: builtins.str = ...,
-        safety_barrier: common_pb2.Quotation | None = ...,
+        safety_barrier: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         maturity_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        issue_size_plan: common_pb2.Quotation | None = ...,
-        issue_size: common_pb2.Quotation | None = ...,
+        issue_size_plan: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        issue_size: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         placement_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         issue_kind: builtins.str = ...,
     ) -> None: ...
@@ -3721,31 +3721,31 @@ class AssetEtf(google.protobuf.message.Message):
     nominal_currency: builtins.str
     """Валюта номинала."""
     @property
-    def total_expense(self) -> common_pb2.Quotation:
+    def total_expense(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Суммарные расходы фонда (в %)."""
 
     @property
-    def hurdle_rate(self) -> common_pb2.Quotation:
+    def hurdle_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Барьерная ставка доходности после которой фонд имеет право на perfomance fee (в процентах)."""
 
     @property
-    def performance_fee(self) -> common_pb2.Quotation:
+    def performance_fee(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Комиссия за успешные результаты фонда (в процентах)."""
 
     @property
-    def fixed_commission(self) -> common_pb2.Quotation:
+    def fixed_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Фиксированная комиссия за управление (в процентах)."""
 
     @property
-    def buy_premium(self) -> common_pb2.Quotation:
+    def buy_premium(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Премия (надбавка к цене) при покупке доли в фонде (в процентах)."""
 
     @property
-    def sell_discount(self) -> common_pb2.Quotation:
+    def sell_discount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ставка дисконта (вычет из цены) при продаже доли в фонде (в процентах)."""
 
     @property
-    def num_share(self) -> common_pb2.Quotation:
+    def num_share(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество акций в обращении."""
 
     @property
@@ -3753,15 +3753,15 @@ class AssetEtf(google.protobuf.message.Message):
         """Дата выпуска."""
 
     @property
-    def index_recovery_period(self) -> common_pb2.Quotation:
+    def index_recovery_period(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Срок восстановления индекса (после просадки)."""
 
     @property
-    def expense_commission(self) -> common_pb2.Quotation:
+    def expense_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Комиссия на покрытие расходов фонда (в процентах)."""
 
     @property
-    def primary_index_tracking_error(self) -> common_pb2.Quotation:
+    def primary_index_tracking_error(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Ошибка следования за индексом (в процентах)."""
 
     @property
@@ -3769,42 +3769,42 @@ class AssetEtf(google.protobuf.message.Message):
         """Даты ребалансировок."""
 
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал."""
 
     def __init__(
         self,
         *,
-        total_expense: common_pb2.Quotation | None = ...,
-        hurdle_rate: common_pb2.Quotation | None = ...,
-        performance_fee: common_pb2.Quotation | None = ...,
-        fixed_commission: common_pb2.Quotation | None = ...,
+        total_expense: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        hurdle_rate: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        performance_fee: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        fixed_commission: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         payment_type: builtins.str = ...,
         watermark_flag: builtins.bool = ...,
-        buy_premium: common_pb2.Quotation | None = ...,
-        sell_discount: common_pb2.Quotation | None = ...,
+        buy_premium: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        sell_discount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         rebalancing_flag: builtins.bool = ...,
         rebalancing_freq: builtins.str = ...,
         management_type: builtins.str = ...,
         primary_index: builtins.str = ...,
         focus_type: builtins.str = ...,
         leveraged_flag: builtins.bool = ...,
-        num_share: common_pb2.Quotation | None = ...,
+        num_share: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ucits_flag: builtins.bool = ...,
         released_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         description: builtins.str = ...,
         primary_index_description: builtins.str = ...,
         primary_index_company: builtins.str = ...,
-        index_recovery_period: common_pb2.Quotation | None = ...,
+        index_recovery_period: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         inav_code: builtins.str = ...,
         div_yield_flag: builtins.bool = ...,
-        expense_commission: common_pb2.Quotation | None = ...,
-        primary_index_tracking_error: common_pb2.Quotation | None = ...,
+        expense_commission: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        primary_index_tracking_error: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         rebalancing_plan: builtins.str = ...,
         tax_rate: builtins.str = ...,
         rebalancing_dates: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
         issue_kind: builtins.str = ...,
-        nominal: common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         nominal_currency: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["buy_premium", b"buy_premium", "expense_commission", b"expense_commission", "fixed_commission", b"fixed_commission", "hurdle_rate", b"hurdle_rate", "index_recovery_period", b"index_recovery_period", "nominal", b"nominal", "num_share", b"num_share", "performance_fee", b"performance_fee", "primary_index_tracking_error", b"primary_index_tracking_error", "released_date", b"released_date", "sell_discount", b"sell_discount", "total_expense", b"total_expense"]) -> builtins.bool: ...
@@ -3823,13 +3823,13 @@ class AssetClearingCertificate(google.protobuf.message.Message):
     nominal_currency: builtins.str
     """Валюта номинала."""
     @property
-    def nominal(self) -> common_pb2.Quotation:
+    def nominal(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Номинал."""
 
     def __init__(
         self,
         *,
-        nominal: common_pb2.Quotation | None = ...,
+        nominal: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         nominal_currency: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["nominal", b"nominal"]) -> builtins.bool: ...
@@ -3907,7 +3907,7 @@ class AssetInstrument(google.protobuf.message.Message):
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     position_uid: builtins.str
     """id позиции."""
@@ -3924,7 +3924,7 @@ class AssetInstrument(google.protobuf.message.Message):
         ticker: builtins.str = ...,
         class_code: builtins.str = ...,
         links: collections.abc.Iterable[global___InstrumentLink] | None = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         position_uid: builtins.str = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["class_code", b"class_code", "figi", b"figi", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "links", b"links", "position_uid", b"position_uid", "ticker", b"ticker", "uid", b"uid"]) -> None: ...
@@ -4019,7 +4019,7 @@ class FavoriteInstrument(google.protobuf.message.Message):
     """Признак внебиржевой ценной бумаги."""
     api_trade_available_flag: builtins.bool
     """Параметр указывает на возможность торговать инструментом через API."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     def __init__(
         self,
@@ -4033,7 +4033,7 @@ class FavoriteInstrument(google.protobuf.message.Message):
         uid: builtins.str = ...,
         otc_flag: builtins.bool = ...,
         api_trade_available_flag: builtins.bool = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "class_code", b"class_code", "figi", b"figi", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "name", b"name", "otc_flag", b"otc_flag", "ticker", b"ticker", "uid", b"uid"]) -> None: ...
 
@@ -4195,7 +4195,7 @@ class IndicativeResponse(google.protobuf.message.Message):
     """Класс-код инструмента"""
     currency: builtins.str
     """Валюта расчётов"""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     name: builtins.str
     """Название инструмента"""
@@ -4214,7 +4214,7 @@ class IndicativeResponse(google.protobuf.message.Message):
         ticker: builtins.str = ...,
         class_code: builtins.str = ...,
         currency: builtins.str = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         name: builtins.str = ...,
         exchange: builtins.str = ...,
         uid: builtins.str = ...,
@@ -4266,7 +4266,7 @@ class FindInstrumentRequest(google.protobuf.message.Message):
     API_TRADE_AVAILABLE_FLAG_FIELD_NUMBER: builtins.int
     query: builtins.str
     """Строка поиска."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Фильтр по типу инструмента."""
     api_trade_available_flag: builtins.bool
     """Фильтр для отображения только торговых инструментов."""
@@ -4274,7 +4274,7 @@ class FindInstrumentRequest(google.protobuf.message.Message):
         self,
         *,
         query: builtins.str = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType | None = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType | None = ...,
         api_trade_available_flag: builtins.bool | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_api_trade_available_flag", b"_api_trade_available_flag", "_instrument_kind", b"_instrument_kind", "api_trade_available_flag", b"api_trade_available_flag", "instrument_kind", b"instrument_kind"]) -> builtins.bool: ...
@@ -4344,7 +4344,7 @@ class InstrumentShort(google.protobuf.message.Message):
     """Уникальный идентификатор инструмента."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
-    instrument_kind: common_pb2.InstrumentType.ValueType
+    instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     api_trade_available_flag: builtins.bool
     """Параметр указывает на возможность торговать инструментом через API."""
@@ -4375,7 +4375,7 @@ class InstrumentShort(google.protobuf.message.Message):
         name: builtins.str = ...,
         uid: builtins.str = ...,
         position_uid: builtins.str = ...,
-        instrument_kind: common_pb2.InstrumentType.ValueType = ...,
+        instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType = ...,
         api_trade_available_flag: builtins.bool = ...,
         for_iis_flag: builtins.bool = ...,
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -4397,13 +4397,13 @@ class GetBrandsRequest(google.protobuf.message.Message):
 
     PAGING_FIELD_NUMBER: builtins.int
     @property
-    def paging(self) -> common_pb2.Page:
+    def paging(self) -> TinkoffPy.grpc.common_pb2.Page:
         """Настройки пагинации."""
 
     def __init__(
         self,
         *,
-        paging: common_pb2.Page | None = ...,
+        paging: TinkoffPy.grpc.common_pb2.Page | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["paging", b"paging"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["paging", b"paging"]) -> None: ...
@@ -4441,14 +4441,14 @@ class GetBrandsResponse(google.protobuf.message.Message):
         """Массив брендов."""
 
     @property
-    def paging(self) -> common_pb2.PageResponse:
+    def paging(self) -> TinkoffPy.grpc.common_pb2.PageResponse:
         """Данные по пагинации"""
 
     def __init__(
         self,
         *,
         brands: collections.abc.Iterable[global___Brand] | None = ...,
-        paging: common_pb2.PageResponse | None = ...,
+        paging: TinkoffPy.grpc.common_pb2.PageResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["paging", b"paging"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["brands", b"brands", "paging", b"paging"]) -> None: ...
@@ -4857,13 +4857,13 @@ class GetConsensusForecastsRequest(google.protobuf.message.Message):
 
     PAGING_FIELD_NUMBER: builtins.int
     @property
-    def paging(self) -> common_pb2.Page:
+    def paging(self) -> TinkoffPy.grpc.common_pb2.Page:
         """Настройки пагинации."""
 
     def __init__(
         self,
         *,
-        paging: common_pb2.Page | None = ...,
+        paging: TinkoffPy.grpc.common_pb2.Page | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_paging", b"_paging", "paging", b"paging"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_paging", b"_paging", "paging", b"paging"]) -> None: ...
@@ -4914,15 +4914,15 @@ class GetConsensusForecastsResponse(google.protobuf.message.Message):
             """Дата и время создания записи"""
 
         @property
-        def best_target_price(self) -> common_pb2.Quotation:
+        def best_target_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Целевая цена на 12 месяцев"""
 
         @property
-        def best_target_low(self) -> common_pb2.Quotation:
+        def best_target_low(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Минимальная прогнозная цена"""
 
         @property
-        def best_target_high(self) -> common_pb2.Quotation:
+        def best_target_high(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Максимальная прогнозная цена"""
 
         @property
@@ -4935,9 +4935,9 @@ class GetConsensusForecastsResponse(google.protobuf.message.Message):
             uid: builtins.str = ...,
             asset_uid: builtins.str = ...,
             created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-            best_target_price: common_pb2.Quotation | None = ...,
-            best_target_low: common_pb2.Quotation | None = ...,
-            best_target_high: common_pb2.Quotation | None = ...,
+            best_target_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            best_target_low: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            best_target_high: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             total_buy_recommend: builtins.int = ...,
             total_hold_recommend: builtins.int = ...,
             total_sell_recommend: builtins.int = ...,
@@ -4955,14 +4955,14 @@ class GetConsensusForecastsResponse(google.protobuf.message.Message):
         """Массив прогнозов"""
 
     @property
-    def page(self) -> common_pb2.PageResponse:
+    def page(self) -> TinkoffPy.grpc.common_pb2.PageResponse:
         """Данные по пагинации"""
 
     def __init__(
         self,
         *,
         items: collections.abc.Iterable[global___GetConsensusForecastsResponse.ConsensusForecastsItem] | None = ...,
-        page: common_pb2.PageResponse | None = ...,
+        page: TinkoffPy.grpc.common_pb2.PageResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["page", b"page"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["items", b"items", "page", b"page"]) -> None: ...
@@ -5027,19 +5027,19 @@ class GetForecastResponse(google.protobuf.message.Message):
             """Дата прогноза"""
 
         @property
-        def current_price(self) -> common_pb2.Quotation:
+        def current_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Текущая цена"""
 
         @property
-        def target_price(self) -> common_pb2.Quotation:
+        def target_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Прогнозируемая цена"""
 
         @property
-        def price_change(self) -> common_pb2.Quotation:
+        def price_change(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Изменение цены"""
 
         @property
-        def price_change_rel(self) -> common_pb2.Quotation:
+        def price_change_rel(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Относительное изменение цены"""
 
         def __init__(
@@ -5051,10 +5051,10 @@ class GetForecastResponse(google.protobuf.message.Message):
             recommendation: global___Recommendation.ValueType = ...,
             recommendation_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             currency: builtins.str = ...,
-            current_price: common_pb2.Quotation | None = ...,
-            target_price: common_pb2.Quotation | None = ...,
-            price_change: common_pb2.Quotation | None = ...,
-            price_change_rel: common_pb2.Quotation | None = ...,
+            current_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            target_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            price_change: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            price_change_rel: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
             show_name: builtins.str = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["current_price", b"current_price", "price_change", b"price_change", "price_change_rel", b"price_change_rel", "recommendation_date", b"recommendation_date", "target_price", b"target_price"]) -> builtins.bool: ...
@@ -5085,27 +5085,27 @@ class GetForecastResponse(google.protobuf.message.Message):
         currency: builtins.str
         """Валюта"""
         @property
-        def current_price(self) -> common_pb2.Quotation:
+        def current_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Текущая цена"""
 
         @property
-        def consensus(self) -> common_pb2.Quotation:
+        def consensus(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Прогнозируемая цена"""
 
         @property
-        def min_target(self) -> common_pb2.Quotation:
+        def min_target(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Минимальная цена прогноза"""
 
         @property
-        def max_target(self) -> common_pb2.Quotation:
+        def max_target(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Максимальная цена прогноза"""
 
         @property
-        def price_change(self) -> common_pb2.Quotation:
+        def price_change(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Изменение цены"""
 
         @property
-        def price_change_rel(self) -> common_pb2.Quotation:
+        def price_change_rel(self) -> TinkoffPy.grpc.common_pb2.Quotation:
             """Относительное изменение цены"""
 
         def __init__(
@@ -5115,12 +5115,12 @@ class GetForecastResponse(google.protobuf.message.Message):
             ticker: builtins.str = ...,
             recommendation: global___Recommendation.ValueType = ...,
             currency: builtins.str = ...,
-            current_price: common_pb2.Quotation | None = ...,
-            consensus: common_pb2.Quotation | None = ...,
-            min_target: common_pb2.Quotation | None = ...,
-            max_target: common_pb2.Quotation | None = ...,
-            price_change: common_pb2.Quotation | None = ...,
-            price_change_rel: common_pb2.Quotation | None = ...,
+            current_price: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            consensus: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            min_target: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            max_target: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            price_change: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+            price_change_rel: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["consensus", b"consensus", "current_price", b"current_price", "max_target", b"max_target", "min_target", b"min_target", "price_change", b"price_change", "price_change_rel", b"price_change_rel"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["consensus", b"consensus", "currency", b"currency", "current_price", b"current_price", "max_target", b"max_target", "min_target", b"min_target", "price_change", b"price_change", "price_change_rel", b"price_change_rel", "recommendation", b"recommendation", "ticker", b"ticker", "uid", b"uid"]) -> None: ...
