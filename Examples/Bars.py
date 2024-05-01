@@ -84,8 +84,7 @@ def get_candles_from_provider(tp_provider=TinkoffPy(), class_code='TQBR', securi
                 if not new_bar['isComplete']:  # Если добрались до незавершенного бара
                     break  # то это последний бар, больше бары обрабатывать не будем
                 dt_utc = datetime.fromisoformat(new_bar['time'][:-1])  # Дата и время начала бара в UTC
-                dt = tp_provider.utc_to_msk_datetime(dt_utc) if intraday else \
-                    datetime(dt_utc.year, dt_utc.month, dt_utc.day)  # Дату/время переводим из UTC в МСК
+                dt = tp_provider.utc_to_msk_datetime(dt_utc) if intraday else datetime(dt_utc.year, dt_utc.month, dt_utc.day)  # Дату/время переводим из UTC в МСК
                 open_ = tp_provider.dict_quotation_to_float(new_bar['open'])
                 high = tp_provider.dict_quotation_to_float(new_bar['high'])
                 low = tp_provider.dict_quotation_to_float(new_bar['low'])
