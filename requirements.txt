@@ -1,4 +1,4 @@
 pytz
 grpcio
-protobuf>=5.26.0
+protobuf>=5.26
 types-protobuf
