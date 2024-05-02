@@ -42,7 +42,7 @@ class TinkoffPy:
         :param str token: Токен
         """
         self.metadata = (('authorization', f'Bearer {token}'),)  # Токен доступа
-        self.channel = secure_channel(self.server if demo else self.server_demo, ssl_channel_credentials())  # Защищенный канал
+        self.channel = secure_channel(self.server_demo if demo else self.server, ssl_channel_credentials())  # Защищенный канал
 
         # Сервисы запросов
         self.stub_users = UsersServiceStub(self.channel)  # Счета
