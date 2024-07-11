@@ -224,25 +224,25 @@ class TinkoffPy:
     # Функции конвертации
 
     def dataname_to_class_code_symbol(self, dataname) -> tuple[str, str]:
-        """Биржа и код тикера из названия тикера. Если задается без биржи, то по умолчанию ставится MOEX
+        """Код режима торгов и тикер из названия тикера
 
         :param str dataname: Название тикера
-        :return: Код площадки и код тикера
+        :return: Код режима торгов и тикер
         """
         symbol_parts = dataname.split('.')  # По разделителю пытаемся разбить тикер на части
-        if len(symbol_parts) >= 2:  # Если тикер задан в формате <Код площадки>.<Код тикера>
-            class_code = symbol_parts[0]  # Код площадки
+        if len(symbol_parts) >= 2:  # Если тикер задан в формате <Код режима торгов>.<Код тикера>
+            class_code = symbol_parts[0]  # Код режима торгов
             symbol = '.'.join(symbol_parts[1:])  # Код тикера
-        else:  # Если тикер задан без площадки
+        else:  # Если тикер задан без кода режима торгов
             symbol = dataname  # Код тикера
-            class_code = next((item.class_code for item in self.symbols.values() if item.ticker == symbol), None)  # Получаем код площадки первого совпадающего тикера
-        return class_code, symbol  # Возвращаем код площадки и код тикера
+            class_code = next((item.class_code for item in self.symbols.values() if item.ticker == symbol), None)  # Получаем код режима торгов первого совпадающего тикера
+        return class_code, symbol
 
     @staticmethod
     def class_code_symbol_to_dataname(class_code, symbol) -> str:
-        """Название тикера из кода площадки и кода тикера
+        """Название тикера из кода режима торгов и кода тикера
 
-        :param str class_code: Код площадки
+        :param str class_code: Код режима торгов
         :param str symbol: Тикер
         :return: Название тикера
         """
@@ -251,13 +251,13 @@ class TinkoffPy:
     def get_symbol_info(self, class_code, symbol, reload=False) -> Union[instruments_pb2.Instrument, None]:
         """Спецификация тикера
 
-        :param str class_code: : Код площадки
+        :param str class_code: : Код режима торгов
         :param str symbol: Тикер
         :param bool reload: Получить информацию с Тинькофф
         :return: Значение из кэша/Тинькофф или None, если тикер не найден
         """
         if reload or (class_code, symbol) not in self.symbols:  # Если нужно получить информацию с Тинькофф или нет информации о тикере в справочнике
-            request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+            request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду режима торгов/названию
             response: instruments_pb2.InstrumentResponse = self.call_function(self.stub_instruments.GetInstrumentBy, request)  # Получаем информацию о тикере
             if not response:  # Если информация о тикере не найдена
                 self.logger.warning(f'Информация о {class_code}.{symbol} не найдена')
@@ -368,7 +368,7 @@ class TinkoffPy:
         """
         si = self.get_symbol_info(class_code, symbol)  # Информация о тикере
         min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
-        request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+        request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду режима торгов/названию
         if si.instrument_kind == common_pb2.INSTRUMENT_TYPE_BOND:  # Для облигаций
             bonds_response: instruments_pb2.BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
             instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
@@ -395,7 +395,7 @@ class TinkoffPy:
         si = self.get_symbol_info(class_code, symbol)  # Информация о тикере
         min_step = self.quotation_to_float(si.min_price_increment)  # Шаг цены
         tinkoff_price = tinkoff_price // min_step * min_step  # Цена кратная шагу цены
-        request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду площадки/названию
+        request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду режима торгов/названию
         if si.instrument_kind == common_pb2.INSTRUMENT_TYPE_BOND:  # Для облигаций
             bonds_response: instruments_pb2.BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
             instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
