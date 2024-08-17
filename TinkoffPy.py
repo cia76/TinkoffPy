@@ -1,8 +1,8 @@
+import logging  # Выводим лог на консоль и в файл
 from typing import Union  # Объединение типов
 from datetime import datetime, timedelta
 from time import sleep
 from queue import SimpleQueue  # Очередь подписок/отписок
-import logging
 
 from google.protobuf.timestamp_pb2 import Timestamp
 
