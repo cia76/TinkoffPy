@@ -6,7 +6,7 @@ import os.path
 import pandas as pd
 
 from TinkoffPy import TinkoffPy  # Работа с Tinkoff Invest API из Python
-from TinkoffPy.grpc.marketdata_pb2 import GetCandlesRequest
+from TinkoffPy.grpc.marketdata_pb2 import GetCandlesRequest, GetCandlesResponse
 from google.protobuf.json_format import MessageToDict
 
 
@@ -61,7 +61,7 @@ def get_candles_from_provider(tp_provider, class_code, security_code, tf, next_b
         from_.seconds = int(next_bar_open_utc.timestamp())  # Дата и время начала интервала UTC
         todate_min_utc = min(todate_utc, next_bar_open_utc + td)  # До какой даты можем делать запрос
         to_.seconds = int(todate_min_utc.timestamp())  # Дата и время окончания интервала UTC
-        candles = tp_provider.call_function(tp_provider.stub_marketdata.GetCandles, request)  # Получаем ответ на запрос бар
+        candles: GetCandlesResponse = tp_provider.call_function(tp_provider.stub_marketdata.GetCandles, request)  # Получаем ответ на запрос бар
         if not candles:  # Если бары не получены
             logger.error('Ошибка при получении истории: История не получена')
             return pd.DataFrame()  # то выходим, дальше не продолжаем
@@ -85,11 +85,11 @@ def get_candles_from_provider(tp_provider, class_code, security_code, tf, next_b
                     break  # то это последний бар, больше бары обрабатывать не будем
                 dt_utc = datetime.fromisoformat(new_bar['time'][:-1])  # Дата и время начала бара в UTC
                 dt = tp_provider.utc_to_msk_datetime(dt_utc) if intraday else datetime(dt_utc.year, dt_utc.month, dt_utc.day)  # Дату/время переводим из UTC в МСК
-                open_ = tp_provider.dict_quotation_to_float(new_bar['open'])
-                high = tp_provider.dict_quotation_to_float(new_bar['high'])
-                low = tp_provider.dict_quotation_to_float(new_bar['low'])
-                close = tp_provider.dict_quotation_to_float(new_bar['close'])
-                volume = int(new_bar['volume']) * si.lot  # Объем в штуках
+                open_ = tp_provider.tinkoff_price_to_price(class_code, security_code, tp_provider.dict_quotation_to_float(new_bar['open']))
+                high = tp_provider.tinkoff_price_to_price(class_code, security_code, tp_provider.dict_quotation_to_float(new_bar['high']))
+                low = tp_provider.tinkoff_price_to_price(class_code, security_code, tp_provider.dict_quotation_to_float(new_bar['low']))
+                close = tp_provider.tinkoff_price_to_price(class_code, security_code, tp_provider.dict_quotation_to_float(new_bar['close']))
+                volume = int(new_bar['volume'])  # Объем в лотах
                 new_bars_list.append({'datetime': dt, 'open': open_, 'high': high, 'low': low, 'close': close, 'volume': volume})
         next_bar_open_utc = todate_min_utc + timedelta(minutes=1) if intraday else todate_min_utc + timedelta(days=1)  # Смещаем время на возможный следующий бар UTC
         if next_bar_open_utc > todate_utc:  # Если пройден весь интервал
