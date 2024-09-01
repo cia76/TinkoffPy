@@ -177,10 +177,10 @@ if __name__ == '__main__':  # Точка входа при запуске это
 
     class_code = 'TQBR'  # Акции ММВБ
     security_codes = ('SBER',)  # Для тестов
-    # security_codes = ('SBER', 'VTBR', 'GAZP', 'MTLR', 'LKOH', 'PLZL', 'SBERP', 'BSPB', 'POLY', 'RNFT',
-    #                   'GMKN', 'AFLT', 'NVTK', 'TATN', 'YNDX', 'MGNT', 'ROSN', 'AFKS', 'NLMK', 'ALRS',
-    #                   'MOEX', 'SMLT', 'MAGN', 'CHMF', 'CBOM', 'MTLRP', 'SNGS', 'BANEP', 'MTSS', 'IRAO',
-    #                   'SNGSP', 'SELG', 'UPRO', 'RUAL', 'TRNFP', 'FEES', 'SGZH', 'BANE', 'PHOR', 'PIKK')  # TOP 40 акций ММВБ
+    # security_codes = ('GAZP', 'SBER', 'LKOH', 'MTLR', 'TCSG', 'VTBR', 'NVTK', 'ROSN', 'GMKN', 'PLZL',
+    #                   'SGZH', 'MVID', 'TRNFP', 'AFLT', 'AFKS', 'MTLRP', 'NLMK', 'MTSS', 'TATN', 'SBERP',
+    #                   'VKCO', 'MOEX', 'SMLT', 'ALRS', 'CHMF', 'RNFT', 'BSPB', 'MAGN', 'FLOT', 'POSI',
+    #                   'RUAL', 'PHOR', 'IRAO', 'PIKK', 'AQUA', 'RTKM', 'UPRO', 'TATNP', 'FEES', 'SELG')  # TOP 40 акций ММВБ
     # class_code = 'SPBFUT'  # Фьючерсы
     # security_codes = ('SiM4', 'RIM4')  # Формат фьючерса: <Тикер><Месяц экспирации><Последняя цифра года> Месяц экспирации: 3-H, 6-M, 9-U, 12-Z
     # security_codes = ('USDRUBF', 'EURRUBF', 'CNYRUBF', 'GLDRUBF', 'IMOEXF')  # Вечные фьючерсы ММВБ
