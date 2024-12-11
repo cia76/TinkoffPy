@@ -411,32 +411,31 @@ class TinkoffPy:
             return tinkoff_price / self.quotation_to_float(futures_response.instrument.min_price_increment) * self.quotation_to_float(margin_response.min_price_increment_amount)  # Стоимость фьючерсов предоставляется в пунктах
         return tinkoff_price  # В остальных случаях цена не изменяется
 
-    def money_value_to_float(self, money_value, currency=None) -> float:
+    def money_value_to_float(self, money_value, currency='rub') -> float:
         """Перевод денежной суммы в валюте в вещественное число
 
         :param MoneyValue money_value: Денежная сумма в валюте
         :param PortfolioRequest.CurrencyRequest currency: Валюта
         :return: Вещественное число
         """
-        figis = ('TCS0013HGFT4', 'TCS2013HJJ31')  # Уникальные коды курсовых тикеров USD000000TOD / EUR_RUB__TOD
-        if not currency:  # Если не укаазна валюта
-            currency = self.currency  # то будем считать в валюте по умолчанию
+        # figis = ('TCS0013HGFT4', 'TCS2013HJJ31')  # Уникальные коды курсовых тикеров USD000000TOD / EUR_RUB__TOD. Больше не торгуются. За неимением лучшего берем вечные фьючерсы
+        figis = ('FUTUSDRUBF00', 'FUTEURRUBF00')  # Уникальные коды вечных фьючерсов на доллар США и Евро
         k = 1  # Коэфф. конвертации
         if currency != money_value.currency:  # Если нужно конвертировать
-            response: marketdata_pb2.GetLastPricesResponse = self.call_function(self.stub_marketdata.GetLastPrices, marketdata_pb2.GetLastPricesRequest(instrument_id=figis))  # Последние цены курсовых тикеров
+            response: marketdata_pb2.GetLastPricesResponse = self.call_function(self.stub_marketdata.GetLastPrices, marketdata_pb2.GetLastPricesRequest(instrument_id=figis))  # Последние цены вечных фьючерсов
             usd = self.quotation_to_float(response.last_prices[0].price)  # Курс доллар/рубль
             eur = self.quotation_to_float(response.last_prices[1].price)  # Курс евро/рубль
-            if money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.RUB and currency == operations_pb2.PortfolioRequest.CurrencyRequest.USD:  # Конвертируем рубль в доллар США
+            if money_value.currency == 'rub' and currency == 'usd':  # Конвертируем рубль в доллар США
                 k = 1 / usd  # Обратная котировка
-            elif money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.RUB and currency == operations_pb2.PortfolioRequest.CurrencyRequest.EUR:  # Конвертируем рубль в евро
+            elif money_value.currency == 'rub' and currency == 'eur':  # Конвертируем рубль в евро
                 k = 1 / eur  # Обратная котировка
-            elif money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.USD and currency == operations_pb2.PortfolioRequest.CurrencyRequest.RUB:  # Конвертируем доллар США в рубль
+            elif money_value.currency == 'usd' and currency == 'rub':  # Конвертируем доллар США в рубль
                 k = usd  # Прямая котировка
-            elif money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.USD and currency == operations_pb2.PortfolioRequest.CurrencyRequest.EUR:  # Конвертируем доллар США в евро
+            elif money_value.currency == 'usd' and currency == 'eur':  # Конвертируем доллар США в евро
                 k = usd / eur
-            elif money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.EUR and currency == operations_pb2.PortfolioRequest.CurrencyRequest.RUB:  # Конвертируем евро в рубль
+            elif money_value.currency == 'eur' and currency == 'rub':  # Конвертируем евро в рубль
                 k = eur  # Прямая котировка
-            elif money_value.currency == operations_pb2.PortfolioRequest.CurrencyRequest.EUR and currency == operations_pb2.PortfolioRequest.CurrencyRequest.USD:  # Конвертируем евро в доллар США
+            elif money_value.currency == 'eur' and currency == 'usd':  # Конвертируем евро в доллар США
                 k = eur / usd
         return money_value.units + money_value.nano / 1_000_000_000 * k
 
