@@ -398,7 +398,7 @@ class TinkoffPy:
         request = instruments_pb2.InstrumentRequest(id_type=instruments_pb2.InstrumentIdType.INSTRUMENT_ID_TYPE_TICKER, class_code=class_code, id=symbol)  # Поиск тикера по коду режима торгов/названию
         if si.instrument_kind == common_pb2.INSTRUMENT_TYPE_BOND:  # Для облигаций
             bonds_response: instruments_pb2.BondsResponse = self.call_function(self.stub_instruments.BondBy, request)  # Получаем информацию об облигации
-            instrument = bonds_response.instruments[0]  # Берем первую облигацию из списка
+            instrument = bonds_response.instrument  # Информация об облигации
             return tinkoff_price / 100 * self.money_value_to_float(instrument.nominal)  # Пункты цены для котировок облигаций представляют собой проценты номинала облигации
         if si.instrument_kind == common_pb2.INSTRUMENT_TYPE_CURRENCY:  # Для валют
             currency_response: instruments_pb2.CurrencyResponse = self.call_function(self.stub_instruments.CurrencyBy, request)  # Получаем информацию о валюте
