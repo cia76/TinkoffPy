@@ -474,7 +474,14 @@ class TinkoffPy:
         :param dict dict_quotation: Денежная сумма
         :return: Вещественное число
         """
-        return int(dict_quotation['units']) + int(dict_quotation['nano']) / 1_000_000_000
+        result = 0  # Если значение не задано, то будем возвращать 0
+        if type(dict_quotation) is not dict:  # Если задано пустое значение (не словарь)
+            return result
+        if 'units' in dict_quotation:  # Если задана целая часть
+            result += int(dict_quotation['units'])  # то добавляем его в значение
+        if 'nano' in dict_quotation:  # Если задана дробная часть
+            result += int(dict_quotation['nano']) / 1_000_000_000  # то добавляем ее в значение
+        return result
 
     def timestamp_to_msk_datetime(self, timestamp) -> datetime:
         """Перевод времени из Google UTC Timestamp в московское
