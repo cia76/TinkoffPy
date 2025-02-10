@@ -28,21 +28,21 @@ class _StopOrderDirection:
 class _StopOrderDirectionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StopOrderDirection.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STOP_ORDER_DIRECTION_UNSPECIFIED: _StopOrderDirection.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     STOP_ORDER_DIRECTION_BUY: _StopOrderDirection.ValueType  # 1
-    """Покупка"""
+    """Покупка."""
     STOP_ORDER_DIRECTION_SELL: _StopOrderDirection.ValueType  # 2
-    """Продажа"""
+    """Продажа."""
 
 class StopOrderDirection(_StopOrderDirection, metaclass=_StopOrderDirectionEnumTypeWrapper):
     """Направление сделки стоп-заявки."""
 
 STOP_ORDER_DIRECTION_UNSPECIFIED: StopOrderDirection.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 STOP_ORDER_DIRECTION_BUY: StopOrderDirection.ValueType  # 1
-"""Покупка"""
+"""Покупка."""
 STOP_ORDER_DIRECTION_SELL: StopOrderDirection.ValueType  # 2
-"""Продажа"""
+"""Продажа."""
 global___StopOrderDirection = StopOrderDirection
 
 class _StopOrderExpirationType:
@@ -52,21 +52,21 @@ class _StopOrderExpirationType:
 class _StopOrderExpirationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StopOrderExpirationType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED: _StopOrderExpirationType.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL: _StopOrderExpirationType.ValueType  # 1
-    """Действительно до отмены"""
+    """Действительно до отмены."""
     STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE: _StopOrderExpirationType.ValueType  # 2
-    """Действительно до даты снятия"""
+    """Действительно до даты снятия."""
 
 class StopOrderExpirationType(_StopOrderExpirationType, metaclass=_StopOrderExpirationTypeEnumTypeWrapper):
     """Тип экспирации стоп-заявке."""
 
 STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED: StopOrderExpirationType.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL: StopOrderExpirationType.ValueType  # 1
-"""Действительно до отмены"""
+"""Действительно до отмены."""
 STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE: StopOrderExpirationType.ValueType  # 2
-"""Действительно до даты снятия"""
+"""Действительно до даты снятия."""
 global___StopOrderExpirationType = StopOrderExpirationType
 
 class _StopOrderType:
@@ -76,25 +76,25 @@ class _StopOrderType:
 class _StopOrderTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StopOrderType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STOP_ORDER_TYPE_UNSPECIFIED: _StopOrderType.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     STOP_ORDER_TYPE_TAKE_PROFIT: _StopOrderType.ValueType  # 1
-    """Take-profit заявка"""
+    """`Take-profit`-заявка."""
     STOP_ORDER_TYPE_STOP_LOSS: _StopOrderType.ValueType  # 2
-    """Stop-loss заявка"""
+    """`Stop-loss`-заявка."""
     STOP_ORDER_TYPE_STOP_LIMIT: _StopOrderType.ValueType  # 3
-    """Stop-limit заявка"""
+    """`Stop-limit`-заявка."""
 
 class StopOrderType(_StopOrderType, metaclass=_StopOrderTypeEnumTypeWrapper):
     """Тип стоп-заявки."""
 
 STOP_ORDER_TYPE_UNSPECIFIED: StopOrderType.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 STOP_ORDER_TYPE_TAKE_PROFIT: StopOrderType.ValueType  # 1
-"""Take-profit заявка"""
+"""`Take-profit`-заявка."""
 STOP_ORDER_TYPE_STOP_LOSS: StopOrderType.ValueType  # 2
-"""Stop-loss заявка"""
+"""`Stop-loss`-заявка."""
 STOP_ORDER_TYPE_STOP_LIMIT: StopOrderType.ValueType  # 3
-"""Stop-limit заявка"""
+"""`Stop-limit`-заявка."""
 global___StopOrderType = StopOrderType
 
 class _StopOrderStatusOption:
@@ -104,33 +104,33 @@ class _StopOrderStatusOption:
 class _StopOrderStatusOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StopOrderStatusOption.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STOP_ORDER_STATUS_UNSPECIFIED: _StopOrderStatusOption.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     STOP_ORDER_STATUS_ALL: _StopOrderStatusOption.ValueType  # 1
-    """Все заявки"""
+    """Все заявки."""
     STOP_ORDER_STATUS_ACTIVE: _StopOrderStatusOption.ValueType  # 2
-    """Активные заявки"""
+    """Активные заявки."""
     STOP_ORDER_STATUS_EXECUTED: _StopOrderStatusOption.ValueType  # 3
-    """Исполненные заявки"""
+    """Исполненные заявки."""
     STOP_ORDER_STATUS_CANCELED: _StopOrderStatusOption.ValueType  # 4
-    """Отмененные заявки"""
+    """Отмененные заявки."""
     STOP_ORDER_STATUS_EXPIRED: _StopOrderStatusOption.ValueType  # 5
-    """Истекшие заявки"""
+    """Истекшие заявки."""
 
 class StopOrderStatusOption(_StopOrderStatusOption, metaclass=_StopOrderStatusOptionEnumTypeWrapper):
     """Статус стоп-заяки."""
 
 STOP_ORDER_STATUS_UNSPECIFIED: StopOrderStatusOption.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 STOP_ORDER_STATUS_ALL: StopOrderStatusOption.ValueType  # 1
-"""Все заявки"""
+"""Все заявки."""
 STOP_ORDER_STATUS_ACTIVE: StopOrderStatusOption.ValueType  # 2
-"""Активные заявки"""
+"""Активные заявки."""
 STOP_ORDER_STATUS_EXECUTED: StopOrderStatusOption.ValueType  # 3
-"""Исполненные заявки"""
+"""Исполненные заявки."""
 STOP_ORDER_STATUS_CANCELED: StopOrderStatusOption.ValueType  # 4
-"""Отмененные заявки"""
+"""Отмененные заявки."""
 STOP_ORDER_STATUS_EXPIRED: StopOrderStatusOption.ValueType  # 5
-"""Истекшие заявки"""
+"""Истекшие заявки."""
 global___StopOrderStatusOption = StopOrderStatusOption
 
 class _ExchangeOrderType:
@@ -140,21 +140,21 @@ class _ExchangeOrderType:
 class _ExchangeOrderTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExchangeOrderType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     EXCHANGE_ORDER_TYPE_UNSPECIFIED: _ExchangeOrderType.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     EXCHANGE_ORDER_TYPE_MARKET: _ExchangeOrderType.ValueType  # 1
-    """Заявка по рыночной цене"""
+    """Заявка по рыночной цене."""
     EXCHANGE_ORDER_TYPE_LIMIT: _ExchangeOrderType.ValueType  # 2
-    """Лимитная заявка"""
+    """Лимитная заявка."""
 
 class ExchangeOrderType(_ExchangeOrderType, metaclass=_ExchangeOrderTypeEnumTypeWrapper):
     """Тип выставляемой заявки."""
 
 EXCHANGE_ORDER_TYPE_UNSPECIFIED: ExchangeOrderType.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 EXCHANGE_ORDER_TYPE_MARKET: ExchangeOrderType.ValueType  # 1
-"""Заявка по рыночной цене"""
+"""Заявка по рыночной цене."""
 EXCHANGE_ORDER_TYPE_LIMIT: ExchangeOrderType.ValueType  # 2
-"""Лимитная заявка"""
+"""Лимитная заявка."""
 global___ExchangeOrderType = ExchangeOrderType
 
 class _TakeProfitType:
@@ -164,21 +164,21 @@ class _TakeProfitType:
 class _TakeProfitTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TakeProfitType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TAKE_PROFIT_TYPE_UNSPECIFIED: _TakeProfitType.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     TAKE_PROFIT_TYPE_REGULAR: _TakeProfitType.ValueType  # 1
-    """Обычная заявка (значение по умолчанию)"""
+    """Обычная заявка, значение по умолчанию."""
     TAKE_PROFIT_TYPE_TRAILING: _TakeProfitType.ValueType  # 2
-    """Трейлинг-стоп"""
+    """Трейлинг-стоп."""
 
 class TakeProfitType(_TakeProfitType, metaclass=_TakeProfitTypeEnumTypeWrapper):
-    """Тип TakeProfit заявки."""
+    """Тип TakeProfit-заявки."""
 
 TAKE_PROFIT_TYPE_UNSPECIFIED: TakeProfitType.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 TAKE_PROFIT_TYPE_REGULAR: TakeProfitType.ValueType  # 1
-"""Обычная заявка (значение по умолчанию)"""
+"""Обычная заявка, значение по умолчанию."""
 TAKE_PROFIT_TYPE_TRAILING: TakeProfitType.ValueType  # 2
-"""Трейлинг-стоп"""
+"""Трейлинг-стоп."""
 global___TakeProfitType = TakeProfitType
 
 class _TrailingValueType:
@@ -188,21 +188,21 @@ class _TrailingValueType:
 class _TrailingValueTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TrailingValueType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRAILING_VALUE_UNSPECIFIED: _TrailingValueType.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     TRAILING_VALUE_ABSOLUTE: _TrailingValueType.ValueType  # 1
-    """Абсолютное значение в единицах цены"""
+    """Абсолютное значение в единицах цены."""
     TRAILING_VALUE_RELATIVE: _TrailingValueType.ValueType  # 2
-    """Относительное значение в процентах"""
+    """Относительное значение в процентах."""
 
 class TrailingValueType(_TrailingValueType, metaclass=_TrailingValueTypeEnumTypeWrapper):
-    """Тип параметров значений Трейлинг-стопа"""
+    """Тип параметров значений трейлинг-стопа."""
 
 TRAILING_VALUE_UNSPECIFIED: TrailingValueType.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 TRAILING_VALUE_ABSOLUTE: TrailingValueType.ValueType  # 1
-"""Абсолютное значение в единицах цены"""
+"""Абсолютное значение в единицах цены."""
 TRAILING_VALUE_RELATIVE: TrailingValueType.ValueType  # 2
-"""Относительное значение в процентах"""
+"""Относительное значение в процентах."""
 global___TrailingValueType = TrailingValueType
 
 class _TrailingStopStatus:
@@ -212,21 +212,21 @@ class _TrailingStopStatus:
 class _TrailingStopStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TrailingStopStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRAILING_STOP_UNSPECIFIED: _TrailingStopStatus.ValueType  # 0
-    """Значение не указано"""
+    """Значение не указано."""
     TRAILING_STOP_ACTIVE: _TrailingStopStatus.ValueType  # 1
-    """Активный"""
+    """Активный."""
     TRAILING_STOP_ACTIVATED: _TrailingStopStatus.ValueType  # 2
-    """Активированный"""
+    """Активированный."""
 
 class TrailingStopStatus(_TrailingStopStatus, metaclass=_TrailingStopStatusEnumTypeWrapper):
-    """Статус Трейлинг-стопа"""
+    """Статус трейлинг-стопа."""
 
 TRAILING_STOP_UNSPECIFIED: TrailingStopStatus.ValueType  # 0
-"""Значение не указано"""
+"""Значение не указано."""
 TRAILING_STOP_ACTIVE: TrailingStopStatus.ValueType  # 1
-"""Активный"""
+"""Активный."""
 TRAILING_STOP_ACTIVATED: TrailingStopStatus.ValueType  # 2
-"""Активированный"""
+"""Активированный."""
 global___TrailingStopStatus = TrailingStopStatus
 
 @typing.final
@@ -244,16 +244,16 @@ class PostStopOrderRequest(google.protobuf.message.Message):
         SPREAD_FIELD_NUMBER: builtins.int
         SPREAD_TYPE_FIELD_NUMBER: builtins.int
         indent_type: global___TrailingValueType.ValueType
-        """Тип величины отступа"""
+        """Тип величины отступа."""
         spread_type: global___TrailingValueType.ValueType
-        """Тип величины защитного спреда"""
+        """Тип величины защитного спреда."""
         @property
         def indent(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Отступ"""
+            """Отступ."""
 
         @property
         def spread(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Размер защитного спреда"""
+            """Размер защитного спреда."""
 
         def __init__(
             self,
@@ -282,42 +282,42 @@ class PostStopOrderRequest(google.protobuf.message.Message):
     PRICE_TYPE_FIELD_NUMBER: builtins.int
     ORDER_ID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Deprecated Figi-идентификатор инструмента. Необходимо использовать instrument_id."""
+    """Deprecated FIGI-идентификатор инструмента. Используйте `instrument_id`."""
     quantity: builtins.int
-    """Количество лотов"""
+    """Количество лотов."""
     direction: global___StopOrderDirection.ValueType
-    """Направление операции"""
+    """Направление операции."""
     account_id: builtins.str
-    """Номер счёта"""
+    """Номер счета."""
     expiration_type: global___StopOrderExpirationType.ValueType
-    """Тип экспирации заявки"""
+    """Тип экспирации заявки."""
     stop_order_type: global___StopOrderType.ValueType
-    """Тип заявки"""
+    """Тип заявки."""
     instrument_id: builtins.str
-    """Идентификатор инструмента, принимает значения Figi или instrument_uid."""
+    """Идентификатор инструмента. Принимает значение `figi` или `instrument_uid`."""
     exchange_order_type: global___ExchangeOrderType.ValueType
-    """Тип дочерней биржевой заявки для тейкпрофита"""
+    """Тип дочерней биржевой заявки."""
     take_profit_type: global___TakeProfitType.ValueType
-    """Подтип стоп-заявки TakeProfit"""
+    """Подтип стоп-заявки — `TakeProfit`."""
     price_type: TinkoffPy.grpc.common_pb2.PriceType.ValueType
-    """Тип цены"""
+    """Тип цены."""
     order_id: builtins.str
-    """Идентификатор запроса выставления поручения для целей идемпотентности в формате UID. Максимальная длина 36 символов."""
+    """Идентификатор запроса выставления поручения для целей идемпотентности в формате `UID`. Максимальная длина — 36 символов."""
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Цена за 1 инструмент биржевой заявки, которая будет выставлена при срабатывании по достижению `stop_price`. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def stop_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Стоп-цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Стоп-цена заявки за 1 инструмент. При достижении стоп-цены происходит активация стоп-заявки, в результате чего выставляется биржевая заявка. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def expire_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время окончания действия стоп-заявки в часовом поясе UTC. **Для ExpirationType = GoodTillDate заполнение обязательно, для GoodTillCancel игнорируется**."""
+        """Дата и время окончания действия стоп-заявки по UTC. Для `ExpirationType = GoodTillDate` заполнение обязательно, для `GoodTillCancel` игнорируется."""
 
     @property
     def trailing_data(self) -> global___PostStopOrderRequest.TrailingData:
-        """Массив с параметрами трейлинг-стопа"""
+        """Массив с параметрами трейлинг-стопа."""
 
     def __init__(
         self,
@@ -361,12 +361,12 @@ class PostStopOrderResponse(google.protobuf.message.Message):
     ORDER_REQUEST_ID_FIELD_NUMBER: builtins.int
     RESPONSE_METADATA_FIELD_NUMBER: builtins.int
     stop_order_id: builtins.str
-    """Уникальный идентификатор стоп-заявки"""
+    """Уникальный идентификатор стоп-заявки."""
     order_request_id: builtins.str
-    """Идентификатор ключа идемпотентности, переданный клиентом, в формате UID. Максимальная длина 36 символов."""
+    """Идентификатор ключа идемпотентности, переданный клиентом, в формате `UID`. Максимальная длина 36 — символов."""
     @property
     def response_metadata(self) -> TinkoffPy.grpc.common_pb2.ResponseMetadata:
-        """Метадата"""
+        """Метадата."""
 
     def __init__(
         self,
@@ -391,12 +391,12 @@ class GetStopOrdersRequest(google.protobuf.message.Message):
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента"""
+    """Идентификатор счета клиента."""
     status: global___StopOrderStatusOption.ValueType
-    """Статус заявок"""
+    """Статус заявок."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Правая граница"""
+        """Правая граница."""
 
     def __init__(
         self,
@@ -419,7 +419,7 @@ class GetStopOrdersResponse(google.protobuf.message.Message):
     STOP_ORDERS_FIELD_NUMBER: builtins.int
     @property
     def stop_orders(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StopOrder]:
-        """Массив стоп-заявок по счёту"""
+        """Массив стоп-заявок по счету."""
 
     def __init__(
         self,
@@ -439,9 +439,9 @@ class CancelStopOrderRequest(google.protobuf.message.Message):
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     STOP_ORDER_ID_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента"""
+    """Идентификатор счета клиента."""
     stop_order_id: builtins.str
-    """Уникальный идентификатор стоп-заявки"""
+    """Уникальный идентификатор стоп-заявки."""
     def __init__(
         self,
         *,
@@ -461,7 +461,7 @@ class CancelStopOrderResponse(google.protobuf.message.Message):
     TIME_FIELD_NUMBER: builtins.int
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время отмены заявки в часовом поясе UTC"""
+        """Время отмены заявки по UTC."""
 
     def __init__(
         self,
@@ -491,26 +491,26 @@ class StopOrder(google.protobuf.message.Message):
         PRICE_FIELD_NUMBER: builtins.int
         EXTR_FIELD_NUMBER: builtins.int
         indent_type: global___TrailingValueType.ValueType
-        """Тип величины отступа"""
+        """Тип величины отступа."""
         spread_type: global___TrailingValueType.ValueType
-        """Тип величины защитного спреда"""
+        """Тип величины защитного спреда."""
         status: global___TrailingStopStatus.ValueType
-        """Статус трейлинг-стопа"""
+        """Статус трейлинг-стопа."""
         @property
         def indent(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Отступ"""
+            """Отступ."""
 
         @property
         def spread(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Размер защитного спреда"""
+            """Размер защитного спреда."""
 
         @property
         def price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Цена исполнения"""
+            """Цена исполнения."""
 
         @property
         def extr(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Локальный экстремум"""
+            """Локальный экстремум."""
 
         def __init__(
             self,
@@ -542,49 +542,52 @@ class StopOrder(google.protobuf.message.Message):
     TRAILING_DATA_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     EXCHANGE_ORDER_TYPE_FIELD_NUMBER: builtins.int
+    EXCHANGE_ORDER_ID_FIELD_NUMBER: builtins.int
     stop_order_id: builtins.str
-    """Идентификатор-идентификатор стоп-заявки"""
+    """Уникальный идентификатор стоп-заявки."""
     lots_requested: builtins.int
-    """Запрошено лотов"""
+    """Запрошено лотов."""
     figi: builtins.str
-    """Figi-идентификатор инструмента"""
+    """FIGI-идентификатор инструмента."""
     direction: global___StopOrderDirection.ValueType
-    """Направление операции"""
+    """Направление операции."""
     currency: builtins.str
-    """Валюта стоп-заявки"""
+    """Валюта стоп-заявки."""
     order_type: global___StopOrderType.ValueType
-    """Тип стоп-заявки"""
+    """Тип стоп-заявки."""
     instrument_uid: builtins.str
-    """instrument_uid идентификатор инструмента"""
+    """`instrument_uid`-идентификатор инструмента."""
     take_profit_type: global___TakeProfitType.ValueType
-    """Подтип стоп-заявки TakeProfit"""
+    """Подтип стоп-заявки — `TakeProfit`."""
     status: global___StopOrderStatusOption.ValueType
-    """Статус заявки"""
+    """Статус заявки."""
     exchange_order_type: global___ExchangeOrderType.ValueType
-    """Тип дочерней биржевой заявки для тейкпрофита"""
+    """Тип дочерней биржевой заявки для тейкпрофита."""
+    exchange_order_id: builtins.str
+    """Идентификатор биржевой заявки."""
     @property
     def create_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время выставления заявки в часовом поясе UTC"""
+        """Дата и время выставления заявки по UTC."""
 
     @property
     def activation_date_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время конвертации стоп-заявки в биржевую в часовом поясе UTC"""
+        """Дата и время конвертации стоп-заявки в биржевую по UTC."""
 
     @property
     def expiration_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время снятия заявки в часовом поясе UTC"""
+        """Дата и время снятия заявки по UTC."""
 
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Цена заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Цена заявки за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def stop_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Цена активации стоп-заявки за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Цена активации стоп-заявки за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def trailing_data(self) -> global___StopOrder.TrailingData:
-        """Параметры трейлинг-стопа"""
+        """Параметры трейлинг-стопа."""
 
     def __init__(
         self,
@@ -605,8 +608,10 @@ class StopOrder(google.protobuf.message.Message):
         trailing_data: global___StopOrder.TrailingData | None = ...,
         status: global___StopOrderStatusOption.ValueType = ...,
         exchange_order_type: global___ExchangeOrderType.ValueType = ...,
+        exchange_order_id: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["activation_date_time", b"activation_date_time", "create_date", b"create_date", "expiration_time", b"expiration_time", "price", b"price", "stop_price", b"stop_price", "trailing_data", b"trailing_data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["activation_date_time", b"activation_date_time", "create_date", b"create_date", "currency", b"currency", "direction", b"direction", "exchange_order_type", b"exchange_order_type", "expiration_time", b"expiration_time", "figi", b"figi", "instrument_uid", b"instrument_uid", "lots_requested", b"lots_requested", "order_type", b"order_type", "price", b"price", "status", b"status", "stop_order_id", b"stop_order_id", "stop_price", b"stop_price", "take_profit_type", b"take_profit_type", "trailing_data", b"trailing_data"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_exchange_order_id", b"_exchange_order_id", "activation_date_time", b"activation_date_time", "create_date", b"create_date", "exchange_order_id", b"exchange_order_id", "expiration_time", b"expiration_time", "price", b"price", "stop_price", b"stop_price", "trailing_data", b"trailing_data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_exchange_order_id", b"_exchange_order_id", "activation_date_time", b"activation_date_time", "create_date", b"create_date", "currency", b"currency", "direction", b"direction", "exchange_order_id", b"exchange_order_id", "exchange_order_type", b"exchange_order_type", "expiration_time", b"expiration_time", "figi", b"figi", "instrument_uid", b"instrument_uid", "lots_requested", b"lots_requested", "order_type", b"order_type", "price", b"price", "status", b"status", "stop_order_id", b"stop_order_id", "stop_price", b"stop_price", "take_profit_type", b"take_profit_type", "trailing_data", b"trailing_data"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_exchange_order_id", b"_exchange_order_id"]) -> typing.Literal["exchange_order_id"] | None: ...
 
 global___StopOrder = StopOrder

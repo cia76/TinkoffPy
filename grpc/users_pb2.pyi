@@ -30,11 +30,13 @@ class _AccountTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     ACCOUNT_TYPE_UNSPECIFIED: _AccountType.ValueType  # 0
     """Тип аккаунта не определён."""
     ACCOUNT_TYPE_TINKOFF: _AccountType.ValueType  # 1
-    """Брокерский счёт Тинькофф."""
+    """Брокерский счёт Т-Инвестиций."""
     ACCOUNT_TYPE_TINKOFF_IIS: _AccountType.ValueType  # 2
-    """ИИС счёт."""
+    """ИИС."""
     ACCOUNT_TYPE_INVEST_BOX: _AccountType.ValueType  # 3
     """Инвесткопилка."""
+    ACCOUNT_TYPE_INVEST_FUND: _AccountType.ValueType  # 4
+    """Фонд денежного рынка."""
 
 class AccountType(_AccountType, metaclass=_AccountTypeEnumTypeWrapper):
     """Тип счёта."""
@@ -42,11 +44,13 @@ class AccountType(_AccountType, metaclass=_AccountTypeEnumTypeWrapper):
 ACCOUNT_TYPE_UNSPECIFIED: AccountType.ValueType  # 0
 """Тип аккаунта не определён."""
 ACCOUNT_TYPE_TINKOFF: AccountType.ValueType  # 1
-"""Брокерский счёт Тинькофф."""
+"""Брокерский счёт Т-Инвестиций."""
 ACCOUNT_TYPE_TINKOFF_IIS: AccountType.ValueType  # 2
-"""ИИС счёт."""
+"""ИИС."""
 ACCOUNT_TYPE_INVEST_BOX: AccountType.ValueType  # 3
 """Инвесткопилка."""
+ACCOUNT_TYPE_INVEST_FUND: AccountType.ValueType  # 4
+"""Фонд денежного рынка."""
 global___AccountType = AccountType
 
 class _AccountStatus:
@@ -63,6 +67,8 @@ class _AccountStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     """Открытый и активный счёт."""
     ACCOUNT_STATUS_CLOSED: _AccountStatus.ValueType  # 3
     """Закрытый счёт."""
+    ACCOUNT_STATUS_ALL: _AccountStatus.ValueType  # 4
+    """Все счета."""
 
 class AccountStatus(_AccountStatus, metaclass=_AccountStatusEnumTypeWrapper):
     """Статус счёта."""
@@ -75,6 +81,8 @@ ACCOUNT_STATUS_OPEN: AccountStatus.ValueType  # 2
 """Открытый и активный счёт."""
 ACCOUNT_STATUS_CLOSED: AccountStatus.ValueType  # 3
 """Закрытый счёт."""
+ACCOUNT_STATUS_ALL: AccountStatus.ValueType  # 4
+"""Все счета."""
 global___AccountStatus = AccountStatus
 
 class _AccessLevel:
@@ -88,9 +96,9 @@ class _AccessLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     ACCOUNT_ACCESS_LEVEL_FULL_ACCESS: _AccessLevel.ValueType  # 1
     """Полный доступ к счёту."""
     ACCOUNT_ACCESS_LEVEL_READ_ONLY: _AccessLevel.ValueType  # 2
-    """Доступ с уровнем прав "только чтение"."""
+    """Доступ с уровнем прав «только чтение»."""
     ACCOUNT_ACCESS_LEVEL_NO_ACCESS: _AccessLevel.ValueType  # 3
-    """Доступ отсутствует."""
+    """Доступа нет."""
 
 class AccessLevel(_AccessLevel, metaclass=_AccessLevelEnumTypeWrapper):
     """Уровень доступа к счёту."""
@@ -100,9 +108,9 @@ ACCOUNT_ACCESS_LEVEL_UNSPECIFIED: AccessLevel.ValueType  # 0
 ACCOUNT_ACCESS_LEVEL_FULL_ACCESS: AccessLevel.ValueType  # 1
 """Полный доступ к счёту."""
 ACCOUNT_ACCESS_LEVEL_READ_ONLY: AccessLevel.ValueType  # 2
-"""Доступ с уровнем прав "только чтение"."""
+"""Доступ с уровнем прав «только чтение»."""
 ACCOUNT_ACCESS_LEVEL_NO_ACCESS: AccessLevel.ValueType  # 3
-"""Доступ отсутствует."""
+"""Доступа нет."""
 global___AccessLevel = AccessLevel
 
 @typing.final
@@ -111,9 +119,17 @@ class GetAccountsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    STATUS_FIELD_NUMBER: builtins.int
+    status: global___AccountStatus.ValueType
+    """Статус счета."""
     def __init__(
         self,
+        *,
+        status: global___AccountStatus.ValueType | None = ...,
     ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_status", b"_status", "status", b"status"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_status", b"_status", "status", b"status"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_status", b"_status"]) -> typing.Literal["status"] | None: ...
 
 global___GetAccountsRequest = GetAccountsRequest
 
@@ -186,7 +202,7 @@ global___Account = Account
 
 @typing.final
 class GetMarginAttributesRequest(google.protobuf.message.Message):
-    """Запрос маржинальных показателей по счёту"""
+    """Запрос маржинальных показателей по счёту."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -216,15 +232,15 @@ class GetMarginAttributesResponse(google.protobuf.message.Message):
     CORRECTED_MARGIN_FIELD_NUMBER: builtins.int
     @property
     def liquid_portfolio(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Ликвидная стоимость портфеля. Подробнее: [что такое ликвидный портфель?](https://help.tinkoff.ru/margin-trade/short/liquid-portfolio/)."""
+        """Ликвидная стоимость портфеля. [Подробнее про ликвидный портфель](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q4)."""
 
     @property
     def starting_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Начальная маржа — начальное обеспечение для совершения новой сделки. Подробнее: [начальная и минимальная маржа](https://help.tinkoff.ru/margin-trade/short/initial-and-maintenance-margin/)."""
+        """Начальная маржа — начальное обеспечение для совершения новой сделки. [Подробнее про начальную и минимальную маржу](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q6)."""
 
     @property
     def minimal_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Минимальная маржа — это минимальное обеспечение для поддержания позиции, которую вы уже открыли. Подробнее: [начальная и минимальная маржа](https://help.tinkoff.ru/margin-trade/short/initial-and-maintenance-margin/)."""
+        """Минимальная маржа — это минимальное обеспечение для поддержания позиции, которую вы уже открыли. [Подробнее про начальную и минимальную маржу](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q6)."""
 
     @property
     def funds_sufficiency_level(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -236,7 +252,7 @@ class GetMarginAttributesResponse(google.protobuf.message.Message):
 
     @property
     def corrected_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Скорректированная маржа.Начальная маржа, в которой плановые позиции рассчитываются с учётом активных заявок на покупку позиций лонг или продажу позиций шорт."""
+        """Скорректированная маржа. Начальная маржа, в которой плановые позиции рассчитываются с учётом активных заявок на покупку позиций лонг или продажу позиций шорт."""
 
     def __init__(
         self,
@@ -365,12 +381,15 @@ class GetInfoResponse(google.protobuf.message.Message):
     QUAL_STATUS_FIELD_NUMBER: builtins.int
     QUALIFIED_FOR_WORK_WITH_FIELD_NUMBER: builtins.int
     TARIFF_FIELD_NUMBER: builtins.int
+    USER_ID_FIELD_NUMBER: builtins.int
     prem_status: builtins.bool
     """Признак премиум клиента."""
     qual_status: builtins.bool
     """Признак квалифицированного инвестора."""
     tariff: builtins.str
     """Наименование тарифа пользователя."""
+    user_id: builtins.str
+    """Идентификатор пользователя."""
     @property
     def qualified_for_work_with(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Набор требующих тестирования инструментов и возможностей, с которыми может работать пользователь. [Подробнее](https://russianinvestments.github.io/investAPI/faq_users/)."""
@@ -382,7 +401,8 @@ class GetInfoResponse(google.protobuf.message.Message):
         qual_status: builtins.bool = ...,
         qualified_for_work_with: collections.abc.Iterable[builtins.str] | None = ...,
         tariff: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["prem_status", b"prem_status", "qual_status", b"qual_status", "qualified_for_work_with", b"qualified_for_work_with", "tariff", b"tariff"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["prem_status", b"prem_status", "qual_status", b"qual_status", "qualified_for_work_with", b"qualified_for_work_with", "tariff", b"tariff", "user_id", b"user_id"]) -> None: ...
 
 global___GetInfoResponse = GetInfoResponse

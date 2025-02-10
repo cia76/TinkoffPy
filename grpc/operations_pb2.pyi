@@ -28,7 +28,7 @@ class _OperationState:
 class _OperationStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OperationState.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     OPERATION_STATE_UNSPECIFIED: _OperationState.ValueType  # 0
-    """Статус операции не определён"""
+    """Статус операции не определен."""
     OPERATION_STATE_EXECUTED: _OperationState.ValueType  # 1
     """Исполнена частично или полностью."""
     OPERATION_STATE_CANCELED: _OperationState.ValueType  # 2
@@ -40,7 +40,7 @@ class OperationState(_OperationState, metaclass=_OperationStateEnumTypeWrapper):
     """Статус запрашиваемых операций."""
 
 OPERATION_STATE_UNSPECIFIED: OperationState.ValueType  # 0
-"""Статус операции не определён"""
+"""Статус операции не определен."""
 OPERATION_STATE_EXECUTED: OperationState.ValueType  # 1
 """Исполнена частично или полностью."""
 OPERATION_STATE_CANCELED: OperationState.ValueType  # 2
@@ -56,9 +56,9 @@ class _OperationType:
 class _OperationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OperationType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     OPERATION_TYPE_UNSPECIFIED: _OperationType.ValueType  # 0
-    """Тип операции не определён."""
+    """Тип операции не определен."""
     OPERATION_TYPE_INPUT: _OperationType.ValueType  # 1
-    """Пополнение брокерского счёта."""
+    """Пополнение брокерского счета."""
     OPERATION_TYPE_BOND_TAX: _OperationType.ValueType  # 2
     """Удержание НДФЛ по купонам."""
     OPERATION_TYPE_OUTPUT_SECURITIES: _OperationType.ValueType  # 3
@@ -80,7 +80,7 @@ class _OperationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     OPERATION_TYPE_TAX_CORRECTION: _OperationType.ValueType  # 11
     """Корректировка налога."""
     OPERATION_TYPE_SERVICE_FEE: _OperationType.ValueType  # 12
-    """Удержание комиссии за обслуживание брокерского счёта."""
+    """Удержание комиссии за обслуживание брокерского счета."""
     OPERATION_TYPE_BENEFIT_TAX: _OperationType.ValueType  # 13
     """Удержание налога за материальную выгоду."""
     OPERATION_TYPE_MARGIN_FEE: _OperationType.ValueType  # 14
@@ -116,9 +116,9 @@ class _OperationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     OPERATION_TYPE_DELIVERY_SELL: _OperationType.ValueType  # 29
     """Продажа в рамках экспирации фьючерсного контракта."""
     OPERATION_TYPE_TRACK_MFEE: _OperationType.ValueType  # 30
-    """Комиссия за управление по счёту автоследования."""
+    """Комиссия за управление по счету автоследования."""
     OPERATION_TYPE_TRACK_PFEE: _OperationType.ValueType  # 31
-    """Комиссия за результат по счёту автоследования."""
+    """Комиссия за результат по счету автоследования."""
     OPERATION_TYPE_TAX_PROGRESSIVE: _OperationType.ValueType  # 32
     """Удержание налога по ставке 15%."""
     OPERATION_TYPE_BOND_TAX_PROGRESSIVE: _OperationType.ValueType  # 33
@@ -152,41 +152,43 @@ class _OperationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     OPERATION_TYPE_OUT_STAMP_DUTY: _OperationType.ValueType  # 47
     """Гербовый сбор."""
     OPERATION_TYPE_OUTPUT_SWIFT: _OperationType.ValueType  # 50
-    """	SWIFT-перевод"""
+    """	SWIFT-перевод."""
     OPERATION_TYPE_INPUT_SWIFT: _OperationType.ValueType  # 51
-    """	SWIFT-перевод"""
+    """	SWIFT-перевод."""
     OPERATION_TYPE_OUTPUT_ACQUIRING: _OperationType.ValueType  # 53
-    """ Перевод на карту"""
+    """ Перевод на карту."""
     OPERATION_TYPE_INPUT_ACQUIRING: _OperationType.ValueType  # 54
-    """	Перевод с карты"""
+    """	Перевод с карты."""
     OPERATION_TYPE_OUTPUT_PENALTY: _OperationType.ValueType  # 55
-    """	Комиссия за вывод средств"""
+    """	Комиссия за вывод средств."""
     OPERATION_TYPE_ADVICE_FEE: _OperationType.ValueType  # 56
-    """	Списание оплаты за сервис Советов"""
+    """	Списание оплаты за сервис Советов."""
     OPERATION_TYPE_TRANS_IIS_BS: _OperationType.ValueType  # 57
-    """ Перевод ценных бумаг с ИИС на Брокерский счет"""
+    """ Перевод ценных бумаг с ИИС на брокерский счет."""
     OPERATION_TYPE_TRANS_BS_BS: _OperationType.ValueType  # 58
-    """ Перевод ценных бумаг с одного брокерского счета на другой"""
+    """ Перевод ценных бумаг с одного брокерского счета на другой."""
     OPERATION_TYPE_OUT_MULTI: _OperationType.ValueType  # 59
-    """ Вывод денежных средств со счета"""
+    """ Вывод денежных средств со счета."""
     OPERATION_TYPE_INP_MULTI: _OperationType.ValueType  # 60
-    """ Пополнение денежных средств со счета"""
+    """ Пополнение денежных средств со счета."""
     OPERATION_TYPE_OVER_PLACEMENT: _OperationType.ValueType  # 61
-    """ Размещение биржевого овернайта"""
+    """ Размещение биржевого овернайта."""
     OPERATION_TYPE_OVER_COM: _OperationType.ValueType  # 62
-    """ Списание комиссии"""
+    """ Списание комиссии."""
     OPERATION_TYPE_OVER_INCOME: _OperationType.ValueType  # 63
-    """ Доход от оверанайта"""
+    """ Доход от оверанайта."""
     OPERATION_TYPE_OPTION_EXPIRATION: _OperationType.ValueType  # 64
-    """Экспирация"""
+    """Экспирация опциона."""
+    OPERATION_TYPE_FUTURE_EXPIRATION: _OperationType.ValueType  # 65
+    """Экспирация фьючерса."""
 
 class OperationType(_OperationType, metaclass=_OperationTypeEnumTypeWrapper):
     """Тип операции."""
 
 OPERATION_TYPE_UNSPECIFIED: OperationType.ValueType  # 0
-"""Тип операции не определён."""
+"""Тип операции не определен."""
 OPERATION_TYPE_INPUT: OperationType.ValueType  # 1
-"""Пополнение брокерского счёта."""
+"""Пополнение брокерского счета."""
 OPERATION_TYPE_BOND_TAX: OperationType.ValueType  # 2
 """Удержание НДФЛ по купонам."""
 OPERATION_TYPE_OUTPUT_SECURITIES: OperationType.ValueType  # 3
@@ -208,7 +210,7 @@ OPERATION_TYPE_BOND_REPAYMENT: OperationType.ValueType  # 10
 OPERATION_TYPE_TAX_CORRECTION: OperationType.ValueType  # 11
 """Корректировка налога."""
 OPERATION_TYPE_SERVICE_FEE: OperationType.ValueType  # 12
-"""Удержание комиссии за обслуживание брокерского счёта."""
+"""Удержание комиссии за обслуживание брокерского счета."""
 OPERATION_TYPE_BENEFIT_TAX: OperationType.ValueType  # 13
 """Удержание налога за материальную выгоду."""
 OPERATION_TYPE_MARGIN_FEE: OperationType.ValueType  # 14
@@ -244,9 +246,9 @@ OPERATION_TYPE_DELIVERY_BUY: OperationType.ValueType  # 28
 OPERATION_TYPE_DELIVERY_SELL: OperationType.ValueType  # 29
 """Продажа в рамках экспирации фьючерсного контракта."""
 OPERATION_TYPE_TRACK_MFEE: OperationType.ValueType  # 30
-"""Комиссия за управление по счёту автоследования."""
+"""Комиссия за управление по счету автоследования."""
 OPERATION_TYPE_TRACK_PFEE: OperationType.ValueType  # 31
-"""Комиссия за результат по счёту автоследования."""
+"""Комиссия за результат по счету автоследования."""
 OPERATION_TYPE_TAX_PROGRESSIVE: OperationType.ValueType  # 32
 """Удержание налога по ставке 15%."""
 OPERATION_TYPE_BOND_TAX_PROGRESSIVE: OperationType.ValueType  # 33
@@ -280,33 +282,35 @@ OPERATION_TYPE_OUT_FEE: OperationType.ValueType  # 46
 OPERATION_TYPE_OUT_STAMP_DUTY: OperationType.ValueType  # 47
 """Гербовый сбор."""
 OPERATION_TYPE_OUTPUT_SWIFT: OperationType.ValueType  # 50
-"""	SWIFT-перевод"""
+"""	SWIFT-перевод."""
 OPERATION_TYPE_INPUT_SWIFT: OperationType.ValueType  # 51
-"""	SWIFT-перевод"""
+"""	SWIFT-перевод."""
 OPERATION_TYPE_OUTPUT_ACQUIRING: OperationType.ValueType  # 53
-""" Перевод на карту"""
+""" Перевод на карту."""
 OPERATION_TYPE_INPUT_ACQUIRING: OperationType.ValueType  # 54
-"""	Перевод с карты"""
+"""	Перевод с карты."""
 OPERATION_TYPE_OUTPUT_PENALTY: OperationType.ValueType  # 55
-"""	Комиссия за вывод средств"""
+"""	Комиссия за вывод средств."""
 OPERATION_TYPE_ADVICE_FEE: OperationType.ValueType  # 56
-"""	Списание оплаты за сервис Советов"""
+"""	Списание оплаты за сервис Советов."""
 OPERATION_TYPE_TRANS_IIS_BS: OperationType.ValueType  # 57
-""" Перевод ценных бумаг с ИИС на Брокерский счет"""
+""" Перевод ценных бумаг с ИИС на брокерский счет."""
 OPERATION_TYPE_TRANS_BS_BS: OperationType.ValueType  # 58
-""" Перевод ценных бумаг с одного брокерского счета на другой"""
+""" Перевод ценных бумаг с одного брокерского счета на другой."""
 OPERATION_TYPE_OUT_MULTI: OperationType.ValueType  # 59
-""" Вывод денежных средств со счета"""
+""" Вывод денежных средств со счета."""
 OPERATION_TYPE_INP_MULTI: OperationType.ValueType  # 60
-""" Пополнение денежных средств со счета"""
+""" Пополнение денежных средств со счета."""
 OPERATION_TYPE_OVER_PLACEMENT: OperationType.ValueType  # 61
-""" Размещение биржевого овернайта"""
+""" Размещение биржевого овернайта."""
 OPERATION_TYPE_OVER_COM: OperationType.ValueType  # 62
-""" Списание комиссии"""
+""" Списание комиссии."""
 OPERATION_TYPE_OVER_INCOME: OperationType.ValueType  # 63
-""" Доход от оверанайта"""
+""" Доход от оверанайта."""
 OPERATION_TYPE_OPTION_EXPIRATION: OperationType.ValueType  # 64
-"""Экспирация"""
+"""Экспирация опциона."""
+OPERATION_TYPE_FUTURE_EXPIRATION: OperationType.ValueType  # 65
+"""Экспирация фьючерса."""
 global___OperationType = OperationType
 
 class _PortfolioSubscriptionStatus:
@@ -316,11 +320,11 @@ class _PortfolioSubscriptionStatus:
 class _PortfolioSubscriptionStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PortfolioSubscriptionStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED: _PortfolioSubscriptionStatus.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS: _PortfolioSubscriptionStatus.ValueType  # 1
     """Успешно."""
     PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: _PortfolioSubscriptionStatus.ValueType  # 2
-    """Счёт не найден или недостаточно прав."""
+    """Счет не найден или недостаточно прав."""
     PORTFOLIO_SUBSCRIPTION_STATUS_INTERNAL_ERROR: _PortfolioSubscriptionStatus.ValueType  # 3
     """Произошла ошибка."""
 
@@ -328,11 +332,11 @@ class PortfolioSubscriptionStatus(_PortfolioSubscriptionStatus, metaclass=_Portf
     """Результат подписки."""
 
 PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED: PortfolioSubscriptionStatus.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS: PortfolioSubscriptionStatus.ValueType  # 1
 """Успешно."""
 PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: PortfolioSubscriptionStatus.ValueType  # 2
-"""Счёт не найден или недостаточно прав."""
+"""Счет не найден или недостаточно прав."""
 PORTFOLIO_SUBSCRIPTION_STATUS_INTERNAL_ERROR: PortfolioSubscriptionStatus.ValueType  # 3
 """Произошла ошибка."""
 global___PortfolioSubscriptionStatus = PortfolioSubscriptionStatus
@@ -344,11 +348,11 @@ class _PositionsAccountSubscriptionStatus:
 class _PositionsAccountSubscriptionStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PositionsAccountSubscriptionStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     POSITIONS_SUBSCRIPTION_STATUS_UNSPECIFIED: _PositionsAccountSubscriptionStatus.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     POSITIONS_SUBSCRIPTION_STATUS_SUCCESS: _PositionsAccountSubscriptionStatus.ValueType  # 1
     """Успешно."""
     POSITIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: _PositionsAccountSubscriptionStatus.ValueType  # 2
-    """Счёт не найден или недостаточно прав."""
+    """Счет не найден или недостаточно прав."""
     POSITIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR: _PositionsAccountSubscriptionStatus.ValueType  # 3
     """Произошла ошибка."""
 
@@ -356,18 +360,18 @@ class PositionsAccountSubscriptionStatus(_PositionsAccountSubscriptionStatus, me
     """Результат подписки."""
 
 POSITIONS_SUBSCRIPTION_STATUS_UNSPECIFIED: PositionsAccountSubscriptionStatus.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 POSITIONS_SUBSCRIPTION_STATUS_SUCCESS: PositionsAccountSubscriptionStatus.ValueType  # 1
 """Успешно."""
 POSITIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: PositionsAccountSubscriptionStatus.ValueType  # 2
-"""Счёт не найден или недостаточно прав."""
+"""Счет не найден или недостаточно прав."""
 POSITIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR: PositionsAccountSubscriptionStatus.ValueType  # 3
 """Произошла ошибка."""
 global___PositionsAccountSubscriptionStatus = PositionsAccountSubscriptionStatus
 
 @typing.final
 class OperationsRequest(google.protobuf.message.Message):
-    """Запрос получения списка операций по счёту."""
+    """Запрос получения списка операций по счету."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -377,14 +381,14 @@ class OperationsRequest(google.protobuf.message.Message):
     STATE_FIELD_NUMBER: builtins.int
     FIGI_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента."""
+    """Идентификатор счета клиента."""
     state: global___OperationState.ValueType
     """Статус запрашиваемых операций."""
     figi: builtins.str
-    """Figi-идентификатор инструмента для фильтрации."""
+    """FIGI-идентификатор инструмента для фильтрации."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание периода (по UTC)."""
+        """Окончание периода по UTC."""
 
     def __init__(
         self,
@@ -450,6 +454,7 @@ class Operation(google.protobuf.message.Message):
     ASSET_UID_FIELD_NUMBER: builtins.int
     POSITION_UID_FIELD_NUMBER: builtins.int
     INSTRUMENT_UID_FIELD_NUMBER: builtins.int
+    CHILD_OPERATIONS_FIELD_NUMBER: builtins.int
     id: builtins.str
     """Идентификатор операции."""
     parent_operation_id: builtins.str
@@ -463,9 +468,9 @@ class Operation(google.protobuf.message.Message):
     quantity_rest: builtins.int
     """Неисполненный остаток по сделке."""
     figi: builtins.str
-    """Figi-идентификатор инструмента, связанного с операцией."""
+    """FIGI-идентификатор инструмента, связанного с операцией."""
     instrument_type: builtins.str
-    """Тип инструмента. Возможные значения: </br>**bond** — облигация; </br>**share** — акция; </br>**currency** — валюта; </br>**etf** — фонд; </br>**futures** — фьючерс."""
+    """Тип инструмента. Возможные значения: <br/><br/>`bond` — облигация; <br/>`share` — акция; <br/>`currency` — валюта; <br/>`etf` — фонд; <br/>`futures` — фьючерс."""
     type: builtins.str
     """Текстовое описание типа операции."""
     operation_type: global___OperationType.ValueType
@@ -473,7 +478,7 @@ class Operation(google.protobuf.message.Message):
     asset_uid: builtins.str
     """Идентификатор актива"""
     position_uid: builtins.str
-    """position_uid-идентификатора инструмента."""
+    """Уникальный идентификатор позиции."""
     instrument_uid: builtins.str
     """Уникальный идентификатор инструмента."""
     @property
@@ -482,7 +487,7 @@ class Operation(google.protobuf.message.Message):
 
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Цена операции за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Цена операции за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def date(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -491,6 +496,10 @@ class Operation(google.protobuf.message.Message):
     @property
     def trades(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OperationTrade]:
         """Массив сделок."""
+
+    @property
+    def child_operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChildOperationItem]:
+        """Массив дочерних операций."""
 
     def __init__(
         self,
@@ -512,9 +521,10 @@ class Operation(google.protobuf.message.Message):
         asset_uid: builtins.str = ...,
         position_uid: builtins.str = ...,
         instrument_uid: builtins.str = ...,
+        child_operations: collections.abc.Iterable[global___ChildOperationItem] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["date", b"date", "payment", b"payment", "price", b"price"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["asset_uid", b"asset_uid", "currency", b"currency", "date", b"date", "figi", b"figi", "id", b"id", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "operation_type", b"operation_type", "parent_operation_id", b"parent_operation_id", "payment", b"payment", "position_uid", b"position_uid", "price", b"price", "quantity", b"quantity", "quantity_rest", b"quantity_rest", "state", b"state", "trades", b"trades", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["asset_uid", b"asset_uid", "child_operations", b"child_operations", "currency", b"currency", "date", b"date", "figi", b"figi", "id", b"id", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "operation_type", b"operation_type", "parent_operation_id", b"parent_operation_id", "payment", b"payment", "position_uid", b"position_uid", "price", b"price", "quantity", b"quantity", "quantity_rest", b"quantity_rest", "state", b"state", "trades", b"trades", "type", b"type"]) -> None: ...
 
 global___Operation = Operation
 
@@ -534,11 +544,11 @@ class OperationTrade(google.protobuf.message.Message):
     """Количество инструментов."""
     @property
     def date_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время сделки в часовом поясе UTC."""
+        """Дата и время сделки по UTC."""
 
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Цена за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     def __init__(
         self,
@@ -555,7 +565,7 @@ global___OperationTrade = OperationTrade
 
 @typing.final
 class PortfolioRequest(google.protobuf.message.Message):
-    """Запрос получения текущего портфеля по счёту."""
+    """Запрос получения текущего портфеля по счету."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -583,9 +593,9 @@ class PortfolioRequest(google.protobuf.message.Message):
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     CURRENCY_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта пользователя."""
+    """Идентификатор счета пользователя."""
     currency: global___PortfolioRequest.CurrencyRequest.ValueType
-    """Валюта, в которой требуется рассчитать портфель"""
+    """Валюта, в которой нужно рассчитать портфель."""
     def __init__(
         self,
         *,
@@ -600,7 +610,7 @@ global___PortfolioRequest = PortfolioRequest
 
 @typing.final
 class PortfolioResponse(google.protobuf.message.Message):
-    """Текущий портфель по счёту."""
+    """Текущий портфель по счету."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -616,8 +626,10 @@ class PortfolioResponse(google.protobuf.message.Message):
     TOTAL_AMOUNT_SP_FIELD_NUMBER: builtins.int
     TOTAL_AMOUNT_PORTFOLIO_FIELD_NUMBER: builtins.int
     VIRTUAL_POSITIONS_FIELD_NUMBER: builtins.int
+    DAILY_YIELD_FIELD_NUMBER: builtins.int
+    DAILY_YIELD_RELATIVE_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта пользователя."""
+    """Идентификатор счета пользователя."""
     @property
     def total_amount_shares(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Общая стоимость акций в портфеле."""
@@ -640,7 +652,7 @@ class PortfolioResponse(google.protobuf.message.Message):
 
     @property
     def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Текущая относительная доходность портфеля, в %."""
+        """Текущая относительная доходность портфеля в %."""
 
     @property
     def positions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PortfolioPosition]:
@@ -662,6 +674,14 @@ class PortfolioResponse(google.protobuf.message.Message):
     def virtual_positions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___VirtualPortfolioPosition]:
         """Массив виртуальных позиций портфеля."""
 
+    @property
+    def daily_yield(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
+        """Рассчитанная доходность портфеля за день в рублях."""
+
+    @property
+    def daily_yield_relative(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Относительная доходность в день в %."""
+
     def __init__(
         self,
         *,
@@ -677,21 +697,23 @@ class PortfolioResponse(google.protobuf.message.Message):
         total_amount_sp: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         total_amount_portfolio: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         virtual_positions: collections.abc.Iterable[global___VirtualPortfolioPosition] | None = ...,
+        daily_yield: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        daily_yield_relative: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["expected_yield", b"expected_yield", "total_amount_bonds", b"total_amount_bonds", "total_amount_currencies", b"total_amount_currencies", "total_amount_etf", b"total_amount_etf", "total_amount_futures", b"total_amount_futures", "total_amount_options", b"total_amount_options", "total_amount_portfolio", b"total_amount_portfolio", "total_amount_shares", b"total_amount_shares", "total_amount_sp", b"total_amount_sp"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["account_id", b"account_id", "expected_yield", b"expected_yield", "positions", b"positions", "total_amount_bonds", b"total_amount_bonds", "total_amount_currencies", b"total_amount_currencies", "total_amount_etf", b"total_amount_etf", "total_amount_futures", b"total_amount_futures", "total_amount_options", b"total_amount_options", "total_amount_portfolio", b"total_amount_portfolio", "total_amount_shares", b"total_amount_shares", "total_amount_sp", b"total_amount_sp", "virtual_positions", b"virtual_positions"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["daily_yield", b"daily_yield", "daily_yield_relative", b"daily_yield_relative", "expected_yield", b"expected_yield", "total_amount_bonds", b"total_amount_bonds", "total_amount_currencies", b"total_amount_currencies", "total_amount_etf", b"total_amount_etf", "total_amount_futures", b"total_amount_futures", "total_amount_options", b"total_amount_options", "total_amount_portfolio", b"total_amount_portfolio", "total_amount_shares", b"total_amount_shares", "total_amount_sp", b"total_amount_sp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["account_id", b"account_id", "daily_yield", b"daily_yield", "daily_yield_relative", b"daily_yield_relative", "expected_yield", b"expected_yield", "positions", b"positions", "total_amount_bonds", b"total_amount_bonds", "total_amount_currencies", b"total_amount_currencies", "total_amount_etf", b"total_amount_etf", "total_amount_futures", b"total_amount_futures", "total_amount_options", b"total_amount_options", "total_amount_portfolio", b"total_amount_portfolio", "total_amount_shares", b"total_amount_shares", "total_amount_sp", b"total_amount_sp", "virtual_positions", b"virtual_positions"]) -> None: ...
 
 global___PortfolioResponse = PortfolioResponse
 
 @typing.final
 class PositionsRequest(google.protobuf.message.Message):
-    """Запрос позиций портфеля по счёту."""
+    """Запрос позиций портфеля по счету."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта пользователя."""
+    """Идентификатор счета пользователя."""
     def __init__(
         self,
         *,
@@ -703,7 +725,7 @@ global___PositionsRequest = PositionsRequest
 
 @typing.final
 class PositionsResponse(google.protobuf.message.Message):
-    """Список позиций по счёту."""
+    """Список позиций по счету."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -713,8 +735,11 @@ class PositionsResponse(google.protobuf.message.Message):
     LIMITS_LOADING_IN_PROGRESS_FIELD_NUMBER: builtins.int
     FUTURES_FIELD_NUMBER: builtins.int
     OPTIONS_FIELD_NUMBER: builtins.int
+    ACCOUNT_ID_FIELD_NUMBER: builtins.int
     limits_loading_in_progress: builtins.bool
-    """Признак идущей в данный момент выгрузки лимитов."""
+    """Признак идущей выгрузки лимитов в данный момент."""
+    account_id: builtins.str
+    """Идентификатор счёта пользователя."""
     @property
     def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[TinkoffPy.grpc.common_pb2.MoneyValue]:
         """Массив валютных позиций портфеля."""
@@ -744,20 +769,21 @@ class PositionsResponse(google.protobuf.message.Message):
         limits_loading_in_progress: builtins.bool = ...,
         futures: collections.abc.Iterable[global___PositionsFutures] | None = ...,
         options: collections.abc.Iterable[global___PositionsOptions] | None = ...,
+        account_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["blocked", b"blocked", "futures", b"futures", "limits_loading_in_progress", b"limits_loading_in_progress", "money", b"money", "options", b"options", "securities", b"securities"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["account_id", b"account_id", "blocked", b"blocked", "futures", b"futures", "limits_loading_in_progress", b"limits_loading_in_progress", "money", b"money", "options", b"options", "securities", b"securities"]) -> None: ...
 
 global___PositionsResponse = PositionsResponse
 
 @typing.final
 class WithdrawLimitsRequest(google.protobuf.message.Message):
-    """Запрос доступного для вывода остатка."""
+    """Запрос доступного остатка для вывода."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта пользователя."""
+    """Идентификатор счета пользователя."""
     def __init__(
         self,
         *,
@@ -769,7 +795,7 @@ global___WithdrawLimitsRequest = WithdrawLimitsRequest
 
 @typing.final
 class WithdrawLimitsResponse(google.protobuf.message.Message):
-    """Доступный для вывода остаток."""
+    """Доступный остаток для вывода."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -821,23 +847,24 @@ class PortfolioPosition(google.protobuf.message.Message):
     INSTRUMENT_UID_FIELD_NUMBER: builtins.int
     VAR_MARGIN_FIELD_NUMBER: builtins.int
     EXPECTED_YIELD_FIFO_FIELD_NUMBER: builtins.int
+    DAILY_YIELD_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатора инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_type: builtins.str
     """Тип инструмента."""
     blocked: builtins.bool
     """Заблокировано на бирже."""
     position_uid: builtins.str
-    """position_uid-идентификатора инструмента"""
+    """Уникальный идентификатор позиции."""
     instrument_uid: builtins.str
-    """instrument_uid-идентификатора инструмента"""
+    """Уникальный идентификатор инструмента."""
     @property
     def quantity(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Количество инструмента в портфеле в штуках."""
 
     @property
     def average_position_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Средневзвешенная цена позиции. **Возможна задержка до секунды для пересчёта**."""
+        """Средневзвешенная цена позиции. Для пересчета возможна задержка до одной секунды."""
 
     @property
     def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -849,15 +876,15 @@ class PortfolioPosition(google.protobuf.message.Message):
 
     @property
     def average_position_price_pt(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Deprecated Средняя цена позиции в пунктах (для фьючерсов). **Возможна задержка до секунды для пересчёта**."""
+        """Deprecated Средняя цена позиции в пунктах (для фьючерсов). Для пересчета возможна задержка до одной секунды."""
 
     @property
     def current_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Текущая цена за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def average_position_price_fifo(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Средняя цена позиции по методу FIFO. **Возможна задержка до секунды для пересчёта**."""
+        """Средняя цена позиции по методу FIFO. Для пересчета возможна задержка до одной секунды."""
 
     @property
     def quantity_lots(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -869,11 +896,15 @@ class PortfolioPosition(google.protobuf.message.Message):
 
     @property
     def var_margin(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Вариационная маржа"""
+        """Вариационная маржа."""
 
     @property
     def expected_yield_fifo(self) -> TinkoffPy.grpc.common_pb2.Quotation:
         """Текущая рассчитанная доходность позиции."""
+
+    @property
+    def daily_yield(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
+        """Рассчитанная доходность портфеля за день."""
 
     def __init__(
         self,
@@ -894,9 +925,10 @@ class PortfolioPosition(google.protobuf.message.Message):
         instrument_uid: builtins.str = ...,
         var_margin: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         expected_yield_fifo: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        daily_yield: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked", b"blocked", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "daily_yield", b"daily_yield", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "average_position_price_pt", b"average_position_price_pt", "blocked", b"blocked", "blocked_lots", b"blocked_lots", "current_nkd", b"current_nkd", "current_price", b"current_price", "daily_yield", b"daily_yield", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity", "quantity_lots", b"quantity_lots", "var_margin", b"var_margin"]) -> None: ...
 
 global___PortfolioPosition = PortfolioPosition
 
@@ -915,12 +947,13 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
     EXPIRE_DATE_FIELD_NUMBER: builtins.int
     CURRENT_PRICE_FIELD_NUMBER: builtins.int
     AVERAGE_POSITION_PRICE_FIFO_FIELD_NUMBER: builtins.int
+    DAILY_YIELD_FIELD_NUMBER: builtins.int
     position_uid: builtins.str
-    """position_uid-идентификатора инструмента"""
+    """Уникальный идентификатор позиции."""
     instrument_uid: builtins.str
-    """instrument_uid-идентификатора инструмента"""
+    """Уникальный идентификатор инструмента."""
     figi: builtins.str
-    """Figi-идентификатора инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_type: builtins.str
     """Тип инструмента."""
     @property
@@ -929,7 +962,7 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
 
     @property
     def average_position_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Средневзвешенная цена позиции. **Возможна задержка до секунды для пересчёта**."""
+        """Средневзвешенная цена позиции. Для пересчета возможна задержка до одной секунды."""
 
     @property
     def expected_yield(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -941,15 +974,19 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
 
     @property
     def expire_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата до которой нужно продать виртуальные бумаги, после этой даты виртуальная позиция "сгорит" """
+        """Дата, до которой нужно продать виртуальные бумаги. После этой даты виртуальная позиция «сгораетт»."""
 
     @property
     def current_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Текущая цена за 1 инструмент. Для получения стоимости лота требуется умножить на лотность инструмента."""
+        """Текущая цена за 1 инструмент. Чтобы получить стоимость лота, нужно умножить на лотность инструмента."""
 
     @property
     def average_position_price_fifo(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Средняя цена позиции по методу FIFO. **Возможна задержка до секунды для пересчёта**."""
+        """Средняя цена позиции по методу FIFO. Для пересчета возможна задержка до одной секунды."""
+
+    @property
+    def daily_yield(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
+        """Рассчитанная доходность портфеля за день."""
 
     def __init__(
         self,
@@ -965,9 +1002,10 @@ class VirtualPortfolioPosition(google.protobuf.message.Message):
         expire_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         current_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         average_position_price_fifo: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        daily_yield: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "quantity", b"quantity"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "daily_yield", b"daily_yield", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "quantity", b"quantity"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["average_position_price", b"average_position_price", "average_position_price_fifo", b"average_position_price_fifo", "current_price", b"current_price", "daily_yield", b"daily_yield", "expected_yield", b"expected_yield", "expected_yield_fifo", b"expected_yield_fifo", "expire_date", b"expire_date", "figi", b"figi", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "position_uid", b"position_uid", "quantity", b"quantity"]) -> None: ...
 
 global___VirtualPortfolioPosition = VirtualPortfolioPosition
 
@@ -985,15 +1023,15 @@ class PositionsSecurities(google.protobuf.message.Message):
     EXCHANGE_BLOCKED_FIELD_NUMBER: builtins.int
     INSTRUMENT_TYPE_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор бумаги."""
+    """FIGI-идентификатор бумаги."""
     blocked: builtins.int
-    """Количество бумаг заблокированных выставленными заявками."""
+    """Количество бумаг, заблокированных выставленными заявками."""
     balance: builtins.int
     """Текущий незаблокированный баланс."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции."""
     instrument_uid: builtins.str
-    """Уникальный идентификатор  инструмента."""
+    """Уникальный идентификатор инструмента."""
     exchange_blocked: builtins.bool
     """Заблокировано на бирже."""
     instrument_type: builtins.str
@@ -1025,9 +1063,9 @@ class PositionsFutures(google.protobuf.message.Message):
     POSITION_UID_FIELD_NUMBER: builtins.int
     INSTRUMENT_UID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор фьючерса."""
+    """FIGI-идентификатор фьючерса."""
     blocked: builtins.int
-    """Количество бумаг заблокированных выставленными заявками."""
+    """Количество бумаг, заблокированных выставленными заявками."""
     balance: builtins.int
     """Текущий незаблокированный баланс."""
     position_uid: builtins.str
@@ -1062,7 +1100,7 @@ class PositionsOptions(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Уникальный идентификатор  инструмента."""
     blocked: builtins.int
-    """Количество бумаг заблокированных выставленными заявками."""
+    """Количество бумаг, заблокированных выставленными заявками."""
     balance: builtins.int
     """Текущий незаблокированный баланс."""
     def __init__(
@@ -1129,10 +1167,10 @@ class GenerateBrokerReportRequest(google.protobuf.message.Message):
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента."""
+    """Идентификатор счета клиента."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание периода в часовом поясе UTC."""
+        """Окончание периода по UTC."""
 
     def __init__(
         self,
@@ -1151,7 +1189,7 @@ class GenerateBrokerReportResponse(google.protobuf.message.Message):
 
     TASK_ID_FIELD_NUMBER: builtins.int
     task_id: builtins.str
-    """Идентификатор задачи формирования брокерского отчёта."""
+    """Идентификатор задачи формирования брокерского отчета."""
     def __init__(
         self,
         *,
@@ -1168,9 +1206,9 @@ class GetBrokerReportRequest(google.protobuf.message.Message):
     TASK_ID_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     task_id: builtins.str
-    """Идентификатор задачи формирования брокерского отчёта."""
+    """Идентификатор задачи формирования брокерского отчета."""
     page: builtins.int
-    """Номер страницы отчета (начинается с 1), значение по умолчанию: 0."""
+    """Номер страницы отчета, начинается с 1. Значение по умолчанию — 0."""
     def __init__(
         self,
         *,
@@ -1194,9 +1232,9 @@ class GetBrokerReportResponse(google.protobuf.message.Message):
     itemsCount: builtins.int
     """Количество записей в отчете."""
     pagesCount: builtins.int
-    """Количество страниц с данными отчета (начинается с 0)."""
+    """Количество страниц с данными отчета, начинается с 0."""
     page: builtins.int
-    """Текущая страница (начинается с 0)."""
+    """Текущая страница, начинается с 0."""
     @property
     def broker_report(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BrokerReport]: ...
     def __init__(
@@ -1247,7 +1285,7 @@ class BrokerReport(google.protobuf.message.Message):
     order_id: builtins.str
     """Номер поручения."""
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификаторинструмента."""
     execute_sign: builtins.str
     """Признак исполнения."""
     exchange: builtins.str
@@ -1257,26 +1295,26 @@ class BrokerReport(google.protobuf.message.Message):
     direction: builtins.str
     """Вид сделки."""
     name: builtins.str
-    """Сокращённое наименование актива."""
+    """Сокращенное наименование актива."""
     ticker: builtins.str
     """Код актива."""
     quantity: builtins.int
     """Количество."""
     party: builtins.str
-    """Контрагент/Брокер."""
+    """Контрагент или брокерарокер."""
     broker_status: builtins.str
     """Статус брокера."""
     separate_agreement_type: builtins.str
-    """Тип дог."""
+    """Тип договора."""
     separate_agreement_number: builtins.str
-    """Номер дог."""
+    """Номер договора."""
     separate_agreement_date: builtins.str
-    """Дата дог."""
+    """Дата договора."""
     delivery_type: builtins.str
-    """Тип расчёта по сделке."""
+    """Тип расчета по сделке."""
     @property
     def trade_datetime(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время заключения в часовом поясе UTC."""
+        """Дата и время заключения по UTC."""
 
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1284,7 +1322,7 @@ class BrokerReport(google.protobuf.message.Message):
 
     @property
     def order_amount(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Сумма (без НКД)."""
+        """Сумма без НКД."""
 
     @property
     def aci_value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -1304,19 +1342,19 @@ class BrokerReport(google.protobuf.message.Message):
 
     @property
     def exchange_clearing_commission(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Комиссия клир. центра."""
+        """Комиссия клирингового центра."""
 
     @property
     def repo_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка РЕПО (%)."""
+        """Ставка РЕПО, %."""
 
     @property
     def clear_value_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата расчётов в часовом поясе UTC."""
+        """Дата расчетов по UTC."""
 
     @property
     def sec_value_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата поставки в часовом поясе UTC."""
+        """Дата поставки по UTC."""
 
     def __init__(
         self,
@@ -1362,11 +1400,11 @@ class GetDividendsForeignIssuerRequest(google.protobuf.message.Message):
     GET_DIV_FOREIGN_ISSUER_REPORT_FIELD_NUMBER: builtins.int
     @property
     def generate_div_foreign_issuer_report(self) -> global___GenerateDividendsForeignIssuerReportRequest:
-        """Объект запроса формирования отчёта."""
+        """Объект запроса формирования отчета."""
 
     @property
     def get_div_foreign_issuer_report(self) -> global___GetDividendsForeignIssuerReportRequest:
-        """Объект запроса сформированного отчёта."""
+        """Объект запроса сформированного отчета."""
 
     def __init__(
         self,
@@ -1388,11 +1426,11 @@ class GetDividendsForeignIssuerResponse(google.protobuf.message.Message):
     DIV_FOREIGN_ISSUER_REPORT_FIELD_NUMBER: builtins.int
     @property
     def generate_div_foreign_issuer_report_response(self) -> global___GenerateDividendsForeignIssuerReportResponse:
-        """Объект результата задачи запуска формирования отчёта."""
+        """Объект результата задачи запуска формирования отчета."""
 
     @property
     def div_foreign_issuer_report(self) -> global___GetDividendsForeignIssuerReportResponse:
-        """Отчёт "Справка о доходах за пределами РФ"."""
+        """Отчет «Справка о доходах за пределами РФ»."""
 
     def __init__(
         self,
@@ -1408,7 +1446,7 @@ global___GetDividendsForeignIssuerResponse = GetDividendsForeignIssuerResponse
 
 @typing.final
 class GenerateDividendsForeignIssuerReportRequest(google.protobuf.message.Message):
-    """Объект запроса формирования отчёта "Справка о доходах за пределами РФ"."""
+    """Объект запроса формирования отчета «Справка о доходах за пределами РФ»."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1416,10 +1454,10 @@ class GenerateDividendsForeignIssuerReportRequest(google.protobuf.message.Messag
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента."""
+    """Идентификатор счета клиента."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание периода (по UTC), как правило, возможно сформировать отчет по дату, на несколько дней меньше текущей. Начало и окончание периода должны быть в рамках одного календарного года."""
+        """Окончание периода по UTC. Как правило, можно сформировать отчет по дату на несколько дней меньше текущей. Начало и окончание периода должны быть в рамках одного календарного года."""
 
     def __init__(
         self,
@@ -1434,14 +1472,14 @@ global___GenerateDividendsForeignIssuerReportRequest = GenerateDividendsForeignI
 
 @typing.final
 class GetDividendsForeignIssuerReportRequest(google.protobuf.message.Message):
-    """Объект запроса сформированного отчёта "Справка о доходах за пределами РФ"."""
+    """Объект запроса сформированного отчета «Справка о доходах за пределами РФ»."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TASK_ID_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     task_id: builtins.str
-    """Идентификатор задачи формирования отчёта."""
+    """Идентификатор задачи формирования отчета."""
     page: builtins.int
     """Номер страницы отчета (начинается с 0), значение по умолчанию: 0."""
     def __init__(
@@ -1458,13 +1496,13 @@ global___GetDividendsForeignIssuerReportRequest = GetDividendsForeignIssuerRepor
 
 @typing.final
 class GenerateDividendsForeignIssuerReportResponse(google.protobuf.message.Message):
-    """Объект результата задачи запуска формирования отчёта "Справка о доходах за пределами РФ"."""
+    """Объект результата задачи запуска формирования отчета «Справка о доходах за пределами РФ»."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TASK_ID_FIELD_NUMBER: builtins.int
     task_id: builtins.str
-    """Идентификатор задачи формирования отчёта."""
+    """Идентификатор задачи формирования отчета."""
     def __init__(
         self,
         *,
@@ -1485,9 +1523,9 @@ class GetDividendsForeignIssuerReportResponse(google.protobuf.message.Message):
     itemsCount: builtins.int
     """Количество записей в отчете."""
     pagesCount: builtins.int
-    """Количество страниц с данными отчета (начинается с 0)."""
+    """Количество страниц с данными отчета, начинается с 0."""
     page: builtins.int
-    """Текущая страница (начинается с 0)."""
+    """Текущая страница, начинается с 0."""
     @property
     def dividends_foreign_issuer_report(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DividendsForeignIssuerReport]: ...
     def __init__(
@@ -1504,7 +1542,7 @@ global___GetDividendsForeignIssuerReportResponse = GetDividendsForeignIssuerRepo
 
 @typing.final
 class DividendsForeignIssuerReport(google.protobuf.message.Message):
-    """Отчёт "Справка о доходах за пределами РФ"."""
+    """Отчет «Справка о доходах за пределами РФ»."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1544,7 +1582,7 @@ class DividendsForeignIssuerReport(google.protobuf.message.Message):
 
     @property
     def external_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Комиссия внешних платёжных агентов."""
+        """Комиссия внешних платежных агентов."""
 
     @property
     def dividend_gross(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -1586,16 +1624,23 @@ class PortfolioStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNTS_FIELD_NUMBER: builtins.int
+    PING_SETTINGS_FIELD_NUMBER: builtins.int
     @property
     def accounts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Массив идентификаторов счётов пользователя"""
+        """Массив идентификаторов счетов пользователя."""
+
+    @property
+    def ping_settings(self) -> TinkoffPy.grpc.common_pb2.PingDelaySettings:
+        """Запрос настройки пинга."""
 
     def __init__(
         self,
         *,
         accounts: collections.abc.Iterable[builtins.str] | None = ...,
+        ping_settings: TinkoffPy.grpc.common_pb2.PingDelaySettings | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["accounts", b"accounts"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["ping_settings", b"ping_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["accounts", b"accounts", "ping_settings", b"ping_settings"]) -> None: ...
 
 global___PortfolioStreamRequest = PortfolioStreamRequest
 
@@ -1640,6 +1685,12 @@ class PortfolioSubscriptionResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNTS_FIELD_NUMBER: builtins.int
+    TRACKING_ID_FIELD_NUMBER: builtins.int
+    STREAM_ID_FIELD_NUMBER: builtins.int
+    tracking_id: builtins.str
+    """Уникальный идентификатор запроса, подробнее: [tracking_id](https://russianinvestments.github.io/investAPI/grpc#tracking-id)."""
+    stream_id: builtins.str
+    """Идентификатор открытого соединения"""
     @property
     def accounts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AccountSubscriptionStatus]:
         """Массив счетов клиента."""
@@ -1648,8 +1699,10 @@ class PortfolioSubscriptionResult(google.protobuf.message.Message):
         self,
         *,
         accounts: collections.abc.Iterable[global___AccountSubscriptionStatus] | None = ...,
+        tracking_id: builtins.str = ...,
+        stream_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["accounts", b"accounts"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["accounts", b"accounts", "stream_id", b"stream_id", "tracking_id", b"tracking_id"]) -> None: ...
 
 global___PortfolioSubscriptionResult = PortfolioSubscriptionResult
 
@@ -1662,7 +1715,7 @@ class AccountSubscriptionStatus(google.protobuf.message.Message):
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     SUBSCRIPTION_STATUS_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта"""
+    """Идентификатор счета."""
     subscription_status: global___PortfolioSubscriptionStatus.ValueType
     """Результат подписки."""
     def __init__(
@@ -1677,7 +1730,7 @@ global___AccountSubscriptionStatus = AccountSubscriptionStatus
 
 @typing.final
 class GetOperationsByCursorRequest(google.protobuf.message.Message):
-    """Запрос списка операций по счёту с пагинацией."""
+    """Запрос списка операций по счету с пагинацией."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1693,28 +1746,28 @@ class GetOperationsByCursorRequest(google.protobuf.message.Message):
     WITHOUT_TRADES_FIELD_NUMBER: builtins.int
     WITHOUT_OVERNIGHTS_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта клиента. Обязательный параметр для данного метода, остальные параметры опциональны."""
+    """Идентификатор счета клиента, обязательный параметр. Остальные параметры опциональны."""
     instrument_id: builtins.str
-    """Идентификатор инструмента (Figi инструмента или uid инструмента)"""
+    """Идентификатор инструмента — FIGI или UID инструмента."""
     cursor: builtins.str
     """Идентификатор элемента, с которого начать формировать ответ."""
     limit: builtins.int
-    """Лимит количества операций. По умолчанию устанавливается значение **100**, максимальное значение 1000."""
+    """Лимит количества операций. По умолчанию — `100`, максимальное значение — `1000`."""
     state: global___OperationState.ValueType
-    """Статус запрашиваемых операций, возможные значения указаны в OperationState."""
+    """Статус запрашиваемых операций. Возможные значения указаны в `OperationState`."""
     without_commissions: builtins.bool
-    """Флаг возвращать ли комиссии, по умолчанию false"""
+    """Флаг возврата комиссии. По умолчанию — `false`."""
     without_trades: builtins.bool
     """Флаг получения ответа без массива сделок."""
     without_overnights: builtins.bool
-    """Флаг не показывать overnight операций."""
+    """Флаг показа overnight операций."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание периода (по UTC)."""
+        """Окончание периода по UTC."""
 
     @property
     def operation_types(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___OperationType.ValueType]:
-        """Тип операции. Принимает значение из списка OperationType."""
+        """Тип операции. Принимает значение из списка `OperationType`."""
 
     def __init__(
         self,
@@ -1755,7 +1808,7 @@ global___GetOperationsByCursorRequest = GetOperationsByCursorRequest
 
 @typing.final
 class GetOperationsByCursorResponse(google.protobuf.message.Message):
-    """Список операций по счёту с пагинацией."""
+    """Список операций по счету с пагинацией."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1814,6 +1867,7 @@ class OperationItem(google.protobuf.message.Message):
     CANCEL_REASON_FIELD_NUMBER: builtins.int
     TRADES_INFO_FIELD_NUMBER: builtins.int
     ASSET_UID_FIELD_NUMBER: builtins.int
+    CHILD_OPERATIONS_FIELD_NUMBER: builtins.int
     cursor: builtins.str
     """Курсор."""
     broker_account_id: builtins.str
@@ -1821,7 +1875,7 @@ class OperationItem(google.protobuf.message.Message):
     id: builtins.str
     """Идентификатор операции, может меняться с течением времени."""
     parent_operation_id: builtins.str
-    """Идентификатор родительской операции, может измениться, если изменился id родительской операции."""
+    """Идентификатор родительской операции. Может измениться, если изменился ID родительской операции."""
     name: builtins.str
     """Название операции."""
     type: global___OperationType.ValueType
@@ -1833,13 +1887,13 @@ class OperationItem(google.protobuf.message.Message):
     instrument_uid: builtins.str
     """Уникальный идентификатор инструмента."""
     figi: builtins.str
-    """Figi."""
+    """FIGI."""
     instrument_type: builtins.str
     """Тип инструмента."""
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     position_uid: builtins.str
-    """position_uid-идентификатора инструмента."""
+    """Уникальный идентификатор позиции."""
     quantity: builtins.int
     """Количество единиц инструмента."""
     quantity_rest: builtins.int
@@ -1849,7 +1903,7 @@ class OperationItem(google.protobuf.message.Message):
     cancel_reason: builtins.str
     """Причина отмены операции."""
     asset_uid: builtins.str
-    """Идентификатор актива"""
+    """Идентификатор актива."""
     @property
     def date(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Дата поручения."""
@@ -1882,6 +1936,10 @@ class OperationItem(google.protobuf.message.Message):
     def trades_info(self) -> global___OperationItemTrades:
         """Массив сделок."""
 
+    @property
+    def child_operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChildOperationItem]:
+        """Массив дочерних операций."""
+
     def __init__(
         self,
         *,
@@ -1911,9 +1969,10 @@ class OperationItem(google.protobuf.message.Message):
         cancel_reason: builtins.str = ...,
         trades_info: global___OperationItemTrades | None = ...,
         asset_uid: builtins.str = ...,
+        child_operations: collections.abc.Iterable[global___ChildOperationItem] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["accrued_int", b"accrued_int", "cancel_date_time", b"cancel_date_time", "commission", b"commission", "date", b"date", "payment", b"payment", "price", b"price", "trades_info", b"trades_info", "yield", b"yield", "yield_relative", b"yield_relative"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["accrued_int", b"accrued_int", "asset_uid", b"asset_uid", "broker_account_id", b"broker_account_id", "cancel_date_time", b"cancel_date_time", "cancel_reason", b"cancel_reason", "commission", b"commission", "cursor", b"cursor", "date", b"date", "description", b"description", "figi", b"figi", "id", b"id", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "name", b"name", "parent_operation_id", b"parent_operation_id", "payment", b"payment", "position_uid", b"position_uid", "price", b"price", "quantity", b"quantity", "quantity_done", b"quantity_done", "quantity_rest", b"quantity_rest", "state", b"state", "trades_info", b"trades_info", "type", b"type", "yield", b"yield", "yield_relative", b"yield_relative"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["accrued_int", b"accrued_int", "asset_uid", b"asset_uid", "broker_account_id", b"broker_account_id", "cancel_date_time", b"cancel_date_time", "cancel_reason", b"cancel_reason", "child_operations", b"child_operations", "commission", b"commission", "cursor", b"cursor", "date", b"date", "description", b"description", "figi", b"figi", "id", b"id", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "instrument_uid", b"instrument_uid", "name", b"name", "parent_operation_id", b"parent_operation_id", "payment", b"payment", "position_uid", b"position_uid", "price", b"price", "quantity", b"quantity", "quantity_done", b"quantity_done", "quantity_rest", b"quantity_rest", "state", b"state", "trades_info", b"trades_info", "type", b"type", "yield", b"yield", "yield_relative", b"yield_relative"]) -> None: ...
 
 global___OperationItem = OperationItem
 
@@ -1948,12 +2007,12 @@ class OperationItemTrade(google.protobuf.message.Message):
     YIELD_FIELD_NUMBER: builtins.int
     YIELD_RELATIVE_FIELD_NUMBER: builtins.int
     num: builtins.str
-    """Номер сделки"""
+    """Номер сделки."""
     quantity: builtins.int
     """Количество в единицах."""
     @property
     def date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата сделки"""
+        """Дата сделки."""
 
     @property
     def price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1984,16 +2043,27 @@ class PositionsStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNTS_FIELD_NUMBER: builtins.int
+    WITH_INITIAL_POSITIONS_FIELD_NUMBER: builtins.int
+    PING_SETTINGS_FIELD_NUMBER: builtins.int
+    with_initial_positions: builtins.bool
+    """Получение состояния позиций на момент подключения."""
     @property
     def accounts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Массив идентификаторов счётов пользователя"""
+        """Массив идентификаторов счетов пользователя."""
+
+    @property
+    def ping_settings(self) -> TinkoffPy.grpc.common_pb2.PingDelaySettings:
+        """Запрос настройки пинга."""
 
     def __init__(
         self,
         *,
         accounts: collections.abc.Iterable[builtins.str] | None = ...,
+        with_initial_positions: builtins.bool = ...,
+        ping_settings: TinkoffPy.grpc.common_pb2.PingDelaySettings | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["accounts", b"accounts"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["ping_settings", b"ping_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["accounts", b"accounts", "ping_settings", b"ping_settings", "with_initial_positions", b"with_initial_positions"]) -> None: ...
 
 global___PositionsStreamRequest = PositionsStreamRequest
 
@@ -2006,6 +2076,7 @@ class PositionsStreamResponse(google.protobuf.message.Message):
     SUBSCRIPTIONS_FIELD_NUMBER: builtins.int
     POSITION_FIELD_NUMBER: builtins.int
     PING_FIELD_NUMBER: builtins.int
+    INITIAL_POSITIONS_FIELD_NUMBER: builtins.int
     @property
     def subscriptions(self) -> global___PositionsSubscriptionResult:
         """Объект результата подписки."""
@@ -2018,16 +2089,21 @@ class PositionsStreamResponse(google.protobuf.message.Message):
     def ping(self) -> TinkoffPy.grpc.common_pb2.Ping:
         """Проверка активности стрима."""
 
+    @property
+    def initial_positions(self) -> global___PositionsResponse:
+        """Текущие позиции."""
+
     def __init__(
         self,
         *,
         subscriptions: global___PositionsSubscriptionResult | None = ...,
         position: global___PositionData | None = ...,
         ping: TinkoffPy.grpc.common_pb2.Ping | None = ...,
+        initial_positions: global___PositionsResponse | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["payload", b"payload"]) -> typing.Literal["subscriptions", "position", "ping"] | None: ...
+    def HasField(self, field_name: typing.Literal["initial_positions", b"initial_positions", "payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["initial_positions", b"initial_positions", "payload", b"payload", "ping", b"ping", "position", b"position", "subscriptions", b"subscriptions"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["payload", b"payload"]) -> typing.Literal["subscriptions", "position", "ping", "initial_positions"] | None: ...
 
 global___PositionsStreamResponse = PositionsStreamResponse
 
@@ -2038,6 +2114,12 @@ class PositionsSubscriptionResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCOUNTS_FIELD_NUMBER: builtins.int
+    TRACKING_ID_FIELD_NUMBER: builtins.int
+    STREAM_ID_FIELD_NUMBER: builtins.int
+    tracking_id: builtins.str
+    """Уникальный идентификатор запроса, подробнее: [tracking_id](https://russianinvestments.github.io/investAPI/grpc#tracking-id)."""
+    stream_id: builtins.str
+    """Идентификатор открытого соединения"""
     @property
     def accounts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PositionsSubscriptionStatus]:
         """Массив счетов клиента."""
@@ -2046,8 +2128,10 @@ class PositionsSubscriptionResult(google.protobuf.message.Message):
         self,
         *,
         accounts: collections.abc.Iterable[global___PositionsSubscriptionStatus] | None = ...,
+        tracking_id: builtins.str = ...,
+        stream_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["accounts", b"accounts"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["accounts", b"accounts", "stream_id", b"stream_id", "tracking_id", b"tracking_id"]) -> None: ...
 
 global___PositionsSubscriptionResult = PositionsSubscriptionResult
 
@@ -2060,7 +2144,7 @@ class PositionsSubscriptionStatus(google.protobuf.message.Message):
     ACCOUNT_ID_FIELD_NUMBER: builtins.int
     SUBSCRIPTION_STATUS_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта"""
+    """Идентификатор счета."""
     subscription_status: global___PositionsAccountSubscriptionStatus.ValueType
     """Результат подписки."""
     def __init__(
@@ -2086,7 +2170,7 @@ class PositionData(google.protobuf.message.Message):
     OPTIONS_FIELD_NUMBER: builtins.int
     DATE_FIELD_NUMBER: builtins.int
     account_id: builtins.str
-    """Идентификатор счёта."""
+    """Идентификатор счета."""
     @property
     def money(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PositionsMoney]:
         """Массив валютных позиций портфеля."""
@@ -2136,7 +2220,7 @@ class PositionsMoney(google.protobuf.message.Message):
 
     @property
     def blocked_value(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Заблокированное количество валютный позиций."""
+        """Заблокированное количество валютных позиций."""
 
     def __init__(
         self,
@@ -2148,3 +2232,26 @@ class PositionsMoney(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["available_value", b"available_value", "blocked_value", b"blocked_value"]) -> None: ...
 
 global___PositionsMoney = PositionsMoney
+
+@typing.final
+class ChildOperationItem(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INSTRUMENT_UID_FIELD_NUMBER: builtins.int
+    PAYMENT_FIELD_NUMBER: builtins.int
+    instrument_uid: builtins.str
+    """Уникальный идентификатор инструмента."""
+    @property
+    def payment(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
+        """Сумма операции."""
+
+    def __init__(
+        self,
+        *,
+        instrument_uid: builtins.str = ...,
+        payment: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["payment", b"payment"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["instrument_uid", b"instrument_uid", "payment", b"payment"]) -> None: ...
+
+global___ChildOperationItem = ChildOperationItem

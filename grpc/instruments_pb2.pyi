@@ -28,41 +28,41 @@ class _CouponType:
 class _CouponTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CouponType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     COUPON_TYPE_UNSPECIFIED: _CouponType.ValueType  # 0
-    """Неопределенное значение"""
+    """Неопределенное значение."""
     COUPON_TYPE_CONSTANT: _CouponType.ValueType  # 1
-    """Постоянный"""
+    """Постоянный."""
     COUPON_TYPE_FLOATING: _CouponType.ValueType  # 2
-    """Плавающий"""
+    """Плавающий."""
     COUPON_TYPE_DISCOUNT: _CouponType.ValueType  # 3
-    """Дисконт"""
+    """Дисконт."""
     COUPON_TYPE_MORTGAGE: _CouponType.ValueType  # 4
-    """Ипотечный"""
+    """Ипотечный."""
     COUPON_TYPE_FIX: _CouponType.ValueType  # 5
-    """Фиксированный"""
+    """Фиксированный."""
     COUPON_TYPE_VARIABLE: _CouponType.ValueType  # 6
-    """Переменный"""
+    """Переменный."""
     COUPON_TYPE_OTHER: _CouponType.ValueType  # 7
-    """Прочее"""
+    """Прочее."""
 
 class CouponType(_CouponType, metaclass=_CouponTypeEnumTypeWrapper):
     """Тип купонов."""
 
 COUPON_TYPE_UNSPECIFIED: CouponType.ValueType  # 0
-"""Неопределенное значение"""
+"""Неопределенное значение."""
 COUPON_TYPE_CONSTANT: CouponType.ValueType  # 1
-"""Постоянный"""
+"""Постоянный."""
 COUPON_TYPE_FLOATING: CouponType.ValueType  # 2
-"""Плавающий"""
+"""Плавающий."""
 COUPON_TYPE_DISCOUNT: CouponType.ValueType  # 3
-"""Дисконт"""
+"""Дисконт."""
 COUPON_TYPE_MORTGAGE: CouponType.ValueType  # 4
-"""Ипотечный"""
+"""Ипотечный."""
 COUPON_TYPE_FIX: CouponType.ValueType  # 5
-"""Фиксированный"""
+"""Фиксированный."""
 COUPON_TYPE_VARIABLE: CouponType.ValueType  # 6
-"""Переменный"""
+"""Переменный."""
 COUPON_TYPE_OTHER: CouponType.ValueType  # 7
-"""Прочее"""
+"""Прочее."""
 global___CouponType = CouponType
 
 class _OptionDirection:
@@ -170,7 +170,7 @@ class _InstrumentIdTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     INSTRUMENT_ID_UNSPECIFIED: _InstrumentIdType.ValueType  # 0
     """Значение не определено."""
     INSTRUMENT_ID_TYPE_FIGI: _InstrumentIdType.ValueType  # 1
-    """Figi."""
+    """FIGI."""
     INSTRUMENT_ID_TYPE_TICKER: _InstrumentIdType.ValueType  # 2
     """Ticker."""
     INSTRUMENT_ID_TYPE_UID: _InstrumentIdType.ValueType  # 3
@@ -179,12 +179,12 @@ class _InstrumentIdTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     """Идентификатор позиции."""
 
 class InstrumentIdType(_InstrumentIdType, metaclass=_InstrumentIdTypeEnumTypeWrapper):
-    """Тип идентификатора инструмента. Подробнее об идентификации инструментов: [Идентификация инструментов](https://russianinvestments.github.io/investAPI/faq_identification/)"""
+    """Тип идентификатора инструмента. [Подробнее об идентификации инструментов](./faq_identification/)."""
 
 INSTRUMENT_ID_UNSPECIFIED: InstrumentIdType.ValueType  # 0
 """Значение не определено."""
 INSTRUMENT_ID_TYPE_FIGI: InstrumentIdType.ValueType  # 1
-"""Figi."""
+"""FIGI."""
 INSTRUMENT_ID_TYPE_TICKER: InstrumentIdType.ValueType  # 2
 """Ticker."""
 INSTRUMENT_ID_TYPE_UID: InstrumentIdType.ValueType  # 3
@@ -192,30 +192,6 @@ INSTRUMENT_ID_TYPE_UID: InstrumentIdType.ValueType  # 3
 INSTRUMENT_ID_TYPE_POSITION_UID: InstrumentIdType.ValueType  # 4
 """Идентификатор позиции."""
 global___InstrumentIdType = InstrumentIdType
-
-class _InstrumentStatus:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _InstrumentStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstrumentStatus.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    INSTRUMENT_STATUS_UNSPECIFIED: _InstrumentStatus.ValueType  # 0
-    """Значение не определено."""
-    INSTRUMENT_STATUS_BASE: _InstrumentStatus.ValueType  # 1
-    """Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличаться"""
-    INSTRUMENT_STATUS_ALL: _InstrumentStatus.ValueType  # 2
-    """Список всех инструментов."""
-
-class InstrumentStatus(_InstrumentStatus, metaclass=_InstrumentStatusEnumTypeWrapper):
-    """Статус запрашиваемых инструментов."""
-
-INSTRUMENT_STATUS_UNSPECIFIED: InstrumentStatus.ValueType  # 0
-"""Значение не определено."""
-INSTRUMENT_STATUS_BASE: InstrumentStatus.ValueType  # 1
-"""Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличаться"""
-INSTRUMENT_STATUS_ALL: InstrumentStatus.ValueType  # 2
-"""Список всех инструментов."""
-global___InstrumentStatus = InstrumentStatus
 
 class _ShareType:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -226,21 +202,21 @@ class _ShareTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     SHARE_TYPE_UNSPECIFIED: _ShareType.ValueType  # 0
     """Значение не определено."""
     SHARE_TYPE_COMMON: _ShareType.ValueType  # 1
-    """Обыкновенная"""
+    """Обыкновенная."""
     SHARE_TYPE_PREFERRED: _ShareType.ValueType  # 2
-    """Привилегированная"""
+    """Привилегированная."""
     SHARE_TYPE_ADR: _ShareType.ValueType  # 3
-    """Американские депозитарные расписки"""
+    """Американские депозитарные расписки."""
     SHARE_TYPE_GDR: _ShareType.ValueType  # 4
-    """Глобальные депозитарные расписки"""
+    """Глобальные депозитарные расписки."""
     SHARE_TYPE_MLP: _ShareType.ValueType  # 5
-    """Товарищество с ограниченной ответственностью"""
+    """Товарищество с ограниченной ответственностью."""
     SHARE_TYPE_NY_REG_SHRS: _ShareType.ValueType  # 6
-    """Акции из реестра Нью-Йорка"""
+    """Акции из реестра Нью-Йорка."""
     SHARE_TYPE_CLOSED_END_FUND: _ShareType.ValueType  # 7
-    """Закрытый инвестиционный фонд"""
+    """Закрытый инвестиционный фонд."""
     SHARE_TYPE_REIT: _ShareType.ValueType  # 8
-    """Траст недвижимости"""
+    """Траст недвижимости."""
 
 class ShareType(_ShareType, metaclass=_ShareTypeEnumTypeWrapper):
     """Тип акций."""
@@ -248,21 +224,21 @@ class ShareType(_ShareType, metaclass=_ShareTypeEnumTypeWrapper):
 SHARE_TYPE_UNSPECIFIED: ShareType.ValueType  # 0
 """Значение не определено."""
 SHARE_TYPE_COMMON: ShareType.ValueType  # 1
-"""Обыкновенная"""
+"""Обыкновенная."""
 SHARE_TYPE_PREFERRED: ShareType.ValueType  # 2
-"""Привилегированная"""
+"""Привилегированная."""
 SHARE_TYPE_ADR: ShareType.ValueType  # 3
-"""Американские депозитарные расписки"""
+"""Американские депозитарные расписки."""
 SHARE_TYPE_GDR: ShareType.ValueType  # 4
-"""Глобальные депозитарные расписки"""
+"""Глобальные депозитарные расписки."""
 SHARE_TYPE_MLP: ShareType.ValueType  # 5
-"""Товарищество с ограниченной ответственностью"""
+"""Товарищество с ограниченной ответственностью."""
 SHARE_TYPE_NY_REG_SHRS: ShareType.ValueType  # 6
-"""Акции из реестра Нью-Йорка"""
+"""Акции из реестра Нью-Йорка."""
 SHARE_TYPE_CLOSED_END_FUND: ShareType.ValueType  # 7
-"""Закрытый инвестиционный фонд"""
+"""Закрытый инвестиционный фонд."""
 SHARE_TYPE_REIT: ShareType.ValueType  # 8
-"""Траст недвижимости"""
+"""Траст недвижимости."""
 global___ShareType = ShareType
 
 class _AssetType:
@@ -272,7 +248,7 @@ class _AssetType:
 class _AssetTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AssetType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ASSET_TYPE_UNSPECIFIED: _AssetType.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     ASSET_TYPE_CURRENCY: _AssetType.ValueType  # 1
     """Валюта."""
     ASSET_TYPE_COMMODITY: _AssetType.ValueType  # 2
@@ -286,7 +262,7 @@ class AssetType(_AssetType, metaclass=_AssetTypeEnumTypeWrapper):
     """Тип актива."""
 
 ASSET_TYPE_UNSPECIFIED: AssetType.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 ASSET_TYPE_CURRENCY: AssetType.ValueType  # 1
 """Валюта."""
 ASSET_TYPE_COMMODITY: AssetType.ValueType  # 2
@@ -304,7 +280,7 @@ class _StructuredProductType:
 class _StructuredProductTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StructuredProductType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SP_TYPE_UNSPECIFIED: _StructuredProductType.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     SP_TYPE_DELIVERABLE: _StructuredProductType.ValueType  # 1
     """Поставочный."""
     SP_TYPE_NON_DELIVERABLE: _StructuredProductType.ValueType  # 2
@@ -314,7 +290,7 @@ class StructuredProductType(_StructuredProductType, metaclass=_StructuredProduct
     """Тип структурной ноты."""
 
 SP_TYPE_UNSPECIFIED: StructuredProductType.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 SP_TYPE_DELIVERABLE: StructuredProductType.ValueType  # 1
 """Поставочный."""
 SP_TYPE_NON_DELIVERABLE: StructuredProductType.ValueType  # 2
@@ -328,7 +304,7 @@ class _EditFavoritesActionType:
 class _EditFavoritesActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EditFavoritesActionType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED: _EditFavoritesActionType.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     EDIT_FAVORITES_ACTION_TYPE_ADD: _EditFavoritesActionType.ValueType  # 1
     """Добавить в список."""
     EDIT_FAVORITES_ACTION_TYPE_DEL: _EditFavoritesActionType.ValueType  # 2
@@ -338,7 +314,7 @@ class EditFavoritesActionType(_EditFavoritesActionType, metaclass=_EditFavorites
     """Тип действия со списком избранных инструментов."""
 
 EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED: EditFavoritesActionType.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 EDIT_FAVORITES_ACTION_TYPE_ADD: EditFavoritesActionType.ValueType  # 1
 """Добавить в список."""
 EDIT_FAVORITES_ACTION_TYPE_DEL: EditFavoritesActionType.ValueType  # 2
@@ -352,25 +328,29 @@ class _RealExchange:
 class _RealExchangeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RealExchange.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     REAL_EXCHANGE_UNSPECIFIED: _RealExchange.ValueType  # 0
-    """Тип не определён."""
+    """Тип не определен."""
     REAL_EXCHANGE_MOEX: _RealExchange.ValueType  # 1
     """Московская биржа."""
     REAL_EXCHANGE_RTS: _RealExchange.ValueType  # 2
     """Санкт-Петербургская биржа."""
     REAL_EXCHANGE_OTC: _RealExchange.ValueType  # 3
     """Внебиржевой инструмент."""
+    REAL_EXCHANGE_DEALER: _RealExchange.ValueType  # 4
+    """Инструмент, торгуемый на площадке брокера."""
 
 class RealExchange(_RealExchange, metaclass=_RealExchangeEnumTypeWrapper):
-    """Реальная площадка исполнения расчётов."""
+    """Реальная площадка исполнения расчетов."""
 
 REAL_EXCHANGE_UNSPECIFIED: RealExchange.ValueType  # 0
-"""Тип не определён."""
+"""Тип не определен."""
 REAL_EXCHANGE_MOEX: RealExchange.ValueType  # 1
 """Московская биржа."""
 REAL_EXCHANGE_RTS: RealExchange.ValueType  # 2
 """Санкт-Петербургская биржа."""
 REAL_EXCHANGE_OTC: RealExchange.ValueType  # 3
 """Внебиржевой инструмент."""
+REAL_EXCHANGE_DEALER: RealExchange.ValueType  # 4
+"""Инструмент, торгуемый на площадке брокера."""
 global___RealExchange = RealExchange
 
 class _Recommendation:
@@ -380,24 +360,24 @@ class _Recommendation:
 class _RecommendationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Recommendation.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RECOMMENDATION_UNSPECIFIED: _Recommendation.ValueType  # 0
-    """Не определено"""
+    """Не определено."""
     RECOMMENDATION_BUY: _Recommendation.ValueType  # 1
-    """Покупать"""
+    """Покупать."""
     RECOMMENDATION_HOLD: _Recommendation.ValueType  # 2
-    """Держать"""
+    """Держать."""
     RECOMMENDATION_SELL: _Recommendation.ValueType  # 3
-    """Продавать"""
+    """Продавать."""
 
 class Recommendation(_Recommendation, metaclass=_RecommendationEnumTypeWrapper): ...
 
 RECOMMENDATION_UNSPECIFIED: Recommendation.ValueType  # 0
-"""Не определено"""
+"""Не определено."""
 RECOMMENDATION_BUY: Recommendation.ValueType  # 1
-"""Покупать"""
+"""Покупать."""
 RECOMMENDATION_HOLD: Recommendation.ValueType  # 2
-"""Держать"""
+"""Держать."""
 RECOMMENDATION_SELL: Recommendation.ValueType  # 3
-"""Продавать"""
+"""Продавать."""
 global___Recommendation = Recommendation
 
 class _RiskLevel:
@@ -407,25 +387,25 @@ class _RiskLevel:
 class _RiskLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RiskLevel.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RISK_LEVEL_UNSPECIFIED: _RiskLevel.ValueType  # 0
-    """не указан"""
+    """Не указан."""
     RISK_LEVEL_LOW: _RiskLevel.ValueType  # 1
-    """Низкий уровень риска"""
+    """Низкий уровень риска."""
     RISK_LEVEL_MODERATE: _RiskLevel.ValueType  # 2
-    """Средний уровень риска"""
+    """Средний уровень риска."""
     RISK_LEVEL_HIGH: _RiskLevel.ValueType  # 3
-    """Высокий уровень риска"""
+    """Высокий уровень риска."""
 
 class RiskLevel(_RiskLevel, metaclass=_RiskLevelEnumTypeWrapper):
     """Уровень риска облигации."""
 
 RISK_LEVEL_UNSPECIFIED: RiskLevel.ValueType  # 0
-"""не указан"""
+"""Не указан."""
 RISK_LEVEL_LOW: RiskLevel.ValueType  # 1
-"""Низкий уровень риска"""
+"""Низкий уровень риска."""
 RISK_LEVEL_MODERATE: RiskLevel.ValueType  # 2
-"""Средний уровень риска"""
+"""Средний уровень риска."""
 RISK_LEVEL_HIGH: RiskLevel.ValueType  # 3
-"""Высокий уровень риска"""
+"""Высокий уровень риска."""
 global___RiskLevel = RiskLevel
 
 class _BondType:
@@ -459,7 +439,7 @@ class _InstrumentExchangeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_
     """Бумага, торгуемая у дилера."""
 
 class InstrumentExchangeType(_InstrumentExchangeType, metaclass=_InstrumentExchangeTypeEnumTypeWrapper):
-    """Площадка торговли"""
+    """Площадка торговли."""
 
 INSTRUMENT_EXCHANGE_UNSPECIFIED: InstrumentExchangeType.ValueType  # 0
 """Площадка торговли не определена."""
@@ -477,10 +457,10 @@ class TradingSchedulesRequest(google.protobuf.message.Message):
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     exchange: builtins.str
-    """Наименование биржи или расчетного календаря. </br>Если не передаётся, возвращается информация по всем доступным торговым площадкам."""
+    """Наименование биржи или расчетного календаря. <br/>Если не передается, возвращается информация по всем доступным торговым площадкам."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание периода по часовому поясу UTC."""
+        """Окончание периода по UTC."""
 
     def __init__(
         self,
@@ -573,59 +553,59 @@ class TradingDay(google.protobuf.message.Message):
 
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала торгов по часовому поясу UTC."""
+        """Время начала торгов по UTC."""
 
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания торгов по часовому поясу UTC."""
+        """Время окончания торгов по UTC."""
 
     @property
     def opening_auction_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала аукциона открытия в часовом поясе UTC."""
+        """Время начала аукциона открытия по UTC."""
 
     @property
     def closing_auction_end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания аукциона закрытия в часовом поясе UTC."""
+        """Время окончания аукциона закрытия по UTC."""
 
     @property
     def evening_opening_auction_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала аукциона открытия вечерней сессии в часовом поясе UTC."""
+        """Время начала аукциона открытия вечерней сессии по UTC."""
 
     @property
     def evening_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала вечерней сессии в часовом поясе UTC."""
+        """Время начала вечерней сессии по UTC."""
 
     @property
     def evening_end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания вечерней сессии в часовом поясе UTC."""
+        """Время окончания вечерней сессии по UTC."""
 
     @property
     def clearing_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала основного клиринга в часовом поясе UTC."""
+        """Время начала основного клиринга по UTC."""
 
     @property
     def clearing_end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания основного клиринга в часовом поясе UTC."""
+        """Время окончания основного клиринга по UTC."""
 
     @property
     def premarket_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала премаркета в часовом поясе UTC."""
+        """Время начала премаркета по UTC."""
 
     @property
     def premarket_end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания премаркета в часовом поясе UTC."""
+        """Время окончания премаркета по UTC."""
 
     @property
     def closing_auction_start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время начала аукциона закрытия в часовом поясе UTC."""
+        """Время начала аукциона закрытия по UTC."""
 
     @property
     def opening_auction_end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Время окончания аукциона открытия в часовом поясе UTC."""
+        """Время окончания аукциона открытия по UTC."""
 
     @property
     def intervals(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TradingInterval]:
-        """Торговые интервалы"""
+        """Торговые интервалы."""
 
     def __init__(
         self,
@@ -662,9 +642,9 @@ class InstrumentRequest(google.protobuf.message.Message):
     CLASS_CODE_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     id_type: global___InstrumentIdType.ValueType
-    """Тип идентификатора инструмента. Возможные значения: figi, ticker. Подробнее об идентификации инструментов: [Идентификация инструментов](https://russianinvestments.github.io/investAPI/faq_identification/)"""
+    """Тип идентификатора инструмента. Возможные значения — `figi`, `ticker`. [Подробнее об идентификации инструментов](./faq_identification/)."""
     class_code: builtins.str
-    """Идентификатор class_code. Обязателен при id_type = ticker."""
+    """Идентификатор `class_code`. Обязательный, если `id_type = ticker`."""
     id: builtins.str
     """Идентификатор запрашиваемого инструмента."""
     def __init__(
@@ -688,14 +668,14 @@ class InstrumentsRequest(google.protobuf.message.Message):
 
     INSTRUMENT_STATUS_FIELD_NUMBER: builtins.int
     INSTRUMENT_EXCHANGE_FIELD_NUMBER: builtins.int
-    instrument_status: global___InstrumentStatus.ValueType
-    """Статус запрашиваемых инструментов. Возможные значения: [InstrumentStatus](#instrumentstatus)"""
+    instrument_status: TinkoffPy.grpc.common_pb2.InstrumentStatus.ValueType
+    """Статус запрашиваемых инструментов. [Возможные значения](#instrumentstatus)."""
     instrument_exchange: global___InstrumentExchangeType.ValueType
-    """Тип площадки торговли. Возможные значения: [InstrumentExchangeType](#instrumentexchangetype)"""
+    """Тип площадки торговли. [Возможные значения](#instrumentexchangetype)."""
     def __init__(
         self,
         *,
-        instrument_status: global___InstrumentStatus.ValueType | None = ...,
+        instrument_status: TinkoffPy.grpc.common_pb2.InstrumentStatus.ValueType | None = ...,
         instrument_exchange: global___InstrumentExchangeType.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_instrument_exchange", b"_instrument_exchange", "_instrument_status", b"_instrument_status", "instrument_exchange", b"instrument_exchange", "instrument_status", b"instrument_status"]) -> builtins.bool: ...
@@ -709,7 +689,7 @@ global___InstrumentsRequest = InstrumentsRequest
 
 @typing.final
 class FilterOptionsRequest(google.protobuf.message.Message):
-    """Параметры фильтрации опционов"""
+    """Параметры фильтрации опционов."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -718,7 +698,7 @@ class FilterOptionsRequest(google.protobuf.message.Message):
     basic_asset_uid: builtins.str
     """Идентификатор базового актива опциона.  Обязательный параметр."""
     basic_asset_position_uid: builtins.str
-    """Идентификатор позиции базового актива опциона"""
+    """Идентификатор позиции базового актива опциона."""
     def __init__(
         self,
         *,
@@ -786,12 +766,12 @@ class GetBondCouponsRequest(google.protobuf.message.Message):
     TO_FIELD_NUMBER: builtins.int
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация по coupon_date (дата выплаты купона)"""
+        """Окончание запрашиваемого периода по UTC. Фильтрация по `coupon_date` — дата выплаты купона."""
 
     def __init__(
         self,
@@ -840,39 +820,39 @@ class GetBondEventsRequest(google.protobuf.message.Message):
     class _EventTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetBondEventsRequest._EventType.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         EVENT_TYPE_UNSPECIFIED: GetBondEventsRequest._EventType.ValueType  # 0
-        """Неопределенное значение"""
+        """Неопределенное значение."""
         EVENT_TYPE_CPN: GetBondEventsRequest._EventType.ValueType  # 1
-        """Купон"""
+        """Купон."""
         EVENT_TYPE_CALL: GetBondEventsRequest._EventType.ValueType  # 2
-        """Опцион (оферта)"""
+        """Опцион (оферта)."""
         EVENT_TYPE_MTY: GetBondEventsRequest._EventType.ValueType  # 3
-        """Погашение"""
+        """Погашение."""
         EVENT_TYPE_CONV: GetBondEventsRequest._EventType.ValueType  # 4
-        """Конвертация"""
+        """Конвертация."""
 
     class EventType(_EventType, metaclass=_EventTypeEnumTypeWrapper): ...
     EVENT_TYPE_UNSPECIFIED: GetBondEventsRequest.EventType.ValueType  # 0
-    """Неопределенное значение"""
+    """Неопределенное значение."""
     EVENT_TYPE_CPN: GetBondEventsRequest.EventType.ValueType  # 1
-    """Купон"""
+    """Купон."""
     EVENT_TYPE_CALL: GetBondEventsRequest.EventType.ValueType  # 2
-    """Опцион (оферта)"""
+    """Опцион (оферта)."""
     EVENT_TYPE_MTY: GetBondEventsRequest.EventType.ValueType  # 3
-    """Погашение"""
+    """Погашение."""
     EVENT_TYPE_CONV: GetBondEventsRequest.EventType.ValueType  # 4
-    """Конвертация"""
+    """Конвертация."""
 
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     type: global___GetBondEventsRequest.EventType.ValueType
     """Тип события"""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание запрашиваемого периода в часовом поясе UTC."""
+        """Окончание запрашиваемого периода по UTC."""
 
     def __init__(
         self,
@@ -922,72 +902,72 @@ class GetBondEventsResponse(google.protobuf.message.Message):
         COUPON_PERIOD_FIELD_NUMBER: builtins.int
         COUPON_INTEREST_RATE_FIELD_NUMBER: builtins.int
         instrument_id: builtins.str
-        """Идентификатор инструмента"""
+        """Идентификатор инструмента."""
         event_number: builtins.int
-        """Номер события для данного типа события"""
+        """Номер события для данного типа события."""
         event_type: global___GetBondEventsRequest.EventType.ValueType
-        """Тип события"""
+        """Тип события."""
         execution: builtins.str
-        """Признак исполнения"""
+        """Признак исполнения."""
         operation_type: builtins.str
-        """Тип операции"""
+        """Тип операции."""
         note: builtins.str
-        """Примечание"""
+        """Примечание."""
         convert_to_fin_tool_id: builtins.str
-        """ID выпуска бумаг, в который произведена конвертация (для конвертаций)"""
+        """ID выпуска бумаг, в который произведена конвертация (для конвертаций)."""
         coupon_period: builtins.int
-        """Купонный период"""
+        """Купонный период."""
         @property
         def event_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата события"""
+            """Дата события."""
 
         @property
         def event_total_vol(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Полное количество бумаг, задействованных в событии"""
+            """Полное количество бумаг, задействованных в событии."""
 
         @property
         def fix_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата фиксации владельцев для участия в событии"""
+            """Дата фиксации владельцев для участия в событии."""
 
         @property
         def rate_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата определения даты либо факта события"""
+            """Дата определения даты или факта события."""
 
         @property
         def default_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата дефолта (если применимо)"""
+            """Дата дефолта, если применимо."""
 
         @property
         def real_pay_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата реального исполнения обязательства"""
+            """Дата реального исполнения обязательства."""
 
         @property
         def pay_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата выплаты"""
+            """Дата выплаты."""
 
         @property
         def pay_one_bond(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-            """Выплата на одну облигацию"""
+            """Выплата на одну облигацию."""
 
         @property
         def money_flow_val(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-            """Выплаты на все бумаги, задействованные в событии"""
+            """Выплаты на все бумаги, задействованные в событии."""
 
         @property
         def value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Стоимость операции (ставка купона, доля номинала, цена выкупа или коэффициент конвертации)"""
+            """Стоимость операции — ставка купона, доля номинала, цена выкупа или коэффициент конвертации."""
 
         @property
         def coupon_start_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Начало купонного периода"""
+            """Начало купонного периода."""
 
         @property
         def coupon_end_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Окончание купонного периода"""
+            """Окончание купонного периода."""
 
         @property
         def coupon_interest_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Ставка купона, процентов годовых"""
+            """Ставка купона, процентов годовых."""
 
         def __init__(
             self,
@@ -1045,7 +1025,7 @@ class Coupon(google.protobuf.message.Message):
     COUPON_END_DATE_FIELD_NUMBER: builtins.int
     COUPON_PERIOD_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     coupon_number: builtins.int
     """Номер купона."""
     coupon_type: global___CouponType.ValueType
@@ -1058,7 +1038,7 @@ class Coupon(google.protobuf.message.Message):
 
     @property
     def fix_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """(Опционально) Дата фиксации реестра для выплаты купона."""
+        """Дата фиксации реестра для выплаты купона — опционально."""
 
     @property
     def pay_one_bond(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1291,6 +1271,8 @@ class Option(google.protobuf.message.Message):
     DSHORT_MIN_FIELD_NUMBER: builtins.int
     MIN_PRICE_INCREMENT_FIELD_NUMBER: builtins.int
     STRIKE_PRICE_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     EXPIRATION_DATE_FIELD_NUMBER: builtins.int
     FIRST_TRADE_DATE_FIELD_NUMBER: builtins.int
     LAST_TRADE_DATE_FIELD_NUMBER: builtins.int
@@ -1318,7 +1300,7 @@ class Option(google.protobuf.message.Message):
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS]"""
+    """Реальная площадка исполнения расчетов (биржа)."""
     direction: global___OptionDirection.ValueType
     """Направление опциона."""
     payment_type: global___OptionPaymentType.ValueType
@@ -1350,21 +1332,21 @@ class Option(google.protobuf.message.Message):
     short_enabled_flag: builtins.bool
     """Признак доступности для операций шорт."""
     for_iis_flag: builtins.bool
-    """Возможность покупки/продажи на ИИС."""
+    """Возможность покупки или продажи на ИИС."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
     """Признак доступности для продажи."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным."""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     api_trade_available_flag: builtins.bool
-    """Параметр указывает на возможность торговать инструментом через API."""
+    """Возможность торговать инструментом через API."""
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
@@ -1375,27 +1357,27 @@ class Option(google.protobuf.message.Message):
 
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт.  Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт.  Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -1404,6 +1386,14 @@ class Option(google.protobuf.message.Message):
     @property
     def strike_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Цена страйка."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def expiration_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -1459,6 +1449,8 @@ class Option(google.protobuf.message.Message):
         dshort_min: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         min_price_increment: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         strike_price: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         expiration_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_trade_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         last_trade_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1474,8 +1466,8 @@ class Option(google.protobuf.message.Message):
         blocked_tca_flag: builtins.bool = ...,
         api_trade_available_flag: builtins.bool = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["basic_asset_size", b"basic_asset_size", "brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "min_price_increment", b"min_price_increment", "strike_price", b"strike_price"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_type", b"asset_type", "basic_asset", b"basic_asset", "basic_asset_position_uid", b"basic_asset_position_uid", "basic_asset_size", b"basic_asset_size", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "direction", b"direction", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "otc_flag", b"otc_flag", "payment_type", b"payment_type", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "settlement_currency", b"settlement_currency", "settlement_type", b"settlement_type", "short_enabled_flag", b"short_enabled_flag", "strike_price", b"strike_price", "style", b"style", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["basic_asset_size", b"basic_asset_size", "brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "min_price_increment", b"min_price_increment", "strike_price", b"strike_price"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_type", b"asset_type", "basic_asset", b"basic_asset", "basic_asset_position_uid", b"basic_asset_position_uid", "basic_asset_size", b"basic_asset_size", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "direction", b"direction", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "otc_flag", b"otc_flag", "payment_type", b"payment_type", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "settlement_currency", b"settlement_currency", "settlement_type", b"settlement_type", "short_enabled_flag", b"short_enabled_flag", "strike_price", b"strike_price", "style", b"style", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Option = Option
 
@@ -1579,18 +1571,21 @@ class Bond(google.protobuf.message.Message):
     RISK_LEVEL_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
     BOND_TYPE_FIELD_NUMBER: builtins.int
+    CALL_DATE_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)."""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций в шорт."""
     name: builtins.str
@@ -1600,13 +1595,13 @@ class Bond(google.protobuf.message.Message):
     coupon_quantity_per_year: builtins.int
     """Количество выплат по купонам в год."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     sector: builtins.str
     """Сектор экономики."""
     issue_kind: builtins.str
-    """Форма выпуска. Возможные значения: </br>**documentary** — документарная; </br>**non_documentary** — бездокументарная."""
+    """Форма выпуска. Возможные значения: <br/>**documentary** — документарная; <br/>**non_documentary** — бездокументарная."""
     issue_size: builtins.int
     """Размер выпуска."""
     issue_size_plan: builtins.int
@@ -1614,7 +1609,7 @@ class Bond(google.protobuf.message.Message):
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -1630,7 +1625,7 @@ class Bond(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов. (биржа)"""
+    """Реальная площадка исполнения расчетов. (биржа)"""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     asset_uid: builtins.str
@@ -1638,46 +1633,46 @@ class Bond(google.protobuf.message.Message):
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным"""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
-    """Флаг заблокированного ТКС"""
+    """Флаг заблокированного ТКС."""
     subordinated_flag: builtins.bool
     """Признак субординированной облигации."""
     liquidity_flag: builtins.bool
-    """Флаг достаточной ликвидности"""
+    """Флаг достаточной ликвидности."""
     risk_level: global___RiskLevel.ValueType
     """Уровень риска."""
     bond_type: global___BondType.ValueType
     """Тип облигации."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def maturity_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата погашения облигации в часовом поясе UTC."""
+        """Дата погашения облигации по UTC."""
 
     @property
     def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1689,11 +1684,11 @@ class Bond(google.protobuf.message.Message):
 
     @property
     def state_reg_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата выпуска облигации в часовом поясе UTC."""
+        """Дата выпуска облигации по UTC."""
 
     @property
     def placement_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата размещения в часовом поясе UTC."""
+        """Дата размещения по UTC."""
 
     @property
     def placement_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1718,6 +1713,18 @@ class Bond(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def call_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Дата погашения облигации."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -1775,9 +1782,12 @@ class Bond(google.protobuf.message.Message):
         risk_level: global___RiskLevel.ValueType = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
         bond_type: global___BondType.ValueType = ...,
+        call_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["aci_value", b"aci_value", "brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "initial_nominal", b"initial_nominal", "klong", b"klong", "kshort", b"kshort", "maturity_date", b"maturity_date", "min_price_increment", b"min_price_increment", "nominal", b"nominal", "placement_date", b"placement_date", "placement_price", b"placement_price", "state_reg_date", b"state_reg_date"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["aci_value", b"aci_value", "amortization_flag", b"amortization_flag", "api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "bond_type", b"bond_type", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "coupon_quantity_per_year", b"coupon_quantity_per_year", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "floating_coupon_flag", b"floating_coupon_flag", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "initial_nominal", b"initial_nominal", "isin", b"isin", "issue_kind", b"issue_kind", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "maturity_date", b"maturity_date", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "perpetual_flag", b"perpetual_flag", "placement_date", b"placement_date", "placement_price", b"placement_price", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "risk_level", b"risk_level", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "state_reg_date", b"state_reg_date", "subordinated_flag", b"subordinated_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["aci_value", b"aci_value", "brand", b"brand", "call_date", b"call_date", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "initial_nominal", b"initial_nominal", "klong", b"klong", "kshort", b"kshort", "maturity_date", b"maturity_date", "min_price_increment", b"min_price_increment", "nominal", b"nominal", "placement_date", b"placement_date", "placement_price", b"placement_price", "state_reg_date", b"state_reg_date"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["aci_value", b"aci_value", "amortization_flag", b"amortization_flag", "api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "bond_type", b"bond_type", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "call_date", b"call_date", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "coupon_quantity_per_year", b"coupon_quantity_per_year", "currency", b"currency", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "floating_coupon_flag", b"floating_coupon_flag", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "initial_nominal", b"initial_nominal", "isin", b"isin", "issue_kind", b"issue_kind", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "maturity_date", b"maturity_date", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "perpetual_flag", b"perpetual_flag", "placement_date", b"placement_date", "placement_price", b"placement_price", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "risk_level", b"risk_level", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "state_reg_date", b"state_reg_date", "subordinated_flag", b"subordinated_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Bond = Bond
 
@@ -1822,32 +1832,34 @@ class Currency(google.protobuf.message.Message):
     FIRST_1MIN_CANDLE_DATE_FIELD_NUMBER: builtins.int
     FIRST_1DAY_CANDLE_DATE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)."""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций в шорт."""
     name: builtins.str
     """Название инструмента."""
     exchange: builtins.str
-    """Tорговая площадка (секция биржи)"""
+    """Tорговая площадка (секция биржи)."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -1859,40 +1871,40 @@ class Currency(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа)."""
+    """Реальная площадка исполнения расчетов (биржа)."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным."""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -1913,6 +1925,14 @@ class Currency(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -1952,9 +1972,11 @@ class Currency(google.protobuf.message.Message):
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "isin", b"isin", "iso_currency_name", b"iso_currency_name", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "isin", b"isin", "iso_currency_name", b"iso_currency_name", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Currency = Currency
 
@@ -2006,18 +2028,20 @@ class Etf(google.protobuf.message.Message):
     FIRST_1MIN_CANDLE_DATE_FIELD_NUMBER: builtins.int
     FIRST_1DAY_CANDLE_DATE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)."""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций в шорт."""
     name: builtins.str
@@ -2025,11 +2049,11 @@ class Etf(google.protobuf.message.Message):
     exchange: builtins.str
     """Tорговая площадка (секция биржи)."""
     focus_type: builtins.str
-    """Возможные значения: </br>**equity** — акции;</br>**fixed_income** — облигации;</br>**mixed_allocation** — смешанный;</br>**money_market** — денежный рынок;</br>**real_estate** — недвижимость;</br>**commodity** — товары;</br>**specialty** — специальный;</br>**private_equity** — private equity;</br>**alternative_investment** — альтернативные инвестиции."""
+    """Возможные значения: <br/>**equity** — акции;<br/>**fixed_income** — облигации;<br/>**mixed_allocation** — смешанный;<br/>**money_market** — денежный рынок;<br/>**real_estate** — недвижимость;<br/>**commodity** — товары;<br/>**specialty** — специальный;<br/>**private_equity** — private equity;<br/>**alternative_investment** — альтернативные инвестиции."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     sector: builtins.str
     """Сектор экономики."""
     rebalancing_freq: builtins.str
@@ -2037,7 +2061,7 @@ class Etf(google.protobuf.message.Message):
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -2047,7 +2071,7 @@ class Etf(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа)."""
+    """Реальная площадка исполнения расчетов (биржа)."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     asset_uid: builtins.str
@@ -2057,36 +2081,36 @@ class Etf(google.protobuf.message.Message):
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным."""
+    """ФлагФлаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     liquidity_flag: builtins.bool
-    """Флаг достаточной ликвидности"""
+    """Флаг достаточной ликвидности."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def fixed_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -2094,7 +2118,7 @@ class Etf(google.protobuf.message.Message):
 
     @property
     def released_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата выпуска в часовом поясе UTC."""
+        """Дата выпуска по UTC."""
 
     @property
     def num_shares(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -2115,6 +2139,14 @@ class Etf(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -2161,9 +2193,11 @@ class Etf(google.protobuf.message.Message):
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "num_shares", b"num_shares", "released_date", b"released_date"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "focus_type", b"focus_type", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "num_shares", b"num_shares", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "rebalancing_freq", b"rebalancing_freq", "released_date", b"released_date", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "num_shares", b"num_shares", "released_date", b"released_date"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "fixed_commission", b"fixed_commission", "focus_type", b"focus_type", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "num_shares", b"num_shares", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "rebalancing_freq", b"rebalancing_freq", "released_date", b"released_date", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Etf = Etf
 
@@ -2217,16 +2251,18 @@ class Future(google.protobuf.message.Message):
     INITIAL_MARGIN_ON_SELL_FIELD_NUMBER: builtins.int
     MIN_PRICE_INCREMENT_AMOUNT_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)."""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций шорт."""
     name: builtins.str
@@ -2234,21 +2270,21 @@ class Future(google.protobuf.message.Message):
     exchange: builtins.str
     """Tорговая площадка (секция биржи)."""
     futures_type: builtins.str
-    """Тип фьючерса. Возможные значения: </br>**physical_delivery** — физические поставки; </br>**cash_settlement** — денежный эквивалент."""
+    """Тип фьючерса. Возможные значения: <br/>**physical_delivery** — физические поставки; <br/>**cash_settlement** — денежный эквивалент."""
     asset_type: builtins.str
-    """Тип актива. Возможные значения: </br>**commodity** — товар; </br>**currency** — валюта; </br>**security** — ценная бумага; </br>**index** — индекс."""
+    """Тип актива. Возможные значения: <br/>**commodity** — товар; <br/>**currency** — валюта; <br/>**security** — ценная бумага; <br/>**index** — индекс."""
     basic_asset: builtins.str
     """Основной актив."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     sector: builtins.str
     """Сектор экономики."""
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -2258,7 +2294,7 @@ class Future(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа)."""
+    """Реальная площадка исполнения расчетов (биржа)."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     basic_asset_position_uid: builtins.str
@@ -2266,42 +2302,42 @@ class Future(google.protobuf.message.Message):
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным."""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
     """Флаг заблокированного ТКС."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def first_trade_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата начала обращения контракта в часовом поясе UTC."""
+        """Дата начала обращения контракта по UTC."""
 
     @property
     def last_trade_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата в часовом поясе UTC, до которой возможно проведение операций с фьючерсом."""
+        """Дата по UTC, до которой возможно проведение операций с фьючерсом."""
 
     @property
     def basic_asset_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -2338,6 +2374,14 @@ class Future(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -2386,9 +2430,11 @@ class Future(google.protobuf.message.Message):
         initial_margin_on_sell: TinkoffPy.grpc.common_pb2.MoneyValue | None = ...,
         min_price_increment_amount: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["basic_asset_size", b"basic_asset_size", "brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_type", b"asset_type", "basic_asset", b"basic_asset", "basic_asset_position_uid", b"basic_asset_position_uid", "basic_asset_size", b"basic_asset_size", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "expiration_date", b"expiration_date", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "futures_type", b"futures_type", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "lot", b"lot", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["basic_asset_size", b"basic_asset_size", "brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "expiration_date", b"expiration_date", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_type", b"asset_type", "basic_asset", b"basic_asset", "basic_asset_position_uid", b"basic_asset_position_uid", "basic_asset_size", b"basic_asset_size", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "expiration_date", b"expiration_date", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "first_trade_date", b"first_trade_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "futures_type", b"futures_type", "initial_margin_on_buy", b"initial_margin_on_buy", "initial_margin_on_sell", b"initial_margin_on_sell", "klong", b"klong", "kshort", b"kshort", "last_trade_date", b"last_trade_date", "lot", b"lot", "min_price_increment", b"min_price_increment", "min_price_increment_amount", b"min_price_increment_amount", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Future = Future
 
@@ -2441,18 +2487,20 @@ class Share(google.protobuf.message.Message):
     FIRST_1MIN_CANDLE_DATE_FIELD_NUMBER: builtins.int
     FIRST_1DAY_CANDLE_DATE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код (секция торгов)."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)"""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций в шорт."""
     name: builtins.str
@@ -2462,9 +2510,9 @@ class Share(google.protobuf.message.Message):
     issue_size: builtins.int
     """Размер выпуска."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     sector: builtins.str
     """Сектор экономики."""
     issue_size_plan: builtins.int
@@ -2472,7 +2520,7 @@ class Share(google.protobuf.message.Message):
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -2480,13 +2528,13 @@ class Share(google.protobuf.message.Message):
     div_yield_flag: builtins.bool
     """Признак наличия дивидендной доходности."""
     share_type: global___ShareType.ValueType
-    """Тип акции. Возможные значения: [ShareType](https://russianinvestments.github.io/investAPI/instruments#sharetype)"""
+    """Тип акции. Возможные значения — `[ShareType](./instruments#sharetype)`."""
     api_trade_available_flag: builtins.bool
-    """Параметр указывает на возможность торговать инструментом через API."""
+    """Возможность торговать инструментом через API."""
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа)."""
+    """Реальная площадка исполнения расчетов (биржа)."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     asset_uid: builtins.str
@@ -2496,40 +2544,40 @@ class Share(google.protobuf.message.Message):
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным"""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
-    """Флаг заблокированного ТКС"""
+    """Флаг заблокированного ТКС."""
     liquidity_flag: builtins.bool
-    """Флаг достаточной ликвидности"""
+    """Флаг достаточной ликвидности."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def ipo_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата IPO акции в часовом поясе UTC."""
+        """Дата IPO акции по UTC."""
 
     @property
     def nominal(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
@@ -2550,6 +2598,14 @@ class Share(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -2597,15 +2653,17 @@ class Share(google.protobuf.message.Message):
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "ipo_date", b"ipo_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "div_yield_flag", b"div_yield_flag", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "ipo_date", b"ipo_date", "isin", b"isin", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "share_type", b"share_type", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "ipo_date", b"ipo_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment", "nominal", b"nominal"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "div_yield_flag", b"div_yield_flag", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_exchange", b"instrument_exchange", "ipo_date", b"ipo_date", "isin", b"isin", "issue_size", b"issue_size", "issue_size_plan", b"issue_size_plan", "klong", b"klong", "kshort", b"kshort", "liquidity_flag", b"liquidity_flag", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "nominal", b"nominal", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sector", b"sector", "sell_available_flag", b"sell_available_flag", "share_type", b"share_type", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Share = Share
 
 @typing.final
 class GetAccruedInterestsRequest(google.protobuf.message.Message):
-    """Запрос НКД по облигации"""
+    """Запрос НКД по облигации."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2614,12 +2672,12 @@ class GetAccruedInterestsRequest(google.protobuf.message.Message):
     TO_FIELD_NUMBER: builtins.int
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание запрашиваемого периода в часовом поясе UTC."""
+        """Окончание запрашиваемого периода по UTC."""
 
     def __init__(
         self,
@@ -2635,7 +2693,7 @@ global___GetAccruedInterestsRequest = GetAccruedInterestsRequest
 
 @typing.final
 class GetAccruedInterestsResponse(google.protobuf.message.Message):
-    """НКД облигации"""
+    """НКД облигации."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2665,7 +2723,7 @@ class AccruedInterest(google.protobuf.message.Message):
     NOMINAL_FIELD_NUMBER: builtins.int
     @property
     def date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время выплаты в часовом поясе UTC."""
+        """Дата и время выплаты по UTC."""
 
     @property
     def value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -2703,7 +2761,7 @@ class GetFuturesMarginRequest(google.protobuf.message.Message):
     figi: builtins.str
     """Идентификатор инструмента."""
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     def __init__(
         self,
         *,
@@ -2816,18 +2874,20 @@ class Instrument(google.protobuf.message.Message):
     FIRST_1MIN_CANDLE_DATE_FIELD_NUMBER: builtins.int
     FIRST_1DAY_CANDLE_DATE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
+    DLONG_CLIENT_FIELD_NUMBER: builtins.int
+    DSHORT_CLIENT_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код инструмента."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     lot: builtins.int
-    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](https://russianinvestments.github.io/investAPI/glossary#lot)"""
+    """Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`. [Подробнее](./glossary#lot)."""
     currency: builtins.str
-    """Валюта расчётов."""
+    """Валюта расчетов."""
     short_enabled_flag: builtins.bool
     """Признак доступности для операций в шорт."""
     name: builtins.str
@@ -2835,15 +2895,15 @@ class Instrument(google.protobuf.message.Message):
     exchange: builtins.str
     """Tорговая площадка (секция биржи)."""
     country_of_risk: builtins.str
-    """Код страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Код страны риска — то есть страны, в которой компания ведет основной бизнес."""
     country_of_risk_name: builtins.str
-    """Наименование страны риска, т.е. страны, в которой компания ведёт основной бизнес."""
+    """Наименование страны риска — то есть страны, в которой компания ведет основной бизнес."""
     instrument_type: builtins.str
     """Тип инструмента."""
     trading_status: TinkoffPy.grpc.common_pb2.SecurityTradingStatus.ValueType
     """Текущий режим торгов инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     buy_available_flag: builtins.bool
     """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
@@ -2853,7 +2913,7 @@ class Instrument(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     real_exchange: global___RealExchange.ValueType
-    """Реальная площадка исполнения расчётов (биржа)."""
+    """Реальная площадка исполнения расчетов (биржа)."""
     position_uid: builtins.str
     """Уникальный идентификатор позиции инструмента."""
     asset_uid: builtins.str
@@ -2861,36 +2921,36 @@ class Instrument(google.protobuf.message.Message):
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным"""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
-    """Флаг заблокированного ТКС"""
+    """Флаг заблокированного ТКС."""
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     @property
     def klong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска длинной позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def kshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР). 1 – клиент с повышенным уровнем риска (КПУР)"""
+        """Коэффициент ставки риска короткой позиции по клиенту. 2 – клиент со стандартным уровнем риска (КСУР); 1 – клиент с повышенным уровнем риска (КПУР)."""
 
     @property
     def dlong(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР лонг.Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КСУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КСУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dlong_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР лонг. Подробнее: [ставка риска в лонг](https://help.tinkoff.ru/margin-trade/long/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР лонг. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def dshort_min(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка риска начальной маржи для КПУР шорт. Подробнее: [ставка риска в шорт](https://help.tinkoff.ru/margin-trade/short/risk-rate/)"""
+        """Ставка риска начальной маржи для КПУР шорт. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     @property
     def min_price_increment(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -2907,6 +2967,14 @@ class Instrument(google.protobuf.message.Message):
     @property
     def brand(self) -> TinkoffPy.grpc.common_pb2.BrandData:
         """Информация о бренде."""
+
+    @property
+    def dlong_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в лонг с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
+
+    @property
+    def dshort_client(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+        """Ставка риска в шорт с учетом текущего уровня риска портфеля клиента. [Подробнее про ставки риска](https://www.tbank.ru/invest/help/brokerage/account/margin/about/#q5)."""
 
     def __init__(
         self,
@@ -2947,9 +3015,11 @@ class Instrument(google.protobuf.message.Message):
         first_1min_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         first_1day_candle_date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         brand: TinkoffPy.grpc.common_pb2.BrandData | None = ...,
+        dlong_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        dshort_client: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["brand", b"brand", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "klong", b"klong", "kshort", b"kshort", "min_price_increment", b"min_price_increment"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "asset_uid", b"asset_uid", "blocked_tca_flag", b"blocked_tca_flag", "brand", b"brand", "buy_available_flag", b"buy_available_flag", "class_code", b"class_code", "country_of_risk", b"country_of_risk", "country_of_risk_name", b"country_of_risk_name", "currency", b"currency", "dlong", b"dlong", "dlong_client", b"dlong_client", "dlong_min", b"dlong_min", "dshort", b"dshort", "dshort_client", b"dshort_client", "dshort_min", b"dshort_min", "exchange", b"exchange", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "klong", b"klong", "kshort", b"kshort", "lot", b"lot", "min_price_increment", b"min_price_increment", "name", b"name", "otc_flag", b"otc_flag", "position_uid", b"position_uid", "real_exchange", b"real_exchange", "sell_available_flag", b"sell_available_flag", "short_enabled_flag", b"short_enabled_flag", "ticker", b"ticker", "trading_status", b"trading_status", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___Instrument = Instrument
 
@@ -2964,12 +3034,12 @@ class GetDividendsRequest(google.protobuf.message.Message):
     TO_FIELD_NUMBER: builtins.int
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание запрашиваемого периода в часовом поясе UTC. Фильтрация происходит по параметру *record_date* (дата фиксации реестра)."""
+        """Окончание запрашиваемого периода по UTC. Фильтрация происходит по параметру `record_date` — дата фиксации реестра."""
 
     def __init__(
         self,
@@ -3022,32 +3092,32 @@ class Dividend(google.protobuf.message.Message):
     YIELD_VALUE_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     dividend_type: builtins.str
-    """Тип выплаты. Возможные значения: Regular Cash – регулярные выплаты, Cancelled – выплата отменена, Daily Accrual – ежедневное начисление, Return of Capital – возврат капитала, прочие типы выплат."""
+    """Тип выплаты. Возможные значения: `Regular Cash` – регулярные выплаты, `Cancelled` – выплата отменена, `Daily Accrual` – ежедневное начисление, `Return of Capital` – возврат капитала, прочие типы выплат."""
     regularity: builtins.str
-    """Регулярность выплаты. Возможные значения: Annual – ежегодная, Semi-Anl – каждые полгода, прочие типы выплат."""
+    """Регулярность выплаты. Возможные значения: `Annual` – ежегодная, `Semi-Anl` – каждые полгода, прочие типы выплат."""
     @property
     def dividend_net(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
         """Величина дивиденда на 1 ценную бумагу (включая валюту)."""
 
     @property
     def payment_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата фактических выплат в часовом поясе UTC."""
+        """Дата фактических выплат по UTC."""
 
     @property
     def declared_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата объявления дивидендов в часовом поясе UTC."""
+        """Дата объявления дивидендов по UTC."""
 
     @property
     def last_buy_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Последний день (включительно) покупки для получения выплаты в часовом поясе UTC."""
+        """Последний день (включительно) покупки для получения выплаты по UTC."""
 
     @property
     def record_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата фиксации реестра в часовом поясе UTC."""
+        """Дата фиксации реестра по UTC."""
 
     @property
     def close_price(self) -> TinkoffPy.grpc.common_pb2.MoneyValue:
-        """Цена закрытия инструмента на момент ex_dividend_date."""
+        """Цена закрытия инструмента на момент `ex_dividend_date`."""
 
     @property
     def yield_value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -3055,7 +3125,7 @@ class Dividend(google.protobuf.message.Message):
 
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Дата и время создания записи в часовом поясе UTC."""
+        """Дата и время создания записи по UTC."""
 
     def __init__(
         self,
@@ -3084,7 +3154,7 @@ class AssetRequest(google.protobuf.message.Message):
 
     ID_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """uid-идентификатор актива."""
+    """UID-идентификатор актива."""
     def __init__(
         self,
         *,
@@ -3122,14 +3192,21 @@ class AssetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     INSTRUMENT_TYPE_FIELD_NUMBER: builtins.int
+    INSTRUMENT_STATUS_FIELD_NUMBER: builtins.int
     instrument_type: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
+    instrument_status: TinkoffPy.grpc.common_pb2.InstrumentStatus.ValueType
+    """Статус запрашиваемых инструментов. [Возможные значения](#instrumentstatus)."""
     def __init__(
         self,
         *,
         instrument_type: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType | None = ...,
+        instrument_status: TinkoffPy.grpc.common_pb2.InstrumentStatus.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_instrument_type", b"_instrument_type", "instrument_type", b"instrument_type"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_instrument_type", b"_instrument_type", "instrument_type", b"instrument_type"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_instrument_status", b"_instrument_status", "_instrument_type", b"_instrument_type", "instrument_status", b"instrument_status", "instrument_type", b"instrument_type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_instrument_status", b"_instrument_status", "_instrument_type", b"_instrument_type", "instrument_status", b"instrument_status", "instrument_type", b"instrument_type"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_instrument_status", b"_instrument_status"]) -> typing.Literal["instrument_status"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_instrument_type", b"_instrument_type"]) -> typing.Literal["instrument_type"] | None: ...
 
 global___AssetsRequest = AssetsRequest
@@ -3208,11 +3285,11 @@ class AssetFull(google.protobuf.message.Message):
 
     @property
     def currency(self) -> global___AssetCurrency:
-        """Валюта. Обязательно и заполняется только для type = "ASSET_TYPE_CURRENCY"."""
+        """Валюта. Обязательно и заполняется только для `type = ASSET_TYPE_CURRENCY`."""
 
     @property
     def security(self) -> global___AssetSecurity:
-        """Ценная бумага. Обязательно и заполняется только для type = "ASSET_TYPE_SECURITY"."""
+        """Ценная бумага. Обязательно и заполняется только для `type = ASSET_TYPE_SECURITY`."""
 
     @property
     def brand(self) -> global___Brand:
@@ -3326,23 +3403,23 @@ class AssetSecurity(google.protobuf.message.Message):
     """Тип инструмента."""
     @property
     def share(self) -> global___AssetShare:
-        """Акция. Заполняется только для акций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = share)."""
+        """Акция. Заполняется только для акций — тип актива `asset.type = ASSET_TYPE_SECURITY` и `security.type = share`."""
 
     @property
     def bond(self) -> global___AssetBond:
-        """Облигация. Заполняется только для облигаций (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = bond)."""
+        """Облигация. Заполняется только для облигаций — тип актива `asset.type = ASSET_TYPE_SECURITY` и `security.type = bond`."""
 
     @property
     def sp(self) -> global___AssetStructuredProduct:
-        """Структурная нота. Заполняется только для структурных продуктов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = sp)."""
+        """Структурная нота. Заполняется только для структурных продуктов — тип актива `asset.type = ASSET_TYPE_SECURITY` и `security.type = sp`."""
 
     @property
     def etf(self) -> global___AssetEtf:
-        """Фонд. Заполняется только для фондов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = etf)."""
+        """Фонд. Заполняется только для фондов — тип актива `asset.type = ASSET_TYPE_SECURITY` и `security.type = etf`."""
 
     @property
     def clearing_certificate(self) -> global___AssetClearingCertificate:
-        """Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов (тип актива asset.type = "ASSET_TYPE_SECURITY" и security.type = clearing_certificate)."""
+        """Клиринговый сертификат участия. Заполняется только для клиринговых сертификатов — тип актива `asset.type = ASSET_TYPE_SECURITY` и security.type = `clearing_certificate`."""
 
     def __init__(
         self,
@@ -3423,7 +3500,7 @@ class AssetShare(google.protobuf.message.Message):
 
     @property
     def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Объявленное количество шт."""
+        """Объявленное количество, шт."""
 
     @property
     def total_float(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -3497,7 +3574,7 @@ class AssetBond(google.protobuf.message.Message):
     collateral_flag: builtins.bool
     """Признак обеспеченной облигации."""
     tax_free_flag: builtins.bool
-    """Признак показывает, что купоны облигации не облагаются налогом (для mass market)."""
+    """Признак показывает, что купоны облигации не облагаются налогом — для mass market."""
     amortization_flag: builtins.bool
     """Признак облигации с амортизацией долга."""
     floating_coupon_flag: builtins.bool
@@ -3536,7 +3613,7 @@ class AssetBond(google.protobuf.message.Message):
 
     @property
     def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Объявленное количество шт."""
+        """Объявленное количество, шт."""
 
     def __init__(
         self,
@@ -3607,7 +3684,7 @@ class AssetStructuredProduct(google.protobuf.message.Message):
 
     @property
     def safety_barrier(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Барьер сохранности (в процентах)."""
+        """Барьер сохранности в процентах."""
 
     @property
     def maturity_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -3615,7 +3692,7 @@ class AssetStructuredProduct(google.protobuf.message.Message):
 
     @property
     def issue_size_plan(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Объявленное количество шт."""
+        """Объявленное количество, шт."""
 
     @property
     def issue_size(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -3722,27 +3799,27 @@ class AssetEtf(google.protobuf.message.Message):
     """Валюта номинала."""
     @property
     def total_expense(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Суммарные расходы фонда (в %)."""
+        """Суммарные расходы фонда в процентах."""
 
     @property
     def hurdle_rate(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Барьерная ставка доходности после которой фонд имеет право на perfomance fee (в процентах)."""
+        """Барьерная ставка доходности, после которой фонд имеет право на perfomance fee — в процентах."""
 
     @property
     def performance_fee(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Комиссия за успешные результаты фонда (в процентах)."""
+        """Комиссия за успешные результаты фонда в процентах."""
 
     @property
     def fixed_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Фиксированная комиссия за управление (в процентах)."""
+        """Фиксированная комиссия за управление в процентах."""
 
     @property
     def buy_premium(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Премия (надбавка к цене) при покупке доли в фонде (в процентах)."""
+        """Премия (надбавка к цене) при покупке доли в фонде — в процентах."""
 
     @property
     def sell_discount(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ставка дисконта (вычет из цены) при продаже доли в фонде (в процентах)."""
+        """Ставка дисконта (вычет из цены) при продаже доли в фонде — в процентах."""
 
     @property
     def num_share(self) -> TinkoffPy.grpc.common_pb2.Quotation:
@@ -3754,15 +3831,15 @@ class AssetEtf(google.protobuf.message.Message):
 
     @property
     def index_recovery_period(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Срок восстановления индекса (после просадки)."""
+        """Срок восстановления индекса после просадки."""
 
     @property
     def expense_commission(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Комиссия на покрытие расходов фонда (в процентах)."""
+        """Комиссия на покрытие расходов фонда в процентах."""
 
     @property
     def primary_index_tracking_error(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-        """Ошибка следования за индексом (в процентах)."""
+        """Ошибка следования за индексом в процентах."""
 
     @property
     def rebalancing_dates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
@@ -3852,7 +3929,7 @@ class Brand(google.protobuf.message.Message):
     COUNTRY_OF_RISK_FIELD_NUMBER: builtins.int
     COUNTRY_OF_RISK_NAME_FIELD_NUMBER: builtins.int
     uid: builtins.str
-    """uid идентификатор бренда."""
+    """UID-идентификатор бренда."""
     name: builtins.str
     """Наименование бренда."""
     description: builtins.str
@@ -3898,9 +3975,9 @@ class AssetInstrument(google.protobuf.message.Message):
     INSTRUMENT_KIND_FIELD_NUMBER: builtins.int
     POSITION_UID_FIELD_NUMBER: builtins.int
     uid: builtins.str
-    """uid идентификатор инструмента."""
+    """UID-идентификатор инструмента."""
     figi: builtins.str
-    """figi идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_type: builtins.str
     """Тип инструмента."""
     ticker: builtins.str
@@ -3910,7 +3987,7 @@ class AssetInstrument(google.protobuf.message.Message):
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     position_uid: builtins.str
-    """id позиции."""
+    """ID позиции."""
     @property
     def links(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InstrumentLink]:
         """Массив связанных инструментов."""
@@ -3942,7 +4019,7 @@ class InstrumentLink(google.protobuf.message.Message):
     type: builtins.str
     """Тип связи."""
     instrument_uid: builtins.str
-    """uid идентификатор связанного инструмента."""
+    """UID-идентификатор связанного инструмента."""
     def __init__(
         self,
         *,
@@ -3967,14 +4044,14 @@ global___GetFavoritesRequest = GetFavoritesRequest
 
 @typing.final
 class GetFavoritesResponse(google.protobuf.message.Message):
-    """В ответ передаётся список избранных инструментов в качестве массива."""
+    """В ответ передается список избранных инструментов в качестве массива."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     FAVORITE_INSTRUMENTS_FIELD_NUMBER: builtins.int
     @property
     def favorite_instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FavoriteInstrument]:
-        """Массив инструментов"""
+        """Массив инструментов."""
 
     def __init__(
         self,
@@ -4002,13 +4079,13 @@ class FavoriteInstrument(google.protobuf.message.Message):
     API_TRADE_AVAILABLE_FLAG_FIELD_NUMBER: builtins.int
     INSTRUMENT_KIND_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
     """Тикер инструмента."""
     class_code: builtins.str
     """Класс-код инструмента."""
     isin: builtins.str
-    """Isin-идентификатор инструмента."""
+    """ISIN-идентификатор инструмента."""
     instrument_type: builtins.str
     """Тип инструмента."""
     name: builtins.str
@@ -4016,9 +4093,9 @@ class FavoriteInstrument(google.protobuf.message.Message):
     uid: builtins.str
     """Уникальный идентификатор инструмента."""
     otc_flag: builtins.bool
-    """Признак внебиржевой ценной бумаги."""
+    """Флаг, используемый ранее для определения внебиржевых инструментов. На данный момент не используется для торгуемых через API инструментов. Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке."""
     api_trade_available_flag: builtins.bool
-    """Параметр указывает на возможность торговать инструментом через API."""
+    """Возможность торговать инструментом через API."""
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     def __init__(
@@ -4072,9 +4149,9 @@ class EditFavoritesRequestInstrument(google.protobuf.message.Message):
     FIGI_FIELD_NUMBER: builtins.int
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента."""
+    """FIGI-идентификатор инструмента."""
     instrument_id: builtins.str
-    """Идентификатор инструмента Figi или instrument_uid"""
+    """Идентификатор инструмента — `figi` или `instrument_uid`."""
     def __init__(
         self,
         *,
@@ -4096,7 +4173,7 @@ class EditFavoritesResponse(google.protobuf.message.Message):
     FAVORITE_INSTRUMENTS_FIELD_NUMBER: builtins.int
     @property
     def favorite_instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FavoriteInstrument]:
-        """Массив инструментов"""
+        """Массив инструментов."""
 
     def __init__(
         self,
@@ -4160,7 +4237,7 @@ class IndicativesResponse(google.protobuf.message.Message):
     INSTRUMENTS_FIELD_NUMBER: builtins.int
     @property
     def instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IndicativeResponse]:
-        """Массив инструментов"""
+        """Массив инструментов."""
 
     def __init__(
         self,
@@ -4188,25 +4265,25 @@ class IndicativeResponse(google.protobuf.message.Message):
     BUY_AVAILABLE_FLAG_FIELD_NUMBER: builtins.int
     SELL_AVAILABLE_FLAG_FIELD_NUMBER: builtins.int
     figi: builtins.str
-    """Figi-идентификатор инструмента"""
+    """FIGI-идентификатор инструмента."""
     ticker: builtins.str
-    """Тикер инструмента"""
+    """Тикер инструмента."""
     class_code: builtins.str
-    """Класс-код инструмента"""
+    """Класс-код инструмента."""
     currency: builtins.str
-    """Валюта расчётов"""
+    """Валюта расчетов."""
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     name: builtins.str
-    """Название инструмента"""
+    """Название инструмента."""
     exchange: builtins.str
-    """Tорговая площадка (секция биржи)"""
+    """Tорговая площадка (секция биржи)."""
     uid: builtins.str
-    """Уникальный идентификатор инструмента"""
+    """Уникальный идентификатор инструмента."""
     buy_available_flag: builtins.bool
-    """Признак доступности для покупки"""
+    """Признак доступности для покупки."""
     sell_available_flag: builtins.bool
-    """Признак доступности для продажи"""
+    """Признак доступности для продажи."""
     def __init__(
         self,
         *,
@@ -4238,7 +4315,7 @@ class CountryResponse(google.protobuf.message.Message):
     alfa_two: builtins.str
     """Двухбуквенный код страны."""
     alfa_three: builtins.str
-    """Трёхбуквенный код страны."""
+    """Трехбуквенный код страны."""
     name: builtins.str
     """Наименование страны."""
     name_brief: builtins.str
@@ -4328,10 +4405,11 @@ class InstrumentShort(google.protobuf.message.Message):
     FOR_QUAL_INVESTOR_FLAG_FIELD_NUMBER: builtins.int
     WEEKEND_FLAG_FIELD_NUMBER: builtins.int
     BLOCKED_TCA_FLAG_FIELD_NUMBER: builtins.int
+    LOT_FIELD_NUMBER: builtins.int
     isin: builtins.str
-    """Isin инструмента."""
+    """ISIN инструмента."""
     figi: builtins.str
-    """Figi инструмента."""
+    """FIGI инструмента."""
     ticker: builtins.str
     """Ticker инструмента."""
     class_code: builtins.str
@@ -4347,15 +4425,17 @@ class InstrumentShort(google.protobuf.message.Message):
     instrument_kind: TinkoffPy.grpc.common_pb2.InstrumentType.ValueType
     """Тип инструмента."""
     api_trade_available_flag: builtins.bool
-    """Параметр указывает на возможность торговать инструментом через API."""
+    """Возможность торговать инструментом через API."""
     for_iis_flag: builtins.bool
     """Признак доступности для ИИС."""
     for_qual_investor_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
+    """Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов."""
     weekend_flag: builtins.bool
-    """Флаг отображающий доступность торговли инструментом по выходным"""
+    """Флаг, отображающий доступность торговли инструментом по выходным."""
     blocked_tca_flag: builtins.bool
-    """Флаг заблокированного ТКС"""
+    """Флаг заблокированного ТКС."""
+    lot: builtins.int
+    """Количество бумаг в лоте."""
     @property
     def first_1min_candle_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Дата первой минутной свечи."""
@@ -4383,9 +4463,10 @@ class InstrumentShort(google.protobuf.message.Message):
         for_qual_investor_flag: builtins.bool = ...,
         weekend_flag: builtins.bool = ...,
         blocked_tca_flag: builtins.bool = ...,
+        lot: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "blocked_tca_flag", b"blocked_tca_flag", "class_code", b"class_code", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "name", b"name", "position_uid", b"position_uid", "ticker", b"ticker", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["api_trade_available_flag", b"api_trade_available_flag", "blocked_tca_flag", b"blocked_tca_flag", "class_code", b"class_code", "figi", b"figi", "first_1day_candle_date", b"first_1day_candle_date", "first_1min_candle_date", b"first_1min_candle_date", "for_iis_flag", b"for_iis_flag", "for_qual_investor_flag", b"for_qual_investor_flag", "instrument_kind", b"instrument_kind", "instrument_type", b"instrument_type", "isin", b"isin", "lot", b"lot", "name", b"name", "position_uid", b"position_uid", "ticker", b"ticker", "uid", b"uid", "weekend_flag", b"weekend_flag"]) -> None: ...
 
 global___InstrumentShort = InstrumentShort
 
@@ -4418,7 +4499,7 @@ class GetBrandRequest(google.protobuf.message.Message):
 
     ID_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """Uid-идентификатор бренда."""
+    """UID-идентификатор бренда."""
     def __init__(
         self,
         *,
@@ -4442,7 +4523,7 @@ class GetBrandsResponse(google.protobuf.message.Message):
 
     @property
     def paging(self) -> TinkoffPy.grpc.common_pb2.PageResponse:
-        """Данные по пагинации"""
+        """Данные по пагинации."""
 
     def __init__(
         self,
@@ -4464,7 +4545,7 @@ class GetAssetFundamentalsRequest(google.protobuf.message.Message):
     ASSETS_FIELD_NUMBER: builtins.int
     @property
     def assets(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Массив идентификаторов активов (не более 100 шт.)."""
+        """Массив идентификаторов активов, не более 100 шт."""
 
     def __init__(
         self,
@@ -4544,119 +4625,119 @@ class GetAssetFundamentalsResponse(google.protobuf.message.Message):
         TOTAL_DEBT_CHANGE_FIVE_YEARS_FIELD_NUMBER: builtins.int
         EV_TO_SALES_FIELD_NUMBER: builtins.int
         asset_uid: builtins.str
-        """Идентификатор актива"""
+        """Идентификатор актива."""
         currency: builtins.str
-        """Валюта"""
+        """Валюта."""
         market_capitalization: builtins.float
-        """Рыночная капитализация"""
+        """Рыночная капитализация."""
         high_price_last_52_weeks: builtins.float
-        """Максимум за год"""
+        """Максимум за год."""
         low_price_last_52_weeks: builtins.float
-        """Минимум за год"""
+        """Минимум за год."""
         average_daily_volume_last_10_days: builtins.float
-        """Средний объем торгов за 10 дней"""
+        """Средний объем торгов за 10 дней."""
         average_daily_volume_last_4_weeks: builtins.float
-        """Средний объем торгов за месяц"""
+        """Средний объем торгов за месяц."""
         beta: builtins.float
         free_float: builtins.float
-        """Доля акций в свободном обращении"""
+        """Доля акций в свободном обращении."""
         forward_annual_dividend_yield: builtins.float
         """Процент форвардной дивидендной доходности по отношению к цене акций."""
         shares_outstanding: builtins.float
-        """Количество акций в обращении"""
+        """Количество акций в обращении."""
         revenue_ttm: builtins.float
-        """Выручка"""
+        """Выручка."""
         ebitda_ttm: builtins.float
-        """EBITDA Прибыль до вычета процентов, налогов, износа и амортизации"""
+        """EBITDA — прибыль до вычета процентов, налогов, износа и амортизации."""
         net_income_ttm: builtins.float
-        """Чистая прибыль"""
+        """Чистая прибыль."""
         eps_ttm: builtins.float
-        """EPS Величина чистой прибыли компании, приходящуюся на каждую обыкновенную акцию"""
+        """EPS — величина чистой прибыли компании, которая приходится на каждую обыкновенную акцию."""
         diluted_eps_ttm: builtins.float
-        """EPS компании с допущением, что все конвертируемые ценные бумаги компании были сконвертированы в обыкновенные акции"""
+        """EPS компании с допущением, что все конвертируемые ценные бумаги компании были сконвертированы в обыкновенные акции."""
         free_cash_flow_ttm: builtins.float
-        """Свободный денежный поток"""
+        """Свободный денежный поток."""
         five_year_annual_revenue_growth_rate: builtins.float
-        """Среднегодовой  рocт выручки (за 5 лет)"""
+        """Среднегодовой  рocт выручки за 5 лет."""
         three_year_annual_revenue_growth_rate: builtins.float
-        """Среднегодовой  рocт выручки (за 3 года)"""
+        """Среднегодовой  рocт выручки за 3 года."""
         pe_ratio_ttm: builtins.float
-        """Показывает соотношение рыночной капитализации компании к ее чистой прибыли"""
+        """Соотношение рыночной капитализации компании к ее чистой прибыли."""
         price_to_sales_ttm: builtins.float
-        """Показывает соотношение рыночной капитализации компании к ее выручке"""
+        """Соотношение рыночной капитализации компании к ее выручке."""
         price_to_book_ttm: builtins.float
-        """Показывает соотношение рыночной капитализации компании к ее балансовой стоимости"""
+        """Соотношение рыночной капитализации компании к ее балансовой стоимости."""
         price_to_free_cash_flow_ttm: builtins.float
-        """Показывает соотношение рыночной капитализации компании к ее свободному денежному потоку"""
+        """Соотношение рыночной капитализации компании к ее свободному денежному потоку."""
         total_enterprise_value_mrq: builtins.float
-        """Рыночная стоимость компании"""
+        """Рыночная стоимость компании."""
         ev_to_ebitda_mrq: builtins.float
-        """Соотношение EV и EBITDA"""
+        """Соотношение EV и EBITDA."""
         net_margin_mrq: builtins.float
-        """Маржа чистой прибыли"""
+        """Маржа чистой прибыли."""
         net_interest_margin_mrq: builtins.float
-        """Рентабельность чистой прибыли"""
+        """Рентабельность чистой прибыли."""
         roe: builtins.float
-        """Рентабельность собственного капитала"""
+        """Рентабельность собственного капитала."""
         roa: builtins.float
-        """Рентабельность активов"""
+        """Рентабельность активов."""
         roic: builtins.float
-        """Рентабельность активов"""
+        """Рентабельность активов."""
         total_debt_mrq: builtins.float
-        """Сумма краткосрочных и долгосрочных обязательств компании"""
+        """Сумма краткосрочных и долгосрочных обязательств компании."""
         total_debt_to_equity_mrq: builtins.float
-        """Соотношение долга к собственному капиталу"""
+        """Соотношение долга к собственному капиталу."""
         total_debt_to_ebitda_mrq: builtins.float
-        """Total Debt/EBITDA"""
+        """Total Debt/EBITDA."""
         free_cash_flow_to_price: builtins.float
-        """Отношение свободглго кэша к стоимости"""
+        """Отношение свободногоо кэша к стоимости."""
         net_debt_to_ebitda: builtins.float
-        """Отношение чистого долга к ebitda"""
+        """Отношение чистого долга к EBITDA."""
         current_ratio_mrq: builtins.float
-        """Коэффициент текущей ликвидности"""
+        """Коэффициент текущей ликвидности."""
         fixed_charge_coverage_ratio_fy: builtins.float
-        """Коэффициент покрытия фиксированных платежей (FCCR)"""
+        """Коэффициент покрытия фиксированных платежей — FCCR."""
         dividend_yield_daily_ttm: builtins.float
-        """Дивидендная доходность за 12 мес"""
+        """Дивидендная доходность за 12 месяцев."""
         dividend_rate_ttm: builtins.float
-        """Выплаченные дивиденды за 12 мес."""
+        """Выплаченные дивиденды за 12 месяцев."""
         dividends_per_share: builtins.float
-        """Значение дивидендов на акцию"""
+        """Значение дивидендов на акцию."""
         five_years_average_dividend_yield: builtins.float
-        """Средняя дивидендная доходность за 5 лет"""
+        """Средняя дивидендная доходность за 5 лет."""
         five_year_annual_dividend_growth_rate: builtins.float
-        """Среднегодовой рост дивидендов за 5 лет"""
+        """Среднегодовой рост дивидендов за 5 лет."""
         dividend_payout_ratio_fy: builtins.float
-        """Процент чистой прибыли, уходящий на выплату дивидендов"""
+        """Процент чистой прибыли, уходящий на выплату дивидендов."""
         buy_back_ttm: builtins.float
-        """Деньги, потраченные на обратный выкуп акций"""
+        """Деньги, потраченные на обратный выкуп акций."""
         one_year_annual_revenue_growth_rate: builtins.float
-        """Рост выручки за 1 год"""
+        """Рост выручки за 1 год."""
         domicile_indicator_code: builtins.str
-        """Код страны"""
+        """Код страны."""
         adr_to_common_share_ratio: builtins.float
-        """Соотношение депозитарной расписки к акциям"""
+        """Соотношение депозитарной расписки к акциям."""
         number_of_employees: builtins.float
-        """Количество сотрудников"""
+        """Количество сотрудников."""
         revenue_change_five_years: builtins.float
-        """Изменение общего дохода за 5 лет"""
+        """Изменение общего дохода за 5 лет."""
         eps_change_five_years: builtins.float
-        """Изменение eps за 5 лет"""
+        """Изменение EPS за 5 лет."""
         ebitda_change_five_years: builtins.float
-        """Изменение ebitda за 5 лет"""
+        """Изменение EBIDTA за 5 лет."""
         total_debt_change_five_years: builtins.float
-        """Изменение общей задолжности за 5 лет"""
+        """Изменение общей задолжности за 5 лет."""
         ev_to_sales: builtins.float
-        """Отношение EV к выручке"""
+        """Отношение EV к выручке."""
         @property
         def ex_dividend_date(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
         @property
         def fiscal_period_start_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Начало фискального периода"""
+            """Начало фискального периода."""
 
         @property
         def fiscal_period_end_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Конец фискального периода"""
+            """Окончание фискального периода."""
 
         def __init__(
             self,
@@ -4743,10 +4824,10 @@ class GetAssetReportsRequest(google.protobuf.message.Message):
     FROM_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     instrument_id: builtins.str
-    """Идентификатор инструмента в формате uid."""
+    """Идентификатор инструмента в формате UID."""
     @property
     def to(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Окончание запрашиваемого периода в часовом поясе UTC."""
+        """Окончание запрашиваемого периода по UTC."""
 
     def __init__(
         self,
@@ -4776,23 +4857,23 @@ class GetAssetReportsResponse(google.protobuf.message.Message):
     class _AssetReportPeriodTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetAssetReportsResponse._AssetReportPeriodType.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PERIOD_TYPE_UNSPECIFIED: GetAssetReportsResponse._AssetReportPeriodType.ValueType  # 0
-        """не указан"""
+        """Не указан."""
         PERIOD_TYPE_QUARTER: GetAssetReportsResponse._AssetReportPeriodType.ValueType  # 1
-        """Квартальный"""
+        """Квартальный."""
         PERIOD_TYPE_SEMIANNUAL: GetAssetReportsResponse._AssetReportPeriodType.ValueType  # 2
-        """Полугодовой"""
+        """Полугодовой."""
         PERIOD_TYPE_ANNUAL: GetAssetReportsResponse._AssetReportPeriodType.ValueType  # 3
-        """Годовой"""
+        """Годовой."""
 
     class AssetReportPeriodType(_AssetReportPeriodType, metaclass=_AssetReportPeriodTypeEnumTypeWrapper): ...
     PERIOD_TYPE_UNSPECIFIED: GetAssetReportsResponse.AssetReportPeriodType.ValueType  # 0
-    """не указан"""
+    """Не указан."""
     PERIOD_TYPE_QUARTER: GetAssetReportsResponse.AssetReportPeriodType.ValueType  # 1
-    """Квартальный"""
+    """Квартальный."""
     PERIOD_TYPE_SEMIANNUAL: GetAssetReportsResponse.AssetReportPeriodType.ValueType  # 2
-    """Полугодовой"""
+    """Полугодовой."""
     PERIOD_TYPE_ANNUAL: GetAssetReportsResponse.AssetReportPeriodType.ValueType  # 3
-    """Годовой"""
+    """Годовой."""
 
     @typing.final
     class GetAssetReportsEvent(google.protobuf.message.Message):
@@ -4838,7 +4919,7 @@ class GetAssetReportsResponse(google.protobuf.message.Message):
     EVENTS_FIELD_NUMBER: builtins.int
     @property
     def events(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GetAssetReportsResponse.GetAssetReportsEvent]:
-        """Массив событий по облигации"""
+        """Массив событий по облигации."""
 
     def __init__(
         self,
@@ -4896,38 +4977,38 @@ class GetConsensusForecastsResponse(google.protobuf.message.Message):
         CONSENSUS_FIELD_NUMBER: builtins.int
         PROGNOSIS_DATE_FIELD_NUMBER: builtins.int
         uid: builtins.str
-        """uid идентификатор"""
+        """UID-идентификатор."""
         asset_uid: builtins.str
-        """uid идентификатор актива"""
+        """UID-идентификатор актива."""
         total_buy_recommend: builtins.int
-        """Количество аналитиков рекомендующих покупать"""
+        """Количество аналитиков рекомендующих покупать."""
         total_hold_recommend: builtins.int
-        """Количество аналитиков рекомендующих держать"""
+        """Количество аналитиков рекомендующих держать."""
         total_sell_recommend: builtins.int
-        """Количество аналитиков рекомендующих продавать"""
+        """Количество аналитиков рекомендующих продавать."""
         currency: builtins.str
-        """Валюта прогнозов /инструмента"""
+        """Валюта прогнозов инструмента."""
         consensus: global___Recommendation.ValueType
-        """Консенсус-прогноз"""
+        """Консенсус-прогноз."""
         @property
         def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата и время создания записи"""
+            """Дата и время создания записи."""
 
         @property
         def best_target_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Целевая цена на 12 месяцев"""
+            """Целевая цена на 12 месяцев."""
 
         @property
         def best_target_low(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Минимальная прогнозная цена"""
+            """Минимальная прогнозная цена."""
 
         @property
         def best_target_high(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Максимальная прогнозная цена"""
+            """Максимальная прогнозная цена."""
 
         @property
         def prognosis_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата прогноза"""
+            """Дата прогноза."""
 
         def __init__(
             self,
@@ -4952,11 +5033,11 @@ class GetConsensusForecastsResponse(google.protobuf.message.Message):
     PAGE_FIELD_NUMBER: builtins.int
     @property
     def items(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GetConsensusForecastsResponse.ConsensusForecastsItem]:
-        """Массив прогнозов"""
+        """Массив прогнозов."""
 
     @property
     def page(self) -> TinkoffPy.grpc.common_pb2.PageResponse:
-        """Данные по пагинации"""
+        """Данные по пагинации."""
 
     def __init__(
         self,
@@ -4971,13 +5052,13 @@ global___GetConsensusForecastsResponse = GetConsensusForecastsResponse
 
 @typing.final
 class GetForecastRequest(google.protobuf.message.Message):
-    """Запрос прогнозов инвестдомов"""
+    """Запрос прогнозов инвестдомов."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     INSTRUMENT_ID_FIELD_NUMBER: builtins.int
     instrument_id: builtins.str
-    """Идентификатор инструмента"""
+    """Идентификатор инструмента."""
     def __init__(
         self,
         *,
@@ -4989,7 +5070,7 @@ global___GetForecastRequest = GetForecastRequest
 
 @typing.final
 class GetForecastResponse(google.protobuf.message.Message):
-    """Прогнозы инвестдомов по инструменту"""
+    """Прогнозы инвестдомов по инструменту."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -5011,36 +5092,36 @@ class GetForecastResponse(google.protobuf.message.Message):
         PRICE_CHANGE_REL_FIELD_NUMBER: builtins.int
         SHOW_NAME_FIELD_NUMBER: builtins.int
         uid: builtins.str
-        """Уникальный идентификатор инструмента"""
+        """Уникальный идентификатор инструмента."""
         ticker: builtins.str
-        """Тикер инструмента"""
+        """Тикер инструмента."""
         company: builtins.str
-        """Название компании, давшей прогноз"""
+        """Название компании, давшей прогноз."""
         recommendation: global___Recommendation.ValueType
-        """Прогноз"""
+        """Прогноз."""
         currency: builtins.str
-        """Валюта"""
+        """Валюта."""
         show_name: builtins.str
-        """Наименование инструмента"""
+        """Наименование инструмента."""
         @property
         def recommendation_date(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Дата прогноза"""
+            """Дата прогноза."""
 
         @property
         def current_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Текущая цена"""
+            """Текущая цена."""
 
         @property
         def target_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Прогнозируемая цена"""
+            """Прогнозируемая цена."""
 
         @property
         def price_change(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Изменение цены"""
+            """Изменение цены."""
 
         @property
         def price_change_rel(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Относительное изменение цены"""
+            """Относительное изменение цены."""
 
         def __init__(
             self,
@@ -5062,7 +5143,7 @@ class GetForecastResponse(google.protobuf.message.Message):
 
     @typing.final
     class ConsensusItem(google.protobuf.message.Message):
-        """Консенсус-прогноз"""
+        """Консенсус-прогноз."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -5077,36 +5158,36 @@ class GetForecastResponse(google.protobuf.message.Message):
         PRICE_CHANGE_FIELD_NUMBER: builtins.int
         PRICE_CHANGE_REL_FIELD_NUMBER: builtins.int
         uid: builtins.str
-        """Уникальный идентификатор инструмента"""
+        """Уникальный идентификатор инструмента."""
         ticker: builtins.str
-        """Тикер инструмента"""
+        """Тикер инструмента."""
         recommendation: global___Recommendation.ValueType
-        """Прогноз"""
+        """Прогноз."""
         currency: builtins.str
-        """Валюта"""
+        """Валюта."""
         @property
         def current_price(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Текущая цена"""
+            """Текущая цена."""
 
         @property
         def consensus(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Прогнозируемая цена"""
+            """Прогнозируемая цена."""
 
         @property
         def min_target(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Минимальная цена прогноза"""
+            """Минимальная цена прогноза."""
 
         @property
         def max_target(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Максимальная цена прогноза"""
+            """Максимальная цена прогноза."""
 
         @property
         def price_change(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Изменение цены"""
+            """Изменение цены."""
 
         @property
         def price_change_rel(self) -> TinkoffPy.grpc.common_pb2.Quotation:
-            """Относительное изменение цены"""
+            """Относительное изменение цены."""
 
         def __init__(
             self,
@@ -5129,11 +5210,11 @@ class GetForecastResponse(google.protobuf.message.Message):
     CONSENSUS_FIELD_NUMBER: builtins.int
     @property
     def targets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GetForecastResponse.TargetItem]:
-        """Массив прогнозов"""
+        """Массив прогнозов."""
 
     @property
     def consensus(self) -> global___GetForecastResponse.ConsensusItem:
-        """Согласованный прогноз"""
+        """Согласованный прогноз."""
 
     def __init__(
         self,
@@ -5158,11 +5239,11 @@ class TradingInterval(google.protobuf.message.Message):
         END_TS_FIELD_NUMBER: builtins.int
         @property
         def start_ts(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Время начала интервала"""
+            """Время начала интервала."""
 
         @property
         def end_ts(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """Время окончания интервала"""
+            """Время окончания интервала."""
 
         def __init__(
             self,
@@ -5176,10 +5257,10 @@ class TradingInterval(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     INTERVAL_FIELD_NUMBER: builtins.int
     type: builtins.str
-    """Название интервала"""
+    """Название интервала."""
     @property
     def interval(self) -> global___TradingInterval.TimeInterval:
-        """Интервал"""
+        """Интервал."""
 
     def __init__(
         self,
