@@ -437,7 +437,7 @@ class TinkoffPy:
                 k = eur  # Прямая котировка
             elif money_value.currency == 'eur' and currency == 'usd':  # Конвертируем евро в доллар США
                 k = eur / usd
-        return money_value.units + money_value.nano / 1_000_000_000 * k
+        return round(money_value.units + money_value.nano / 1_000_000_000 * k, 2)
 
     @staticmethod
     def money_dict_value_to_float(money_value) -> float:
