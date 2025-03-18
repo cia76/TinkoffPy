@@ -440,15 +440,6 @@ class TinkoffPy:
         return round(money_value.units + money_value.nano / 1_000_000_000 * k, 2)
 
     @staticmethod
-    def money_dict_value_to_float(money_value) -> float:
-        """Перевод денежной суммы в валюте в вещественное число
-
-        :param dict money_value: Денежная сумма в валюте
-        :return: Вещественное число
-        """
-        return int(money_value['units']) + money_value['nano'] / 1_000_000_000
-
-    @staticmethod
     def float_to_quotation(f) -> common_pb2.Quotation:
         """Перевод вещественного числа в денежную сумму
 
@@ -465,7 +456,7 @@ class TinkoffPy:
         :param Quotation quotation: Денежная сумма
         :return: Вещественное число
         """
-        return quotation.units + quotation.nano / 1_000_000_000
+        return int(quotation['units']) + quotation['nano'] / 1_000_000_000
 
     @staticmethod
     def dict_quotation_to_float(dict_quotation) -> float:
