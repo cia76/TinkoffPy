@@ -456,7 +456,7 @@ class TinkoffPy:
         :param Quotation quotation: Денежная сумма
         :return: Вещественное число
         """
-        return int(quotation['units']) + quotation['nano'] / 1_000_000_000
+        return int(quotation.units) + quotation.nano / 1_000_000_000
 
     @staticmethod
     def dict_quotation_to_float(dict_quotation) -> float:
