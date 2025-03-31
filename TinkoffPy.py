@@ -326,7 +326,7 @@ class TinkoffPy:
     def tinkoff_timeframe_to_timeframe(tf) -> tuple[str, timedelta]:
         """Перевод временнОго интервала Тинькофф во временной интервал и максимальный период запроса
 
-        :param CandleInterval tf: Временной интервал Тинькофф
+        :param marketdata_pb2.CandleInterval tf: Временной интервал Тинькофф
         :return: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм и максимальный период запроса
         """
         # Ограничения на максимальный период запроса https://tinkoff.github.io/investAPI/load_history/
@@ -356,6 +356,80 @@ class TinkoffPy:
             return 'W1', timedelta(days=365 * 2)  # Максимальный запрос за 2 года
         if tf == marketdata_pb2.CandleInterval.CANDLE_INTERVAL_MONTH:  # 1 месяц
             return 'MN1', timedelta(days=365 * 10)  # Максимальный запрос за 10 лет
+        raise NotImplementedError  # С остальными временнЫми интервалами не работаем
+
+    @staticmethod
+    def timeframe_to_tinkoff_subscription_timeframe(tf) -> marketdata_pb2.SubscriptionInterval:
+        """Перевод временнОго интервала во временной интервал подписки Тинькофф
+
+        :param str tf: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
+        :return: Временной интервал Тинькофф, внутридневной бар
+        """
+        if tf[0:1] == 'D':  # 1 день
+            return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_DAY
+        if tf[0:1] == 'W':  # 1 неделя
+            return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_WEEK
+        if 'MN' in tf:  # 1 месяц
+            return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_MONTH
+        if tf[0:1] == 'M':  # Минуты
+            if not tf[1:].isdigit():  # Если после минут не стоит число
+                raise NotImplementedError  # то с такими временнЫми интервалами не работаем
+            interval = int(tf[1:])  # Временной интервал
+            if interval == 1:  # 1 минута
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_MINUTE
+            if interval == 2:  # 2 минуты
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_2_MIN
+            if interval == 3:  # 3 минуты
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_3_MIN
+            if interval == 5:  # 5 минут
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_FIVE_MINUTES
+            if interval == 10:  # 10 минут
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_10_MIN
+            if interval == 15:  # 15 минут
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_FIFTEEN_MINUTES
+            if interval == 30:  # 30 минут
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_30_MIN
+            if interval == 60:  # 1 час
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_HOUR
+            if interval == 120:  # 2 часа
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_2_HOUR
+            if interval == 240:  # 4 часа
+                return marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_4_HOUR
+        raise NotImplementedError  # С остальными временнЫми интервалами не работаем
+
+    @staticmethod
+    def tinkoff_subscription_timeframe_to_timeframe(tf) -> str:
+        """Перевод временнОго интервала подписки Тинькофф во временной интервал
+
+        :param marketdata_pb2.SubscriptionInterval tf: Временной интервал Тинькофф
+        :return: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
+        """
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_MINUTE:  # 1 минута
+            return 'M1'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_2_MIN:  # 2 минуты
+            return 'M2'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_3_MIN:  # 3 минуты
+            return 'M3'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_FIVE_MINUTES:  # 5 минут
+            return 'M5'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_10_MIN:  # 10 минут
+            return 'M10'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_FIFTEEN_MINUTES:  # 15 минут
+            return 'M15'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_30_MIN:  # 30 минут
+            return 'M30'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_HOUR:  # 1 час
+            return 'M60'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_2_HOUR:  # 2 часа
+            return 'M120'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_4_HOUR:  # 4 часа
+            return 'M240'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_DAY:  # 1 день
+            return 'D1'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_WEEK:  # 1 неделя
+            return 'W1'
+        if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_MONTH:  # 1 месяц
+            return 'MN1'
         raise NotImplementedError  # С остальными временнЫми интервалами не работаем
 
     def price_to_tinkoff_price(self, class_code, symbol, price) -> float:

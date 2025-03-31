@@ -29,7 +29,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
         logger.info(f'- Лот: {si.lot}')
         min_step = tp_provider.quotation_to_float(si.min_price_increment)  # Шаг цены
         logger.info(f'- Шаг цены: {min_step}')
-        decimals = int(log10(1 / min_step) + 0.99)
+        decimals = int(log10(1 / min_step) + 0.99)  # Из шага цены получаем кол-во десятичных знаков
         logger.info(f'- Кол-во десятичных знаков: {decimals}')
 
     tp_provider.close_channel()  # Закрываем канал перед выходом
