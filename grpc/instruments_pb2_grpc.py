@@ -162,6 +162,21 @@ class InstrumentsServiceStub(object):
                 request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesRequest.SerializeToString,
                 response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesResponse.FromString,
                 _registered_method=True)
+        self.CreateFavoriteGroup = channel.unary_unary(
+                '/tinkoff.public.invest.api.contract.v1.InstrumentsService/CreateFavoriteGroup',
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupResponse.FromString,
+                _registered_method=True)
+        self.DeleteFavoriteGroup = channel.unary_unary(
+                '/tinkoff.public.invest.api.contract.v1.InstrumentsService/DeleteFavoriteGroup',
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupResponse.FromString,
+                _registered_method=True)
+        self.GetFavoriteGroups = channel.unary_unary(
+                '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFavoriteGroups',
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsResponse.FromString,
+                _registered_method=True)
         self.GetCountries = channel.unary_unary(
                 '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetCountries',
                 request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesRequest.SerializeToString,
@@ -202,6 +217,11 @@ class InstrumentsServiceStub(object):
                 request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.SerializeToString,
                 response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.FromString,
                 _registered_method=True)
+        self.GetRiskRates = channel.unary_unary(
+                '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetRiskRates',
+                request_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesRequest.SerializeToString,
+                response_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesResponse.FromString,
+                _registered_method=True)
 
 
 class InstrumentsServiceServicer(object):
@@ -211,231 +231,260 @@ class InstrumentsServiceServicer(object):
     """
 
     def TradingSchedules(self, request, context):
-        """Получить расписания торгов торговых площадок
+        """TradingSchedules — расписания торговых площадок
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def BondBy(self, request, context):
-        """Получить облигации по ее идентификатору
+        """BondBy — получить облигацию по ее идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Bonds(self, request, context):
-        """Получить список облигаций
+        """Bonds — список облигаций
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBondCoupons(self, request, context):
-        """Получить график выплат купонов по облигации
+        """GetBondCoupons — график выплат купонов по облигации
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBondEvents(self, request, context):
-        """Получить события по облигации
+        """GetBondEvents — события по облигации
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CurrencyBy(self, request, context):
-        """Получить валюту по ее идентификатору
+        """CurrencyBy — получить валюту по ее идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Currencies(self, request, context):
-        """Получить список валют
+        """Currencies — список валют
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def EtfBy(self, request, context):
-        """Получить инвестиционный фонд по его идентификатору
+        """EtfBy — получить инвестиционный фонд по его идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Etfs(self, request, context):
-        """Получить список инвестиционных фондов
+        """Etfs — список инвестиционных фондов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def FutureBy(self, request, context):
-        """Получить фьючерс по его идентификатору
+        """FutureBy — получить фьючерс по его идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Futures(self, request, context):
-        """Получить список фьючерсов
+        """Futures — список фьючерсов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def OptionBy(self, request, context):
-        """Получить опцион по его идентификатору
+        """OptionBy — получить опцион по его идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Options(self, request, context):
-        """Deprecated Получить список опционов
+        """Deprecated Options — список опционов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def OptionsBy(self, request, context):
-        """Получить список опционов
+        """OptionsBy — список опционов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ShareBy(self, request, context):
-        """Получить акцию по ее идентификатору
+        """ShareBy — получить акцию по ее идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Shares(self, request, context):
-        """Получить список акций
+        """Shares — список акций
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Indicatives(self, request, context):
-        """Получить индикативные инструменты — индексы, товары и другие
+        """Indicatives — индикативные инструменты — индексы, товары и другие
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAccruedInterests(self, request, context):
-        """Получить накопленный купонный доход по облигации
+        """GetAccruedInterests — накопленный купонный доход по облигации
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetFuturesMargin(self, request, context):
-        """Получить размера гарантийного обеспечения по фьючерсам
+        """GetFuturesMargin — размера гарантийного обеспечения по фьючерсам
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetInstrumentBy(self, request, context):
-        """Получить основную информацию об инструменте
+        """GetInstrumentBy — основная информация об инструменте
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetDividends(self, request, context):
-        """Получить события выплаты дивидендов по инструменту
+        """GetDividends — события выплаты дивидендов по инструменту
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAssetBy(self, request, context):
-        """Получить актив по его идентификатору
+        """GetAssetBy — получить актив по его идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAssets(self, request, context):
-        """Получить список активов. Метод работает для всех инструментов, кроме срочных — фьючерсов и опционов
+        """GetAssets — список активов
+        Метод работает для всех инструментов, кроме срочных — фьючерсов и опционов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetFavorites(self, request, context):
-        """Получить список избранных инструментов
+        """GetFavorites — получить список избранных инструментов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def EditFavorites(self, request, context):
-        """Отредактировать список избранных инструментов
+        """EditFavorites — отредактировать список избранных инструментов
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateFavoriteGroup(self, request, context):
+        """CreateFavoriteGroup — создать новую группу избранных инструментов
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteFavoriteGroup(self, request, context):
+        """DeleteFavoriteGroup — удалить группу избранных инструментов
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetFavoriteGroups(self, request, context):
+        """GetFavoriteGroups — список групп избранных инструментов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetCountries(self, request, context):
-        """Получить список стран
+        """GetCountries — список стран
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def FindInstrument(self, request, context):
-        """Найти инструмент
+        """FindInstrument — найти инструмент
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBrands(self, request, context):
-        """Получить список брендов
+        """GetBrands — список брендов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBrandBy(self, request, context):
-        """Получить бренд по его идентификатору
+        """GetBrandBy — получить бренд по его идентификатору
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAssetFundamentals(self, request, context):
-        """Получить фундаментальные показатели по активу
+        """GetAssetFundamentals — фундаментальные показатели по активу
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAssetReports(self, request, context):
-        """Получить расписания выхода отчетностей эмитентов
+        """GetAssetReports — расписания выхода отчетностей эмитентов
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetConsensusForecasts(self, request, context):
-        """Получить мнения аналитиков по инструменту
+        """GetConsensusForecasts — мнения аналитиков по инструменту
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetForecastBy(self, request, context):
-        """Получить прогнозов инвестдомов по инструменту
+        """GetForecastBy — прогнозы инвестдомов по инструменту
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRiskRates(self, request, context):
+        """GetRiskRates — ставки риска по инструменту
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -569,6 +618,21 @@ def add_InstrumentsServiceServicer_to_server(servicer, server):
                     request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesRequest.FromString,
                     response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.EditFavoritesResponse.SerializeToString,
             ),
+            'CreateFavoriteGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFavoriteGroup,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupResponse.SerializeToString,
+            ),
+            'DeleteFavoriteGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFavoriteGroup,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupResponse.SerializeToString,
+            ),
+            'GetFavoriteGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFavoriteGroups,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsResponse.SerializeToString,
+            ),
             'GetCountries': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCountries,
                     request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetCountriesRequest.FromString,
@@ -608,6 +672,11 @@ def add_InstrumentsServiceServicer_to_server(servicer, server):
                     servicer.GetForecastBy,
                     request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.FromString,
                     response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.SerializeToString,
+            ),
+            'GetRiskRates': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRiskRates,
+                    request_deserializer=TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesRequest.FromString,
+                    response_serializer=TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1299,6 +1368,87 @@ class InstrumentsService(object):
             _registered_method=True)
 
     @staticmethod
+    def CreateFavoriteGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/tinkoff.public.invest.api.contract.v1.InstrumentsService/CreateFavoriteGroup',
+            TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.CreateFavoriteGroupResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteFavoriteGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/tinkoff.public.invest.api.contract.v1.InstrumentsService/DeleteFavoriteGroup',
+            TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.DeleteFavoriteGroupResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetFavoriteGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFavoriteGroups',
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.GetFavoriteGroupsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def GetCountries(request,
             target,
             options=(),
@@ -1504,6 +1654,33 @@ class InstrumentsService(object):
             '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetForecastBy',
             TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastRequest.SerializeToString,
             TinkoffPy_dot_grpc_dot_instruments__pb2.GetForecastResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetRiskRates(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetRiskRates',
+            TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesRequest.SerializeToString,
+            TinkoffPy_dot_grpc_dot_instruments__pb2.RiskRatesResponse.FromString,
             options,
             channel_credentials,
             insecure,

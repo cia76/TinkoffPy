@@ -1,5 +1,5 @@
 pytz
 grpcio>=1.70.0
-protobuf>=5.29.3
+protobuf<6.0dev,>=5.26.1
 types-protobuf
 pandas

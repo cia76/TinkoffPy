@@ -4036,9 +4036,17 @@ class GetFavoritesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    GROUP_ID_FIELD_NUMBER: builtins.int
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
     def __init__(
         self,
+        *,
+        group_id: builtins.str | None = ...,
     ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_group_id", b"_group_id", "group_id", b"group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_group_id", b"_group_id", "group_id", b"group_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_group_id", b"_group_id"]) -> typing.Literal["group_id"] | None: ...
 
 global___GetFavoritesRequest = GetFavoritesRequest
 
@@ -4049,6 +4057,9 @@ class GetFavoritesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     FAVORITE_INSTRUMENTS_FIELD_NUMBER: builtins.int
+    GROUP_ID_FIELD_NUMBER: builtins.int
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
     @property
     def favorite_instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FavoriteInstrument]:
         """Массив инструментов."""
@@ -4057,8 +4068,11 @@ class GetFavoritesResponse(google.protobuf.message.Message):
         self,
         *,
         favorite_instruments: collections.abc.Iterable[global___FavoriteInstrument] | None = ...,
+        group_id: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["favorite_instruments", b"favorite_instruments"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_group_id", b"_group_id", "group_id", b"group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_group_id", b"_group_id", "favorite_instruments", b"favorite_instruments", "group_id", b"group_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_group_id", b"_group_id"]) -> typing.Literal["group_id"] | None: ...
 
 global___GetFavoritesResponse = GetFavoritesResponse
 
@@ -4124,8 +4138,11 @@ class EditFavoritesRequest(google.protobuf.message.Message):
 
     INSTRUMENTS_FIELD_NUMBER: builtins.int
     ACTION_TYPE_FIELD_NUMBER: builtins.int
+    GROUP_ID_FIELD_NUMBER: builtins.int
     action_type: global___EditFavoritesActionType.ValueType
     """Тип действия со списком."""
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
     @property
     def instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EditFavoritesRequestInstrument]:
         """Массив инструментов."""
@@ -4135,8 +4152,11 @@ class EditFavoritesRequest(google.protobuf.message.Message):
         *,
         instruments: collections.abc.Iterable[global___EditFavoritesRequestInstrument] | None = ...,
         action_type: global___EditFavoritesActionType.ValueType = ...,
+        group_id: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["action_type", b"action_type", "instruments", b"instruments"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_group_id", b"_group_id", "group_id", b"group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_group_id", b"_group_id", "action_type", b"action_type", "group_id", b"group_id", "instruments", b"instruments"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_group_id", b"_group_id"]) -> typing.Literal["group_id"] | None: ...
 
 global___EditFavoritesRequest = EditFavoritesRequest
 
@@ -4171,6 +4191,9 @@ class EditFavoritesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     FAVORITE_INSTRUMENTS_FIELD_NUMBER: builtins.int
+    GROUP_ID_FIELD_NUMBER: builtins.int
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
     @property
     def favorite_instruments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FavoriteInstrument]:
         """Массив инструментов."""
@@ -4179,10 +4202,169 @@ class EditFavoritesResponse(google.protobuf.message.Message):
         self,
         *,
         favorite_instruments: collections.abc.Iterable[global___FavoriteInstrument] | None = ...,
+        group_id: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["favorite_instruments", b"favorite_instruments"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_group_id", b"_group_id", "group_id", b"group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_group_id", b"_group_id", "favorite_instruments", b"favorite_instruments", "group_id", b"group_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_group_id", b"_group_id"]) -> typing.Literal["group_id"] | None: ...
 
 global___EditFavoritesResponse = EditFavoritesResponse
+
+@typing.final
+class CreateFavoriteGroupRequest(google.protobuf.message.Message):
+    """Запрос создания новой группы избранных инструментов."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    GROUP_NAME_FIELD_NUMBER: builtins.int
+    GROUP_COLOR_FIELD_NUMBER: builtins.int
+    NOTE_FIELD_NUMBER: builtins.int
+    group_name: builtins.str
+    """Название группы, не более 255 символов."""
+    group_color: builtins.str
+    """Цвет группы. Принимает значения в HEX-формате, от "000000" до "FFFFFF" """
+    note: builtins.str
+    """Описание"""
+    def __init__(
+        self,
+        *,
+        group_name: builtins.str = ...,
+        group_color: builtins.str = ...,
+        note: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_note", b"_note", "note", b"note"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_note", b"_note", "group_color", b"group_color", "group_name", b"group_name", "note", b"note"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_note", b"_note"]) -> typing.Literal["note"] | None: ...
+
+global___CreateFavoriteGroupRequest = CreateFavoriteGroupRequest
+
+@typing.final
+class CreateFavoriteGroupResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    GROUP_ID_FIELD_NUMBER: builtins.int
+    GROUP_NAME_FIELD_NUMBER: builtins.int
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
+    group_name: builtins.str
+    """Название группы."""
+    def __init__(
+        self,
+        *,
+        group_id: builtins.str = ...,
+        group_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["group_id", b"group_id", "group_name", b"group_name"]) -> None: ...
+
+global___CreateFavoriteGroupResponse = CreateFavoriteGroupResponse
+
+@typing.final
+class DeleteFavoriteGroupRequest(google.protobuf.message.Message):
+    """Запрос удаления избранной группы"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    GROUP_ID_FIELD_NUMBER: builtins.int
+    group_id: builtins.str
+    """Уникальный идентификатор группы."""
+    def __init__(
+        self,
+        *,
+        group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["group_id", b"group_id"]) -> None: ...
+
+global___DeleteFavoriteGroupRequest = DeleteFavoriteGroupRequest
+
+@typing.final
+class DeleteFavoriteGroupResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteFavoriteGroupResponse = DeleteFavoriteGroupResponse
+
+@typing.final
+class GetFavoriteGroupsRequest(google.protobuf.message.Message):
+    """Запрос получения списка избранных групп"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INSTRUMENT_ID_FIELD_NUMBER: builtins.int
+    EXCLUDED_GROUP_ID_FIELD_NUMBER: builtins.int
+    @property
+    def instrument_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Массив идентификаторов инструментов. Принимает значение `figi` или `instrument_uid`. Если в группе будет хотя бы один из инструментов массива, то в ответе у группы вернется признак `containsInstrument = true`."""
+
+    @property
+    def excluded_group_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Массив идентификаторов групп, которые необходимо исключить из ответа."""
+
+    def __init__(
+        self,
+        *,
+        instrument_id: collections.abc.Iterable[builtins.str] | None = ...,
+        excluded_group_id: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["excluded_group_id", b"excluded_group_id", "instrument_id", b"instrument_id"]) -> None: ...
+
+global___GetFavoriteGroupsRequest = GetFavoriteGroupsRequest
+
+@typing.final
+class GetFavoriteGroupsResponse(google.protobuf.message.Message):
+    """Избранные группы"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class FavoriteGroup(google.protobuf.message.Message):
+        """Избранная группа"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        GROUP_ID_FIELD_NUMBER: builtins.int
+        GROUP_NAME_FIELD_NUMBER: builtins.int
+        COLOR_FIELD_NUMBER: builtins.int
+        SIZE_FIELD_NUMBER: builtins.int
+        CONTAINS_INSTRUMENT_FIELD_NUMBER: builtins.int
+        group_id: builtins.str
+        """Уникальный идентификатор группы."""
+        group_name: builtins.str
+        """Название группы."""
+        color: builtins.str
+        """Цвет группы в HEX-формате."""
+        size: builtins.int
+        """Количество инструментов в группе."""
+        contains_instrument: builtins.bool
+        """Признак наличия в группе хотя бы одного инструмента из запроса."""
+        def __init__(
+            self,
+            *,
+            group_id: builtins.str = ...,
+            group_name: builtins.str = ...,
+            color: builtins.str = ...,
+            size: builtins.int = ...,
+            contains_instrument: builtins.bool | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["_contains_instrument", b"_contains_instrument", "contains_instrument", b"contains_instrument"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["_contains_instrument", b"_contains_instrument", "color", b"color", "contains_instrument", b"contains_instrument", "group_id", b"group_id", "group_name", b"group_name", "size", b"size"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing.Literal["_contains_instrument", b"_contains_instrument"]) -> typing.Literal["contains_instrument"] | None: ...
+
+    GROUPS_FIELD_NUMBER: builtins.int
+    @property
+    def groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GetFavoriteGroupsResponse.FavoriteGroup]:
+        """Массив групп избранных списков инструментов."""
+
+    def __init__(
+        self,
+        *,
+        groups: collections.abc.Iterable[global___GetFavoriteGroupsResponse.FavoriteGroup] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["groups", b"groups"]) -> None: ...
+
+global___GetFavoriteGroupsResponse = GetFavoriteGroupsResponse
 
 @typing.final
 class GetCountriesRequest(google.protobuf.message.Message):
@@ -5226,6 +5408,113 @@ class GetForecastResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["consensus", b"consensus", "targets", b"targets"]) -> None: ...
 
 global___GetForecastResponse = GetForecastResponse
+
+@typing.final
+class RiskRatesRequest(google.protobuf.message.Message):
+    """Запрос ставок риска"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INSTRUMENT_ID_FIELD_NUMBER: builtins.int
+    @property
+    def instrument_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Идентификаторы инструментов."""
+
+    def __init__(
+        self,
+        *,
+        instrument_id: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["instrument_id", b"instrument_id"]) -> None: ...
+
+global___RiskRatesRequest = RiskRatesRequest
+
+@typing.final
+class RiskRatesResponse(google.protobuf.message.Message):
+    """Ставки риска"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class RiskRateResult(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        INSTRUMENT_UID_FIELD_NUMBER: builtins.int
+        SHORT_RISK_RATE_FIELD_NUMBER: builtins.int
+        LONG_RISK_RATE_FIELD_NUMBER: builtins.int
+        SHORT_RISK_RATES_FIELD_NUMBER: builtins.int
+        LONG_RISK_RATES_FIELD_NUMBER: builtins.int
+        ERROR_FIELD_NUMBER: builtins.int
+        instrument_uid: builtins.str
+        error: builtins.str
+        """Ошибка."""
+        @property
+        def short_risk_rate(self) -> global___RiskRatesResponse.RiskRate:
+            """Ставка риска пользователя  в шорт"""
+
+        @property
+        def long_risk_rate(self) -> global___RiskRatesResponse.RiskRate:
+            """Ставка риска пользователя в лонг"""
+
+        @property
+        def short_risk_rates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RiskRatesResponse.RiskRate]:
+            """Доступные ставки риска в шорт"""
+
+        @property
+        def long_risk_rates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RiskRatesResponse.RiskRate]:
+            """Доступные ставки риска в лонг"""
+
+        def __init__(
+            self,
+            *,
+            instrument_uid: builtins.str = ...,
+            short_risk_rate: global___RiskRatesResponse.RiskRate | None = ...,
+            long_risk_rate: global___RiskRatesResponse.RiskRate | None = ...,
+            short_risk_rates: collections.abc.Iterable[global___RiskRatesResponse.RiskRate] | None = ...,
+            long_risk_rates: collections.abc.Iterable[global___RiskRatesResponse.RiskRate] | None = ...,
+            error: builtins.str | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["_error", b"_error", "_long_risk_rate", b"_long_risk_rate", "_short_risk_rate", b"_short_risk_rate", "error", b"error", "long_risk_rate", b"long_risk_rate", "short_risk_rate", b"short_risk_rate"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["_error", b"_error", "_long_risk_rate", b"_long_risk_rate", "_short_risk_rate", b"_short_risk_rate", "error", b"error", "instrument_uid", b"instrument_uid", "long_risk_rate", b"long_risk_rate", "long_risk_rates", b"long_risk_rates", "short_risk_rate", b"short_risk_rate", "short_risk_rates", b"short_risk_rates"]) -> None: ...
+        @typing.overload
+        def WhichOneof(self, oneof_group: typing.Literal["_error", b"_error"]) -> typing.Literal["error"] | None: ...
+        @typing.overload
+        def WhichOneof(self, oneof_group: typing.Literal["_long_risk_rate", b"_long_risk_rate"]) -> typing.Literal["long_risk_rate"] | None: ...
+        @typing.overload
+        def WhichOneof(self, oneof_group: typing.Literal["_short_risk_rate", b"_short_risk_rate"]) -> typing.Literal["short_risk_rate"] | None: ...
+
+    @typing.final
+    class RiskRate(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        RISK_LEVEL_CODE_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        risk_level_code: builtins.str
+        """Категория риска."""
+        @property
+        def value(self) -> TinkoffPy.grpc.common_pb2.Quotation:
+            """Значение ставки риска."""
+
+        def __init__(
+            self,
+            *,
+            risk_level_code: builtins.str = ...,
+            value: TinkoffPy.grpc.common_pb2.Quotation | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["risk_level_code", b"risk_level_code", "value", b"value"]) -> None: ...
+
+    INSTRUMENT_RISK_RATES_FIELD_NUMBER: builtins.int
+    @property
+    def instrument_risk_rates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RiskRatesResponse.RiskRateResult]: ...
+    def __init__(
+        self,
+        *,
+        instrument_risk_rates: collections.abc.Iterable[global___RiskRatesResponse.RiskRateResult] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["instrument_risk_rates", b"instrument_risk_rates"]) -> None: ...
+
+global___RiskRatesResponse = RiskRatesResponse
 
 @typing.final
 class TradingInterval(google.protobuf.message.Message):
