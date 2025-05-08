@@ -1,6 +1,6 @@
 import logging  # Выводим лог на консоль и в файл
 from typing import Union  # Объединение типов
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from time import sleep
 from queue import SimpleQueue  # Очередь подписок/отписок
 
@@ -133,7 +133,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -160,7 +160,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -175,7 +175,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
                     self.on_portfolio(e.portfolio)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
                     self.logger.debug(f'subscriptions_portfolio_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -189,7 +189,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
                     self.on_position(e.position)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
                     self.logger.debug(f'subscriptions_positions_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -203,7 +203,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
                     self.on_order_trades(e.order_trades)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.utcfromtimestamp(e.ping.time.seconds))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
                     self.logger.debug(f'subscriptions_trades_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -284,7 +284,7 @@ class TinkoffPy:
         return instrument  # и возвращаем его
 
     @staticmethod
-    def timeframe_to_tinkoff_timeframe(tf) -> tuple[marketdata_pb2.CandleInterval, bool]:
+    def timeframe_to_tinkoff_timeframe(tf) -> tuple[marketdata_pb2.CandleInterval.ValueType, bool]:
         """Перевод временнОго интервала во временной интервал Тинькофф
 
         :param str tf: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
@@ -326,7 +326,7 @@ class TinkoffPy:
     def tinkoff_timeframe_to_timeframe(tf) -> tuple[str, timedelta]:
         """Перевод временнОго интервала Тинькофф во временной интервал и максимальный период запроса
 
-        :param marketdata_pb2.CandleInterval tf: Временной интервал Тинькофф
+        :param marketdata_pb2.CandleInterval.ValueType tf: Временной интервал Тинькофф
         :return: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм и максимальный период запроса
         """
         # Ограничения на максимальный период запроса https://tinkoff.github.io/investAPI/load_history/
@@ -359,7 +359,7 @@ class TinkoffPy:
         raise NotImplementedError  # С остальными временнЫми интервалами не работаем
 
     @staticmethod
-    def timeframe_to_tinkoff_subscription_timeframe(tf) -> marketdata_pb2.SubscriptionInterval:
+    def timeframe_to_tinkoff_subscription_timeframe(tf) -> marketdata_pb2.SubscriptionInterval.ValueType:
         """Перевод временнОго интервала во временной интервал подписки Тинькофф
 
         :param str tf: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
@@ -401,7 +401,7 @@ class TinkoffPy:
     def tinkoff_subscription_timeframe_to_timeframe(tf) -> str:
         """Перевод временнОго интервала подписки Тинькофф во временной интервал
 
-        :param marketdata_pb2.SubscriptionInterval tf: Временной интервал Тинькофф
+        :param marketdata_pb2.SubscriptionInterval.ValueType tf: Временной интервал Тинькофф
         :return: Временной интервал https://ru.wikipedia.org/wiki/Таймфрейм
         """
         if tf == marketdata_pb2.SubscriptionInterval.SUBSCRIPTION_INTERVAL_ONE_MINUTE:  # 1 минута
@@ -554,7 +554,7 @@ class TinkoffPy:
         :param Timestamp timestamp: Время Google UTC Timestamp
         :return: Московское время
         """
-        return self.utc_to_msk_datetime(datetime.utcfromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000))
+        return self.utc_to_msk_datetime(datetime.fromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000, UTC))
 
     def msk_datetime_to_timestamp(self, dt) -> int:
         """Перевод московского времени в кол-во секунд, прошедших с 01.01.1970 00:00 UTC
@@ -601,4 +601,4 @@ class TinkoffPy:
 
         :param Timestamp timestamp: Текущее время на сервере в формате Google UTC Timestamp
         """
-        self.time_delta = datetime.utcfromtimestamp(timestamp.seconds) - datetime.utcnow()
+        self.time_delta = datetime.fromtimestamp(timestamp.seconds, UTC) - datetime.now(UTC)
