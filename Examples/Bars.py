@@ -1,5 +1,5 @@
 import logging  # Выводим лог на консоль и в файл
-from datetime import datetime, timezone, timedelta  # Дата и время, временнАя зона, временной интервал
+from datetime import datetime, timezone, timedelta, UTC
 from time import time
 import os.path
 
@@ -57,7 +57,7 @@ def get_candles_from_provider(tp_provider, class_code, security_code, tf, next_b
     time_frame, intraday = tp_provider.timeframe_to_tinkoff_timeframe(tf)  # Временной интервал Tinkoff, внутридневной интервал
     _, td = tp_provider.tinkoff_timeframe_to_timeframe(time_frame)  # Временной интервал для имени файла и максимальный период запроса
     logger.info(f'Получение истории {class_code}.{security_code} {tf} из Tinkoff')
-    todate_utc = datetime.utcnow().replace(tzinfo=timezone.utc)  # Будем получать бары до текущей даты и времени UTC
+    todate_utc = datetime.now(UTC)  # Будем получать бары до текущей даты и времени UTC
     new_bars_list = []  # Список новых бар
     while True:  # Будем получать бары пока не получим все
         request = GetCandlesRequest(instrument_id=si.figi, interval=time_frame)  # Запрос на получение бар
