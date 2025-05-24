@@ -128,48 +128,59 @@ def save_candles_to_file(tp_provider, class_code, security_codes, tf='D1',
     # tf, td = tp_provider.tinkoff_timeframe_to_timeframe(interval)  # Временной интервал для имени файла и максимальный период запроса
     # _, intraday = tp_provider.timeframe_to_tinkoff_timeframe(tf)  # Внутридневные бары
     for security_code in security_codes:  # Пробегаемся по всем тикерам
-        si = tp_provider.get_symbol_info(class_code, security_code)  # Информация о тикере
-        file_bars = load_candles_from_file(class_code, security_code, tf)  # Получаем бары из файла
-        if file_bars.empty:  # Если файла нет
-            next_bar_open_utc = datetime.fromtimestamp(si.first_1min_candle_date.seconds, timezone.utc) if intraday else \
-                datetime.fromtimestamp(si.first_1day_candle_date.seconds, timezone.utc)  # Первый минутный/дневной бар истории
-        else:  # Если получили бары из файла
-            last_date: datetime = file_bars.index[-1]  # Дата и время последнего бара по МСК
-            next_bar_open_utc = tp_provider.msk_to_utc_datetime(last_date + timedelta(minutes=1), True) if intraday else \
-                last_date.replace(tzinfo=timezone.utc) + timedelta(days=1)  # Смещаем время на возможный следующий бар по UTC
-        pd_bars = get_candles_from_provider(tp_provider, class_code, security_code, tf, next_bar_open_utc)  # Получаем бары из провайдера
-        if pd_bars.empty:  # Если бары не получены
-            logger.info('Новых бар нет')
-            continue  # то переходим к следующему тикеру, дальше не продолжаем
-        if file_bars.empty and skip_first_date:  # Если файла нет, и убираем бары на первую дату
-            len_with_first_date = len(pd_bars)  # Кол-во бар до удаления на первую дату
-            first_date = pd_bars.index[0].date()  # Первая дата
-            pd_bars.drop(pd_bars[(pd_bars.index.date == first_date)].index, inplace=True)  # Удаляем их
-            logger.warning(f'Удалено бар на первую дату {first_date}: {len_with_first_date - len(pd_bars)}')
-        if skip_last_date:  # Если убираем бары на последнюю дату
-            len_with_last_date = len(pd_bars)  # Кол-во бар до удаления на последнюю дату
-            last_date = pd_bars.index[-1].date()  # Последняя дата
-            pd_bars.drop(pd_bars[(pd_bars.index.date == last_date)].index, inplace=True)  # Удаляем их
-            logger.warning(f'Удалено бар на последнюю дату {last_date}: {len_with_last_date - len(pd_bars)}')
-        if not four_price_doji:  # Если удаляем дожи 4-х цен
-            len_with_doji = len(pd_bars)  # Кол-во бар до удаления дожи
-            pd_bars.drop(pd_bars[(pd_bars.high == pd_bars.low)].index, inplace=True)  # Удаляем их по условия High == Low
-            logger.warning(f'Удалено дожи 4-х цен: {len_with_doji - len(pd_bars)}')
-        if len(pd_bars) == 0:  # Если нечего объединять
-            logger.info('Новых бар нет')
-            continue  # то переходим к следующему тикеру, дальше не продолжаем
-        if not file_bars.empty:  # Если файл существует
-            pd_bars = pd.concat([file_bars, pd_bars])  # Объединяем файл с данными из Tinkoff
-            pd_bars = pd_bars[~pd_bars.index.duplicated(keep='last')]  # Убираем дубликаты самым быстрым методом
-            pd_bars.sort_index(inplace=True)  # Сортируем по индексу заново
-        pd_bars = pd_bars[['open', 'high', 'low', 'close', 'volume']]  # Отбираем нужные колонки. Дата и время будет экспортирована как индекс
-        filename = f'{datapath}{class_code}.{security_code}_{tf}.txt'
-        logger.info('Сохранение файла')
-        pd_bars.to_csv(filename, sep=delimiter, date_format=dt_format)
-        logger.info(f'Первый бар    : {pd_bars.index[0]}')
-        logger.info(f'Последний бар : {pd_bars.index[-1]}')
-        logger.info(f'Кол-во бар    : {len(pd_bars)}')
-        logger.info(f'В файл {filename} сохранено записей: {len(pd_bars)}')
+        try:  # Оборачиваем обработку каждого тикера в try-except
+            si = tp_provider.get_symbol_info(class_code, security_code)  # Информация о тикере
+            
+            # ДОБАВИТЬ ЭТУ ПРОВЕРКУ:
+            if si is None:  # Если информация о тикере не найдена
+                logger.warning(f'Информация о тикере {class_code}.{security_code} не найдена, пропускаем')
+                continue  # Переходим к следующему тикеру
+            
+            file_bars = load_candles_from_file(class_code, security_code, tf)  # Получаем бары из файла
+            if file_bars.empty:  # Если файла нет
+                next_bar_open_utc = datetime.fromtimestamp(si.first_1min_candle_date.seconds, timezone.utc) if intraday else \
+                    datetime.fromtimestamp(si.first_1day_candle_date.seconds, timezone.utc)  # Первый минутный/дневной бар истории
+            else:  # Если получили бары из файла
+                last_date: datetime = file_bars.index[-1]  # Дата и время последнего бара по МСК
+                next_bar_open_utc = tp_provider.msk_to_utc_datetime(last_date + timedelta(minutes=1), True) if intraday else \
+                    last_date.replace(tzinfo=timezone.utc) + timedelta(days=1)  # Смещаем время на возможный следующий бар по UTC
+            pd_bars = get_candles_from_provider(tp_provider, class_code, security_code, tf, next_bar_open_utc)  # Получаем бары из провайдера
+            if pd_bars.empty:  # Если бары не получены
+                logger.info('Новых бар нет')
+                continue  # то переходим к следующему тикеру, дальше не продолжаем
+            if file_bars.empty and skip_first_date:  # Если файла нет, и убираем бары на первую дату
+                len_with_first_date = len(pd_bars)  # Кол-во бар до удаления на первую дату
+                first_date = pd_bars.index[0].date()  # Первая дата
+                pd_bars.drop(pd_bars[(pd_bars.index.date == first_date)].index, inplace=True)  # Удаляем их
+                logger.warning(f'Удалено бар на первую дату {first_date}: {len_with_first_date - len(pd_bars)}')
+            if skip_last_date:  # Если убираем бары на последнюю дату
+                len_with_last_date = len(pd_bars)  # Кол-во бар до удаления на последнюю дату
+                last_date = pd_bars.index[-1].date()  # Последняя дата
+                pd_bars.drop(pd_bars[(pd_bars.index.date == last_date)].index, inplace=True)  # Удаляем их
+                logger.warning(f'Удалено бар на последнюю дату {last_date}: {len_with_last_date - len(pd_bars)}')
+            if not four_price_doji:  # Если удаляем дожи 4-х цен
+                len_with_doji = len(pd_bars)  # Кол-во бар до удаления дожи
+                pd_bars.drop(pd_bars[(pd_bars.high == pd_bars.low)].index, inplace=True)  # Удаляем их по условия High == Low
+                logger.warning(f'Удалено дожи 4-х цен: {len_with_doji - len(pd_bars)}')
+            if len(pd_bars) == 0:  # Если нечего объединять
+                logger.info('Новых бар нет')
+                continue  # то переходим к следующему тикеру, дальше не продолжаем
+            if not file_bars.empty:  # Если файл существует
+                pd_bars = pd.concat([file_bars, pd_bars])  # Объединяем файл с данными из Tinkoff
+                pd_bars = pd_bars[~pd_bars.index.duplicated(keep='last')]  # Убираем дубликаты самым быстрым методом
+                pd_bars.sort_index(inplace=True)  # Сортируем по индексу заново
+            pd_bars = pd_bars[['open', 'high', 'low', 'close', 'volume']]  # Отбираем нужные колонки. Дата и время будет экспортирована как индекс
+            filename = f'{datapath}{class_code}.{security_code}_{tf}.txt'
+            logger.info('Сохранение файла')
+            pd_bars.to_csv(filename, sep=delimiter, date_format=dt_format)
+            logger.info(f'Первый бар    : {pd_bars.index[0]}')
+            logger.info(f'Последний бар : {pd_bars.index[-1]}')
+            logger.info(f'Кол-во бар    : {len(pd_bars)}')
+            logger.info(f'В файл {filename} сохранено записей: {len(pd_bars)}')
+            
+        except Exception as e:  # Ловим любые ошибки при обработке тикера
+            logger.error(f'Ошибка при обработке тикера {class_code}.{security_code}: {e}')
+            continue  # Переходим к следующему тикеру
 
 
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
@@ -184,6 +195,8 @@ if __name__ == '__main__':  # Точка входа при запуске это
 
     class_code = 'TQBR'  # Акции ММВБ
     security_codes = ('SBER', 'GAZP')  # Для тестов
+    security_codes = ('ABIO', 'ABRD', 'AFKS', 'AFLT', 'AGRO', 'AKRN', 'ALRS', 'AMEZ', 'APRI', 'APTK', 'AQUA', 'ARSA', 'ASSB', 'ASTR', 'AVAN', 'BANE', 'BANEP', 'BELU', 'BISVP', 'BLNG', 'BRZL', 'BSPB', 'BSPBP', 'CARM', 'CBOM', 'CHGZ', 'CHKZ', 'CHMF', 'CHMK', 'CNRU', 'CNTL', 'CNTLP', 'DATA', 'DELI', 'DIAS', 'DIOD', 'DVEC', 'DZRD', 'DZRDP', 'EELT', 'ELFV', 'ELMT', 'ENPG', 'ETLN', 'EUTR', 'FEES', 'FESH', 'FIXP', 'FLOT', 'GAZA', 'GAZAP', 'GAZC', 'GAZP', 'GAZS', 'GAZT', 'GCHE', 'GECO', 'GEMA', 'GEMC', 'GMKN', 'GTRK', 'HEAD', 'HIMCP', 'HNFG', 'HYDR', 'IGST', 'IGSTP', 'INGR', 'IRAO', 'IRKT', 'IVAT', 'JNOS', 'JNOSP', 'KAZT', 'KAZTP', 'KBSB', 'KCHE', 'KCHEP', 'KGKC', 'KGKCP', 'KLSB', 'KLVZ', 'KMAZ', 'KMEZ', 'KOGK', 'KRKN', 'KRKNP', 'KRKOP', 'KROT', 'KROTP', 'KRSB', 'KRSBP', 'KUZB', 'KZOS', 'KZOSP', 'LEAS', 'LENT', 'LIFE', 'LKOH', 'LMBZ', 'LNZL', 'LNZLP', 'LPSB', 'LSNG', 'LSNGP', 'LSRG', 'LVHK', 'MAGE', 'MAGEP', 'MAGN', 'MBNK', 'MDMG', 'MFGS', 'MFGSP', 'MGKL', 'MGNT', 'MGNZ', 'MGTS', 'MGTSP', 'MISB', 'MISBP', 'MOEX', 'MRKC', 'MRKK', 'MRKP', 'MRKS', 'MRKU', 'MRKV', 'MRKY', 'MRKZ', 'MRSB', 'MSNG', 'MSRS', 'MSTT', 'MTLR', 'MTLRP', 'MTSS', 'MVID', 'NAUK', 'NFAZ', 'NKHP', 'NKNC', 'NKNCP', 'NKSH', 'NLMK', 'NMTP', 'NNSB', 'NNSBP', 'NSVZ', 'NVTK', 'OGKB', 'OKEY', 'OMZZP', 'OZON', 'OZPH', 'PAZA', 'PHOR', 'PIKK', 'PLZL', 'PMSB', 'PMSBP', 'POSI', 'PRFN', 'PRMB', 'PRMD', 'QIWI', 'RAGR', 'RASP', 'RBCM', 'RDRB', 'RENI', 'RGSS', 'RKKE', 'RNFT', 'ROLO', 'ROSN', 'ROST', 'RTGZ', 'RTKM', 'RTKMP', 'RTSB', 'RTSBP', 'RUAL', 'RUSI', 'RZSB', 'SAGO', 'SAGOP', 'SARE', 'SAREP', 'SBER', 'SBERP', 'SELG', 'SFIN', 'SGZH', 'SIBN', 'SLEN', 'SMLT', 'SNGS', 'SNGSP', 'SOFL', 'SPBE', 'STSB', 'STSBP', 'SVAV', 'SVCB', 'SVET', 'SVETP', 'T', 'TASB', 'TASBP', 'TATN', 'TATNP', 'TGKA', 'TGKB', 'TGKBP', 'TGKN', 'TNSE', 'TORS', 'TORSP', 'TRMK', 'TRNFP', 'TTLK', 'TUZA', 'UGLD', 'UKUZ', 'UNAC', 'UNKL', 'UPRO', 'URKZ', 'USBN', 'UTAR', 'UWGN', 'VEON-RX', 'VGSB', 'VGSBP', 'VJGZ', 'VJGZP', 'VKCO', 'VLHZ', 'VRSB', 'VRSBP', 'VSEH', 'VSMO', 'VSYD', 'VSYDP', 'VTBR', 'WTCM', 'WTCMP', 'WUSH', 'X5', 'YAKG', 'YDEX', 'YKEN', 'YKENP', 'YRSB', 'YRSBP', 'ZAYM', 'ZILL', 'ZVEZ')    
+    
     # class_code = 'SPBFUT'  # Фьючерсы
     # security_codes = ('SiM5', 'RIM5')  # Формат фьючерса: <Тикер><Месяц экспирации><Последняя цифра года> Месяц экспирации: 3-H, 6-M, 9-U, 12-Z
     # security_codes = ('USDRUBF', 'EURRUBF', 'CNYRUBF', 'GLDRUBF', 'IMOEXF', 'SBERF', 'GAZPF')  # Вечные фьючерсы ММВБ
