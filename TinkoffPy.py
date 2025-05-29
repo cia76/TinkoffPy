@@ -133,7 +133,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds))
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -160,7 +160,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришла цена последней сделки {e.last_price}')
                     self.on_last_price(e.last_price)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds))
                     self.logger.debug(f'subscriptions_marketdata_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -175,7 +175,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_portfolio_handler: Пришли портфели {e.subscriptions.accounts}')
                     self.on_portfolio(e.portfolio)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds))
                     self.logger.debug(f'subscriptions_portfolio_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -189,7 +189,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_positions_handler: Пришла позиция {e.position}')
                     self.on_position(e.position)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds))
                     self.logger.debug(f'subscriptions_positions_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
             pass  # Все в порядке, ничего делать не нужно
@@ -203,7 +203,7 @@ class TinkoffPy:
                     self.logger.debug(f'subscriptions_trades_handler: Пришли сделки по заявке {e.order_trades}')
                     self.on_order_trades(e.order_trades)
                 if e.ping != common_pb2.Ping():  # Проверка канала со стороны Тинькофф. Получаем время сервера
-                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds, UTC))
+                    dt = self.utc_to_msk_datetime(datetime.fromtimestamp(e.ping.time.seconds))
                     self.logger.debug(f'subscriptions_trades_handler: Пришло время сервера {dt:%d.%m.%Y %H:%M}')
                     self.set_time_delta(e.ping.time)  # Обновляем разницу между локальным временем и временем сервера
         except RpcError:  # При закрытии канала попадем на эту ошибку (grpc._channel._MultiThreadedRendezvous)
@@ -554,7 +554,7 @@ class TinkoffPy:
         :param Timestamp timestamp: Время Google UTC Timestamp
         :return: Московское время
         """
-        return self.utc_to_msk_datetime(datetime.fromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000, UTC))
+        return self.utc_to_msk_datetime(datetime.fromtimestamp(timestamp.seconds + timestamp.nanos / 1_000_000_000))
 
     def msk_datetime_to_timestamp(self, dt) -> int:
         """Перевод московского времени в кол-во секунд, прошедших с 01.01.1970 00:00 UTC

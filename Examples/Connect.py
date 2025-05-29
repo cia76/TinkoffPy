@@ -1,6 +1,6 @@
 import logging  # Выводим лог на консоль и в файл
 from threading import Thread  # Запускаем поток подписки
-from datetime import datetime, UTC
+from datetime import datetime
 
 from TinkoffPy import TinkoffPy  # Работа с Tinkoff Invest API из Python
 from TinkoffPy.grpc.marketdata_pb2 import MarketDataRequest, SubscribeCandlesRequest, SubscriptionAction, CandleInstrument, SubscriptionInterval
@@ -29,7 +29,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
 
     # Проверяем работу подписок
     tp_provider.on_candle = lambda candle: logger.info(f'{class_code}.{security_code} (M1) - '
-                                                       f'{tp_provider.utc_to_msk_datetime(datetime.fromtimestamp(candle.time.seconds, UTC))} - '
+                                                       f'{tp_provider.utc_to_msk_datetime(datetime.fromtimestamp(candle.time.seconds))} - '
                                                        f'Open = {tp_provider.quotation_to_float(candle.open)}, '
                                                        f'High = {tp_provider.quotation_to_float(candle.high)}, '
                                                        f'Low = {tp_provider.quotation_to_float(candle.low)}, '
